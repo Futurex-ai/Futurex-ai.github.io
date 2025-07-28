@@ -1,0 +1,139 @@
+.leaderboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  .no-data {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+    text-align: center;
+
+    p {
+      color: #718096;
+      font-size: 1.2rem;
+      margin: 0;
+    }
+  }
+
+  .leaderboard-table {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    .table-header {
+      display: grid;
+      grid-template-columns: 80px 200px 150px 120px 140px 100px 100px 100px 100px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      font-weight: 600;
+
+      .header-cell {
+        padding: 1rem 0.5rem;
+        text-align: center;
+        font-size: 0.9rem;
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+
+    .table-body {
+      .table-row {
+        display: grid;
+        grid-template-columns: 80px 200px 150px 120px 140px 100px 100px 100px 100px;
+        border-bottom: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: #f7fafc;
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        .table-cell {
+          padding: 1rem 0.5rem;
+          text-align: center;
+          color: #2d3748;
+          font-size: 0.9rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &.rank {
+            .rank-badge {
+              padding: 0.3rem 0.6rem;
+              border-radius: 20px;
+              font-weight: bold;
+              font-size: 0.8rem;
+              
+              &.rank-1 {
+                background: linear-gradient(45deg, #ffd700, #ffed4e);
+                color: #744210;
+              }
+              
+              &.rank-2 {
+                background: linear-gradient(45deg, #c0c0c0, #e2e8f0);
+                color: #2d3748;
+              }
+              
+              &.rank-3 {
+                background: linear-gradient(45deg, #cd7f32, #d69e2e);
+                color: white;
+              }
+              
+              &:not(.rank-1):not(.rank-2):not(.rank-3) {
+                background: #f7fafc;
+                color: #4a5568;
+              }
+            }
+          }
+
+          &.model {
+            font-weight: 600;
+            color: #2d3748;
+            justify-content: flex-start;
+            padding-left: 1rem;
+          }
+
+          &.framework {
+            color: #667eea;
+            font-weight: 500;
+          }
+
+          &.score {
+            .score-value {
+              padding: 0.3rem 0.8rem;
+              background: linear-gradient(45deg, #667eea, #764ba2);
+              color: white;
+              border-radius: 20px;
+              font-weight: bold;
+            }
+          }
+
+          &.events {
+            color: #4a5568;
+            font-weight: 500;
+          }
+
+          &.level {
+            .level-score {
+              padding: 0.2rem 0.6rem;
+              background: #f7fafc;
+              border-radius: 12px;
+              color: #2d3748;
+              font-weight: 500;
+              border: 2px solid #e2e8f0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

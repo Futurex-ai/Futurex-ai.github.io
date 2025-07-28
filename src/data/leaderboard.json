@@ -1,0 +1,124 @@
+{
+  "weekly": {
+    "2024-06-W1": [
+      {
+        "modelName": "GPT-4-Turbo",
+        "agentFramework": "AutoGPT",
+        "overallScore": 85.5,
+        "numberOfEvents": 1200,
+        "level1Score": 90,
+        "level2Score": 88,
+        "level3Score": 82,
+        "level4Score": 80
+      },
+      {
+        "modelName": "Claude-3-Opus",
+        "agentFramework": "LangChain",
+        "overallScore": 83.2,
+        "numberOfEvents": 1150,
+        "level1Score": 88,
+        "level2Score": 85,
+        "level3Score": 80,
+        "level4Score": 79
+      },
+      {
+        "modelName": "Gemini-1.5-Pro",
+        "agentFramework": "CrewAI",
+        "overallScore": 81.7,
+        "numberOfEvents": 1080,
+        "level1Score": 86,
+        "level2Score": 83,
+        "level3Score": 78,
+        "level4Score": 77
+      },
+      {
+        "modelName": "GPT-3.5-Turbo",
+        "agentFramework": "AutoGPT",
+        "overallScore": 75.3,
+        "numberOfEvents": 950,
+        "level1Score": 82,
+        "level2Score": 78,
+        "level3Score": 72,
+        "level4Score": 69
+      }
+    ],
+    "2024-06-W2": [
+      {
+        "modelName": "GPT-4-Turbo",
+        "agentFramework": "AutoGPT",
+        "overallScore": 86.1,
+        "numberOfEvents": 1250,
+        "level1Score": 91,
+        "level2Score": 89,
+        "level3Score": 83,
+        "level4Score": 81
+      },
+      {
+        "modelName": "Claude-3-Opus",
+        "agentFramework": "LangChain",
+        "overallScore": 84.0,
+        "numberOfEvents": 1180,
+        "level1Score": 89,
+        "level2Score": 86,
+        "level3Score": 81,
+        "level4Score": 80
+      }
+    ]
+  },
+  "monthly": {
+    "2024-06": [
+      {
+        "modelName": "GPT-4-Turbo",
+        "agentFramework": "AutoGPT",
+        "overallScore": 85.8,
+        "numberOfEvents": 4950,
+        "level1Score": 90.5,
+        "level2Score": 88.5,
+        "level3Score": 82.5,
+        "level4Score": 80.5
+      },
+      {
+        "modelName": "Claude-3-Opus",
+        "agentFramework": "LangChain",
+        "overallScore": 83.6,
+        "numberOfEvents": 4650,
+        "level1Score": 88.5,
+        "level2Score": 85.5,
+        "level3Score": 80.5,
+        "level4Score": 79.5
+      },
+      {
+        "modelName": "Gemini-1.5-Pro",
+        "agentFramework": "CrewAI",
+        "overallScore": 82.1,
+        "numberOfEvents": 4320,
+        "level1Score": 86.5,
+        "level2Score": 83.5,
+        "level3Score": 78.5,
+        "level4Score": 77.5
+      }
+    ],
+    "2024-07": [
+      {
+        "modelName": "GPT-4-Turbo",
+        "agentFramework": "AutoGPT",
+        "overallScore": 87.2,
+        "numberOfEvents": 5200,
+        "level1Score": 92,
+        "level2Score": 90,
+        "level3Score": 84,
+        "level4Score": 82
+      },
+      {
+        "modelName": "Claude-3-Opus",
+        "agentFramework": "LangChain",
+        "overallScore": 85.1,
+        "numberOfEvents": 4950,
+        "level1Score": 90,
+        "level2Score": 87,
+        "level3Score": 82,
+        "level4Score": 81
+      }
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+.time-selector {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+
+  .period-type-selector {
+    display: flex;
+    background: #f7fafc;
+    border-radius: 8px;
+    padding: 4px;
+
+    .period-button {
+      padding: 0.5rem 1rem;
+      border: none;
+      background: transparent;
+      color: #4a5568;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+
+      &:hover {
+        background: #e2e8f0;
+        color: #2d3748;
+      }
+
+      &.active {
+        background: #667eea;
+        color: white;
+        box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+      }
+    }
+  }
+
+  .time-options {
+    .time-select {
+      padding: 0.5rem 1rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 6px;
+      background: white;
+      color: #2d3748;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      min-width: 200px;
+
+      &:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      }
+
+      &:hover {
+        border-color: #cbd5e0;
+      }
+    }
+  }
+}
