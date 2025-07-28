@@ -1,6 +1,6 @@
 {
   "weekly": {
-    "2024-06-W1": [
+    "2025-06-W1": [
       {
         "modelName": "GPT-4-Turbo",
         "agentFramework": "AutoGPT",
@@ -42,7 +42,7 @@
         "level4Score": 69
       }
     ],
-    "2024-06-W2": [
+    "2025-06-W2": [
       {
         "modelName": "GPT-4-Turbo",
         "agentFramework": "AutoGPT",
@@ -62,63 +62,96 @@
         "level2Score": 86,
         "level3Score": 81,
         "level4Score": 80
+      },
+      {
+        "modelName": "Gemini-1.5-Pro",
+        "agentFramework": "CrewAI",
+        "overallScore": 82.5,
+        "numberOfEvents": 1120,
+        "level1Score": 87,
+        "level2Score": 84,
+        "level3Score": 79,
+        "level4Score": 78
+      }
+    ],
+    "2025-06-W3": [
+      {
+        "modelName": "GPT-4-Turbo",
+        "agentFramework": "AutoGPT",
+        "overallScore": 86.8,
+        "numberOfEvents": 1300,
+        "level1Score": 92,
+        "level2Score": 89,
+        "level3Score": 84,
+        "level4Score": 82
+      },
+      {
+        "modelName": "Claude-3.Sonnet",
+        "agentFramework": "LangChain",
+        "overallScore": 84.2,
+        "numberOfEvents": 1220,
+        "level1Score": 89,
+        "level2Score": 86,
+        "level3Score": 82,
+        "level4Score": 80
+      }
+    ],
+    "2025-06-W4": [
+      {
+        "modelName": "Claude-3-Opus",
+        "agentFramework": "LangChain",
+        "overallScore": 84.5,
+        "numberOfEvents": 1200,
+        "level1Score": 90,
+        "level2Score": 87,
+        "level3Score": 82,
+        "level4Score": 80
+      },
+      {
+        "modelName": "GPT-4-Turbo",
+        "agentFramework": "CrewAI",
+        "overallScore": 87.1,
+        "numberOfEvents": 1280,
+        "level1Score": 92,
+        "level2Score": 90,
+        "level3Score": 84,
+        "level4Score": 82
       }
     ]
   },
   "monthly": {
-    "2024-06": [
+    "2025-07": [
       {
         "modelName": "GPT-4-Turbo",
         "agentFramework": "AutoGPT",
         "overallScore": 85.8,
         "numberOfEvents": 4950,
-        "level1Score": 90.5,
-        "level2Score": 88.5,
-        "level3Score": 82.5,
-        "level4Score": 80.5
+        "level1Score": 90,
+        "level2Score": 88,
+        "level3Score": 82,
+        "level4Score": 80
       },
       {
         "modelName": "Claude-3-Opus",
         "agentFramework": "LangChain",
         "overallScore": 83.6,
         "numberOfEvents": 4650,
-        "level1Score": 88.5,
-        "level2Score": 85.5,
-        "level3Score": 80.5,
-        "level4Score": 79.5
+        "level1Score": 88,
+        "level2Score": 85,
+        "level3Score": 80,
+        "level4Score": 79
       },
       {
         "modelName": "Gemini-1.5-Pro",
         "agentFramework": "CrewAI",
         "overallScore": 82.1,
         "numberOfEvents": 4320,
-        "level1Score": 86.5,
-        "level2Score": 83.5,
-        "level3Score": 78.5,
-        "level4Score": 77.5
-      }
-    ],
-    "2024-07": [
-      {
-        "modelName": "GPT-4-Turbo",
-        "agentFramework": "AutoGPT",
-        "overallScore": 87.2,
-        "numberOfEvents": 5200,
-        "level1Score": 92,
-        "level2Score": 90,
-        "level3Score": 84,
-        "level4Score": 82
-      },
-      {
-        "modelName": "Claude-3-Opus",
-        "agentFramework": "LangChain",
-        "overallScore": 85.1,
-        "numberOfEvents": 4950,
-        "level1Score": 90,
-        "level2Score": 87,
-        "level3Score": 82,
-        "level4Score": 81
+        "level1Score": 86,
+        "level2Score": 83,
+        "level3Score": 78,
+        "level4Score": 77
       }
     ]
+
   }
 }

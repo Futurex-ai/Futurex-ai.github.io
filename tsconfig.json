@@ -17,9 +17,11 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true
   },
   "include": [
-    "src"
+   "src/**/*", "declarations.d.ts"
   ]
 }

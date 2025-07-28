@@ -18,8 +18,10 @@ export default defineConfig({
     rspack: (config) => {
       config.module?.rules?.push({
         test: /\.md$/,
-        use: ["markdown-loader"],
+        type: "javascript/auto",
+        use: ["raw-loader"],
       });
+
       return config;
     },
     postcss: {
