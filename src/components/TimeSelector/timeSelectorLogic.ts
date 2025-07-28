@@ -52,22 +52,19 @@ export const useTimeSelectorLogic = () => {
   ): TimeOption[] => {
     const options: TimeOption[] = [];
 
-    // 从2025年7月开始
-    for (let year = 2025; year <= Math.max(currentYear, 2025); year++) {
-      const startMonth = year === 2025 ? 7 : 1;
-      const endMonth =
-        year === currentYear && currentYear > 2025 ? currentMonth : 12;
-
-      for (let month = startMonth; month <= endMonth; month++) {
-        const value = `${year}-${month.toString().padStart(2, "0")}`;
-        const label = `${year} ${getMonthName(month)}`;
-        options.push({ value, label });
-      }
+    // 从当前年份的7月开始
+    for (
+      let month = 7;
+      month <= (currentYear === 2025 ? currentMonth : 12);
+      month++
+    ) {
+      const value = `${currentYear}-${month.toString().padStart(2, "0")}`;
+      const label = `${currentYear} ${getMonthName(month)}`;
+      options.push({ value, label });
     }
 
     return options;
   };
-
   const getWeeksInMonth = (year: number, month: number): number => {
     return 4; // 简化处理，每月固定4周
   };

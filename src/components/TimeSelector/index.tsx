@@ -212,12 +212,12 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
                 onClick={() => handleTimeSelect(option.value)}
                 onMouseEnter={(e) => {
                   if (option.value !== selectedTime) {
-                    Object.assign(e.target.style, optionHoverStyle);
+                    Object.assign((e.target as HTMLElement).style, optionHoverStyle);
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (option.value !== selectedTime) {
-                    Object.assign(e.target.style, { background: 'transparent', color: '#2d3748' });
+                    Object.assign((e.target as HTMLElement).style, { background: 'transparent', color: '#2d3748' });
                   }
                 }}
               >

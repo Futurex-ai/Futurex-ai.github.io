@@ -2,15 +2,15 @@
  * 榜单数据管理
  * 负责处理榜单数据，直接使用内嵌数据而不是JSON文件导入
  */
-import { LeaderboardEntry, TimePeriodType, LeaderboardData } from "../../types";
-import mockLeaderboardData from "../../data/leaderboard.json";
+import { LeaderboardEntry, TimePeriodType } from "../../types";
+import leaderboardData from "../../data/leaderboard.json";
 
 export const useLeaderboardData = () => {
   const getLeaderboardData = (
     timePeriodType: TimePeriodType,
     selectedTime: string
   ): LeaderboardEntry[] => {
-    const data = mockLeaderboardData[timePeriodType]?.[selectedTime];
+    const data = leaderboardData[timePeriodType]?.[selectedTime];
 
     if (!data) {
       return [];
