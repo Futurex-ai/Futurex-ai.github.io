@@ -20,7 +20,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
 
   const containerStyle: React.CSSProperties = {
     height: '100%',
-    maxWidth: '1480px',
+    maxWidth: '1400px',
     margin: '0 auto',
     padding: '1rem 2rem',
     display: 'flex',

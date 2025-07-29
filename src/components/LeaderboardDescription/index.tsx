@@ -7,11 +7,12 @@ import React from 'react';
 export const LeaderboardDescription: React.FC = () => {
   const containerStyle: React.CSSProperties = {
     background: '#fafafa',
-    padding: '2rem 0'
+    paddingTop: '2.5rem',
+    paddingBottom: '0.5rem'
   };
 
   const contentStyle: React.CSSProperties = {
-    maxWidth: '1480px',
+    maxWidth: '1400px',
     margin: '0 auto',
     padding: '0 2rem'
   };
