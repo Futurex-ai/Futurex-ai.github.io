@@ -27,7 +27,7 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({
   };
 
   const controlsStyle: React.CSSProperties = {
-    maxWidth: '1200px',
+    maxWidth: '1480px',
     margin: '0 auto',
     padding: '0 2rem'
   };

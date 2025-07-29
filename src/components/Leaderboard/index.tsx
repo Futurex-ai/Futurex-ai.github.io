@@ -20,7 +20,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
 
   const containerStyle: React.CSSProperties = {
     height: '100%',
-    maxWidth: '1200px',
+    maxWidth: '1480px',
     margin: '0 auto',
     padding: '1rem 2rem',
     display: 'flex',
@@ -35,38 +35,53 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
     boxShadow: 'none',
     flex: 1,
     minHeight: 0,
-    display: 'flex',
-    flexDirection: 'column',
-    maxHeight: '600px'
+    position: 'relative'
   };
 
-  const fixedHeaderStyle: React.CSSProperties = {
-    minWidth: '1250px',
+  const scrollWrapperStyle: React.CSSProperties = {
     width: '100%',
+    height: '100%',
+    overflow: 'auto', // 自动显示滚动条
+    position: 'relative'
+  };
+
+  const tableStyle: React.CSSProperties = {
+    minWidth: '1380px',
+    width: 'max-content'
+  };
+
+  const stickyHeaderStyle: React.CSSProperties = {
     position: 'sticky',
     top: 0,
     zIndex: 10,
-    background: 'white'
+    background: 'white',
+    borderBottom: '0.5px solid #e5e7eb'
   };
 
-  const scrollableBodyStyle: React.CSSProperties = {
-    overflowX: 'auto',
-    overflowY: 'auto',
-    flex: 1,
-    minHeight: 0,
-    maxHeight: '520px'
-  };
+  // const tableContentStyle: React.CSSProperties = {
+  //   minWidth: '1380px',
+  //   width: '100%',
+  //   height: '100%',
+  //   display: 'flex',
+  //   flexDirection: 'column'
+  // };
 
-  const dataTableStyle: React.CSSProperties = {
-    minWidth: '1250px',
-    width: '100%'
-  };
+  // const dataContainerStyle: React.CSSProperties = {
+  //   flex: 1,
+  //   minHeight: 0
+  // };
+
+  // const scrollableBodyStyle: React.CSSProperties = {
+  //   overflowY: 'auto',
+  //   flex: 1,
+  //   maxHeight: '520px'
+  // };
 
   const headerStyle: React.CSSProperties = {
     display: 'grid',
     gridTemplateColumns: '80px 280px 150px 150px 130px 120px 140px 100px 100px 100px 110px',
     background: '#f9fafb',
-    borderBottom: '1px solid #e5e7eb',
+    borderBottom: '0.5px solid #e5e7eb',
     color: '#374151',
     fontWeight: '600'
   };
@@ -205,26 +220,26 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
   return (
     <div style={containerStyle}>
       <div style={tableContainerStyle}>
-        {/* 固定表头 */}
-        <div style={fixedHeaderStyle}>
-          <div style={headerStyle}>
-            <div style={headerCellStyle}>Rank</div>
-            <div style={headerCellStyle}>NAME</div>
-            <div style={headerCellStyle}>Model Name</div>
-            <div style={headerCellStyle}>Agent Framework</div>
-            <div style={headerCellStyle}>Organization</div>
-            <div style={headerCellStyle}>Overall</div>
-            <div style={headerCellStyle}>Events</div>
-            <div style={headerCellStyle}>Level 1</div>
-            <div style={headerCellStyle}>Level 2</div>
-            <div style={headerCellStyle}>Level 3</div>
-            <div style={lastHeaderCellStyle}>Level 4</div>
-          </div>
-        </div>
-        
-        {/* 可滚动的数据区域 */}
-        <div style={scrollableBodyStyle}>
-          <div style={dataTableStyle}>
+        <div style={scrollWrapperStyle}>
+          <div style={tableStyle}>
+            {/* 固定表头 */}
+            <div style={stickyHeaderStyle}>
+              <div style={headerStyle}>
+                <div style={headerCellStyle}>Rank</div>
+                <div style={headerCellStyle}>NAME</div>
+                <div style={headerCellStyle}>Model Name</div>
+                <div style={headerCellStyle}>Agent Framework</div>
+                <div style={headerCellStyle}>Organization</div>
+                <div style={headerCellStyle}>Overall</div>
+                <div style={headerCellStyle}>Events</div>
+                <div style={headerCellStyle}>Level 1</div>
+                <div style={headerCellStyle}>Level 2</div>
+                <div style={headerCellStyle}>Level 3</div>
+                <div style={lastHeaderCellStyle}>Level 4</div>
+              </div>
+            </div>
+            
+            {/* 数据行 - 直接放在表格中，不需要额外容器 */}
             {data.map((entry, index) => (
               <div key={`${entry.modelName}-${index}`} style={rowStyle}>
                 <div style={cellStyle}>

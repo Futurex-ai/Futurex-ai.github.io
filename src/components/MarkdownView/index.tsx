@@ -8,7 +8,7 @@ import defaultMarkdownContent from '../../data/content.md';
 
 export const MarkdownView: React.FC = () => {
   const containerStyle: React.CSSProperties = {
-    maxWidth: '1200px',
+    maxWidth: '1480px',
     margin: '0 auto',
     padding: '2rem'
   };

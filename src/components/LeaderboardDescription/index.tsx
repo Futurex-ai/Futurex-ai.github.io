@@ -11,7 +11,7 @@ export const LeaderboardDescription: React.FC = () => {
   };
 
   const contentStyle: React.CSSProperties = {
-    maxWidth: '1200px',
+    maxWidth: '1480px',
     margin: '0 auto',
     padding: '0 2rem'
   };
