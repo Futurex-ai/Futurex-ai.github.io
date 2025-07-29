@@ -6,6 +6,7 @@
 export interface LeaderboardEntry {
   modelName: string;
   agentFramework: string;
+  organization: string;
   overallScore: number;
   numberOfEvents: number;
   level1Score: number;
@@ -19,7 +20,7 @@ export interface LeaderboardData {
   monthly: Record<string, LeaderboardEntry[]>;
 }
 
-export type TimePeriodType = 'weekly' | 'monthly';
+export type TimePeriodType = "weekly" | "monthly";
 
 export interface TimeOption {
   value: string;

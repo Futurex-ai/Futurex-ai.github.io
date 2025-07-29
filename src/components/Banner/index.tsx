@@ -11,10 +11,10 @@ interface BannerProps {
 
 export const Banner: React.FC<BannerProps> = ({ activeTab, onTabChange }) => {
   const bannerStyle: React.CSSProperties = {
-    background: 'linear-gradient(135deg, #8892e8 0%, #9282a6 100%)', // 降低饱和度的紫色渐变
-    color: 'white',
-    padding: '2rem 0',
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'
+    background: 'white', // 改为纯白背景
+    color: '#1a1a1a',
+    padding: '3rem 0 2rem 0',
+    borderBottom: '1px solid #e5e7eb' // 添加简洁的底部边框
   };
 
   const contentStyle: React.CSSProperties = {
@@ -27,34 +27,44 @@ export const Banner: React.FC<BannerProps> = ({ activeTab, onTabChange }) => {
   };
 
   const titleStyle: React.CSSProperties = {
-    fontSize: '2.5rem',
-    fontWeight: 'bold',
-    margin: '0 0 0.5rem 0'
+    fontSize: '2.25rem',
+    fontWeight: '800',
+    margin: '0 0 0.75rem 0',
+    color: '#111827',
+    lineHeight: 1.2,
+    letterSpacing: '-0.025em'
   };
 
   const subtitleStyle: React.CSSProperties = {
-    fontSize: '1.1rem',
-    opacity: 0.9,
-    margin: 0
+    fontSize: '1rem',
+    fontWeight: '400',
+    margin: 0,
+    color: '#6b7280',
+    lineHeight: 1.5,
+    letterSpacing: '0.0125em'
   };
 
   const tabSwitcherStyle: React.CSSProperties = {
     display: 'flex',
-    background: 'rgba(255, 255, 255, 0.1)',
+    background: '#f8fafc',
     borderRadius: '8px',
-    padding: '4px'
+    padding: '4px',
+    border: '1px solid #e2e8f0'
   };
 
   const getTabButtonStyle = (isActive: boolean): React.CSSProperties => ({
-    padding: '0.75rem 1.5rem',
+    padding: '0.875rem 1.75rem',
     border: 'none',
-    background: isActive ? 'rgba(255, 255, 255, 0.2)' : 'transparent',
-    color: 'white',
-    fontSize: '1rem',
+    background: isActive ? 'white' : 'transparent',
+    color: isActive ? '#111827' : '#6b7280',
+    fontSize: '0.875rem',
+    fontWeight: isActive ? '600' : '500',
     cursor: 'pointer',
     borderRadius: '6px',
-    transition: 'all 0.3s ease',
-    boxShadow: isActive ? '0 2px 4px rgba(0, 0, 0, 0.1)' : 'none'
+    transition: 'all 0.2s ease',
+    boxShadow: isActive ? '0 1px 3px rgba(0, 0, 0, 0.1)' : 'none',
+    letterSpacing: '0.0125em',
+    lineHeight: 1.4
   });
 
   return (

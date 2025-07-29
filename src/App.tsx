@@ -4,6 +4,7 @@
  */
 import React, { useState } from 'react';
 import { Banner } from './components/Banner';
+import { LeaderboardDescription } from './components/LeaderboardDescription';
 import { MarkdownView } from './components/MarkdownView';
 import { LeaderboardView } from './components/LeaderboardView';
 import { TimePeriodType } from './types';
@@ -14,12 +15,19 @@ const App: React.FC = () => {
   const [selectedTime, setSelectedTime] = useState<string>('2025-06-W1');
 
   return (
-    <div style={{ minHeight: '100vh', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+    <div style={{ 
+      minHeight: '100vh', 
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
+      WebkitFontSmoothing: 'antialiased',
+      MozOsxFontSmoothing: 'grayscale',
+      lineHeight: 1.5
+    }}>
       <Banner 
         activeTab={activeTab}
         onTabChange={setActiveTab}
       />
-      <main style={{ minHeight: 'calc(100vh - 180px)', background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)' }}>
+      {activeTab === 'leaderboard' && <LeaderboardDescription />}
+      <main style={{ minHeight: 'calc(100vh - 180px)', background: '#ffffff' }}>
         {activeTab === 'overview' ? (
           <MarkdownView />
         ) : (

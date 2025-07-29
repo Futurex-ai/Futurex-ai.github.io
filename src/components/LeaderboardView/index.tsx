@@ -22,7 +22,7 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({
 }) => {
   const containerStyle: React.CSSProperties = {
     minHeight: 'calc(100vh - 200px)',
-    background: 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
+    background: '#fafafa', // 极简的浅灰背景
     padding: '2rem 0'
   };
 
