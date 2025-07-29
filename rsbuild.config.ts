@@ -14,6 +14,17 @@ export default defineConfig({
       index: "./src/entry.tsx",
     },
   },
+  html: {
+    title: "futurex",
+    favicon: "./src/assets/benchmarking.png",
+    meta: {
+      description:
+        "Comprehensive benchmark leaderboard for research papers and technical evaluations",
+      keywords: "benchmark, leaderboard, research, papers, evaluation, metrics",
+      author: "Research Team",
+      viewport: "width=device-width, initial-scale=1.0",
+    },
+  },
   tools: {
     rspack: (config) => {
       config.module?.rules?.push({
