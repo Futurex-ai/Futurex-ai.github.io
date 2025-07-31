@@ -35,6 +35,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
     boxShadow: 'none',
     flex: 1,
     minHeight: 0,
+    height: '400px', // 固定高度400px
     position: 'relative'
   };
 
@@ -55,27 +56,8 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
     top: 0,
     zIndex: 10,
     background: 'white',
-    borderBottom: '0.5px solid #e5e7eb'
+    borderBottom: '1px solid #e5e7eb'
   };
-
-  // const tableContentStyle: React.CSSProperties = {
-  //   minWidth: '1380px',
-  //   width: '100%',
-  //   height: '100%',
-  //   display: 'flex',
-  //   flexDirection: 'column'
-  // };
-
-  // const dataContainerStyle: React.CSSProperties = {
-  //   flex: 1,
-  //   minHeight: 0
-  // };
-
-  // const scrollableBodyStyle: React.CSSProperties = {
-  //   overflowY: 'auto',
-  //   flex: 1,
-  //   maxHeight: '520px'
-  // };
 
   const headerStyle: React.CSSProperties = {
     display: 'grid',
@@ -86,7 +68,8 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
     fontWeight: '600'
   };
 
-  const headerCellStyle: React.CSSProperties = {
+  // 固定列的表头样式
+  const stickyHeaderCellStyle: React.CSSProperties = {
     padding: '1rem 0.5rem',
     textAlign: 'center',
     fontSize: '0.8125rem',
@@ -98,10 +81,23 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
     textTransform: 'uppercase',
     letterSpacing: '0.05em',
     lineHeight: 1.3,
-    background: '#f9fafb'
+    background: '#f9fafb',
+    position: 'sticky',
+    zIndex: 15,
+    borderRight: '1px solid #e5e7eb'
   };
 
-  const lastHeaderCellStyle: React.CSSProperties = {
+  const rankHeaderStyle: React.CSSProperties = {
+    ...stickyHeaderCellStyle,
+    left: 0
+  };
+
+  const nameHeaderStyle: React.CSSProperties = {
+    ...stickyHeaderCellStyle,
+    left: '80px'
+  };
+
+  const headerCellStyle: React.CSSProperties = {
     padding: '1rem 0.5rem',
     textAlign: 'center',
     fontSize: '0.8125rem',
@@ -120,6 +116,38 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
     display: 'grid',
     gridTemplateColumns: '80px 280px 150px 150px 130px 120px 140px 100px 100px 100px 110px',
     borderBottom: '1px solid #f3f4f6'
+  };
+
+  // 固定列的单元格样式
+  const stickyCellStyle: React.CSSProperties = {
+    padding: '1rem 0.5rem',
+    textAlign: 'center',
+    color: '#111827',
+    fontSize: '0.875rem',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontWeight: '400',
+    lineHeight: 1.4,
+    position: 'sticky',
+    background: 'white',
+    zIndex: 5,
+    borderRight: '1px solid #f3f4f6'
+  };
+
+  const rankCellStyle: React.CSSProperties = {
+    ...stickyCellStyle,
+    left: 0
+  };
+
+  const nameCellStyle: React.CSSProperties = {
+    ...stickyCellStyle,
+    left: '80px',
+    justifyContent: 'flex-start',
+    paddingLeft: '1rem',
+    fontWeight: '600',
+    color: '#111827',
+    letterSpacing: '0.0125em'
   };
 
   const cellStyle: React.CSSProperties = {
@@ -199,23 +227,6 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
     return modelName;
   };
 
-  if (!data || data.length === 0) {
-    return (
-      <div style={containerStyle}>
-        <div style={{
-          background: 'white',
-          borderRadius: '12px',
-          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-          padding: '3rem',
-          textAlign: 'center'
-        }}>
-          <p style={{ color: '#718096', fontSize: '1.2rem', margin: 0 }}>
-            No data available for the selected time period.
-          </p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div style={containerStyle}>
@@ -225,8 +236,8 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
             {/* 固定表头 */}
             <div style={stickyHeaderStyle}>
               <div style={headerStyle}>
-                <div style={headerCellStyle}>Rank</div>
-                <div style={headerCellStyle}>NAME</div>
+                <div style={rankHeaderStyle}>Rank</div>
+                <div style={nameHeaderStyle}>NAME</div>
                 <div style={headerCellStyle}>Model Name</div>
                 <div style={headerCellStyle}>Agent Framework</div>
                 <div style={headerCellStyle}>Organization</div>
@@ -235,17 +246,17 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                 <div style={headerCellStyle}>Level 1</div>
                 <div style={headerCellStyle}>Level 2</div>
                 <div style={headerCellStyle}>Level 3</div>
-                <div style={lastHeaderCellStyle}>Level 4</div>
+                <div style={headerCellStyle}>Level 4</div>
               </div>
             </div>
             
-            {/* 数据行 - 直接放在表格中，不需要额外容器 */}
-            {data.map((entry, index) => (
+            {/* 数据行 */}
+            {data && data.length > 0 && data.map((entry, index) => (
               <div key={`${entry.modelName}-${index}`} style={rowStyle}>
-                <div style={cellStyle}>
+                <div style={rankCellStyle}>
                   <span style={getRankBadgeStyle(index + 1)}>{getRankContent(index + 1)}</span>
                 </div>
-                <div style={{...cellStyle, justifyContent: 'flex-start', paddingLeft: '1rem', fontWeight: '600', color: '#111827', letterSpacing: '0.0125em'}}>
+                <div style={nameCellStyle}>
                   {getDisplayName(entry.modelName, entry.agentFramework)}
                 </div>
                 <div style={{...cellStyle, color: '#6b7280', fontWeight: '500', letterSpacing: '0.0125em'}}>
