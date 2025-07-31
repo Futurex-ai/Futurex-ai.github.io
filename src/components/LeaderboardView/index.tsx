@@ -6,6 +6,7 @@ import React from 'react';
 import { TimePeriodType } from '../../types';
 import { TimeSelector } from '../TimeSelector';
 import { Leaderboard } from '../Leaderboard';
+import { ContactSection } from '../ContactSection';
 
 interface LeaderboardViewProps {
   timePeriodType: TimePeriodType;
@@ -46,6 +47,7 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({
         timePeriodType={timePeriodType}
         selectedTime={selectedTime}
       />
+       <ContactSection />
     </div>
   );
 };
