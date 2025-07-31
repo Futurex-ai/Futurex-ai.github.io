@@ -53,7 +53,7 @@ export const ContactSection: React.FC = () => {
           <a href="mailto:challenge@futurex.ai" style={emailStyle}>
             challenge@futurex.ai
           </a>
-          {' '}and provide your model's API.
+          {' '}and provide your model's API (or agent).
         </p>
         
         <p style={{ margin: '0 0 0.5rem 0' }}>
