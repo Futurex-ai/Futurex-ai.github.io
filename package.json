@@ -5,6 +5,7 @@
     "@nextui-org/react": "^2.6.11",
     "@nextui-org/system": "^2.4.6",
     "@nextui-org/theme": "^2.4.5",
+    "byted-tea-sdk": "^5.3.6",
     "framer-motion": "^11.12.0",
     "jotai": "^2.6.0",
     "less": "^4.2.0",
