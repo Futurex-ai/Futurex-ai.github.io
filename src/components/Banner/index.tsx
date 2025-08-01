@@ -3,6 +3,7 @@
  * 包含页面标题和 Tab 切换功能，负责 UI 渲染和用户交互
  */
 import React from 'react';
+import Tea from "byted-tea-sdk";
 
 interface BannerProps {
   activeTab: 'overview' | 'leaderboard';
@@ -77,13 +78,23 @@ export const Banner: React.FC<BannerProps> = ({ activeTab, onTabChange }) => {
         <div style={tabSwitcherStyle}>
           <button
             style={getTabButtonStyle(activeTab === 'overview')}
-            onClick={() => onTabChange('overview')}
+            onClick={() => {
+              onTabChange('overview');
+              Tea.event('crawl_api_custom', {
+                name: '点击Overview',
+              });
+            }}
           >
             Overview
           </button>
           <button
             style={getTabButtonStyle(activeTab === 'leaderboard')}
-            onClick={() => onTabChange('leaderboard')}
+            onClick={() => {
+              onTabChange('leaderboard');
+              Tea.event('crawl_api_custom', {
+                name: '点击Leaderboard',
+              });
+            }}
           >
             Leaderboard
           </button>

@@ -19,9 +19,9 @@ const App: React.FC = () => {
   const [selectedTime, setSelectedTime] = useState<string>("2025-06-W1");
 
   Tea.init({
-    app_id: 635684, // 替换成你的appid，必须是number类型
-    channel: "cn", //根据你的需要，选择对应的channel
-    log: true, // 开启后会控制台会打印日志
+    app_id: 635684, 
+    channel: "cn", 
+    // log: true, // 开启后会控制台会打印日志
   });
 
   Tea.start();

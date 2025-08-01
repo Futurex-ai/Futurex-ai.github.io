@@ -3,6 +3,7 @@
  * 提供周级和月级时间选择功能，weekly模式支持树形选择
  */
 import React, { useState, useRef, useEffect } from 'react';
+import Tea from "byted-tea-sdk";
 import { TimePeriodType } from '../../types';
 import { useTimeSelectorLogic } from './timeSelectorLogic';
 
@@ -294,13 +295,23 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
         <div style={periodSelectorStyle}>
           <button
             style={getPeriodButtonStyle(timePeriodType === 'weekly')}
-            onClick={() => handlePeriodTypeChange('weekly')}
+            onClick={() => {
+              handlePeriodTypeChange('weekly');
+              Tea.event('crawl_api_custom', {
+                name: '点击Weekly',
+              });
+            }}
           >
             Weekly
           </button>
           <button
             style={getPeriodButtonStyle(timePeriodType === 'monthly')}
-            onClick={() => handlePeriodTypeChange('monthly')}
+            onClick={() => {
+              handlePeriodTypeChange('monthly');
+              Tea.event('crawl_api_custom', {
+                name: '点击Monthly',
+              });
+            }}
           >
             Monthly
           </button>
