@@ -19,11 +19,12 @@ export interface WeekOption {
 export const useTimeSelectorLogic = () => {
   const getTimeOptions = (periodType: TimePeriodType): TimeOption[] => {
     const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth() + 1;
+    const currentYear = 2025; // 固定为2025年
+    const currentMonth = 8; // 当前是8月
+    const currentWeek = 1; // 当前是第1周
 
     if (periodType === "weekly") {
-      return generateWeeklyOptions(currentYear, currentMonth);
+      return generateWeeklyOptions(currentYear, currentMonth, currentWeek);
     } else {
       return generateMonthlyOptions(currentYear, currentMonth);
     }
@@ -31,26 +32,33 @@ export const useTimeSelectorLogic = () => {
 
   // 新增：获取级联选择器的月份选项（用于weekly模式）
   const getMonthOptions = (): MonthOption[] => {
-    const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth() + 1;
+    const currentYear = 2025;
+    const currentMonth = 8;
+    const currentWeek = 1;
     const options: MonthOption[] = [];
 
-    // 从2025年6月开始到当前月份
+    // 从2025年7月开始到当前月份（8月）
     for (let year = 2025; year <= currentYear; year++) {
-      const startMonth = year === 2025 ? 6 : 1;
-      // 修正：确保只显示到当前月份，不显示未来月份
+      const startMonth = year === 2025 ? 7 : 1; // 从7月开始
       const endMonth = year === currentYear ? currentMonth : 12;
 
       for (let month = startMonth; month <= endMonth; month++) {
         const monthValue = `${year}-${month.toString().padStart(2, "0")}`;
         const monthLabel = `${year} ${getMonthName(month)}`;
 
-        // 生成该月的周选项（英文）
+        // 生成该月的周选项
         const weeks: WeekOption[] = [];
         const weeksInMonth = getWeeksInMonth(year, month);
 
-        for (let week = 1; week <= weeksInMonth; week++) {
+        // 特殊处理：7月从Week3开始，其他月份从Week1开始
+        const startWeek = year === 2025 && month === 7 ? 3 : 1;
+        // 控制显示的周数：如果是当前月份，只显示到当前周
+        const maxWeek =
+          year === currentYear && month === currentMonth
+            ? currentWeek
+            : weeksInMonth;
+
+        for (let week = startWeek; week <= maxWeek; week++) {
           const weekValue = `${year}-${month
             .toString()
             .padStart(2, "0")}-W${week}`;
@@ -71,19 +79,28 @@ export const useTimeSelectorLogic = () => {
 
   const generateWeeklyOptions = (
     currentYear: number,
-    currentMonth: number
+    currentMonth: number,
+    currentWeek: number
   ): TimeOption[] => {
     const options: TimeOption[] = [];
 
-    // 从2025年6月开始到当前月份
+    // 从2025年7月开始到当前月份
     for (let year = 2025; year <= currentYear; year++) {
-      const startMonth = year === 2025 ? 6 : 1;
+      const startMonth = year === 2025 ? 7 : 1; // 从7月开始
       const endMonth = year === currentYear ? currentMonth : 12;
 
       for (let month = startMonth; month <= endMonth; month++) {
         const weeksInMonth = getWeeksInMonth(year, month);
 
-        for (let week = 1; week <= weeksInMonth; week++) {
+        // 特殊处理：7月从Week3开始，其他月份从Week1开始
+        const startWeek = year === 2025 && month === 7 ? 3 : 1;
+        // 控制显示的周数：如果是当前月份，只显示到当前周
+        const maxWeek =
+          year === currentYear && month === currentMonth
+            ? currentWeek
+            : weeksInMonth;
+
+        for (let week = startWeek; week <= maxWeek; week++) {
           const value = `${year}-${month.toString().padStart(2, "0")}-W${week}`;
           const label = `${year} ${getMonthName(month)} ${getWeekLabel(week)}`;
           options.push({ value, label });
@@ -100,9 +117,9 @@ export const useTimeSelectorLogic = () => {
   ): TimeOption[] => {
     const options: TimeOption[] = [];
 
-    // 从2025年6月开始到当前月份
+    // 从2025年7月开始到当前月份
     for (let year = 2025; year <= currentYear; year++) {
-      const startMonth = year === 2025 ? 6 : 1;
+      const startMonth = year === 2025 ? 7 : 1; // 从7月开始
       const endMonth = year === currentYear ? currentMonth : 12;
 
       for (let month = startMonth; month <= endMonth; month++) {

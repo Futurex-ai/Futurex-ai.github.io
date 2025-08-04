@@ -18,6 +18,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
   const { getLeaderboardData } = useLeaderboardData();
   const data = getLeaderboardData(timePeriodType, selectedTime);
 
+  // 首先定义所有样式
   const containerStyle: React.CSSProperties = {
     height: '100%',
     maxWidth: '1400px',
@@ -35,14 +36,14 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
     boxShadow: 'none',
     flex: 1,
     minHeight: 0,
-    height: '400px', // 固定高度400px
+    height: '400px',
     position: 'relative'
   };
 
   const scrollWrapperStyle: React.CSSProperties = {
     width: '100%',
     height: '100%',
-    overflow: 'auto', // 自动显示滚动条
+    overflow: 'auto',
     position: 'relative'
   };
 
@@ -61,7 +62,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
 
   const headerStyle: React.CSSProperties = {
     display: 'grid',
-    gridTemplateColumns: '80px 280px 150px 150px 130px 120px 140px 100px 100px 100px 110px',
+    gridTemplateColumns: '80px 280px 250px 130px 120px 140px 100px 100px 100px 110px',
     background: '#f9fafb',
     borderBottom: '0.5px solid #e5e7eb',
     color: '#374151',
@@ -114,7 +115,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
 
   const rowStyle: React.CSSProperties = {
     display: 'grid',
-    gridTemplateColumns: '80px 280px 150px 150px 130px 120px 140px 100px 100px 100px 110px',
+    gridTemplateColumns: '80px 280px 250px 130px 120px 140px 100px 100px 100px 110px',
     borderBottom: '1px solid #f3f4f6'
   };
 
@@ -143,7 +144,6 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
   const nameCellStyle: React.CSSProperties = {
     ...stickyCellStyle,
     left: '80px',
-    justifyContent: 'flex-start',
     paddingLeft: '1rem',
     fontWeight: '600',
     color: '#111827',
@@ -174,11 +174,11 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
     } else if (rank === 2) {
       background = '#9ca3af';
       color = 'white';
-      fontWeight: '600';
+      fontWeight = '600';
     } else if (rank === 3) {
       background = '#d97706';
       color = 'white';
-      fontWeight: '600';
+      fontWeight = '600';
     }
 
     return {
@@ -214,8 +214,11 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
     return rank;
   };
 
-  const getDisplayName = (modelName: string, agentFramework: string): string => {
-    return `${modelName} (${agentFramework})`;
+  const getDisplayName = (modelName: string, agentFramework: string) => {
+    return <div>
+      <div>{modelName}</div>
+      <span style={{color: '#6b7280', fontWeight: '400', letterSpacing: '0.0125em'}}>({agentFramework})</span>
+    </div>
   };
 
   const getModelName = (modelName: string): string => {
@@ -227,7 +230,95 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
     return modelName;
   };
 
+  // 数据检查，现在containerStyle已经定义好了
+  if (!data || data.length === 0) {
+    return (
+      <div style={containerStyle}>
+        <div style={{
+          background: 'white',
+          borderRadius: '12px',
+          border: '1px solid #e5e7eb',
+          padding: '4rem 2rem',
+          textAlign: 'center',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '1rem'
+        }}>
+          {/* 空状态图标 */}
+          <div style={{
+            width: '64px',
+            height: '64px',
+            borderRadius: '50%',
+            background: 'linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginBottom: '0.5rem'
+          }}>
+            <svg 
+              width="32" 
+              height="32" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              style={{ color: '#9ca3af' }}
+            >
+              <path 
+                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
 
+          {/* 空状态标题 */}
+          <h3 style={{ 
+            color: '#374151', 
+            fontSize: '1.25rem', 
+            fontWeight: '600',
+            margin: 0,
+            lineHeight: 1.3
+          }}>
+            No Data Available
+          </h3>
+          
+          {/* 空状态描述 */}
+          <p style={{ 
+            color: '#6b7280', 
+            fontSize: '1rem', 
+            margin: 0,
+            lineHeight: 1.5,
+            maxWidth: '400px'
+          }}>
+            {timePeriodType === 'monthly' 
+              ? "Monthly data is not available yet. Please try selecting Weekly view to see available data."
+              : "There is currently no leaderboard data available for the selected time period. Please try selecting a different time range."
+            }
+          </p>
+
+          {/* 提示信息 */}
+          <div style={{
+            marginTop: '1rem',
+            padding: '0.75rem 1rem',
+            background: '#f9fafb',
+            border: '1px solid #e5e7eb',
+            borderRadius: '8px',
+            fontSize: '0.875rem',
+            color: '#6b7280'
+          }}>
+            💡 {timePeriodType === 'monthly' 
+              ? "Monthly data will be available in the future. Currently only Weekly data is available."
+              : "Weekly data is available for: July Week 3, July Week 4, August Week 1"
+            }
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // 渲染正常的榜单表格
   return (
     <div style={containerStyle}>
       <div style={tableContainerStyle}>
@@ -237,9 +328,8 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
             <div style={stickyHeaderStyle}>
               <div style={headerStyle}>
                 <div style={rankHeaderStyle}>Rank</div>
-                <div style={nameHeaderStyle}>NAME</div>
+                <div style={nameHeaderStyle}>NAME (Agent Framework)</div>
                 <div style={headerCellStyle}>Model Name</div>
-                <div style={headerCellStyle}>Agent Framework</div>
                 <div style={headerCellStyle}>Organization</div>
                 <div style={headerCellStyle}>Overall</div>
                 <div style={headerCellStyle}>Events</div>
@@ -261,9 +351,6 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                 </div>
                 <div style={{...cellStyle, color: '#6b7280', fontWeight: '500', letterSpacing: '0.0125em'}}>
                   {getModelName(entry.modelName)}
-                </div>
-                <div style={{...cellStyle, color: '#6b7280', fontWeight: '400', letterSpacing: '0.0125em'}}>
-                  {entry.agentFramework}
                 </div>
                 <div style={{...cellStyle, color: '#6b7280', fontWeight: '500', letterSpacing: '0.0125em'}}>
                   {entry.organization}

@@ -4,6 +4,7 @@
  */
 import React, { useState, useRef, useEffect } from 'react';
 import Tea from "byted-tea-sdk";
+
 import { TimePeriodType } from '../../types';
 import { useTimeSelectorLogic } from './timeSelectorLogic';
 
@@ -72,13 +73,13 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
 
   const handlePeriodTypeChange = (type: TimePeriodType) => {
     onTimePeriodTypeChange(type);
-    // 设置默认时间，都从6月开始
+    // 设置默认时间，选择当前周
     if (type === 'weekly') {
-      onSelectedTimeChange('2025-06-W1');
-      // 自动展开6月
-      setExpandedMonths(new Set(['2025-06']));
+      onSelectedTimeChange('2025-08-W1'); // 默认选择当前周（八月第一周）
+      // 自动展开8月
+      setExpandedMonths(new Set(['2025-08']));
     } else {
-      onSelectedTimeChange('2025-06');
+      onSelectedTimeChange('2025-08'); // 月度模式选择当前月
       setExpandedMonths(new Set());
     }
     setIsDropdownOpen(false);
@@ -293,7 +294,7 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
       
       <div style={containerStyle}>
         <div style={periodSelectorStyle}>
-          <button
+         <button
             style={getPeriodButtonStyle(timePeriodType === 'weekly')}
             onClick={() => {
               handlePeriodTypeChange('weekly');

@@ -16,7 +16,7 @@ const App: React.FC = () => {
   );
   const [timePeriodType, setTimePeriodType] =
     useState<TimePeriodType>("weekly");
-  const [selectedTime, setSelectedTime] = useState<string>("2025-06-W1");
+  const [selectedTime, setSelectedTime] = useState<string>("2025-08-W1");
 
   Tea.init({
     app_id: 635684, 
