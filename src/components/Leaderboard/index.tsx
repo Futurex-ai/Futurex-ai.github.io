@@ -1,8 +1,9 @@
 /**
  * 榜单组件
  * 负责展示排行榜数据，包括模型信息和各项评分，支持横向滚动
+ * 支持对Level分数进行排序
  */
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { TimePeriodType } from '../../types';
 import { useLeaderboardData } from './leaderboardData';
 
@@ -11,12 +12,42 @@ interface LeaderboardProps {
   selectedTime: string;
 }
 
+type SortField = 'level1Score' | 'level2Score' | 'level3Score' | 'level4Score' | 'overallScore';
+type SortDirection = 'asc' | 'desc';
+
+interface SortConfig {
+  field: SortField | null;
+  direction: SortDirection;
+}
+
 export const Leaderboard: React.FC<LeaderboardProps> = ({
   timePeriodType,
   selectedTime
 }) => {
   const { getLeaderboardData } = useLeaderboardData();
   const data = getLeaderboardData(timePeriodType, selectedTime);
+
+  // 排序状态
+  const [sortConfig, setSortConfig] = useState<SortConfig>({
+    field: null,
+    direction: 'desc'
+  });
+
+  // 排序后的数据
+  const sortedData = useMemo(() => {
+    if (!data || !sortConfig.field) return data;
+    
+    return [...data].sort((a, b) => {
+      const aValue = a[sortConfig.field!];
+      const bValue = b[sortConfig.field!];
+      
+      if (sortConfig.direction === 'desc') {
+        return bValue - aValue;
+      } else {
+        return aValue - bValue;
+      }
+    });
+  }, [data, sortConfig]);
 
   // 首先定义所有样式
   const containerStyle: React.CSSProperties = {
@@ -113,121 +144,93 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
     background: '#f9fafb'
   };
 
-  const rowStyle: React.CSSProperties = {
-    display: 'grid',
-    gridTemplateColumns: '80px 280px 250px 130px 120px 140px 100px 100px 100px 110px',
-    borderBottom: '1px solid #f3f4f6'
+  // 可排序的表头样式
+  const sortableHeaderCellStyle: React.CSSProperties = {
+    ...headerCellStyle,
+    cursor: 'pointer',
+    userSelect: 'none',
+    transition: 'background-color 0.2s, color 0.2s',
+    gap: '0.5rem',
+    // '&:hover': {
+    //   background: '#f3f4f6'
+    // }
   };
 
-  // 固定列的单元格样式
-  const stickyCellStyle: React.CSSProperties = {
-    padding: '1rem 0.5rem',
-    textAlign: 'center',
-    color: '#111827',
-    fontSize: '0.875rem',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontWeight: '400',
-    lineHeight: 1.4,
-    position: 'sticky',
-    background: 'white',
-    zIndex: 5,
-    borderRight: '1px solid #f3f4f6'
+
+  // ... 保留其他样式定义 ...
+
+  // 排序处理函数
+  const handleSort = (field: SortField) => {
+    setSortConfig(prev => {
+      if (prev.field === field) {
+        // 如果点击同一列，切换排序方向
+        return {
+          field,
+          direction: prev.direction === 'desc' ? 'asc' : 'desc'
+        };
+      } else {
+        // 如果点击不同列，默认降序
+        return {
+          field,
+          direction: 'desc'
+        };
+      }
+    });
   };
 
-  const rankCellStyle: React.CSSProperties = {
-    ...stickyCellStyle,
-    left: 0
-  };
-
-  const nameCellStyle: React.CSSProperties = {
-    ...stickyCellStyle,
-    left: '80px',
-    paddingLeft: '1rem',
-    fontWeight: '600',
-    color: '#111827',
-    letterSpacing: '0.0125em'
-  };
-
-  const cellStyle: React.CSSProperties = {
-    padding: '1rem 0.5rem',
-    textAlign: 'center',
-    color: '#111827',
-    fontSize: '0.875rem',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontWeight: '400',
-    lineHeight: 1.4
-  };
-
-  const getRankBadgeStyle = (rank: number): React.CSSProperties => {
-    let background = '#f3f4f6';
-    let color = '#6b7280';
-    let fontWeight = '500';
-    
-    if (rank === 1) {
-      background = '#fbbf24';
-      color = 'white';
-      fontWeight = '700';
-    } else if (rank === 2) {
-      background = '#9ca3af';
-      color = 'white';
-      fontWeight = '600';
-    } else if (rank === 3) {
-      background = '#d97706';
-      color = 'white';
-      fontWeight = '600';
+  // 渲染排序图标
+  const renderSortIcon = (field: SortField) => {
+    if (sortConfig.field !== field) {
+      return (
+        <svg 
+          width="12" 
+          height="12" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          style={{ opacity: 0.4, color: '#9ca3af' }}
+        >
+          <path 
+            d="M8 9l4-4 4 4M16 15l-4 4-4-4" 
+            stroke="currentColor" 
+            strokeWidth="2" 
+            strokeLinecap="round" 
+            strokeLinejoin="round"
+          />
+        </svg>
+      );
     }
 
+    return (
+      <svg 
+        width="12" 
+        height="12" 
+        viewBox="0 0 24 24" 
+        fill="none"
+        style={{ 
+          color: '#3b82f6',
+          transform: sortConfig.direction === 'asc' ? 'rotate(180deg)' : 'rotate(0deg)',
+          transition: 'transform 0.2s'
+        }}
+      >
+        <path 
+          d="M7 14l5-5 5 5" 
+          stroke="currentColor" 
+          strokeWidth="2" 
+          strokeLinecap="round" 
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  };
+
+  // 获取排序后的表头样式
+  const getSortableHeaderStyle = (field: SortField): React.CSSProperties => {
+    const isActive = sortConfig.field === field;
     return {
-      padding: rank <= 3 ? '0.25rem 0.5rem' : '0.25rem 0.5rem',
-      borderRadius: '4px',
-      fontWeight,
-      fontSize: '0.75rem',
-      background,
-      color,
-      minWidth: '32px',
-      lineHeight: 1.2,
-      letterSpacing: rank === 1 ? '0.025em' : '0'
+      ...sortableHeaderCellStyle,
+      background: isActive ? '#eff6ff' : '#f9fafb',
+      color: isActive ? '#3b82f6' : '#6b7280',
     };
-  };
-
-  const scoreValueStyle: React.CSSProperties = {
-    fontWeight: '700',
-    fontSize: '0.875rem',
-    color: '#111827',
-    lineHeight: 1.3,
-    letterSpacing: '0.0125em'
-  };
-
-  const levelScoreStyle: React.CSSProperties = {
-    color: '#374151',
-    fontWeight: '600',
-    fontSize: '0.875rem',
-    lineHeight: 1.3,
-    letterSpacing: '0.0125em'
-  };
-
-  const getRankContent = (rank: number) => {
-    return rank;
-  };
-
-  const getDisplayName = (modelName: string, agentFramework: string) => {
-    return <div>
-      <div>{modelName}</div>
-      <span style={{color: '#6b7280', fontWeight: '400', letterSpacing: '0.0125em'}}>({agentFramework})</span>
-    </div>
-  };
-
-  const getModelName = (modelName: string): string => {
-    // 处理一些特殊情况，如果模型名称不公开则显示"Undisclosed"
-    const undisclosedModels = ['Manus', 'OpenAI-Deepreasearch', 'Genspark'];
-    if (undisclosedModels.includes(modelName)) {
-      return 'Undisclosed';
-    }
-    return modelName;
   };
 
   // 数据检查，现在containerStyle已经定义好了
@@ -331,47 +334,254 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                 <div style={nameHeaderStyle}>NAME (Agent Framework)</div>
                 <div style={headerCellStyle}>Model Name</div>
                 <div style={headerCellStyle}>Organization</div>
-                <div style={headerCellStyle}>Overall</div>
+                <div 
+                  style={getSortableHeaderStyle('overallScore')}
+                  onClick={() => handleSort('overallScore')}
+                >
+                  Overall
+                  {renderSortIcon('overallScore')}
+                </div>
                 <div style={headerCellStyle}>Events</div>
-                <div style={headerCellStyle}>Level 1</div>
-                <div style={headerCellStyle}>Level 2</div>
-                <div style={headerCellStyle}>Level 3</div>
-                <div style={headerCellStyle}>Level 4</div>
+                <div 
+                  style={getSortableHeaderStyle('level1Score')}
+                  onClick={() => handleSort('level1Score')}
+                >
+                  Level 1
+                  {renderSortIcon('level1Score')}
+                </div>
+                <div 
+                  style={getSortableHeaderStyle('level2Score')}
+                  onClick={() => handleSort('level2Score')}
+                >
+                  Level 2
+                  {renderSortIcon('level2Score')}
+                </div>
+                <div 
+                  style={getSortableHeaderStyle('level3Score')}
+                  onClick={() => handleSort('level3Score')}
+                >
+                  Level 3
+                  {renderSortIcon('level3Score')}
+                </div>
+                <div 
+                  style={getSortableHeaderStyle('level4Score')}
+                  onClick={() => handleSort('level4Score')}
+                >
+                  Level 4
+                  {renderSortIcon('level4Score')}
+                </div>
               </div>
             </div>
             
             {/* 数据行 */}
-            {data && data.length > 0 && data.map((entry, index) => (
-              <div key={`${entry.modelName}-${index}`} style={rowStyle}>
-                <div style={rankCellStyle}>
-                  <span style={getRankBadgeStyle(index + 1)}>{getRankContent(index + 1)}</span>
+            {sortedData && sortedData.length > 0 && sortedData.map((entry, index) => (
+              <div key={`${entry.modelName}-${index}`} style={{
+                display: 'grid',
+                gridTemplateColumns: '80px 280px 250px 130px 120px 140px 100px 100px 100px 110px',
+                borderBottom: '1px solid #f3f4f6'
+              }}>
+                <div style={{
+                  padding: '1rem 0.5rem',
+                  textAlign: 'center',
+                  color: '#111827',
+                  fontSize: '0.875rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontWeight: '400',
+                  lineHeight: 1.4,
+                  position: 'sticky',
+                  background: 'white',
+                  zIndex: 5,
+                  borderRight: '1px solid #f3f4f6',
+                  left: 0
+                }}>
+                  <span style={{
+                    padding: index < 3 ? '0.25rem 0.5rem' : '0.25rem 0.5rem',
+                    borderRadius: '4px',
+                    fontWeight: index === 0 ? '700' : index < 3 ? '600' : '500',
+                    fontSize: '0.75rem',
+                    background: index === 0 ? '#fbbf24' : index === 1 ? '#9ca3af' : index === 2 ? '#d97706' : '#f3f4f6',
+                    color: index < 3 ? 'white' : '#6b7280',
+                    minWidth: '32px',
+                    lineHeight: 1.2,
+                    letterSpacing: index === 0 ? '0.025em' : '0'
+                  }}>
+                    {index + 1}
+                  </span>
                 </div>
-                <div style={nameCellStyle}>
-                  {getDisplayName(entry.modelName, entry.agentFramework)}
+                <div style={{
+                  padding: '1rem 0.5rem',
+                  textAlign: 'center',
+                  color: '#111827',
+                  fontSize: '0.875rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  lineHeight: 1.4,
+                  position: 'sticky',
+                  background: 'white',
+                  zIndex: 5,
+                  borderRight: '1px solid #f3f4f6',
+                  left: '80px',
+                  paddingLeft: '1rem',
+                  fontWeight: '600',
+                  letterSpacing: '0.0125em'
+                }}>
+                  <div>
+                    <div>{entry.modelName}</div>
+                    <span style={{color: '#6b7280', fontWeight: '400', letterSpacing: '0.0125em'}}>({entry.agentFramework})</span>
+                  </div>
                 </div>
-                <div style={{...cellStyle, color: '#6b7280', fontWeight: '500', letterSpacing: '0.0125em'}}>
-                  {getModelName(entry.modelName)}
+                <div style={{
+                  padding: '1rem 0.5rem',
+                  textAlign: 'center',
+                  color: '#6b7280',
+                  fontSize: '0.875rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontWeight: '500',
+                  lineHeight: 1.4,
+                  letterSpacing: '0.0125em'
+                }}>
+                  {(() => {
+                    const undisclosedModels = ['Manus', 'OpenAI-Deepreasearch', 'Genspark'];
+                    return undisclosedModels.includes(entry.modelName) ? 'Undisclosed' : entry.modelName;
+                  })()}
                 </div>
-                <div style={{...cellStyle, color: '#6b7280', fontWeight: '500', letterSpacing: '0.0125em'}}>
+                <div style={{
+                  padding: '1rem 0.5rem',
+                  textAlign: 'center',
+                  color: '#6b7280',
+                  fontSize: '0.875rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontWeight: '500',
+                  lineHeight: 1.4,
+                  letterSpacing: '0.0125em'
+                }}>
                   {entry.organization}
                 </div>
-                <div style={cellStyle}>
-                  <span style={scoreValueStyle}>{entry.overallScore.toFixed(1)}</span>
+                <div style={{
+                  padding: '1rem 0.5rem',
+                  textAlign: 'center',
+                  color: '#111827',
+                  fontSize: '0.875rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontWeight: '400',
+                  lineHeight: 1.4
+                }}>
+                  <span style={{
+                    fontWeight: '700',
+                    fontSize: '0.875rem',
+                    color: '#111827',
+                    lineHeight: 1.3,
+                    letterSpacing: '0.0125em'
+                  }}>
+                    {entry.overallScore.toFixed(1)}
+                  </span>
                 </div>
-                <div style={{...cellStyle, color: '#6b7280', fontWeight: '400', letterSpacing: '0.0125em'}}>
+                <div style={{
+                  padding: '1rem 0.5rem',
+                  textAlign: 'center',
+                  color: '#6b7280',
+                  fontSize: '0.875rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontWeight: '400',
+                  lineHeight: 1.4,
+                  letterSpacing: '0.0125em'
+                }}>
                   {entry.numberOfEvents.toLocaleString()}
                 </div>
-                <div style={cellStyle}>
-                  <span style={levelScoreStyle}>{entry.level1Score}</span>
+                <div style={{
+                  padding: '1rem 0.5rem',
+                  textAlign: 'center',
+                  color: '#111827',
+                  fontSize: '0.875rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontWeight: '400',
+                  lineHeight: 1.4
+                }}>
+                  <span style={{
+                    color: '#374151',
+                    fontWeight: '600',
+                    fontSize: '0.875rem',
+                    lineHeight: 1.3,
+                    letterSpacing: '0.0125em'
+                  }}>
+                    {entry.level1Score}
+                  </span>
                 </div>
-                <div style={cellStyle}>
-                  <span style={levelScoreStyle}>{entry.level2Score}</span>
+                <div style={{
+                  padding: '1rem 0.5rem',
+                  textAlign: 'center',
+                  color: '#111827',
+                  fontSize: '0.875rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontWeight: '400',
+                  lineHeight: 1.4
+                }}>
+                  <span style={{
+                    color: '#374151',
+                    fontWeight: '600',
+                    fontSize: '0.875rem',
+                    lineHeight: 1.3,
+                    letterSpacing: '0.0125em'
+                  }}>
+                    {entry.level2Score}
+                  </span>
                 </div>
-                <div style={cellStyle}>
-                  <span style={levelScoreStyle}>{entry.level3Score}</span>
+                <div style={{
+                  padding: '1rem 0.5rem',
+                  textAlign: 'center',
+                  color: '#111827',
+                  fontSize: '0.875rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontWeight: '400',
+                  lineHeight: 1.4
+                }}>
+                  <span style={{
+                    color: '#374151',
+                    fontWeight: '600',
+                    fontSize: '0.875rem',
+                    lineHeight: 1.3,
+                    letterSpacing: '0.0125em'
+                  }}>
+                    {entry.level3Score}
+                  </span>
                 </div>
-                <div style={cellStyle}>
-                  <span style={levelScoreStyle}>{entry.level4Score}</span>
+                <div style={{
+                  padding: '1rem 0.5rem',
+                  textAlign: 'center',
+                  color: '#111827',
+                  fontSize: '0.875rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontWeight: '400',
+                  lineHeight: 1.4
+                }}>
+                  <span style={{
+                    color: '#374151',
+                    fontWeight: '600',
+                    fontSize: '0.875rem',
+                    lineHeight: 1.3,
+                    letterSpacing: '0.0125em'
+                  }}>
+                    {entry.level4Score}
+                  </span>
                 </div>
               </div>
             ))}
