@@ -6,13 +6,13 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import 'github-markdown-css';
 import defaultMarkdownContent from '../../data/content.md';
-import image1 from '../../data/image-20250805153538154.png'; //
-import image2 from '../../data/image-20250805150803688.png';//
-import image3 from '../../data/image-20250805150712400.png';//
-import image4 from '../../data/image-20250805150617761.png';//
-import image5 from '../../data/image-20250805150459250.png';//
-import image6 from '../../data/image-20250805150328286.png'; //
-import image7 from '../../data/image-20250805153707628.png';//
+import image1 from '../../data/image-20250805153538154.png'; 
+import image2 from '../../data/image-20250805150803688.png';
+import image3 from '../../data/image-20250805150712400.png';
+import image4 from '../../data/image-20250805150617761.png';
+import image5 from '../../data/image-20250805150459250.png';
+import image6 from '../../data/image-20250805150328286.png'; 
+import image7 from '../../data/image-20250805153707628.png';
 
 export const MarkdownView: React.FC = () => {
 

@@ -183,10 +183,13 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                   Rank
                 </div>
                 <div className="leaderboard__header-cell leaderboard__header-cell--sticky leaderboard__header-cell--name">
-                  NAME (Agent Framework)
+                  NAME
                 </div>
                 <div className="leaderboard__header-cell">
                   Model Name
+                </div>
+                <div className="leaderboard__header-cell">
+                  Agent Framework
                 </div>
                 <div className="leaderboard__header-cell">
                   Organization
@@ -261,6 +264,9 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                     const undisclosedModels = ['Manus', 'OpenAI-Deepreasearch', 'Genspark'];
                     return undisclosedModels.includes(entry.modelName) ? 'Undisclosed' : entry.modelName;
                   })()}
+                </div>
+                <div className="leaderboard__cell leaderboard__cell--framework">
+                  {entry.agentFramework}
                 </div>
                 <div className="leaderboard__cell leaderboard__cell--organization">
                   {entry.organization}
