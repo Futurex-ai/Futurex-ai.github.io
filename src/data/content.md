@@ -15,7 +15,7 @@ FutureX is a dynamic, real-time benchmark for LLM agents, built on these core fe
 - **Unprecedented Scale:** Utilizes **195 high-quality sources** (selected from over **2,000 websites**) covering **11 major domains**.
 - **Fully Automated Pipeline:** A closed-loop system automatically collects questions, runs **28 agents** daily, and scores the results.
 
-![image-20250805150617761](/images/image-20250805150617761.png)
+![image-20250805150617761](./image-20250805150617761.png)
 
 ### The Four Difficulty Levels of FutureX
 

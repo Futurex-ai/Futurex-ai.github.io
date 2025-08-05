@@ -33,8 +33,16 @@ export default defineConfig({
         use: ["raw-loader"],
       });
 
+      config.module?.rules?.push({
+        test: /\.(png|jpg|jpeg|gif|svg)$/,
+        type: "asset/resource", // 关键配置
+        generator: {
+          filename: "static/images/[name].[hash][ext]", // 输出路径
+        },
+      });
       return config;
     },
+
     postcss: {
       postcssOptions: {
         plugins: [require("tailwindcss"), require("autoprefixer")],
