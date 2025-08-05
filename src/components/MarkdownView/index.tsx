@@ -4,9 +4,12 @@
  */
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import 'github-markdown-css';
 import defaultMarkdownContent from '../../data/content.md';
 
 export const MarkdownView: React.FC = () => {
+
+  // const defaultMarkdownContent = raw('../../data/content.md');
   const containerStyle: React.CSSProperties = {
     maxWidth: '1400px',
     margin: '0 auto',
@@ -22,7 +25,9 @@ export const MarkdownView: React.FC = () => {
   return (
     <div style={containerStyle}>
       <div style={contentStyle}>
-        <ReactMarkdown>{defaultMarkdownContent}</ReactMarkdown>
+        <ReactMarkdown  className="markdown-body">
+          {defaultMarkdownContent}
+        </ReactMarkdown>
       </div>
     </div>
   );

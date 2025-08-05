@@ -2,9 +2,11 @@
 
 In the past few years, Large Language Models (LLMs) have made astonishing progress. They are no longer mere text generators but are gradually evolving into autonomous "agents" capable of planning, using tools, and interacting with the real world. However, a sharp question lies before us: How can we truly evaluate the core intelligence of these agents?
 
-Existing benchmarks, such as GAIA and Browsercamp, while valuable, are mostly static. This means their questions and answers are fixed and can easily be included in a model's vast training data, leading to distorted evaluation results. More importantly, they are asking AI to solve the problem that is known. Therefore, we introduce Futurex, a **live** benchmark designed for **predicting unknown future**.
+Existing benchmarks, such as GAIA and Browsercamp, while valuable, are mostly static. This means their questions and answers are fixed and can easily be included in a model's vast training data, leading to distorted evaluation results. More importantly, they   are asking AI to solve the problem that is known. Therefore, we introduce Futurex, a **live** benchmark designed for **predicting unknown future**.
 
 Predicting the future requires an agent, much like a human expert, to gather information, analyze trends, and make decisions in a dynamic environment full of uncertainty. This is precisely the ultimate capability we hope AI will possess. However, establishing a fair, uncontaminated evaluation standard for this purpose is fraught with methodological and technical challenges.
+
+
 
 ### What is FutureX?
 
@@ -15,7 +17,9 @@ FutureX is a dynamic, real-time benchmark for LLM agents, built on these core fe
 - **Unprecedented Scale:** Utilizes **195 high-quality sources** (selected from over **2,000 websites**) covering **11 major domains**.
 - **Fully Automated Pipeline:** A closed-loop system automatically collects questions, runs **28 agents** daily, and scores the results.
 
-![image-20250805150617761](/images/image-20250805150617761.png)
+
+
+![image-20250805150617761](./image-20250805150617761.png)
 
 ### The Four Difficulty Levels of FutureX
 
@@ -28,6 +32,8 @@ To evaluate agent capabilities with greater granularity, we have meticulously de
 To meet the challenge of real-time updates, we built a completely closed-loop, automated evaluation system. The system automatically collects new questions daily, runs 28 agents to make predictions, and automatically retrieves and scores the results after the event concludes. This level of technical complexity far exceeds that of traditional static evaluation frameworks.
 
 ![image-20250805150459250](./image-20250805150459250.png)
+
+
 
 ### Our Findings: How Do Current AI Agents Perform in Future Prediction?
 
@@ -57,6 +63,8 @@ To meet the challenge of real-time updates, we built a completely closed-loop, a
 Furthermore, to systematically analyze the influence of each factors (e.g., different LLMs, agent frameworks, domain of events, difficulty levels), we conduct a linear analysis.
 
 ![image-20250805153707628](./image-20250805153707628.png)
+
+
 
 ### Our Vision
 
