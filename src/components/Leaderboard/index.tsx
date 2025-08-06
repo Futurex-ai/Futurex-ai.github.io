@@ -349,7 +349,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                   NAME
                 </div>
                 <div className="leaderboard__header-cell leaderboard__header-cell--filterable" ref={modelNameFilterRef}>
-                  <span>Model Name</span>
+                  <span>MODEL NAME</span>
                   <button
                     className="leaderboard__filter-button"
                     onClick={() => toggleFilter('modelName')}
@@ -359,7 +359,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                   {renderFilterDropdown('modelName')}
                 </div>
                 <div className="leaderboard__header-cell leaderboard__header-cell--filterable" ref={agentFrameworkFilterRef}>
-                  <span>Agent Framework</span>
+                  <span>AGENT FRAMEWORK</span>
                   <button
                     className="leaderboard__filter-button"
                     onClick={() => toggleFilter('agentFramework')}
