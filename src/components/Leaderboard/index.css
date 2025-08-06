@@ -47,7 +47,7 @@ border-bottom: 1px solid #e5e7eb;
 
 .leaderboard__header {
 display: grid;
-grid-template-columns: 80px 280px 250px 180px 130px 120px 140px 100px 100px 100px 110px;
+grid-template-columns: 80px 280px 250px 220px 140px 120px 140px 100px 100px 100px 110px;
 background: #f9fafb;
 border-bottom: 0.5px solid #e5e7eb;
 color: #374151;
@@ -217,7 +217,7 @@ border-color: #3b82f6;
 /* 数据行样式 */
 .leaderboard__row {
 display: grid;
-grid-template-columns: 80px 280px 250px 180px 130px 120px 140px 100px 100px 100px 110px;
+grid-template-columns: 80px 280px 250px 220px 140px 120px 140px 100px 100px 100px 110px;
 border-bottom: 1px solid #f3f4f6;
 }
 

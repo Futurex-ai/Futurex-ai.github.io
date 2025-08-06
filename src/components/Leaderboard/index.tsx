@@ -1,7 +1,7 @@
 /**
  * 榜单组件
  * 负责展示排行榜数据，包括模型信息和各项评分，支持横向滚动
- * 支持对Level分数进行排序，支持Model Name和Agent Framework筛选
+ * 支持对Level分数进行排序，支持Model Name、Agent Framework和Organization筛选
  */
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { TimePeriodType } from '../../types';
@@ -15,7 +15,7 @@ interface LeaderboardProps {
 
 type SortField = 'level1Score' | 'level2Score' | 'level3Score' | 'level4Score' | 'overallScore';
 type SortDirection = 'asc' | 'desc';
-type FilterField = 'modelName' | 'agentFramework';
+type FilterField = 'modelName' | 'agentFramework' | 'organization';
 
 interface SortConfig {
   field: SortField | null;
@@ -25,6 +25,7 @@ interface SortConfig {
 interface FilterConfig {
   modelName: string[];
   agentFramework: string[];
+  organization: string[];
 }
 
 export const Leaderboard: React.FC<LeaderboardProps> = ({
@@ -43,21 +44,25 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
   // 筛选状态
   const [filterConfig, setFilterConfig] = useState<FilterConfig>({
     modelName: [],
-    agentFramework: []
+    agentFramework: [],
+    organization: []
   });
 
   // 筛选下拉框显示状态
   const [showFilters, setShowFilters] = useState<{
     modelName: boolean;
     agentFramework: boolean;
+    organization: boolean;
   }>({
     modelName: false,
-    agentFramework: false
+    agentFramework: false,
+    organization: false
   });
 
   // 筛选下拉框引用，用于点击外部关闭
   const modelNameFilterRef = useRef<HTMLDivElement>(null);
   const agentFrameworkFilterRef = useRef<HTMLDivElement>(null);
+  const organizationFilterRef = useRef<HTMLDivElement>(null);
 
   // 点击外部关闭筛选下拉框
   useEffect(() => {
@@ -74,6 +79,12 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
       ) {
         setShowFilters(prev => ({ ...prev, agentFramework: false }));
       }
+      if (
+        organizationFilterRef.current && 
+        !organizationFilterRef.current.contains(event.target as Node)
+      ) {
+        setShowFilters(prev => ({ ...prev, organization: false }));
+      }
     };
 
     document.addEventListener('mousedown', handleClickOutside);
@@ -82,14 +93,16 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
 
   // 获取去重后的筛选选项
   const filterOptions = useMemo(() => {
-    if (!data) return { modelName: [], agentFramework: [] };
+    if (!data) return { modelName: [], agentFramework: [], organization: [] };
 
     const modelNames = [...new Set(data.map(entry => entry.modelName))].sort();
     const agentFrameworks = [...new Set(data.map(entry => entry.agentFramework))].sort();
+    const organizations = [...new Set(data.map(entry => entry.organization))].sort();
 
     return {
       modelName: modelNames,
-      agentFramework: agentFrameworks
+      agentFramework: agentFrameworks,
+      organization: organizations
     };
   }, [data]);
 
@@ -102,8 +115,10 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                             filterConfig.modelName.includes(entry.modelName);
       const agentFrameworkMatch = filterConfig.agentFramework.length === 0 || 
                                  filterConfig.agentFramework.includes(entry.agentFramework);
+      const organizationMatch = filterConfig.organization.length === 0 || 
+                               filterConfig.organization.includes(entry.organization);
       
-      return modelNameMatch && agentFrameworkMatch;
+      return modelNameMatch && agentFrameworkMatch && organizationMatch;
     });
   }, [data, filterConfig]);
 
@@ -169,7 +184,9 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
       ...prev,
       [field]: !prev[field],
       // 关闭其他筛选框
-      ...(field === 'modelName' ? { agentFramework: false } : { modelName: false })
+      ...(field === 'modelName' ? { agentFramework: false, organization: false } : {}),
+      ...(field === 'agentFramework' ? { modelName: false, organization: false } : {}),
+      ...(field === 'organization' ? { modelName: false, agentFramework: false } : {})
     }));
   };
 
@@ -248,10 +265,19 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
     const options = filterOptions[field];
     const selectedValues = filterConfig[field];
 
+    const getFieldDisplayName = (field: FilterField) => {
+      switch (field) {
+        case 'modelName': return 'Model Name';
+        case 'agentFramework': return 'Agent Framework';
+        case 'organization': return 'Organization';
+        default: return '';
+      }
+    };
+
     return (
       <div className="leaderboard__filter-dropdown">
         <div className="leaderboard__filter-header">
-          <span>Filter {field === 'modelName' ? 'Model Name' : 'Agent Framework'}</span>
+          <span>Filter {getFieldDisplayName(field)}</span>
           {selectedValues.length > 0 && (
             <button
               className="leaderboard__filter-clear"
@@ -262,7 +288,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
           )}
         </div>
         <div className="leaderboard__filter-options">
-          {options.map((option:any) => (
+          {options.map((option: any) => (
             <label key={option} className="leaderboard__filter-option">
               <input
                 type="checkbox"
@@ -368,9 +394,17 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                   </button>
                   {renderFilterDropdown('agentFramework')}
                 </div>
-                <div className="leaderboard__header-cell">
-                  Organization
+                <div className="leaderboard__header-cell leaderboard__header-cell--filterable" ref={organizationFilterRef}>
+                  <span>ORGANIZATION</span>
+                  <button
+                    className="leaderboard__filter-button"
+                    onClick={() => toggleFilter('organization')}
+                  >
+                    {renderFilterIcon('organization')}
+                  </button>
+                  {renderFilterDropdown('organization')}
                 </div>
+
                 <div
                   className={`leaderboard__header-cell leaderboard__header-cell--sortable ${
                     sortConfig.field === 'overallScore' ? 'active' : ''
