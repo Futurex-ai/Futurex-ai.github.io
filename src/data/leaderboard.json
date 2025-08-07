@@ -23,7 +23,7 @@
                 "organization": "Google"
             },
             {
-                "modelName": "GPT-4o-mini",
+                "modelName": "GPT-o4-mini",
                 "agentFramework": "Search",
                 "overallScore": 21.11,
                 "level1Score": 70.37,
@@ -290,7 +290,7 @@
                 "organization": "Google"
             },
             {
-                "modelName": "GPT-4o-mini",
+                "modelName": "GPT-o4-mini",
                 "agentFramework": "Search",
                 "overallScore": 21.5,
                 "level1Score": 69.23,
@@ -545,7 +545,7 @@
                 "organization": "Grok"
             },
             {
-                "modelName": "GPT-4o-mini",
+                "modelName": "GPT-o4-mini",
                 "agentFramework": "Search",
                 "overallScore": 20.31,
                 "level1Score": 66.67,
