@@ -20,7 +20,7 @@ export interface LeaderboardData {
   monthly: Record<string, LeaderboardEntry[]>;
 }
 
-export type TimePeriodType = "weekly" | "monthly";
+export type TimePeriodType = "overall" | "weekly" | "monthly";
 
 export interface TimeOption {
   value: string;

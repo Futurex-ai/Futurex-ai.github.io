@@ -4,6 +4,7 @@
  */
 import React, { useState } from "react";
 import Tea from "byted-tea-sdk";
+
 import { Banner } from "./components/Banner";
 import { LeaderboardDescription } from "./components/LeaderboardDescription";
 import { MarkdownView } from "./components/MarkdownView";
@@ -15,12 +16,11 @@ const App: React.FC = () => {
     "overview"
   );
   const [timePeriodType, setTimePeriodType] =
-    useState<TimePeriodType>("weekly");
-  const [selectedTime, setSelectedTime] = useState<string>("2025-08-W1");
-
+    useState<TimePeriodType>("overall"); // 默认设置为overall
+  const [selectedTime, setSelectedTime] = useState<string>("overall"); // 默认选中overall
   Tea.init({
-    app_id: 635684, 
-    channel: "cn", 
+    app_id: 635684,
+    channel: "cn",
     // log: true, // 开启后会控制台会打印日志
   });
 
@@ -31,7 +31,6 @@ const App: React.FC = () => {
   Tea.event("predefine_pageview", {
     url: window.location.href,
   });
-
   return (
     <div
       style={{
