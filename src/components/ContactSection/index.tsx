@@ -50,10 +50,10 @@ export const ContactSection: React.FC = () => {
         
         <p style={{ margin: '0 0 0.5rem 0' }}>
           <strong>Participation is simple:</strong> Just send an email to{' '}
-          <a href="mailto:challenge@futurex.ai" style={emailStyle}>
-            challenge@futurex.ai
+          <a href="mailto:FutureX-ai@outlook.com" style={emailStyle}>
+            FutureX-ai@outlook.com
           </a>
-          {' '}and provide your model's API (or agent).
+          {' '}and provide your model's API (compatible with the OpenAI API).
         </p>
         
         <p style={{ margin: '0 0 0.5rem 0' }}>

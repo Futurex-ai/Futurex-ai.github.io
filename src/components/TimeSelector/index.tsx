@@ -112,7 +112,7 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
     display: 'flex',
     alignItems: 'center',
     gap: '1.5rem',
-    marginBottom: '2rem',
+    marginBottom: '1.6rem',
     flexWrap: 'wrap'
   };
 

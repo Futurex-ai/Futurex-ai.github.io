@@ -7,8 +7,7 @@ import React from 'react';
 export const LeaderboardDescription: React.FC = () => {
   const containerStyle: React.CSSProperties = {
     background: '#fafafa',
-    paddingTop: '2.5rem',
-    paddingBottom: '0.5rem'
+    padding: '1.8rem 0 0.3rem 0'  
   };
 
   const contentStyle: React.CSSProperties = {
@@ -18,50 +17,62 @@ export const LeaderboardDescription: React.FC = () => {
   };
 
   const textStyle: React.CSSProperties = {
-    fontSize: '1rem',
-    lineHeight: 1.7,
+    fontSize: '1rem',     
+    lineHeight: 1.5,       
     color: '#374151',
     fontWeight: '400',
     letterSpacing: '0.0125em',
-    marginBottom: '1.5rem'
+    marginBottom: '0.5rem'  
   };
 
-  const linkStyle: React.CSSProperties = {
-    color: '#3b82f6',
-    textDecoration: 'underline',
-    fontWeight: '500'
+  const listStyle: React.CSSProperties = {
+    fontSize: '1rem',      // 从 1rem 减少到 0.9rem
+    lineHeight: 1.5,         // 从 1.7 减少到 1.5
+    color: '#374151',
+    fontWeight: '400',
+    letterSpacing: '0.0125em',
+    marginBottom: '0.5rem', 
+    paddingLeft: '1.2rem'    // 从 1.5rem 减少到 1.2rem
+  };
+
+  const listItemStyle: React.CSSProperties = {
+    marginBottom: '0.2rem'   // 从 0.5rem 减少到 0.2rem
+  };
+
+  const boldStyle: React.CSSProperties = {
+    fontWeight: '600',
+    color: '#1f2937'
   };
 
   return (
     <div style={containerStyle}>
       <div style={contentStyle}>
         <p style={textStyle}>
-          GAIA is made of more than 450 non-trivial question with an unambiguous answer, requiring different levels of tooling and autonomy to solve. It is therefore divided in 3 levels, where level 1 should be breakable by very good LLMs, and level 3 indicate a strong jump in model capabilities. Each level is divided into a fully public dev set for validation, and a test set with private answers and metadata.
+          <strong style={boldStyle}>FutureX</strong> is a dynamic, real-time benchmark designed to predict the unknown future, which fundamentally eliminates data contamination by requiring agents to forecast actual future events. The platform features a fully automated pipeline that integrates 195 high-quality sources across 11 major domains to enable continuous, large-scale evaluation of LLM agents.
         </p>
         
-        <p style={{...textStyle, marginBottom: 0}}>
-          GAIA data can be found in{' '}
-          <span style={linkStyle}>this dataset</span>. Questions are contained in{' '}
-          <code style={{
-            background: '#f3f4f6',
-            padding: '0.125rem 0.375rem',
-            borderRadius: '4px',
-            fontSize: '0.875rem',
-            fontFamily: 'Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
-            color: '#1f2937'
-          }}>
-            metadata.jsonl
-          </code>. Some questions come with an additional file, that can be found in the same folder and whose id is given in the field{' '}
-          <code style={{
-            background: '#f3f4f6',
-            padding: '0.125rem 0.375rem',
-            borderRadius: '4px',
-            fontSize: '0.875rem',
-            fontFamily: 'Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
-            color: '#1f2937'
-          }}>
-            file_name
-          </code>.
+        <p style={{...textStyle, marginBottom: '0.4rem'}}>
+         Futurex involves 4 levels:
+        </p>
+        <ul style={{...listStyle, marginBottom: '0.6rem'}}>
+          <li style={listItemStyle}><strong style={boldStyle}>Level 1:</strong> single-choice questions</li>
+          <li style={listItemStyle}><strong style={boldStyle}>Level 2:</strong> multi-choices questions</li>
+          <li style={listItemStyle}><strong style={boldStyle}>Level 3:</strong> Open-ended questions with low volatility</li>
+          <li style={listItemStyle}><strong style={boldStyle}>Level 4:</strong> Open-ended questions with high volatility</li>
+        </ul>
+
+        <p style={{...textStyle, marginBottom: '0.4rem'}}>
+        The models under evaluation include 4 agent frameworks:
+        </p>
+        <ul style={{...listStyle, marginBottom: '0.4rem'}}>
+          <li style={listItemStyle}><strong style={boldStyle}>LLM:</strong> base LLMs with no tool usage</li>
+          <li style={listItemStyle}><strong style={boldStyle}>Search:</strong> LLMs with reasoning and search capabilities</li>
+          <li style={listItemStyle}><strong style={boldStyle}>Open-Deep-Research:</strong> open-source Deep Research Agent frameworks, like Smolagents and AgentOrchestra</li>
+          <li style={listItemStyle}><strong style={boldStyle}>Closed-Deep-Research:</strong> closed-source Deep Research Agents, like Gemini Deep Research</li>
+        </ul>
+
+        <p style={{...textStyle, marginBottom: '0', marginTop: '0.6rem'}}>
+          for a total of <strong style={boldStyle}>27 models</strong>.
         </p>
       </div>
     </div>

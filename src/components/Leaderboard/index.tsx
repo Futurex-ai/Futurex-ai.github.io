@@ -348,12 +348,11 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
           </p>
 
           {/* 提示信息 */}
-          <div className="leaderboard__empty-tip">
-            💡 {timePeriodType === 'monthly'
-              ? "Monthly data will be available in the future. Currently only Weekly data is available."
-              : "Weekly data is available for: July Week 3, July Week 4, August Week 1"
-            }
-          </div>
+          {timePeriodType === 'monthly' && (
+            <div className="leaderboard__empty-tip">
+                "Monthly data will be available in the future. Currently only Weekly data is available."
+            </div>
+          )}
         </div>
       </div>
     );
