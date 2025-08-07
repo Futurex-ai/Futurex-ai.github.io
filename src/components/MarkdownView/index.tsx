@@ -45,7 +45,8 @@ const imageMap = {
 const components = {
   img: ({ src, alt, ...props }) => {
     const resolvedSrc = imageMap[src] || src;
-    return <img  style={{  height: 'auto', width: '100%' }}  src={resolvedSrc} alt={alt} {...props} />;
+    const width = src?.includes('20250805150617761') ? '90%' : '100%';
+    return <img  style={{  height: 'auto', width }}  src={resolvedSrc} alt={alt} {...props} />;
   }
 };
 
