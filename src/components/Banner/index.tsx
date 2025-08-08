@@ -73,7 +73,7 @@ export const Banner: React.FC<BannerProps> = ({ activeTab, onTabChange }) => {
       <div style={contentStyle}>
         <div>
           <h1 style={titleStyle}>FutureX</h1>
-          <p style={subtitleStyle}>An Advanced Live Benchmark for LLM Agents in Future Prediction</p>
+          <p style={subtitleStyle}>Can AI predict the future? The next frontier for LLM Agents!</p>
         </div>
         <div style={tabSwitcherStyle}>
           <button

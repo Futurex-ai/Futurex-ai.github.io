@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-    
-          import { NextUIProvider } from '@nextui-org/react';
-      
-    import App from './App';
-    import './entry.css';
+import { NextUIProvider } from '@nextui-org/react';
+import App from './App';
+import './entry.css';
     
     
 

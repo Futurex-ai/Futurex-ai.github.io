@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.markdown-body ul { list-style: disc !important; padding-left: 1.5rem; }
+.markdown-body ol { list-style: decimal !important; padding-left: 1.5rem; }
+.markdown-body li { margin: 0.25rem 0; }
+
+/* 可选：嵌套列表更好看 */
+.markdown-body ul ul { list-style: circle !important; }
+.markdown-body ol ol { list-style: lower-alpha !important; }
+
+.markdown-body img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* 若你仍喜欢用 <div align="center"> 包图片，给它兜底一下 */
+  .markdown-body div[align="center"] img,
+  .markdown-body div[style*="text-align:center"] img {
+    display: inline-block;       /* 使 text-align:center 生效 */
+  }

@@ -4,7 +4,7 @@
  */
 import React, { useState } from "react";
 import Tea from "byted-tea-sdk";
-
+import Doc from "./components/Doc";
 import { Banner } from "./components/Banner";
 import { LeaderboardDescription } from "./components/LeaderboardDescription";
 import { MarkdownView } from "./components/MarkdownView";
