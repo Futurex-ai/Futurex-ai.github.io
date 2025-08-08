@@ -48,11 +48,8 @@ export const LeaderboardDescription: React.FC = () => {
     <div style={containerStyle}>
       <div style={contentStyle}>
         <p style={textStyle}>
-          <strong style={boldStyle}>FutureX</strong> is a dynamic, real-time benchmark designed to predict the unknown future, which fundamentally eliminates data contamination by requiring agents to forecast actual future events. The platform features a fully automated pipeline that integrates 195 high-quality sources across 11 major domains to enable continuous, large-scale evaluation of LLM agents.
-        </p>
-        
-        <p style={{...textStyle, marginBottom: '0.4rem'}}>
-         Futurex involves 4 levels:
+          <strong style={boldStyle}>FutureX</strong> is a dynamic, real-time benchmark designed to predict the unknown future, which fundamentally eliminates data contamination by requiring agents to forecast actual future events. The platform features a fully automated pipeline that integrates 195 high-quality sources across multiple domains to enable continuous, large-scale evaluation of LLM agents.
+         Futurex involves 4 difficulty tiers:
         </p>
         <ul style={{...listStyle, marginBottom: '0.6rem'}}>
           <li style={listItemStyle}><strong style={boldStyle}>Level 1:</strong> single-choice questions</li>
@@ -62,7 +59,7 @@ export const LeaderboardDescription: React.FC = () => {
         </ul>
 
         <p style={{...textStyle, marginBottom: '0.4rem'}}>
-        The models under evaluation include 4 agent frameworks:
+        The models under evaluation include various agent frameworks:
         </p>
         <ul style={{...listStyle, marginBottom: '0.4rem'}}>
           <li style={listItemStyle}><strong style={boldStyle}>LLM:</strong> base LLMs with no tool usage</li>
@@ -72,7 +69,7 @@ export const LeaderboardDescription: React.FC = () => {
         </ul>
 
         <p style={{...textStyle, marginBottom: '0', marginTop: '0.6rem'}}>
-          for a total of <strong style={boldStyle}>27 models</strong>.
+          for a total of <strong style={boldStyle}>27 models</strong> currently.
         </p>
       </div>
     </div>

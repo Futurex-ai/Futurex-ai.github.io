@@ -422,7 +422,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                   }`}
                   onClick={() => handleSort('level1Score')}
                 >
-                  Level 1
+                  Level 1 (10%)
                   {renderSortIcon('level1Score')}
                 </div>
                 <div
@@ -431,7 +431,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                   }`}
                   onClick={() => handleSort('level2Score')}
                 >
-                  Level 2
+                  Level 2 (20%)
                   {renderSortIcon('level2Score')}
                 </div>
                 <div
@@ -440,7 +440,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                   }`}
                   onClick={() => handleSort('level3Score')}
                 >
-                  Level 3
+                  Level 3 (30%)
                   {renderSortIcon('level3Score')}
                 </div>
                 <div
@@ -449,7 +449,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                   }`}
                   onClick={() => handleSort('level4Score')}
                 >
-                  Level 4
+                  Level 4 (40%)
                   {renderSortIcon('level4Score')}
                 </div>
               </div>
