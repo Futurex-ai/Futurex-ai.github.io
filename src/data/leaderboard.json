@@ -344,21 +344,6 @@
                 "level_3_num_events": 252.0,
                 "level_4_num_events": 528.0,
                 "organization": "OpenAI"
-            },
-            {
-                "modelName": "Doubao-Seed-1.6",
-                "agentFramework": "Search",
-                "overallScore": 0.08,
-                "level1Score": 0.78,
-                "level2Score": 0.0,
-                "level3Score": 0.0,
-                "level4Score": 0.0,
-                "numberOfEvents": 945,
-                "level_1_num_events": 64.0,
-                "level_2_num_events": 85.0,
-                "level_3_num_events": 262.0,
-                "level_4_num_events": 534.0,
-                "organization": "Seed"
             }
         ],
   "weekly": {
