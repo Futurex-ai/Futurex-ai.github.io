@@ -14,7 +14,7 @@ export const Banner: React.FC<BannerProps> = ({ activeTab, onTabChange }) => {
   const bannerStyle: React.CSSProperties = {
     background:  activeTab === 'overview' ? 'white' : 'rgb(250, 250, 250)', // 改为纯白背景
     color: '#1a1a1a',
-    padding: '3rem 0 2rem 0',
+    padding: '3rem 0 1rem 0',
     // borderBottom: activeTab !== 'overview' ? '1px solid #e5e7eb' : 'none' // 添加简洁的底部边框
   };
 
