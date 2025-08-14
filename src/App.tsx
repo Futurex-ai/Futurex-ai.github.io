@@ -1,23 +1,30 @@
 /**
  * 应用主入口组件
- * 使用 useState 管理应用状态，根据当前激活的 tab 渲染相应内容
+ * 管理分类tab和子tab的状态，根据当前激活的分类和tab渲染相应内容
  */
 import React, { useState } from "react";
 import Tea from "byted-tea-sdk";
 import Doc from "./components/Doc";
+import { TopBanner, CategoryType } from "./components/TopBanner";
 import { Banner } from "./components/Banner";
 import { LeaderboardDescription } from "./components/LeaderboardDescription";
 import { MarkdownView } from "./components/MarkdownView";
 import { LeaderboardView } from "./components/LeaderboardView";
+import { FinanceOverview } from "./components/FinanceOverview";
 import { TimePeriodType } from "./types";
 
 const App: React.FC = () => {
+  // 分类状态管理
+  const [activeCategory, setActiveCategory] = useState<CategoryType>("general");
+
+  // General分类下的子tab状态管理
   const [activeTab, setActiveTab] = useState<"overview" | "leaderboard">(
     "overview"
   );
   const [timePeriodType, setTimePeriodType] =
-    useState<TimePeriodType>("overall"); // 默认设置为overall
-  const [selectedTime, setSelectedTime] = useState<string>("overall"); // 默认选中overall
+    useState<TimePeriodType>("overall");
+  const [selectedTime, setSelectedTime] = useState<string>("overall");
+
   Tea.init({
     app_id: 635684,
     channel: "cn",
@@ -31,6 +38,50 @@ const App: React.FC = () => {
   Tea.event("predefine_pageview", {
     url: window.location.href,
   });
+
+  // 当切换分类时，重置子tab状态
+  const handleCategoryChange = (category: CategoryType) => {
+    setActiveCategory(category);
+    if (category === "finance") {
+      setActiveTab("overview"); // Finance分类暂时只有overview
+    }
+  };
+
+  const renderContent = () => {
+    if (activeCategory === "finance") {
+      // Finance分类：显示空页面
+      return (
+        <main
+          style={{ minHeight: "calc(100vh - 240px)", background: "#ffffff" }}
+        >
+          <FinanceOverview />
+        </main>
+      );
+    }
+
+    // General分类：显示原有的Banner和内容
+    return (
+      <>
+        <Banner activeTab={activeTab} onTabChange={setActiveTab} />
+        {activeTab === "leaderboard" && <LeaderboardDescription />}
+        <main
+          style={{ minHeight: "calc(100vh - 240px)", background: "#ffffff" }}
+        >
+          {activeTab === "overview" ? (
+            <MarkdownView />
+          ) : (
+            <LeaderboardView
+              timePeriodType={timePeriodType}
+              selectedTime={selectedTime}
+              onTimePeriodTypeChange={setTimePeriodType}
+              onSelectedTimeChange={setSelectedTime}
+            />
+          )}
+        </main>
+      </>
+    );
+  };
+
   return (
     <div
       style={{
@@ -40,22 +91,17 @@ const App: React.FC = () => {
         WebkitFontSmoothing: "antialiased",
         MozOsxFontSmoothing: "grayscale",
         lineHeight: 1.5,
+        background: "#fafafa",
       }}
     >
-      <Banner activeTab={activeTab} onTabChange={setActiveTab} />
-      {activeTab === "leaderboard" && <LeaderboardDescription />}
-      <main style={{ minHeight: "calc(100vh - 180px)", background: "#ffffff" }}>
-        {activeTab === "overview" ? (
-          <MarkdownView />
-        ) : (
-          <LeaderboardView
-            timePeriodType={timePeriodType}
-            selectedTime={selectedTime}
-            onTimePeriodTypeChange={setTimePeriodType}
-            onSelectedTimeChange={setSelectedTime}
-          />
-        )}
-      </main>
+      {/* 顶部分类Banner */}
+      <TopBanner
+        activeCategory={activeCategory}
+        onCategoryChange={handleCategoryChange}
+      />
+
+      {/* 根据选择的分类渲染不同内容 */}
+      {renderContent()}
     </div>
   );
 };

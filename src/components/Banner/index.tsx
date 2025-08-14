@@ -12,10 +12,10 @@ interface BannerProps {
 
 export const Banner: React.FC<BannerProps> = ({ activeTab, onTabChange }) => {
   const bannerStyle: React.CSSProperties = {
-    background: 'white', // 改为纯白背景
+    background:  activeTab === 'overview' ? 'white' : 'rgb(250, 250, 250)', // 改为纯白背景
     color: '#1a1a1a',
     padding: '3rem 0 2rem 0',
-    borderBottom: '1px solid #e5e7eb' // 添加简洁的底部边框
+    // borderBottom: activeTab !== 'overview' ? '1px solid #e5e7eb' : 'none' // 添加简洁的底部边框
   };
 
   const contentStyle: React.CSSProperties = {
@@ -69,7 +69,7 @@ export const Banner: React.FC<BannerProps> = ({ activeTab, onTabChange }) => {
   });
 
   return (
-    <div style={bannerStyle}>
+    <div style={bannerStyle }>
       <div style={contentStyle}>
         <div>
           <h1 style={titleStyle}>FutureX</h1>
