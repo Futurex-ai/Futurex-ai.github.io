@@ -26,3 +26,5 @@ export interface TimeOption {
   value: string;
   label: string;
 }
+
+export type CategoryType = "general" | "finance";

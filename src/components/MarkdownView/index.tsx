@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import 'github-markdown-css';
+import './index.less';
 
 import defaultMarkdownContent from '../../data/content.md';
 
@@ -28,7 +29,7 @@ const imageMap: Record<string, string> = {
 
 export const MarkdownView: React.FC = () => {
   const containerStyle: React.CSSProperties = { maxWidth: '1400px', margin: '0 auto', padding: '2rem' };
-  const contentStyle: React.CSSProperties = { background: 'transparent', padding: '3rem', lineHeight: 1.6 };
+  const contentStyle: React.CSSProperties = { background: 'transparent', padding: '0rem 0rem', lineHeight: 1.6 };
 
   const components = {
     // 统一处理所有 <img>（包括 md 语法渲染出来的和原生 HTML 的）

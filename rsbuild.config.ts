@@ -16,7 +16,7 @@ export default defineConfig({
   },
   html: {
     title: "futurex",
-    favicon: "./src/assets/benchmarking.png",
+    favicon: "./src/assets/benchmarking.svg",
     meta: {
       description:
         "Comprehensive benchmark leaderboard for research papers and technical evaluations",
