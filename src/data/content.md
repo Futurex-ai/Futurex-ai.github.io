@@ -37,12 +37,15 @@ To evaluate agent capabilities with greater granularity, we have meticulously de
 <div style="text-align: center;">
   <div style="display: inline-block;">
 
-| **Level** | **Tier**     | **Event Type**                             | **Focus**                                                                                                                                     | **Planning** | **Reasoning** | **Searching** |
-|-----------|--------------|--------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------|--------------|---------------|---------------|
-| 1         | Selection    | Single-choice                              | Choose exactly one best future from a given list.                                                                                             | Weak         | Weak          | Weak          |
-| 2         | Coverage     | Multi-choice                               | Exhaustive discrimination and Return *all* correct futures.                                                                                   | Weak         | Medium        | Medium        |
-| 3         | Navigation   | Open-ended (low volatility)                | Interactive search & synthesis <br> Navigate sources (click, scroll, filter) <br> Integrate evidence for an answer.                           | Medium       | Medium        | Strong        |
-| 4         | Oracle       | Open-ended <br> (high volatility)          | Forecast high-volatility, open-ended events <br> Conduct wide-scope information search <br> Reason and predict under deep uncertainty ——*"Super-agent"* tier | Strong       | Strong        | Strong        |
+### 表格已更新
+
+| **Level** | **Tier** | **Event Type** | **Focus** | **Assessed Agent's Skills** | | |
+|---|---|---|---|---|---|---|
+| | | | | **Planning**| **Reasoning** | **Searching** |
+| 1 | Basic | Few choices | Choose from fewer than 4 options from a given list. | Weak | Weak | Weak |
+| 2 | Wide Search | M any Choices | Exhaustive discrimination and Return *all* correct futures. | Weak | Medium | Medium |
+| 3 | Deep Search | Open-ended (low volatility) | Interactive search & synthesis <br>Navigate sources (click, scroll, filter) <br>Integrate evidence for an answer. | Medium | Medium | Strong |
+| 4 | Super Agent | Open-ended (high volatility) | Forecast high-volatility, open-ended events <br>Conduct wide-scope information search Reason <br>Predict under deep uncertainty *``Super-agent''* tier | Strong | Strong | Strong |
 
   </div>
 </div>
