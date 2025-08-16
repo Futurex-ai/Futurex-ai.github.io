@@ -1,5 +1,6 @@
 import { defineConfig } from "@rsbuild/core";
 import { pluginReact } from "@rsbuild/plugin-react";
+import { pluginLess } from "@rsbuild/plugin-less"; // 1. 导入插件
 
 export default defineConfig({
   output: {
@@ -8,7 +9,10 @@ export default defineConfig({
     },
     assetPrefix: "./",
   },
-  plugins: [pluginReact()],
+  plugins: [
+    pluginReact(),
+    pluginLess(), // 2. 添加插件
+  ],
   source: {
     entry: {
       index: "./src/entry.tsx",
