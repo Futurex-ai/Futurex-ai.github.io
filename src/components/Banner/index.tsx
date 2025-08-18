@@ -36,7 +36,10 @@ export const Banner: React.FC<BannerProps> = ({ activeTab, onTabChange }) => {
       : sp500Ref.current;
 
   // ===== Indicator state =====
-  const [indicator, setIndicator] = React.useState<{ left: number; width: number }>({
+  const [indicator, setIndicator] = React.useState<{
+    left: number;
+    width: number;
+  }>({
     left: 0,
     width: 0,
   });
@@ -57,7 +60,8 @@ export const Banner: React.FC<BannerProps> = ({ activeTab, onTabChange }) => {
 
   // Keep in sync on resize
   React.useEffect(() => {
-    const onResize = () => requestAnimationFrame(() => moveIndicatorToEl(refFor(activeTab)));
+    const onResize = () =>
+      requestAnimationFrame(() => moveIndicatorToEl(refFor(activeTab)));
     window.addEventListener("resize", onResize, { passive: true });
     return () => window.removeEventListener("resize", onResize);
   }, [activeTab, moveIndicatorToEl]);
@@ -102,7 +106,7 @@ export const Banner: React.FC<BannerProps> = ({ activeTab, onTabChange }) => {
       ro.observe(el);
     } else {
       const onResize = () => measure();
-      window.addEventListener("resize", onResize, { passive: true });
+      (window as any).addEventListener("resize", onResize, { passive: true });
       return () => window.removeEventListener("resize", onResize);
     }
     return () => {
@@ -127,7 +131,7 @@ export const Banner: React.FC<BannerProps> = ({ activeTab, onTabChange }) => {
   const border = "#e5e7eb";
 
   const headerStyle: React.CSSProperties = {
-    position: "fixed",       // ★ 悬浮在顶部
+    position: "fixed", // ★ 悬浮在顶部
     top: 0,
     left: 0,
     right: 0,
@@ -138,7 +142,7 @@ export const Banner: React.FC<BannerProps> = ({ activeTab, onTabChange }) => {
     padding: "calc(env(safe-area-inset-top, 0px) + 1.2rem) 0 0.8rem 0",
     overflow: "visible",
     borderBottom: `1px solid ${border}`,
-    boxShadow: elevated ? "0 8px 20px rgba(17, 24, 39, 0.06)" : "none",
+    // boxShadow: elevated ? "0 8px 20px rgba(17, 24, 39, 0.06)" : "none",
     transition: "box-shadow 160ms ease",
   };
 
@@ -168,7 +172,7 @@ export const Banner: React.FC<BannerProps> = ({ activeTab, onTabChange }) => {
     display: "inline-flex",
     alignItems: "center",
     gap: 20,
-    borderBottom: `1px solid ${border}`,
+    // borderBottom: `1px solid ${border}`,
     paddingBottom: 6,
   };
 
@@ -178,7 +182,7 @@ export const Banner: React.FC<BannerProps> = ({ activeTab, onTabChange }) => {
     bottom: -1,
     width: indicator.width,
     height: 2,
-    background: "#111827",
+    // background: "#111827",
     borderRadius: 2,
     transition: "left 180ms ease, width 180ms ease",
     pointerEvents: "none",
@@ -204,7 +208,10 @@ export const Banner: React.FC<BannerProps> = ({ activeTab, onTabChange }) => {
     transition: "color 120ms ease, transform 120ms ease",
   };
 
-  const getBtnStyle = (active: boolean, hovered: boolean): React.CSSProperties => ({
+  const getBtnStyle = (
+    active: boolean,
+    hovered: boolean
+  ): React.CSSProperties => ({
     ...btnBase,
     color: active ? text : hovered ? "#374151" : textMuted,
     transform: active ? "translateY(-0.5px)" : "none",
@@ -214,7 +221,11 @@ export const Banner: React.FC<BannerProps> = ({ activeTab, onTabChange }) => {
   const [hoverIndex, setHoverIndex] = React.useState<number | null>(null);
 
   // Helpers
-  const clickTab = (tab: BannerTab, eventName: string, el?: HTMLButtonElement) => {
+  const clickTab = (
+    tab: BannerTab,
+    eventName: string,
+    el?: HTMLButtonElement
+  ) => {
     onTabChange(tab);
     Tea.event("crawl_api_custom", { name: eventName });
     moveIndicatorToEl(el ?? refFor(tab));
@@ -252,7 +263,9 @@ export const Banner: React.FC<BannerProps> = ({ activeTab, onTabChange }) => {
               style={getBtnStyle(activeTab === "overview", hoverIndex === 0)}
               onMouseEnter={() => setHoverIndex(0)}
               onMouseLeave={() => setHoverIndex(null)}
-              onClick={(e) => clickTab("overview", "点击Overview", e.currentTarget)}
+              onClick={(e) =>
+                clickTab("overview", "点击Overview", e.currentTarget)
+              }
             >
               <FiCompass style={iconStyle} />
               Project Overview
@@ -267,7 +280,9 @@ export const Banner: React.FC<BannerProps> = ({ activeTab, onTabChange }) => {
               style={getBtnStyle(activeTab === "leaderboard", hoverIndex === 1)}
               onMouseEnter={() => setHoverIndex(1)}
               onMouseLeave={() => setHoverIndex(null)}
-              onClick={(e) => clickTab("leaderboard", "点击Leaderboard", e.currentTarget)}
+              onClick={(e) =>
+                clickTab("leaderboard", "点击Leaderboard", e.currentTarget)
+              }
             >
               <FiAward style={iconStyle} />
               Overall Leaderboard
@@ -293,7 +308,6 @@ export const Banner: React.FC<BannerProps> = ({ activeTab, onTabChange }) => {
 
       {/* Spacer: push content below the fixed header */}
       <div aria-hidden style={{ height: headerH }} />
-
     </>
   );
 };
