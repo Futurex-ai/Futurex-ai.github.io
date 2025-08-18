@@ -421,7 +421,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                     content={
                       <div style={{ width: 500 }}>
                         The models under evaluation include 4 agent frameworks:
-                        <div> - LLM: base LLMs with no tool usage </div>
+                        <div> - LLM: base LLMs without tools </div>
                         <div>
                           {" "}
                           - Search: LLMs with reasoning and search capabilities{" "}
@@ -479,7 +479,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                   }`}
                   onClick={() => handleSort("level1Score")}
                 >
-                  <BottomTooltip content="single-choice questions">
+                  <BottomTooltip content="single-choice questions with fewer than 4 options">
                     Level 1 (10%)
                   </BottomTooltip>
                   {renderSortIcon("level1Score")}
