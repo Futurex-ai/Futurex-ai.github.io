@@ -22,8 +22,8 @@
 }
 
 .question-table__table-container {
-  /* height: 460px; */
-  max-height: 600px;
+  /* height: 610px; */
+  max-height: 620px;
   overflow: hidden;
   position: relative;
 }
@@ -117,7 +117,7 @@
 /* Level样式 - 基础样式优化 */
 .question-table__level {
   display: inline-block;
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 500;
   padding: 0.15rem 0.5rem;
   border-radius: 4px;
@@ -172,7 +172,7 @@
   display: inline-block;
   background: #f1f5f9;
   color: #475569;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 400;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
