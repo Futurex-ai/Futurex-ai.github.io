@@ -924,4 +924,106 @@
   z-index: 0;
 }
 
+/* 让下拉可以溢出容器；横向仍然可滚 */
+.leaderboard__table-container {
+  overflow: visible !important;         /* 关键：不要剪裁弹层 */
+}
+.leaderboard__scroll-wrapper {
+  overflow-x: auto !important;          /* 保留横向滚动 */
+  overflow-y: visible !important;       /* 允许下拉往下溢出 */
+}
+
+/* 表头整体永远在内容之上 */
+.leaderboard__sticky-header {
+  z-index: 1000 !important;
+}
+
+/* 可筛选的表头格提升一层，作为弹层定位参考 */
+.leaderboard__header-cell--filterable {
+  position: relative !important;
+  z-index: 1001 !important;
+}
+
+/* 下拉本体的层级拉满，盖住表格内容/粘性列 */
+.leaderboard__filter-dropdown {
+  z-index: 3000 !important;             /* 够高，避免被任何行/阴影遮住 */
+}
+
+/* 内容区的粘性列保持在下拉之下（但高于普通格子） */
+.leaderboard__cell--rank,
+.leaderboard__cell--name {
+  z-index: 120 !important;
+}
+
+/* 允许弹层溢出容器；横向仍然可滚 */
+.leaderboard__table-container {
+  overflow: visible !important;   /* 关键：不要裁剪弹层 */
+}
+.leaderboard__scroll-wrapper {
+  overflow-x: auto !important;    /* 保留横向滚动 */
+  overflow-y: visible !important; /* 允许向下/向上溢出 */
+  position: relative;             /* 作为层级基准更稳 */
+  z-index: 0;
+}
+
+/* 表头永远在内容之上 */
+.leaderboard__sticky-header {
+  z-index: 2000 !important;
+  background: #f9fafb !important; /* 不透明，防止透字 */
+}
+
+/* “可筛选”的表头格作为弹层定位参照，层级再抬高一点 */
+.leaderboard__header-cell--filterable {
+  position: relative !important;
+  z-index: 2100 !important;
+}
+
+/* 你的自定义下拉（表头里的）覆盖表格 */
+.leaderboard__filter-dropdown {
+  z-index: 4000 !important;
+}
+
+/* 内容区的粘性列在表头之下、在普通格之上 */
+.leaderboard__cell--rank,
+.leaderboard__cell--name {
+  z-index: 120 !important;
+  background: #fff !important;   /* 不透明，防止下面列“透上来” */
+  box-shadow: inset -1px 0 0 #f3f4f6;
+  border-right: none !important;
+}
+
+/* 统一把行的层级压低，避免个别行抢到表头/下拉之上 */
+.leaderboard__row,
+.leaderboard__row--rank-1 {
+  position: relative;
+  z-index: 0 !important;
+}
+.leaderboard__row--rank-1::before,
+.leaderboard__row--rank-1::after {
+  z-index: -1 !important;
+}
+
+/* —— 兼容常见日期/下拉弹层（如果你 Weekly 的日期选择来自这些库） —— */
+.ant-picker-dropdown,
+.ant-select-dropdown,
+.rc-picker-dropdown,
+.react-datepicker-popper,
+.semi-popover,
+.semi-datepicker,
+.semi-select-dropdown,
+.tippy-box[data-theme],
+[role="tooltip"],
+[role="dialog"].dropdown,
+.dropdown-menu {
+  z-index: 5000 !important;      /* 高过表头和内容 */
+}
+
+/* 如果 Weekly 筛选条有容器类名，可提高它自身层级，避免被表头遮住（可选） */
+.filters-bar,
+.weekly-filter,
+.date-filter {
+  position: relative;
+  z-index: 3000;
+}
+
 

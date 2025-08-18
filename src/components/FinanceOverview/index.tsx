@@ -3,6 +3,12 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
+
+// ✅ 数学公式支持
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import "katex/dist/katex.min.css";
+
 import "github-markdown-css";
 // 保持你原来的 less
 import "./index.less";
@@ -10,20 +16,22 @@ import "./index.less";
 import defaultMarkdownContent from "../../data/newFinancePage/financeContent.md";
 
 // 打包进来的图片映射（确保 key 与 md/HTML 里写的相对路径一致）
-import image1 from "../../data/newFinancePage/mape1.png";
-import image2 from "../../data/newFinancePage/mape2.png";
-import image3 from "../../data/newFinancePage/tier1.png";
-import image4 from "../../data/newFinancePage/tier2.png";
-import image5 from "../../data/newFinancePage/win-rate1.png";
-import image6 from "../../data/newFinancePage/win-rate2.png";
+import image1 from "../../data/newFinancePage/Model_vs_Analyst_Revenue_average_win_rate.png";
+import image2 from "../../data/newFinancePage/Model_vs_Analyst_EPS_average_win_rate.png";
+import image3 from "../../data/newFinancePage/Revenue_prediction_MAPE.png";
+import image4 from "../../data/newFinancePage/EPS_prediction_MAPE.png";
+import image5 from "../../data/newFinancePage/Model_vs_Analyst_revenue_projection.png";
+import image6 from "../../data/newFinancePage/Model_vs_Analyst_EPS_projection.png";
+import image7 from "../../data/newFinancePage/AI_financial_analyst_pic.png";
 
 const imageMap: Record<string, string> = {
-  "./mape1.png": image1,
-  "./mape2.png": image2,
-  "./tier1.png": image3,
-  "./tier2.png": image4,
-  "./win-rate1.png": image5,
-  "./win-rate2.png": image6,
+  "./Model_vs_Analyst_Revenue_average_win_rate.png": image1,
+  "./Model_vs_Analyst_EPS_average_win_rate.png": image2,
+  "./Revenue_prediction_MAPE.png": image3,
+  "./EPS_prediction_MAPE.png": image4,
+  "./Model_vs_Analyst_revenue_projection.png": image5,
+  "./Model_vs_Analyst_EPS_projection.png": image6,
+  "./AI_financial_analyst_pic.png": image7,
 };
 
 // ========== 工具函数（与 index.tsx 保持一致） ==========
@@ -132,12 +140,12 @@ export const FinanceOverview: React.FC = () => {
     borderRadius: 0,
     background: "transparent",
     boxShadow: "none",
-  
+
     overflowX: "auto",
     overflowY: "visible",
     WebkitOverflowScrolling: "touch",
   };
-  
+
   const tableStyle: React.CSSProperties = {
     width: "100%",
     minWidth: 720,
@@ -148,7 +156,7 @@ export const FinanceOverview: React.FC = () => {
     color: "#111827",
     fontVariantNumeric: "tabular-nums",
     border: "none",
-    borderTop: 0, 
+    borderTop: 0,
   };
   const thStyle: React.CSSProperties = {
     position: "sticky" as const,
@@ -220,6 +228,9 @@ export const FinanceOverview: React.FC = () => {
     td: ({ children, style, ...props }: any) => {
       const isLastRow = !!props["data-last-row"];
       const borderBottom = isLastRow ? "0" : (style?.borderBottom as any) || "1px solid #f3f4f6";
+      // 数字右对齐（可选：如果你希望表格数字右对齐，可打开下行）
+      const text = childrenToText(children);
+      const align = isNumericText(text) ? "right" : "left";
       return (
         <td
           {...props}
@@ -227,8 +238,7 @@ export const FinanceOverview: React.FC = () => {
             ...tdBaseStyle,
             ...(style || {}),
             borderBottom,
-            // ★ 强制全部左对齐（放在最后，覆盖任何上面的 textAlign）
-            textAlign: "left",
+            textAlign: align,
           }}
         >
           <div style={cellDivStyle}>{children}</div>
@@ -418,8 +428,9 @@ export const FinanceOverview: React.FC = () => {
 
       <article className="markdown-body fx-article">
         <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw]}
+          // ✅ 这里启用数学解析与 KaTeX 渲染
+          remarkPlugins={[remarkGfm, remarkMath]}
+          rehypePlugins={[rehypeRaw, rehypeKatex]}
           components={components as any}
         >
           {defaultMarkdownContent}
