@@ -127,7 +127,7 @@ export const Banner: React.FC<BannerProps> = ({ activeTab, onTabChange }) => {
   // ===== Styles =====
   const bg = "#ffffff";
   const text = "#111827";
-  const textMuted = "#6b7280";
+  const textMuted = "#9ca3af";
   const border = "#e5e7eb";
 
   const headerStyle: React.CSSProperties = {

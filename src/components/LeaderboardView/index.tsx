@@ -6,8 +6,9 @@ import React from "react";
 import { TimePeriodType } from "../../types";
 import { TimeSelector } from "../TimeSelector";
 import { Leaderboard } from "../Leaderboard";
-import { ContactSection } from "../ContactSection";
 import { QuestionTable } from "../QuestionTable";
+import { ContactSection } from "../ContactSection";
+import "./index.css";
 
 interface LeaderboardViewProps {
   timePeriodType: TimePeriodType;
@@ -24,7 +25,7 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({
 }) => {
   const containerStyle: React.CSSProperties = {
     minHeight: "calc(100vh - 200px)",
-    background: "#fafafa", // 极简的浅灰背景
+    background: "#fafafa",
     padding: "2rem 0",
   };
 
@@ -37,6 +38,9 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({
   return (
     <div style={containerStyle}>
       <div style={controlsStyle}>
+        {/* Leaderboard标题 - 与Challenge Questions样式保持一致 */}
+        <h2 className="leaderboard-view__title">Leaderboard 🏆</h2>
+
         <TimeSelector
           timePeriodType={timePeriodType}
           selectedTime={selectedTime}

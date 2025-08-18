@@ -4,13 +4,14 @@
 }
 
 .leaderboard__container {
-height: 748px;
-max-height: 748px;
+height: 734px;
+max-height: 734px;
 max-width: 1400px;
 margin: 0 auto;
 padding: 0rem 2rem 1rem;
 display: flex;
 flex-direction: column;
+
 }
 
 .leaderboard__table-container {
@@ -23,6 +24,8 @@ flex: 1;
 min-height: 0;
 height: 400px;
 position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
 }
 
 .leaderboard__scroll-wrapper {
@@ -30,6 +33,7 @@ width: 100%;
 height: 100%;
 overflow: auto;
 position: relative;
+
 }
 
 .leaderboard__table {
