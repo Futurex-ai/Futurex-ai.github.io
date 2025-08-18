@@ -19,7 +19,7 @@ export default defineConfig({
     },
   },
   html: {
-    title: "futurex",
+    title: "FutureX",
     favicon: "./src/assets/benchmarking.svg",
     meta: {
       description:
