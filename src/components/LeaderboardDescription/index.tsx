@@ -67,7 +67,7 @@ export const LeaderboardDescription: React.FC = () => {
   // ===== Styles (compact) =====
   const containerStyle: React.CSSProperties = {
     background: "#fafafa",
-    padding: "1.8rem 0 1.6rem 0", // smaller
+    padding: "2.8rem 0 0.6rem 0", // smaller
   };
 
   const contentStyle: React.CSSProperties = {
