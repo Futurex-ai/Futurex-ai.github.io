@@ -16,6 +16,7 @@ import image4 from "../../data/image-20250805150617761.png";
 import image5 from "../../data/image-20250805150459250.png";
 import image6 from "../../data/image-20250805150328286.png";
 import image7 from "../../data/image-20250805153707628.png";
+import image8 from "../../data/background.png"
 
 const imageMap: Record<string, string> = {
   "./image-20250805153538154.png": image1,
@@ -25,6 +26,7 @@ const imageMap: Record<string, string> = {
   "./image-20250805150459250.png": image5,
   "./image-20250805150328286.png": image6,
   "./image-20250805153707628.png": image7,
+  "./background.png": image8,
 };
 
 // —— 工具函数们 ——

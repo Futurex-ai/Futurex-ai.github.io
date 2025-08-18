@@ -4,7 +4,8 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import "github-markdown-css";
-import "./index.less"; // 与前一个 Markdown 组件保持一致的样式类
+// ★ 关键：这个文件在 src/components 下，样式文件在 src/components/MarkdownView/index.less
+import "./index.less";
 
 import defaultMarkdownContent from "../../data/newFinancePage/financeContent.md";
 
@@ -25,9 +26,9 @@ const imageMap: Record<string, string> = {
   "./win-rate2.png": image6,
 };
 
-// —— 工具函数们 ——
+// ========== 工具函数（与 index.tsx 保持一致） ==========
 
-// 清洗 heading 里的“内联 Markdown 标记”，只保留可读文本（和前一份保持一致）
+// 清洗 heading 里的“内联 Markdown 标记”，只保留可读文本
 const cleanHeadingText = (raw: string) => {
   let t = raw;
   t = t.replace(/<[^>]+>/g, ""); // 去 HTML 标签
@@ -45,7 +46,7 @@ const cleanHeadingText = (raw: string) => {
   return t.trim();
 };
 
-// 简单 slugify，和自定义 heading 渲染保持一致
+// slugify（与 heading 渲染一致）
 const slugify = (text: string) =>
   text
     .toLowerCase()
@@ -54,7 +55,7 @@ const slugify = (text: string) =>
     .replace(/[`~!@#$%^&*()+={}\[\]|\\:;"'’“”，。、《》？、,.<>/?]/g, "")
     .replace(/\s+/g, "-");
 
-// 从原始 markdown 抽取 TOC（只抓 h2~h4；保持与另一页一致）
+// 从原始 markdown 抽取 TOC（只抓 h2~h4；避免与 Banner 的 H1 冲突）
 type TocItem = { id: string; text: string; depth: 2 | 3 | 4 };
 function parseTOC(md: string): TocItem[] {
   const lines = md.split(/\r?\n/);
@@ -84,40 +85,40 @@ const childrenToText = (children: React.ReactNode): string => {
   return buf.join("").trim();
 };
 
-// ========= 仅用于表格的辅助：数字检测（右对齐） =========
+// 仅用于表格：数字检测（右对齐）
 const isNumericText = (t: string) => {
   const s = (t || "").trim();
-  // 支持 -/+、千分位、百分比、小数
   return /^[-+]?(\d{1,3}(,\d{3})*|\d+)(\.\d+)?%?$/.test(s);
 };
 
+// ========== 组件 ==========
+
 export const FinanceOverview: React.FC = () => {
-  // —— 版心与另一页保持一致 —— //
+  // 版心
   const containerStyle: React.CSSProperties = {
     maxWidth: "1440px",
     margin: "0 auto",
     padding: "2rem 1.25rem 3rem",
   };
 
-  // TOC（右侧浮动）
+  // TOC
   const [toc, setToc] = React.useState<TocItem[]>([]);
   React.useEffect(() => {
     setToc(parseTOC(defaultMarkdownContent || ""));
   }, []);
 
-  // 简易 Lightbox
+  // Lightbox
   const [lightbox, setLightbox] = React.useState<null | { src: string; alt?: string }>(null);
 
-  // —— 自定义渲染（与另一页一致） —— //
-  // ★★★ 下面只“新增/覆盖了表格样式”，其它渲染与另一页相同 ★★★
+  // ====== 表格样式（与另一页一致，避免双重外框） ======
   const tableWrapStyle: React.CSSProperties = {
     position: "relative",
     margin: "20px 0",
-    border: "1px solid #e5e7eb", // 外框（唯一外边线，避免双边）
+    border: "1px solid #e5e7eb", // 唯一外边线
     borderRadius: 12,
     background: "#ffffff",
     overflowX: "auto",
-    overflowY: "visible", // 让 sticky 表头可见
+    overflowY: "visible", // sticky 表头可见
     WebkitOverflowScrolling: "touch",
     boxShadow: "0 1px 0 rgba(17,24,39,0.02)",
   };
@@ -130,7 +131,7 @@ export const FinanceOverview: React.FC = () => {
     lineHeight: 1.6,
     color: "#111827",
     fontVariantNumeric: "tabular-nums",
-    border: "none", // 清掉 github-markdown-css 的 table 边框，避免与 wrapper 叠加
+    border: "none", // 清掉 github-markdown-css 自带 table 外边框，避免叠加
   };
   const thStyle: React.CSSProperties = {
     position: "sticky" as const,
@@ -151,7 +152,7 @@ export const FinanceOverview: React.FC = () => {
     background: "#fff",
   };
 
-  // zebra + hover 行；并把“是否最后一行”传给单元格以去掉底边
+  // zebra + hover 行；把“是否最后一行”传给单元格以去掉底边
   const Tr: React.FC<
     React.HTMLAttributes<HTMLTableRowElement> & { "data-row-odd"?: boolean; "data-last"?: boolean }
   > = ({ children, ...props }) => {
@@ -177,8 +178,9 @@ export const FinanceOverview: React.FC = () => {
     );
   };
 
+  // —— 自定义渲染 —— //
   const components = {
-    // ====== 仅新增/覆盖 table 相关 START ======
+    // ====== table 系列（同另一页） ======
     table: ({ children, ...props }: any) => (
       <div style={tableWrapStyle}>
         <table style={tableStyle} {...props}>
@@ -205,7 +207,6 @@ export const FinanceOverview: React.FC = () => {
       </th>
     ),
     td: ({ children, style, ...props }: any) => {
-      // 自动判断是否数字，右对齐；并根据是否最后一行去掉底边
       const text = childrenToText(children);
       const isNum = isNumericText(text);
       const align: React.CSSProperties["textAlign"] =
@@ -226,9 +227,8 @@ export const FinanceOverview: React.FC = () => {
         </td>
       );
     },
-    // ====== 仅新增/覆盖 table 相关 END ======
 
-    // ====== 以下与另一页一致（heading / 图片 / 链接等） ======
+    // ====== 标题 + 锚点（同另一页） ======
     h2: ({ children, ...props }: any) => {
       const text = childrenToText(children);
       const id = slugify(text);
@@ -266,12 +266,55 @@ export const FinanceOverview: React.FC = () => {
       );
     },
 
-    // 段落：若仅包含 1 张图片 => 用 figure 包裹并生成 caption
+    // ====== 段落：支持“多图并排”；单图仍用 figure + caption + lightbox ======
     p: ({ node, children, ...props }: any) => {
-      const first = node?.children?.[0];
-      const isOnlyImg =
-        node?.children?.length === 1 && first?.tagName === "img" && first?.properties;
+      const kids = node?.children || [];
+      const imgs = kids.filter((c: any) => c?.tagName === "img" && c?.properties) as any[];
+      const ignorable = (c: any) =>
+        (c?.type === "text" && !String(c.value || "").trim()) || c?.tagName === "br";
 
+      // 多图并排（仅由图片和空白/br 组成）
+      const onlyImgsOrSpace =
+        imgs.length >= 2 && kids.every((c: any) => c?.tagName === "img" || ignorable(c));
+
+      if (onlyImgsOrSpace) {
+        const gap = 12;
+        const n = imgs.length;
+        return (
+          <div
+            className="fx-img-row"
+            style={{ display: "flex", gap, alignItems: "flex-start", margin: "12px 0" }}
+            {...props}
+          >
+            {imgs.map((img: any, idx: number) => {
+              const rawSrc: string = img.properties.src || "";
+              const resolvedSrc = imageMap[rawSrc] ?? rawSrc;
+              const alt: string = img.properties.alt || "";
+              const widthPct = `calc((100% - ${(n - 1) * gap}px) / ${n})`;
+              return (
+                <figure
+                  key={idx}
+                  className="fx-figure"
+                  style={{ margin: 0, flex: `0 0 ${widthPct}` }}
+                >
+                  <img
+                    className="fx-img"
+                    src={resolvedSrc}
+                    alt={alt}
+                    style={{ width: "100%", height: "auto", display: "block" }}
+                    onClick={() => setLightbox({ src: resolvedSrc, alt })}
+                  />
+                  {alt ? <figcaption className="fx-caption">{alt}</figcaption> : null}
+                </figure>
+              );
+            })}
+          </div>
+        );
+      }
+
+      // 单图：figure + caption + lightbox
+      const first = kids?.[0];
+      const isOnlyImg = kids?.length === 1 && first?.tagName === "img" && first?.properties;
       if (isOnlyImg) {
         const imgProps = first.properties || {};
         const rawSrc: string = imgProps.src || "";
@@ -283,16 +326,18 @@ export const FinanceOverview: React.FC = () => {
               className="fx-img"
               src={resolvedSrc}
               alt={alt}
+              style={{ width: "100%", height: "auto", display: "block" }}
               onClick={() => setLightbox({ src: resolvedSrc, alt })}
             />
             {alt ? <figcaption className="fx-caption">{alt}</figcaption> : null}
           </figure>
         );
       }
+
       return <p {...props}>{children}</p>;
     },
 
-    // 原生/内嵌 HTML 的 <img> 也统一成 figure + caption
+    // 原生/内嵌 HTML 的 <img>：按单图处理
     img: ({ src = "", alt = "", ...props }: any) => {
       const resolvedSrc = imageMap[src] ?? src;
       return (
@@ -301,6 +346,7 @@ export const FinanceOverview: React.FC = () => {
             className="fx-img"
             src={resolvedSrc}
             alt={alt}
+            style={{ width: "100%", height: "auto", display: "block" }}
             onClick={() => setLightbox({ src: resolvedSrc, alt })}
             {...props}
           />
@@ -314,7 +360,7 @@ export const FinanceOverview: React.FC = () => {
       <div style={{ textAlign: align === "center" ? "center" : undefined, ...style }} {...props} />
     ),
 
-    // 链接默认新开页
+    // 链接新开页
     a: ({ href = "", children, ...props }: any) => (
       <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
         {children}
@@ -340,8 +386,10 @@ export const FinanceOverview: React.FC = () => {
 
       <article className="markdown-body fx-article">
         <ReactMarkdown
-          remarkPlugins={[remarkGfm]}  // GFM 表格
-          rehypePlugins={[rehypeRaw]}  // 允许内嵌 HTML
+          // 与另一页一致：表格/任务列表等
+          remarkPlugins={[remarkGfm]}
+          // 允许文中内嵌 HTML（如 <img>, <div align="center">）
+          rehypePlugins={[rehypeRaw]}
           components={components as any}
         >
           {defaultMarkdownContent}
@@ -353,11 +401,7 @@ export const FinanceOverview: React.FC = () => {
         <div className="fx-lightbox" onClick={() => setLightbox(null)}>
           <img src={lightbox.src} alt={lightbox.alt || ""} />
           {lightbox.alt ? <div className="fx-lightbox-cap">{lightbox.alt}</div> : null}
-          <button
-            className="fx-lightbox-close"
-            aria-label="Close"
-            onClick={() => setLightbox(null)}
-          >
+          <button className="fx-lightbox-close" aria-label="Close" onClick={() => setLightbox(null)}>
             ×
           </button>
         </div>
@@ -365,3 +409,5 @@ export const FinanceOverview: React.FC = () => {
     </div>
   );
 };
+
+export default FinanceOverview;
