@@ -569,22 +569,22 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                   </div>
                   <div className="leaderboard__cell leaderboard__cell--level-score">
                     <span className="leaderboard__score">
-                      {entry.level1Score}
+                      {entry.level1Score || "-"}
                     </span>
                   </div>
                   <div className="leaderboard__cell leaderboard__cell--level-score">
                     <span className="leaderboard__score">
-                      {entry.level2Score}
+                      {entry.level2Score || "-"}
                     </span>
                   </div>
                   <div className="leaderboard__cell leaderboard__cell--level-score">
                     <span className="leaderboard__score">
-                      {entry.level3Score}
+                      {entry.level3Score || "-"}
                     </span>
                   </div>
                   <div className="leaderboard__cell leaderboard__cell--level-score">
                     <span className="leaderboard__score">
-                      {entry.level4Score}
+                      {entry.level4Score || "-"}
                     </span>
                   </div>
                 </div>
