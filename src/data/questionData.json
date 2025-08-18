@@ -1,0 +1,162 @@
+[
+  {
+    "level": "Level 1",
+    "question": "Will Glauber Braga have his parliamentary mandate revoked in Brazil in 2025?",
+    "options": ["Yes", "No"]
+  },
+  {
+    "level": "Level 1",
+    "question": "2025-08-03 Amazonas vs. Goiás",
+    "options": ["Goiás", "Tie", "Amazonas"]
+  },
+  {
+    "level": "Level 1",
+    "question": "Will the NIS/USD exchange rate fall below 3.0 NIS/USD at any point between now and Jul 31 2025?",
+    "options": ["Yes", "No"]
+  },
+  {
+    "level": "Level 1",
+    "question": "Starship flight 10 soft touchdown?",
+    "options": ["Yes", "No"]
+  },
+  {
+    "level": "Level 1",
+    "question": "How many kilograms of soybeans will the US export to China between 1 September 2024 and 31 August 2025?",
+    "options": [
+      "Less than 12 billion kg",
+      "At least 12 billion kg, but less than 18 billion kg",
+      "At least 18 billion kg, but less than 24 billion kg"
+    ]
+  },
+  {
+    "level": "Level 1",
+    "question": "On 4 August 2025, will the total 'reciprocal' tariff rate in effect on goods imported from South Korea to the US be 25% or higher?",
+    "options": ["Yes", "No"]
+  },
+  {
+    "level": "Level 2",
+    "question": "Which national team will win the UEFA Women's Euro 2025 Final?",
+    "options": [
+      "Denmark",
+      "England",
+      "France",
+      "Germany",
+      "Italy",
+      "Netherlands",
+      "Spain"
+    ]
+  },
+  {
+    "level": "Level 2",
+    "question": "US Treasury 1-month yield on July 31?",
+    "options": [
+      "4.32 to 4.34",
+      "4.29 to 4.31",
+      "4.35 to 4.37",
+      "4.26 to 4.28",
+      "4.25 or less",
+      "4.38 or more"
+    ]
+  },
+  {
+    "level": "Level 2",
+    "question": "What will be GPT-5's score on LMSYS Chatbot Arena?",
+    "options": ["1400 points", "1500 points", "1600 points", "1700 points"]
+  },
+  {
+    "level": "Level 2",
+    "question": "Who will win melee singles at Supernova 2025?",
+    "options": ["Zain", "Cody Schwab", "JMook", "moky", "Hungrybox", "Other"]
+  },
+  {
+    "level": "Level 2",
+    "question": "What will be the domestic box office gross in the opening weekend for 'The Naked Gun,' according to Box Office Mojo?",
+    "options": [
+      "Less than $15 million",
+      "At least $15 million, but less than $25 million",
+      "At least $25 million, but less than $35 million",
+      "At least $35 million, but less than $45 million",
+      "At least $45 million, but less than $60 million",
+      "At least $60 million, but less than $75 million"
+    ]
+  },
+  {
+    "level": "Level 2",
+    "question": "Which countries will the U.S. agree to tariff agreements with before August?",
+    "options": [
+      "European Union",
+      "Japan",
+      "Mexico",
+      "South Korea",
+      "China",
+      "India",
+      "Canada",
+      "Australia",
+      "Germany",
+      "France",
+      "Brazil",
+      "Argentina",
+      "Israel"
+    ]
+  },
+  {
+    "level": "Level 3",
+    "question": "On 2025-08-08, what will be the central parity rate of RMB exchange rate at 100 US dollars?",
+    "options": []
+  },
+  {
+    "level": "Level 3",
+    "question": "On 2025-07-31, what will be the average price of beef in the national agricultural product wholesale market tested by the Ministry of Agriculture and Rural Affairs of PRC?",
+    "options": []
+  },
+  {
+    "level": "Level 3",
+    "question": "On 2025-08-11, who will be the players ranked 8th to 10th in PIF WTA singles?",
+    "options": []
+  },
+  {
+    "level": "Level 3",
+    "question": "On 2025-08-05, who will be the athletes ranked 1st to 3rd in the men's 400-meter rankings of the World Athletics Federation?",
+    "options": []
+  },
+  {
+    "level": "Level 3",
+    "question": "On 2025-08-10, what will be the books ranked 4th to 6th on Goodreads' Most Read Books This Week?",
+    "options": []
+  },
+  {
+    "level": "Level 3",
+    "question": "On 2025-08-13, what will be the dramas ranked 3rd to 5th in the global reputation drama list released by Douban?",
+    "options": []
+  },
+  {
+    "level": "Level 4",
+    "question": "On 2025-08-06, what will be the U.S. Regular Gasoline Prices per gallon published by the US Energy Information Administration?",
+    "options": []
+  },
+  {
+    "level": "Level 4",
+    "question": "On 2025-08-15, what will be the Closing Price of CATL (SZ: 300750)?",
+    "options": []
+  },
+  {
+    "level": "Level 4",
+    "question": "On 2025-08-08, who will be the athletes ranked 5th to 7th in the men's welterweight ranking of the Ultimate Fighting Championship (UFC)?",
+    "options": []
+  },
+  {
+    "level": "Level 4",
+    "question": "On 2025-08-12, what will be the #1 Release of Box Office Mojo's Domestic Box Office Weekly?",
+    "options": []
+  },
+  {
+    "level": "Level 4",
+    "question": "On 2025-08-08, which will be the song ranked 2nd to 4th on the QQ Music pop index chart?",
+    "options": []
+  },
+  {
+    "level": "Level 4",
+    "question": "On 2025-08-10, what will be the projects ranked 1st to 3rd in the Rising Star Ranking (OpenGithubs/github-weekly-rank) of the GitHub Open Source Project Week?",
+    "options": []
+  }
+]

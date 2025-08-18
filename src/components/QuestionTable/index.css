@@ -1,0 +1,256 @@
+/* 题目表格样式 - 与Leaderboard完全保持一致 */
+.question-table {
+  max-width: 1400px;
+  margin: 3rem auto 2rem;
+  padding: 0 2rem;
+}
+
+.question-table__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 1.5rem 0;
+  text-align: left;
+}
+
+.question-table__container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+
+.question-table__table-container {
+  /* height: 460px; */
+  max-height: 600px;
+  overflow: hidden;
+  position: relative;
+}
+
+.question-table__scroll-wrapper {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.question-table__table {
+  position: relative;
+  min-height: 100%;
+}
+
+.question-table__sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.question-table__header {
+  display: grid;
+  grid-template-columns: 120px 1fr 1fr;
+  gap: 0;
+  background: #f9fafb;
+}
+
+.question-table__header-cell {
+  padding: 1rem 1.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9fafb;
+  
+}
+
+.question-table__header-cell:last-child {
+  border-right: none;
+}
+
+.question-table__header-cell--sticky {
+  position: sticky;
+  top: 0;
+  z-index: 11;
+}
+
+.question-table__row {
+  display: grid;
+  grid-template-columns: 120px 1fr 1fr;
+  gap: 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.question-table__row:last-child {
+  border-bottom: none;
+}
+
+.question-table__cell {
+  padding: 1rem 1.5rem;
+  border-right: 1px solid #f3f4f6;
+  display: flex;
+  align-items: flex-start;
+  min-height: 60px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  background: white;
+  display: flex;
+  align-items: center;
+}
+
+.question-table__cell:last-child {
+  border-right: none;
+}
+
+/* Level单元格样式 - 水平垂直居中 */
+.question-table__cell--level {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Level样式 - 基础样式优化 */
+.question-table__level {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease;
+}
+
+/* Level 1 - 最简单 (最浅灰色) */
+.question-table__level--1 {
+  background: #f8fafc;
+  color: #64748b;
+}
+
+/* Level 2 - 中等偏易 (浅灰色) */
+.question-table__level--2 {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+/* Level 3 - 中等偏难 (调浅后的中灰色) */
+.question-table__level--3 {
+  background: #e8eef5;
+  color: #334155;
+}
+
+/* Level 4 - 最难 (调浅后的灰色) */
+.question-table__level--4 {
+  background: #d1d8e0;
+  color: #1e293b;
+}
+
+.question-table__question {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #374151;
+  word-wrap: break-word;
+  hyphens: auto;
+  font-weight: 400;
+}
+
+/* Options Tag样式 - 优化后更小更简洁 */
+.question-table__options-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  width: 100%;
+}
+
+.question-table__option-tag {
+  display: inline-block;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 0.7rem;
+  font-weight: 400;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+}
+
+.question-table__no-options {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .question-table {
+    padding: 0 1rem;
+  }
+  
+  .question-table__table-container {
+    height: 500px;
+    max-height: 500px;
+  }
+  
+  .question-table__header,
+  .question-table__row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .question-table__header-cell,
+  .question-table__cell {
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .question-table__header-cell:last-child,
+  .question-table__cell:last-child {
+    border-bottom: none;
+  }
+  
+  .question-table__cell {
+    min-height: auto;
+    padding: 1rem;
+  }
+  
+  .question-table__options-tags {
+    gap: 0.25rem;
+  }
+  
+  .question-table__option-tag {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.4rem;
+  }
+  
+  /* 移动端level样式调整 */
+  .question-table__level {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.4rem;
+  }
+}
+
+/* 平板设备优化 */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .question-table__table-container {
+    height: 550px;
+    max-height: 550px;
+  }
+  
+  .question-table__header,
+  .question-table__row {
+    grid-template-columns: 100px 1.2fr 1fr;
+  }
+  
+  .question-table__cell {
+    padding: 1rem 1.25rem;
+  }
+}

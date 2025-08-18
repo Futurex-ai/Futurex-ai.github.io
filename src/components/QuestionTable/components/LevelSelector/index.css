@@ -1,0 +1,80 @@
+
+/* Level选择器容器样式 */
+.level-selector {
+  display: flex;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 12px;
+  padding: 6px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+  width: 24.875rem;
+}
+
+/* Level按钮基础样式 */
+.level-selector__button {
+  padding: 0.625rem 1.5rem;
+  border: none;
+  background: transparent;
+  color: #6b7280;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: none;
+  letter-spacing: 0.0125em;
+  line-height: 1.4;
+}
+
+/* Level按钮激活状态 */
+.level-selector__button--active {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  color: #111827;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Level按钮悬停效果 */
+.level-selector__button:hover:not(.level-selector__button--active) {
+  background: rgba(255, 255, 255, 0.5);
+  color: #374151;
+}
+
+/* Level按钮焦点状态 */
+.level-selector__button:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: #e2e8f0;
+  ring-offset: 2px;
+}
+
+/* Level按钮按下效果 */
+.level-selector__button:active {
+  transform: translateY(1px);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .level-selector {
+    padding: 4px;
+    margin-bottom: 1rem;
+  }
+
+  .level-selector__button {
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .level-selector {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .level-selector__button {
+    padding: 0.75rem 1rem;
+    text-align: center;
+  }
+}
