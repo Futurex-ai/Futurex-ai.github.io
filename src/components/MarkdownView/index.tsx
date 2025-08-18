@@ -118,14 +118,17 @@ export const MarkdownView: React.FC = () => {
   const tableWrapStyle: React.CSSProperties = {
     position: "relative",
     margin: "20px 0",
-    border: "1px solid #e5e7eb", // 外框（唯一外边线）
-    borderRadius: 12,
-    background: "#ffffff",
+    // ↓↓↓ 去掉外层那条框线和阴影/圆角
+    border: 0,
+    borderRadius: 0,
+    background: "transparent",
+    boxShadow: "none",
+  
     overflowX: "auto",
-    overflowY: "visible", // 让 sticky 表头正常
+    overflowY: "visible",
     WebkitOverflowScrolling: "touch",
-    boxShadow: "0 1px 0 rgba(17,24,39,0.02)",
   };
+  
   const tableStyle: React.CSSProperties = {
     width: "100%",
     minWidth: 720,

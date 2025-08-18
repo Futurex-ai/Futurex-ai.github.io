@@ -39,8 +39,13 @@ html { scroll-behavior: smooth; }
   display: none; /* 默认隐藏，小屏不展示 */
 }
 
-@media (min-width: 1280px) {
-  .fx-toc { display: block; }
+// @media (min-width: 1280px) {
+//   .fx-toc { display: block; }
+// }
+
+@media (max-width: 1800px) {
+  .fx-article-shell.has-toc { grid-template-columns: 1fr; }
+  .fx-toc { display: none !important; }
 }
 
 .fx-toc-title {
