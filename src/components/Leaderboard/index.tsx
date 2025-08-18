@@ -4,8 +4,10 @@
  * 支持对Level分数进行排序，支持Model Name、Agent Framework和Organization筛选
  */
 import React, { useState, useMemo, useRef, useEffect } from "react";
+
 import { TimePeriodType } from "../../types";
 import { useLeaderboardData } from "./leaderboardData";
+import BottomTooltip from "../BottomTooltip";
 import "./index.css";
 
 interface LeaderboardProps {
@@ -414,7 +416,31 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                   className="leaderboard__header-cell leaderboard__header-cell--filterable"
                   ref={agentFrameworkFilterRef}
                 >
-                  <span>AGENT FRAMEWORK</span>
+                  <BottomTooltip
+                    style={{ maxWidth: "500px" }}
+                    content={
+                      <div style={{ width: 500 }}>
+                        The models under evaluation include 4 agent frameworks:
+                        <div> - LLM: base LLMs with no tool usage </div>
+                        <div>
+                          {" "}
+                          - Search: LLMs with reasoning and search capabilities{" "}
+                        </div>
+                        <div>
+                          {" "}
+                          - Open-Deep-Research: open-source Deep Research Agent
+                          frameworks, like Smolagents and AgentOrchestra{" "}
+                        </div>
+                        <div>
+                          {" "}
+                          - Closed-Deep-Research: closed-source Deep Research
+                          Agents, like Gemini Deep Research{" "}
+                        </div>
+                      </div>
+                    }
+                  >
+                    <span>AGENT FRAMEWORK</span>
+                  </BottomTooltip>
                   <button
                     className="leaderboard__filter-button"
                     onClick={() => toggleFilter("agentFramework")}
@@ -453,7 +479,9 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                   }`}
                   onClick={() => handleSort("level1Score")}
                 >
-                  Level 1 (10%)
+                  <BottomTooltip content="single-choice questions">
+                    Level 1 (10%)
+                  </BottomTooltip>
                   {renderSortIcon("level1Score")}
                 </div>
                 <div
@@ -462,7 +490,9 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                   }`}
                   onClick={() => handleSort("level2Score")}
                 >
-                  Level 2 (20%)
+                  <BottomTooltip content="multi-choices questions">
+                    Level 2 (20%)
+                  </BottomTooltip>
                   {renderSortIcon("level2Score")}
                 </div>
                 <div
@@ -471,7 +501,9 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                   }`}
                   onClick={() => handleSort("level3Score")}
                 >
-                  Level 3 (30%)
+                  <BottomTooltip content="Open-ended questions with low volatility">
+                    Level 3 (30%)
+                  </BottomTooltip>
                   {renderSortIcon("level3Score")}
                 </div>
                 <div
@@ -480,7 +512,9 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                   }`}
                   onClick={() => handleSort("level4Score")}
                 >
-                  Level 4 (40%)
+                  <BottomTooltip content="Open-ended questions with high volatility">
+                    Level 4 (40%)
+                  </BottomTooltip>
                   {renderSortIcon("level4Score")}
                 </div>
               </div>
