@@ -44,9 +44,7 @@
 /* Level按钮焦点状态 */
 .level-selector__button:focus {
   outline: none;
-  ring: 2px;
-  ring-color: #e2e8f0;
-  ring-offset: 2px;
+
 }
 
 /* Level按钮按下效果 */

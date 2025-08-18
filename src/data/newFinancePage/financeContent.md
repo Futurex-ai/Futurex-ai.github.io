@@ -42,7 +42,7 @@ In terms of the final win rate of the models, the overseas SOTA models generally
 
 ### 2. Error Comparison
 
-In terms of the error compared to the actual announced results, analysts performed more stably, with the smallest average error magnitude in both revenue and profit.
+In terms of the error compared to the actual announced results, anal ysts performed more stably, with the smallest average error magnitude in both revenue and profit.
 
 <img src="./mape1.png" style="display:inline-block; width:45%;" />
 <img src="./mape2.png" style="display:inline-block; width:45%;" />
