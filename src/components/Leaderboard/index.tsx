@@ -3,19 +3,24 @@
  * 负责展示排行榜数据，包括模型信息和各项评分，支持横向滚动
  * 支持对Level分数进行排序，支持Model Name、Agent Framework和Organization筛选
  */
-import React, { useState, useMemo, useRef, useEffect } from 'react';
-import { TimePeriodType } from '../../types';
-import { useLeaderboardData } from './leaderboardData';
-import './index.css';
+import React, { useState, useMemo, useRef, useEffect } from "react";
+import { TimePeriodType } from "../../types";
+import { useLeaderboardData } from "./leaderboardData";
+import "./index.css";
 
 interface LeaderboardProps {
   timePeriodType: TimePeriodType;
   selectedTime: string;
 }
 
-type SortField = 'level1Score' | 'level2Score' | 'level3Score' | 'level4Score' | 'overallScore';
-type SortDirection = 'asc' | 'desc';
-type FilterField = 'modelName' | 'agentFramework' | 'organization';
+type SortField =
+  | "level1Score"
+  | "level2Score"
+  | "level3Score"
+  | "level4Score"
+  | "overallScore";
+type SortDirection = "asc" | "desc";
+type FilterField = "modelName" | "agentFramework" | "organization";
 
 interface SortConfig {
   field: SortField | null;
@@ -30,7 +35,7 @@ interface FilterConfig {
 
 export const Leaderboard: React.FC<LeaderboardProps> = ({
   timePeriodType,
-  selectedTime
+  selectedTime,
 }) => {
   const { getLeaderboardData } = useLeaderboardData();
   const data = getLeaderboardData(timePeriodType, selectedTime);
@@ -38,14 +43,14 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
   // 排序状态
   const [sortConfig, setSortConfig] = useState<SortConfig>({
     field: null,
-    direction: 'desc'
+    direction: "desc",
   });
 
   // 筛选状态
   const [filterConfig, setFilterConfig] = useState<FilterConfig>({
     modelName: [],
     agentFramework: [],
-    organization: []
+    organization: [],
   });
 
   // 筛选下拉框显示状态
@@ -56,7 +61,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
   }>({
     modelName: false,
     agentFramework: false,
-    organization: false
+    organization: false,
   });
 
   // 筛选下拉框引用，用于点击外部关闭
@@ -68,41 +73,47 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
-        modelNameFilterRef.current && 
+        modelNameFilterRef.current &&
         !modelNameFilterRef.current.contains(event.target as Node)
       ) {
-        setShowFilters(prev => ({ ...prev, modelName: false }));
+        setShowFilters((prev) => ({ ...prev, modelName: false }));
       }
       if (
-        agentFrameworkFilterRef.current && 
+        agentFrameworkFilterRef.current &&
         !agentFrameworkFilterRef.current.contains(event.target as Node)
       ) {
-        setShowFilters(prev => ({ ...prev, agentFramework: false }));
+        setShowFilters((prev) => ({ ...prev, agentFramework: false }));
       }
       if (
-        organizationFilterRef.current && 
+        organizationFilterRef.current &&
         !organizationFilterRef.current.contains(event.target as Node)
       ) {
-        setShowFilters(prev => ({ ...prev, organization: false }));
+        setShowFilters((prev) => ({ ...prev, organization: false }));
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   // 获取去重后的筛选选项
   const filterOptions = useMemo(() => {
     if (!data) return { modelName: [], agentFramework: [], organization: [] };
 
-    const modelNames = [...new Set(data.map(entry => entry.modelName))].sort();
-    const agentFrameworks = [...new Set(data.map(entry => entry.agentFramework))].sort();
-    const organizations = [...new Set(data.map(entry => entry.organization))].sort();
+    const modelNames = [
+      ...new Set(data.map((entry) => entry.modelName)),
+    ].sort();
+    const agentFrameworks = [
+      ...new Set(data.map((entry) => entry.agentFramework)),
+    ].sort();
+    const organizations = [
+      ...new Set(data.map((entry) => entry.organization)),
+    ].sort();
 
     return {
       modelName: modelNames,
       agentFramework: agentFrameworks,
-      organization: organizations
+      organization: organizations,
     };
   }, [data]);
 
@@ -110,14 +121,17 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
   const filteredData = useMemo(() => {
     if (!data) return null;
 
-    return data.filter(entry => {
-      const modelNameMatch = filterConfig.modelName.length === 0 || 
-                            filterConfig.modelName.includes(entry.modelName);
-      const agentFrameworkMatch = filterConfig.agentFramework.length === 0 || 
-                                 filterConfig.agentFramework.includes(entry.agentFramework);
-      const organizationMatch = filterConfig.organization.length === 0 || 
-                               filterConfig.organization.includes(entry.organization);
-      
+    return data.filter((entry) => {
+      const modelNameMatch =
+        filterConfig.modelName.length === 0 ||
+        filterConfig.modelName.includes(entry.modelName);
+      const agentFrameworkMatch =
+        filterConfig.agentFramework.length === 0 ||
+        filterConfig.agentFramework.includes(entry.agentFramework);
+      const organizationMatch =
+        filterConfig.organization.length === 0 ||
+        filterConfig.organization.includes(entry.organization);
+
       return modelNameMatch && agentFrameworkMatch && organizationMatch;
     });
   }, [data, filterConfig]);
@@ -130,7 +144,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
       const aValue = a[sortConfig.field!];
       const bValue = b[sortConfig.field!];
 
-      if (sortConfig.direction === 'desc') {
+      if (sortConfig.direction === "desc") {
         return bValue - aValue;
       } else {
         return aValue - bValue;
@@ -140,16 +154,16 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
 
   // 排序处理函数
   const handleSort = (field: SortField) => {
-    setSortConfig(prev => {
+    setSortConfig((prev) => {
       if (prev.field === field) {
         return {
           field,
-          direction: prev.direction === 'desc' ? 'asc' : 'desc'
+          direction: prev.direction === "desc" ? "asc" : "desc",
         };
       } else {
         return {
           field,
-          direction: 'desc'
+          direction: "desc",
         };
       }
     });
@@ -157,36 +171,42 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
 
   // 筛选处理函数
   const handleFilter = (field: FilterField, value: string) => {
-    setFilterConfig(prev => {
+    setFilterConfig((prev) => {
       const currentValues = prev[field];
       const newValues = currentValues.includes(value)
-        ? currentValues.filter(v => v !== value)
+        ? currentValues.filter((v) => v !== value)
         : [...currentValues, value];
-      
+
       return {
         ...prev,
-        [field]: newValues
+        [field]: newValues,
       };
     });
   };
 
   // 清空筛选
   const clearFilter = (field: FilterField) => {
-    setFilterConfig(prev => ({
+    setFilterConfig((prev) => ({
       ...prev,
-      [field]: []
+      [field]: [],
     }));
   };
 
   // 切换筛选下拉框显示
   const toggleFilter = (field: FilterField) => {
-    setShowFilters(prev => ({
+    setShowFilters((prev) => ({
       ...prev,
       [field]: !prev[field],
       // 关闭其他筛选框
-      ...(field === 'modelName' ? { agentFramework: false, organization: false } : {}),
-      ...(field === 'agentFramework' ? { modelName: false, organization: false } : {}),
-      ...(field === 'organization' ? { modelName: false, agentFramework: false } : {})
+      ...(field === "modelName"
+        ? { agentFramework: false, organization: false }
+        : {}),
+      ...(field === "agentFramework"
+        ? { modelName: false, organization: false }
+        : {}),
+      ...(field === "organization"
+        ? { modelName: false, agentFramework: false }
+        : {}),
     }));
   };
 
@@ -221,7 +241,9 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
         viewBox="0 0 24 24"
         fill="none"
         className={`leaderboard__sort-icon--active ${
-          sortConfig.direction === 'asc' ? 'leaderboard__sort-icon--asc' : 'leaderboard__sort-icon--desc'
+          sortConfig.direction === "asc"
+            ? "leaderboard__sort-icon--asc"
+            : "leaderboard__sort-icon--desc"
         }`}
       >
         <path
@@ -238,14 +260,16 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
   // 渲染筛选图标
   const renderFilterIcon = (field: FilterField) => {
     const hasActiveFilter = filterConfig[field].length > 0;
-    
+
     return (
       <svg
         width="14"
         height="14"
         viewBox="0 0 24 24"
         fill="none"
-        className={`leaderboard__filter-icon ${hasActiveFilter ? 'leaderboard__filter-icon--active' : ''}`}
+        className={`leaderboard__filter-icon ${
+          hasActiveFilter ? "leaderboard__filter-icon--active" : ""
+        }`}
       >
         <path
           d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"
@@ -267,10 +291,14 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
 
     const getFieldDisplayName = (field: FilterField) => {
       switch (field) {
-        case 'modelName': return 'Model Name';
-        case 'agentFramework': return 'Agent Framework';
-        case 'organization': return 'Organization';
-        default: return '';
+        case "modelName":
+          return "Model Name";
+        case "agentFramework":
+          return "Agent Framework";
+        case "organization":
+          return "Organization";
+        default:
+          return "";
       }
     };
 
@@ -305,10 +333,13 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
 
   // 获取排名徽章的CSS类名
   const getRankBadgeClass = (index: number) => {
-    if (index === 0) return 'leaderboard__rank-badge leaderboard__rank-badge--first';
-    if (index === 1) return 'leaderboard__rank-badge leaderboard__rank-badge--second';
-    if (index === 2) return 'leaderboard__rank-badge leaderboard__rank-badge--third';
-    return 'leaderboard__rank-badge leaderboard__rank-badge--other';
+    if (index === 0)
+      return "leaderboard__rank-badge leaderboard__rank-badge--first";
+    if (index === 1)
+      return "leaderboard__rank-badge leaderboard__rank-badge--second";
+    if (index === 2)
+      return "leaderboard__rank-badge leaderboard__rank-badge--third";
+    return "leaderboard__rank-badge leaderboard__rank-badge--other";
   };
 
   // 数据检查
@@ -318,12 +349,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
         <div className="leaderboard__empty">
           {/* 空状态图标 */}
           <div className="leaderboard__empty-icon">
-            <svg
-              width="32"
-              height="32"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
               <path
                 d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
                 stroke="currentColor"
@@ -335,22 +361,20 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
           </div>
 
           {/* 空状态标题 */}
-          <h3 className="leaderboard__empty-title">
-            No Data Available
-          </h3>
+          <h3 className="leaderboard__empty-title">No Data Available</h3>
 
           {/* 空状态描述 */}
           <p className="leaderboard__empty-description">
-            {timePeriodType === 'monthly'
+            {timePeriodType === "monthly"
               ? "Monthly data is not available yet. Please try selecting Weekly view to see available data."
-              : "There is currently no leaderboard data available for the selected time period. Please try selecting a different time range."
-            }
+              : "There is currently no leaderboard data available for the selected time period. Please try selecting a different time range."}
           </p>
 
           {/* 提示信息 */}
-          {timePeriodType === 'monthly' && (
+          {timePeriodType === "monthly" && (
             <div className="leaderboard__empty-tip">
-                "Monthly data will be available in the future. Currently only Weekly data is available."
+              "Monthly data will be available in the future. Currently only
+              Weekly data is available."
             </div>
           )}
         </div>
@@ -373,144 +397,164 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                 <div className="leaderboard__header-cell leaderboard__header-cell--sticky leaderboard__header-cell--name">
                   NAME
                 </div>
-                <div className="leaderboard__header-cell leaderboard__header-cell--filterable" ref={modelNameFilterRef}>
+                <div
+                  className="leaderboard__header-cell leaderboard__header-cell--filterable"
+                  ref={modelNameFilterRef}
+                >
                   <span>MODEL NAME</span>
                   <button
                     className="leaderboard__filter-button"
-                    onClick={() => toggleFilter('modelName')}
+                    onClick={() => toggleFilter("modelName")}
                   >
-                    {renderFilterIcon('modelName')}
+                    {renderFilterIcon("modelName")}
                   </button>
-                  {renderFilterDropdown('modelName')}
+                  {renderFilterDropdown("modelName")}
                 </div>
-                <div className="leaderboard__header-cell leaderboard__header-cell--filterable" ref={agentFrameworkFilterRef}>
+                <div
+                  className="leaderboard__header-cell leaderboard__header-cell--filterable"
+                  ref={agentFrameworkFilterRef}
+                >
                   <span>AGENT FRAMEWORK</span>
                   <button
                     className="leaderboard__filter-button"
-                    onClick={() => toggleFilter('agentFramework')}
+                    onClick={() => toggleFilter("agentFramework")}
                   >
-                    {renderFilterIcon('agentFramework')}
+                    {renderFilterIcon("agentFramework")}
                   </button>
-                  {renderFilterDropdown('agentFramework')}
+                  {renderFilterDropdown("agentFramework")}
                 </div>
-                <div className="leaderboard__header-cell leaderboard__header-cell--filterable" ref={organizationFilterRef}>
+                <div
+                  className="leaderboard__header-cell leaderboard__header-cell--filterable"
+                  ref={organizationFilterRef}
+                >
                   <span>ORGANIZATION</span>
                   <button
                     className="leaderboard__filter-button"
-                    onClick={() => toggleFilter('organization')}
+                    onClick={() => toggleFilter("organization")}
                   >
-                    {renderFilterIcon('organization')}
+                    {renderFilterIcon("organization")}
                   </button>
-                  {renderFilterDropdown('organization')}
+                  {renderFilterDropdown("organization")}
                 </div>
 
                 <div
                   className={`leaderboard__header-cell leaderboard__header-cell--sortable ${
-                    sortConfig.field === 'overallScore' ? 'active' : ''
+                    sortConfig.field === "overallScore" ? "active" : ""
                   }`}
-                  onClick={() => handleSort('overallScore')}
+                  onClick={() => handleSort("overallScore")}
                 >
                   Overall
-                  {renderSortIcon('overallScore')}
+                  {renderSortIcon("overallScore")}
                 </div>
-                <div className="leaderboard__header-cell">
-                  Events
-                </div>
+                <div className="leaderboard__header-cell">Events</div>
                 <div
                   className={`leaderboard__header-cell leaderboard__header-cell--sortable ${
-                    sortConfig.field === 'level1Score' ? 'active' : ''
+                    sortConfig.field === "level1Score" ? "active" : ""
                   }`}
-                  onClick={() => handleSort('level1Score')}
+                  onClick={() => handleSort("level1Score")}
                 >
                   Level 1 (10%)
-                  {renderSortIcon('level1Score')}
+                  {renderSortIcon("level1Score")}
                 </div>
                 <div
                   className={`leaderboard__header-cell leaderboard__header-cell--sortable ${
-                    sortConfig.field === 'level2Score' ? 'active' : ''
+                    sortConfig.field === "level2Score" ? "active" : ""
                   }`}
-                  onClick={() => handleSort('level2Score')}
+                  onClick={() => handleSort("level2Score")}
                 >
                   Level 2 (20%)
-                  {renderSortIcon('level2Score')}
+                  {renderSortIcon("level2Score")}
                 </div>
                 <div
                   className={`leaderboard__header-cell leaderboard__header-cell--sortable ${
-                    sortConfig.field === 'level3Score' ? 'active' : ''
+                    sortConfig.field === "level3Score" ? "active" : ""
                   }`}
-                  onClick={() => handleSort('level3Score')}
+                  onClick={() => handleSort("level3Score")}
                 >
                   Level 3 (30%)
-                  {renderSortIcon('level3Score')}
+                  {renderSortIcon("level3Score")}
                 </div>
                 <div
                   className={`leaderboard__header-cell leaderboard__header-cell--sortable ${
-                    sortConfig.field === 'level4Score' ? 'active' : ''
+                    sortConfig.field === "level4Score" ? "active" : ""
                   }`}
-                  onClick={() => handleSort('level4Score')}
+                  onClick={() => handleSort("level4Score")}
                 >
                   Level 4 (40%)
-                  {renderSortIcon('level4Score')}
+                  {renderSortIcon("level4Score")}
                 </div>
               </div>
             </div>
 
             {/* 数据行 */}
-            {sortedData && sortedData.length > 0 && sortedData.map((entry, index) => (
-              <div key={`${entry.modelName}-${index}`} className="leaderboard__row">
-                <div className="leaderboard__cell leaderboard__cell--rank">
-                  <span className={getRankBadgeClass(index)}>
-                    {index + 1}
-                  </span>
-                </div>
-                <div className="leaderboard__cell leaderboard__cell--name">
-                  <div>
-                    <div>{entry.modelName}</div>
-                    <span className="leaderboard__framework">({entry.agentFramework})</span>
+            {sortedData &&
+              sortedData.length > 0 &&
+              sortedData.map((entry, index) => (
+                <div
+                  key={`${entry.modelName}-${index}`}
+                  className="leaderboard__row"
+                >
+                  <div className="leaderboard__cell leaderboard__cell--rank">
+                    <span className={getRankBadgeClass(index)}>
+                      {index + 1}
+                    </span>
+                  </div>
+                  <div className="leaderboard__cell leaderboard__cell--name">
+                    <div>
+                      <div>{entry.modelName}</div>
+                      <span className="leaderboard__framework">
+                        ({entry.agentFramework})
+                      </span>
+                    </div>
+                  </div>
+                  <div className="leaderboard__cell leaderboard__cell--model">
+                    {(() => {
+                      const undisclosedModels = [
+                        "Manus",
+                        "OpenAI-Deepreasearch",
+                        "Genspark",
+                      ];
+                      return undisclosedModels.includes(entry.modelName)
+                        ? "Undisclosed"
+                        : entry.modelName;
+                    })()}
+                  </div>
+                  <div className="leaderboard__cell leaderboard__cell--framework">
+                    {entry.agentFramework}
+                  </div>
+                  <div className="leaderboard__cell leaderboard__cell--organization">
+                    {entry.organization}
+                  </div>
+                  <div className="leaderboard__cell leaderboard__cell--overall-score">
+                    <span className="leaderboard__score">
+                      {entry.overallScore.toFixed(1)}
+                    </span>
+                  </div>
+                  <div className="leaderboard__cell leaderboard__cell--events">
+                    {entry.numberOfEvents.toLocaleString()}
+                  </div>
+                  <div className="leaderboard__cell leaderboard__cell--level-score">
+                    <span className="leaderboard__score">
+                      {entry.level1Score}
+                    </span>
+                  </div>
+                  <div className="leaderboard__cell leaderboard__cell--level-score">
+                    <span className="leaderboard__score">
+                      {entry.level2Score}
+                    </span>
+                  </div>
+                  <div className="leaderboard__cell leaderboard__cell--level-score">
+                    <span className="leaderboard__score">
+                      {entry.level3Score}
+                    </span>
+                  </div>
+                  <div className="leaderboard__cell leaderboard__cell--level-score">
+                    <span className="leaderboard__score">
+                      {entry.level4Score}
+                    </span>
                   </div>
                 </div>
-                <div className="leaderboard__cell leaderboard__cell--model">
-                  {(() => {
-                    const undisclosedModels = ['Manus', 'OpenAI-Deepreasearch', 'Genspark'];
-                    return undisclosedModels.includes(entry.modelName) ? 'Undisclosed' : entry.modelName;
-                  })()}
-                </div>
-                <div className="leaderboard__cell leaderboard__cell--framework">
-                  {entry.agentFramework}
-                </div>
-                <div className="leaderboard__cell leaderboard__cell--organization">
-                  {entry.organization}
-                </div>
-                <div className="leaderboard__cell leaderboard__cell--overall-score">
-                  <span className="leaderboard__score">
-                    {entry.overallScore.toFixed(1)}
-                  </span>
-                </div>
-                <div className="leaderboard__cell leaderboard__cell--events">
-                  {entry.numberOfEvents.toLocaleString()}
-                </div>
-                <div className="leaderboard__cell leaderboard__cell--level-score">
-                  <span className="leaderboard__score">
-                    {entry.level1Score}
-                  </span>
-                </div>
-                <div className="leaderboard__cell leaderboard__cell--level-score">
-                  <span className="leaderboard__score">
-                    {entry.level2Score}
-                  </span>
-                </div>
-                <div className="leaderboard__cell leaderboard__cell--level-score">
-                  <span className="leaderboard__score">
-                    {entry.level3Score}
-                  </span>
-                </div>
-                <div className="leaderboard__cell leaderboard__cell--level-score">
-                  <span className="leaderboard__score">
-                    {entry.level4Score}
-                  </span>
-                </div>
-              </div>
-            ))}
+              ))}
 
             {/* 筛选后无数据时的提示 */}
             {sortedData && sortedData.length === 0 && (

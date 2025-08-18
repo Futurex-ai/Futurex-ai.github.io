@@ -2,11 +2,12 @@
  * 榜单视图组件
  * 组合时间选择器和榜单组件，负责整个榜单页面的布局
  */
-import React from 'react';
-import { TimePeriodType } from '../../types';
-import { TimeSelector } from '../TimeSelector';
-import { Leaderboard } from '../Leaderboard';
-import { ContactSection } from '../ContactSection';
+import React from "react";
+import { TimePeriodType } from "../../types";
+import { TimeSelector } from "../TimeSelector";
+import { Leaderboard } from "../Leaderboard";
+import { ContactSection } from "../ContactSection";
+import { QuestionTable } from "../QuestionTable";
 
 interface LeaderboardViewProps {
   timePeriodType: TimePeriodType;
@@ -19,35 +20,36 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({
   timePeriodType,
   selectedTime,
   onTimePeriodTypeChange,
-  onSelectedTimeChange
+  onSelectedTimeChange,
 }) => {
   const containerStyle: React.CSSProperties = {
-    minHeight: 'calc(100vh - 200px)',
-    background: '#fafafa', // 极简的浅灰背景
-    padding: '2rem 0'
+    minHeight: "calc(100vh - 200px)",
+    background: "#fafafa", // 极简的浅灰背景
+    padding: "2rem 0",
   };
 
   const controlsStyle: React.CSSProperties = {
-    maxWidth: '1400px',
-    margin: '0 auto',
-    padding: '0 2rem'
+    maxWidth: "1400px",
+    margin: "0 auto",
+    padding: "0 2rem",
   };
 
   return (
     <div style={containerStyle}>
       <div style={controlsStyle}>
-        <TimeSelector 
+        <TimeSelector
           timePeriodType={timePeriodType}
           selectedTime={selectedTime}
           onTimePeriodTypeChange={onTimePeriodTypeChange}
           onSelectedTimeChange={onSelectedTimeChange}
         />
       </div>
-      <Leaderboard 
+      <Leaderboard
         timePeriodType={timePeriodType}
         selectedTime={selectedTime}
       />
-       <ContactSection />
+      <QuestionTable />
+      <ContactSection />
     </div>
   );
 };

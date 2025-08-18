@@ -28,3 +28,13 @@ export interface TimeOption {
 }
 
 export type CategoryType = "general" | "finance";
+
+export interface QuestionEntry {
+  level: string;
+  question: string;
+  options: string[];
+}
+
+export interface QuestionData {
+  questions: QuestionEntry[];
+}
