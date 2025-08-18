@@ -1,11 +1,11 @@
-# Introducing FutureX——An Advanced Live Benchmark for LLM Agents in Future Prediction
+<!-- # Introducing FutureX——An Advanced Live Benchmark for LLM Agents in Future Prediction -->
 
 In the past few years, Large Language Models (LLMs) have made astonishing progress. They are no longer mere text generators but are gradually evolving into autonomous "agents" capable of planning, using tools, and interacting with the real world. However, a sharp question lies before us: How can we truly evaluate the core intelligence of these agents?
 Existing benchmarks, such as GAIA and Browsercamp, while valuable, are mostly static. This means their questions and answers are fixed and can easily be included in a model's vast training data, leading to distorted evaluation results. More importantly, they are asking AI to solve the problem that is known. Therefore, we introduce FutureX, a `live benchmark designed for predicting unknown future`.
 
 Predicting the future requires an agent, much like a human expert, to gather information, analyze trends, and make decisions in a dynamic environment full of uncertainty. This is precisely the ultimate capability we hope AI will possess. However, establishing a fair, uncontaminated evaluation standard for this purpose is fraught with methodological and technical challenges.
 
-## Our VISION
+## VISION
 
 We firmly believe that FutureX has the potential to become a key driving force in the development of LLM agents. By providing a fair, dynamic, and highly challenging evaluation platform, we hope to inspire researchers in academia and industry to jointly develop the next generation of AI agents that can match, or even surpass, the level of professional human analysts in complex, high-stakes, real-world domains.
 Our work has just begun. We welcome you to read our technical report for more details and to explore the future of AI with us.
@@ -22,7 +22,7 @@ FutureX is a dynamic, real-time benchmark for `Future Prediction`, built on thes
 <div style="text-align: center;">
   <img
     src="./image-20250805150617761.png"
-    alt="image"
+    alt="Domains of events included in FutureX."
     style="width:90%; display:block; margin:0 auto;"
   >
 </div>
@@ -53,7 +53,7 @@ To evaluate agent capabilities with greater granularity, we have meticulously de
 To meet the challenge of real-time updates, we built a completely closed-loop, automated evaluation system. The system automatically collects new questions daily, runs 27 models to make predictions, and automatically retrieves and scores the results after the event concludes. This level of technical complexity far exceeds that of traditional static evaluation frameworks.
 
 <div style="text-align: center;">
-  <img src="./image-20250805150459250.png" alt="image" style="width:90%;display:block; margin:0 auto;">
+  <img src="./image-20250805150459250.png" alt="Construction pipeline of FutureX." style="width:90%;display:block; margin:0 auto;">
 </div>
 
 ## Findings: How do current AI agents perform in future prediction?
@@ -65,7 +65,7 @@ To meet the challenge of real-time updates, we built a completely closed-loop, a
 <div style="text-align: center;">
    <img
     src="./image-20250805150328286.png"
-    alt="image"
+    alt="Overall ranking between July 20th and August 3rd."
     style="width:80%; display:block; margin:0 auto;"
   >
 </div> 
@@ -95,7 +95,7 @@ To meet the challenge of real-time updates, we built a completely closed-loop, a
 
 <div style="text-align: center;">
 
-   <img src="./image-20250805150803688.png" alt="image" style="width:80%;display:block; margin:0 auto;">
+   <img src="./image-20250805150803688.png" alt="Performances of different tiers." style="width:80%;display:block; margin:0 auto;">
 </div>
 
 

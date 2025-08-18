@@ -1,81 +1,63 @@
 /**
  * 应用主入口组件
- * 管理分类tab和子tab的状态，根据当前激活的分类和tab渲染相应内容
+ * 现在由 Banner 控制三个标签页：Overview / Leaderboard / S&P 500 Sector
  */
 import React, { useState } from "react";
 import Tea from "byted-tea-sdk";
 import Doc from "./components/Doc";
-import { TopBanner, CategoryType } from "./components/TopBanner";
-import { Banner } from "./components/Banner";
+import { Banner, type BannerTab } from "./components/Banner";
 import { LeaderboardDescription } from "./components/LeaderboardDescription";
 import { MarkdownView } from "./components/MarkdownView";
 import { LeaderboardView } from "./components/LeaderboardView";
-import { FinanceOverview } from "./components/FinanceOverview";
+import { FinanceOverview } from "./components/FinanceOverview"; // ← 用作 S&P 500 页签内容
 import { TimePeriodType } from "./types";
 
 const App: React.FC = () => {
-  // 分类状态管理
-  const [activeCategory, setActiveCategory] = useState<CategoryType>("general");
+  // Banner 的三标签：overview / leaderboard / sp500
+  const [activeTab, setActiveTab] = useState<BannerTab>("overview");
 
-  // General分类下的子tab状态管理
-  const [activeTab, setActiveTab] = useState<"overview" | "leaderboard">(
-    "overview"
-  );
+  // Leaderboard 的时间筛选状态（保持不变）
   const [timePeriodType, setTimePeriodType] =
     useState<TimePeriodType>("overall");
   const [selectedTime, setSelectedTime] = useState<string>("overall");
 
+  // Tea 统计（保持不变）
   Tea.init({
     app_id: 635684,
     channel: "cn",
-    // log: true, // 开启后会控制台会打印日志
+    // log: true,
   });
-
   Tea.start();
-  Tea.event("crawl_api_custom", {
-    name: "进入页面",
-  });
-  Tea.event("predefine_pageview", {
-    url: window.location.href,
-  });
-
-  // 当切换分类时，重置子tab状态
-  const handleCategoryChange = (category: CategoryType) => {
-    setActiveCategory(category);
-    if (category === "finance") {
-      setActiveTab("overview"); // Finance分类暂时只有overview
-    }
-  };
+  Tea.event("crawl_api_custom", { name: "进入页面" });
+  Tea.event("predefine_pageview", { url: window.location.href });
 
   const renderContent = () => {
-    if (activeCategory === "finance") {
-      // Finance分类：显示空页面
-      return (
-        <main
-          style={{ minHeight: "calc(100vh - 240px)", background: "#ffffff" }}
-        >
-          <FinanceOverview />
-        </main>
-      );
-    }
-
-    // General分类：显示原有的Banner和内容
     return (
       <>
         <Banner activeTab={activeTab} onTabChange={setActiveTab} />
+
+        {/* Leaderboard 页面顶部说明（只在该页显示） */}
         {activeTab === "leaderboard" && <LeaderboardDescription />}
+
         <main
           style={{ minHeight: "calc(100vh - 240px)", background: "#ffffff" }}
         >
-          {activeTab === "overview" ? (
-            <MarkdownView />
-          ) : (
+          {activeTab === "overview" && <MarkdownView />}
+
+          {activeTab === "leaderboard" && (
             <LeaderboardView
               timePeriodType={timePeriodType}
               selectedTime={selectedTime}
               onTimePeriodTypeChange={setTimePeriodType}
               onSelectedTimeChange={setSelectedTime}
             />
+          )}
+
+          {activeTab === "sp500" && (
+            // 如果你这里本来是“Markdown 渲染”的 S&P 500 页面，
+            // 把 <FinanceOverview /> 替换为你的 Markdown 组件即可：
+            // <SP500MarkdownView /> 或 <MarkdownView file="sp500.md" /> 等
+            <FinanceOverview />
           )}
         </main>
       </>
@@ -94,13 +76,7 @@ const App: React.FC = () => {
         background: "#fafafa",
       }}
     >
-      {/* 顶部分类Banner */}
-      <TopBanner
-        activeCategory={activeCategory}
-        onCategoryChange={handleCategoryChange}
-      />
-
-      {/* 根据选择的分类渲染不同内容 */}
+      {/* 顶部 TopBanner 已移除，由 Banner 控制所有标签 */}
       {renderContent()}
     </div>
   );
