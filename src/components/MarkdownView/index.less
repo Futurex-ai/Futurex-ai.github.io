@@ -1,20 +1,24 @@
 /* src/components/MarkdownView/index.less */
 :root {
-  --fx-text-primary: #0f172a;     /* slate-900 */
-  --fx-text-muted:   #64748b;     /* slate-500 */
-  --fx-bg:           #ffffff;
-  --fx-border:       #e5e7eb;     /* gray-200 */
+  --fx-text-primary: #0f172a; /* slate-900 */
+  --fx-text-muted: #64748b; /* slate-500 */
+  --fx-bg: #ffffff;
+  --fx-border: #e5e7eb; /* gray-200 */
 
-  --fx-accent:       #111827;     /* 深色下划线 */
-  --fx-accent-quad:  #eef2ff;     /* 淡底色 */
+  --fx-accent: #111827; /* 深色下划线 */
+  --fx-accent-quad: #eef2ff; /* 淡底色 */
 
-  --fx-content-max:  72rem;       /* ~1152px 阅读宽 */
-  --fx-base-font:    1.14rem;     /* 稍大一点的正文字号 */
+  --fx-content-max: 72rem; /* ~1152px 阅读宽 */
+  --fx-base-font: 1.14rem; /* 稍大一点的正文字号 */
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
-.fx-article-shell { position: relative; }
+.fx-article-shell {
+  position: relative;
+}
 
 /* 有 TOC 时给右侧留白（桌面端） */
 @media (min-width: 1280px) {
@@ -26,7 +30,7 @@ html { scroll-behavior: smooth; }
 /* —— 右侧浮动 TOC —— */
 .fx-toc {
   position: fixed;
-  top: 6.5rem;  /* 避开你的 Banner */
+  top: 6.5rem; /* 避开你的 Banner */
   right: 1.25rem;
   width: 260px;
   max-height: calc(100vh - 8rem);
@@ -44,14 +48,18 @@ html { scroll-behavior: smooth; }
 // }
 
 @media (max-width: 1800px) {
-  .fx-article-shell.has-toc { grid-template-columns: 1fr; }
-  .fx-toc { display: none !important; }
+  .fx-article-shell.has-toc {
+    grid-template-columns: 1fr;
+  }
+  .fx-toc {
+    display: none !important;
+  }
 }
 
 .fx-toc-title {
-  margin: 0 0 .25rem 0;
-  font-size: .72rem;
-  letter-spacing: .08em;
+  margin: 0 0 0.25rem 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--fx-text-muted);
 }
@@ -61,30 +69,48 @@ html { scroll-behavior: smooth; }
   margin: 0;
   padding: 4px 0 0 0;
 }
-.fx-toc-list li { margin: 0; }
+.fx-toc-list li {
+  margin: 0;
+}
 .fx-toc-list li a {
   display: block;
   padding: 6px 8px;
   border-radius: 8px;
   text-decoration: none;
-  font-size: .92rem;
+  font-size: 0.92rem;
   color: #374151;
 }
-.fx-toc-list li a:hover { background: #f3f4f6; }
+.fx-toc-list li a:hover {
+  background: #f3f4f6;
+}
 
-.fx-toc-list li.d2 a { padding-left: 8px; }
-.fx-toc-list li.d3 a { padding-left: 18px; font-size: .9rem; color: #4b5563; }
-.fx-toc-list li.d4 a { padding-left: 28px; font-size: .86rem; color: #6b7280; }
+.fx-toc-list li.d2 a {
+  padding-left: 8px;
+}
+.fx-toc-list li.d3 a {
+  padding-left: 18px;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+.fx-toc-list li.d4 a {
+  padding-left: 28px;
+  font-size: 0.86rem;
+  color: #6b7280;
+}
 
 /* —— 正文 —— */
+.markdown-body {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
 .markdown-body.fx-article {
   /* 字体族：先西文字体，再中文系统字体 */
-  font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-    "Noto Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei",
-    sans-serif;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 
-  color: var(--fx-text-primary);
+  color: #fff;
   font-size: var(--fx-base-font);
   line-height: 1.88;
   letter-spacing: 0.002em;
@@ -94,33 +120,64 @@ html { scroll-behavior: smooth; }
   margin: 0 auto;
 
   /* 你已经移除了 markdown 的 H1，这里给一点顶部留白避免贴 Banner */
-  padding-top: .35rem;
+  padding-top: 0.35rem;
 
+  h1 {
+    border-bottom: 1px solid #d1d9e0b3 !important;
+  }
   /* 标题层级（如果还有 h2~h4） */
-  h2, h3, h4 { font-weight: 700; letter-spacing: -0.012em; color: var(--fx-text-primary); }
-  h2 { font-size: clamp(1.75rem, 2.6vw, 2.25rem); line-height: 1.16; margin: 1.4rem 0 .6rem; }
-  h3 { font-size: clamp(1.28rem, 1.9vw, 1.5rem);  line-height: 1.22; margin: 1.1rem 0 .5rem; }
-  h4 { font-size: 1.05rem; line-height: 1.28; margin: .9rem 0 .45rem; }
+  h2,
+  h3,
+  h4 {
+    font-weight: 700;
+    letter-spacing: -0.012em;
+    color: #fff;
+  }
+  h2 {
+    font-size: clamp(1.75rem, 2.6vw, 2.25rem);
+    line-height: 1.16;
+    margin: 1.4rem 0 0.6rem;
+    border-bottom: 1px solid #d1d9e0b3 !important;
+  }
+  h3 {
+    font-size: clamp(1.28rem, 1.9vw, 1.5rem);
+    line-height: 1.22;
+    margin: 1.1rem 0 0.5rem;
+  }
+  h4 {
+    font-size: 1.05rem;
+    line-height: 1.28;
+    margin: 0.9rem 0 0.45rem;
+  }
 
   /* 小锚点 # */
   .fx-anchor {
-    margin-left: .5rem;
+    margin-left: 0.5rem;
     opacity: 0;
     text-decoration: none;
     color: #9ca3af;
-    transition: opacity .15s ease;
+    transition: opacity 0.15s ease;
   }
-  h2:hover .fx-anchor, h3:hover .fx-anchor, h4:hover .fx-anchor { opacity: 1; }
+  h2:hover .fx-anchor,
+  h3:hover .fx-anchor,
+  h4:hover .fx-anchor {
+    opacity: 1;
+  }
 
-  p { margin: .95rem 0; color: #1f2937; }
+  p {
+    margin: 0.95rem 0;
+    color: #1f2937;
+  }
 
   a {
     color: #1f2937;
     text-decoration: underline;
     text-underline-offset: 3px;
-    text-decoration-color: rgba(37, 99, 235, .6);
+    text-decoration-color: rgba(37, 99, 235, 0.6);
   }
-  a:hover { text-decoration-color: rgba(29, 78, 216, .9); }
+  a:hover {
+    text-decoration-color: rgba(29, 78, 216, 0.9);
+  }
 
   hr {
     height: 1px;
@@ -131,7 +188,7 @@ html { scroll-behavior: smooth; }
 
   blockquote {
     margin: 1.25rem 0;
-    padding: .75rem 1rem;
+    padding: 0.75rem 1rem;
     border-left: 3px solid #1d4ed8;
     background: #f8fafc;
     color: #0f172a;
@@ -141,10 +198,11 @@ html { scroll-behavior: smooth; }
   code:not(pre code) {
     background: #f1f5f9; /* slate-100 */
     border: 1px solid #e2e8f0;
-    padding: .15rem .35rem;
+    padding: 0.15rem 0.35rem;
     border-radius: 6px;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    font-size: .9em;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      "Liberation Mono", "Courier New", monospace;
+    font-size: 0.9em;
   }
 
   pre {
@@ -158,7 +216,7 @@ html { scroll-behavior: smooth; }
     background: transparent;
     border: 0;
     padding: 0;
-    font-size: .95rem;
+    font-size: 0.95rem;
   }
 
   table {
@@ -170,18 +228,24 @@ html { scroll-behavior: smooth; }
     border-radius: 12px;
     overflow: hidden;
   }
-  th, td {
-    padding: .7rem .9rem;
+  th,
+  td {
+    padding: 0.7rem 0.9rem;
     border-bottom: 1px solid var(--fx-border);
   }
   thead th {
     background: #f8fafc;
     font-weight: 700;
   }
-  tbody tr:last-child td { border-bottom: 0; }
+  tbody tr:last-child td {
+    border-bottom: 0;
+  }
 
   /* 图片 & 说明 */
-  .fx-figure { margin: 1.25rem auto; text-align: center; }
+  .fx-figure {
+    margin: 1.25rem auto;
+    text-align: center;
+  }
   .fx-img {
     width: min(100%, 1200px); /* 配合更宽正文，最大 1200px */
     max-width: 100%;
@@ -191,13 +255,16 @@ html { scroll-behavior: smooth; }
     border-radius: 12px;
     box-shadow: 0 12px 28px rgba(15, 23, 42, 0.12);
     cursor: zoom-in;
-    transition: transform .18s ease, box-shadow .18s ease;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
   }
-  .fx-img:hover { transform: translateY(-1px); box-shadow: 0 16px 36px rgba(15, 23, 42, 0.16); }
+  .fx-img:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.16);
+  }
 
   .fx-caption {
-    margin-top: .55rem;
-    font-size: .92rem;
+    margin-top: 0.55rem;
+    font-size: 0.92rem;
     color: var(--fx-text-muted);
   }
 }
@@ -216,12 +283,12 @@ html { scroll-behavior: smooth; }
   max-width: min(92vw, 1400px);
   max-height: 82vh;
   border-radius: 14px;
-  box-shadow: 0 20px 60px rgba(0,0,0,.35);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
 }
 .fx-lightbox-cap {
-  margin-top: .75rem;
+  margin-top: 0.75rem;
   color: #e5e7eb;
-  font-size: .95rem;
+  font-size: 0.95rem;
   text-align: center;
   max-width: min(92vw, 1200px);
 }
@@ -232,9 +299,9 @@ html { scroll-behavior: smooth; }
   width: 36px;
   height: 36px;
   border-radius: 9999px;
-  border: 1px solid rgba(255,255,255,.25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   color: #fff;
-  background: rgba(255,255,255,.08);
+  background: rgba(255, 255, 255, 0.08);
   cursor: pointer;
   font-size: 22px;
   line-height: 1;
@@ -242,11 +309,19 @@ html { scroll-behavior: smooth; }
 
 /* —— 响应式 —— */
 @media (max-width: 1279.98px) {
-  .fx-toc { display: none !important; }
-  .fx-article-shell.has-toc { padding-right: 0 !important; }
+  .fx-toc {
+    display: none !important;
+  }
+  .fx-article-shell.has-toc {
+    padding-right: 0 !important;
+  }
 }
 
 @media (max-width: 640px) {
-  :root { --fx-base-font: 1.06rem; }
-  .markdown-body.fx-article .fx-img { border-radius: 10px; }
+  :root {
+    --fx-base-font: 1.06rem;
+  }
+  .markdown-body.fx-article .fx-img {
+    border-radius: 10px;
+  }
 }
