@@ -4,7 +4,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import "github-markdown-css";
-// ★ 关键：这个文件在 src/components 下，样式文件在 src/components/MarkdownView/index.less
+// 保持你原来的 less
 import "./index.less";
 
 import defaultMarkdownContent from "../../data/newFinancePage/financeContent.md";
@@ -28,25 +28,19 @@ const imageMap: Record<string, string> = {
 
 // ========== 工具函数（与 index.tsx 保持一致） ==========
 
-// 清洗 heading 里的“内联 Markdown 标记”，只保留可读文本
 const cleanHeadingText = (raw: string) => {
   let t = raw;
-  t = t.replace(/<[^>]+>/g, ""); // 去 HTML 标签
-  t = t.replace(/!\[([^\]]*)\]\([^)]+\)/g, "$1"); // 图片
-  t = t.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");   // 链接
-  t = t.replace(/`{1,3}([^`]+?)`{1,3}/g, "$1");    // 代码块/行内代码
-  t = t.replace(/(\*\*|__)(.*?)\1/g, "$2");        // 粗体
-  t = t.replace(/(\*|_)(.*?)\1/g, "$2");           // 斜体
-  t = t.replace(/[*_]/g, "");                      // 零散符号
-  t = t
-    .replace(/&nbsp;/g, " ")
-    .replace(/&amp;/g, "&")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">");
+  t = t.replace(/<[^>]+>/g, "");
+  t = t.replace(/!\[([^\]]*)\]\([^)]+\)/g, "$1");
+  t = t.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
+  t = t.replace(/`{1,3}([^`]+?)`{1,3}/g, "$1");
+  t = t.replace(/(\*\*|__)(.*?)\1/g, "$2");
+  t = t.replace(/(\*|_)(.*?)\1/g, "$2");
+  t = t.replace(/[*_]/g, "");
+  t = t.replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
   return t.trim();
 };
 
-// slugify（与 heading 渲染一致）
 const slugify = (text: string) =>
   text
     .toLowerCase()
@@ -55,7 +49,6 @@ const slugify = (text: string) =>
     .replace(/[`~!@#$%^&*()+={}\[\]|\\:;"'’“”，。、《》？、,.<>/?]/g, "")
     .replace(/\s+/g, "-");
 
-// 从原始 markdown 抽取 TOC（只抓 h2~h4；避免与 Banner 的 H1 冲突）
 type TocItem = { id: string; text: string; depth: 2 | 3 | 4 };
 function parseTOC(md: string): TocItem[] {
   const lines = md.split(/\r?\n/);
@@ -73,7 +66,6 @@ function parseTOC(md: string): TocItem[] {
   return items;
 }
 
-// 从 ReactMarkdown 标题 children 提取纯文本
 const childrenToText = (children: React.ReactNode): string => {
   const buf: string[] = [];
   const walk = (n: React.ReactNode) => {
@@ -90,6 +82,27 @@ const isNumericText = (t: string) => {
   const s = (t || "").trim();
   return /^[-+]?(\d{1,3}(,\d{3})*|\d+)(\.\d+)?%?$/.test(s);
 };
+
+// 把 style="a:b; c:d" 解析为对象（保留 HTML <img style="...">）
+function parseStyle(raw: any): React.CSSProperties | undefined {
+  if (!raw) return undefined;
+  if (typeof raw === "object") return raw as React.CSSProperties;
+  if (typeof raw !== "string") return undefined;
+  const out: Record<string, string> = {};
+  raw
+    .split(";")
+    .map((s) => s.trim())
+    .filter(Boolean)
+    .forEach((pair) => {
+      const idx = pair.indexOf(":");
+      if (idx === -1) return;
+      const key = pair.slice(0, idx).trim();
+      const val = pair.slice(idx + 1).trim();
+      const camel = key.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
+      out[camel] = val;
+    });
+  return out as React.CSSProperties;
+}
 
 // ========== 组件 ==========
 
@@ -114,14 +127,17 @@ export const FinanceOverview: React.FC = () => {
   const tableWrapStyle: React.CSSProperties = {
     position: "relative",
     margin: "20px 0",
-    border: "1px solid #e5e7eb", // 唯一外边线
-    borderRadius: 12,
-    background: "#ffffff",
+    // ↓↓↓ 去掉外层那条框线和阴影/圆角
+    border: 0,
+    borderRadius: 0,
+    background: "transparent",
+    boxShadow: "none",
+  
     overflowX: "auto",
-    overflowY: "visible", // sticky 表头可见
+    overflowY: "visible",
     WebkitOverflowScrolling: "touch",
-    boxShadow: "0 1px 0 rgba(17,24,39,0.02)",
   };
+  
   const tableStyle: React.CSSProperties = {
     width: "100%",
     minWidth: 720,
@@ -131,7 +147,8 @@ export const FinanceOverview: React.FC = () => {
     lineHeight: 1.6,
     color: "#111827",
     fontVariantNumeric: "tabular-nums",
-    border: "none", // 清掉 github-markdown-css 自带 table 外边框，避免叠加
+    border: "none",
+    borderTop: 0, 
   };
   const thStyle: React.CSSProperties = {
     position: "sticky" as const,
@@ -142,10 +159,7 @@ export const FinanceOverview: React.FC = () => {
     zIndex: 1,
     textAlign: "left" as const,
   };
-  const cellDivStyle: React.CSSProperties = {
-    padding: "10px 12px",
-    whiteSpace: "nowrap" as const,
-  };
+  const cellDivStyle: React.CSSProperties = { padding: "10px 12px", whiteSpace: "nowrap" as const };
   const tdBaseStyle: React.CSSProperties = {
     border: "none",
     borderBottom: "1px solid #f3f4f6",
@@ -166,10 +180,7 @@ export const FinanceOverview: React.FC = () => {
     return (
       <tr
         {...props}
-        style={{
-          background: hovered ? "#f5f7fb" : zebraBg,
-          transition: "background 120ms ease",
-        }}
+        style={{ background: hovered ? "#f5f7fb" : zebraBg, transition: "background 120ms ease" }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
@@ -207,10 +218,6 @@ export const FinanceOverview: React.FC = () => {
       </th>
     ),
     td: ({ children, style, ...props }: any) => {
-      const text = childrenToText(children);
-      const isNum = isNumericText(text);
-      const align: React.CSSProperties["textAlign"] =
-        style?.textAlign || (isNum ? "right" : "left");
       const isLastRow = !!props["data-last-row"];
       const borderBottom = isLastRow ? "0" : (style?.borderBottom as any) || "1px solid #f3f4f6";
       return (
@@ -219,8 +226,9 @@ export const FinanceOverview: React.FC = () => {
           style={{
             ...tdBaseStyle,
             ...(style || {}),
-            textAlign: align,
             borderBottom,
+            // ★ 强制全部左对齐（放在最后，覆盖任何上面的 textAlign）
+            textAlign: "left",
           }}
         >
           <div style={cellDivStyle}>{children}</div>
@@ -266,18 +274,19 @@ export const FinanceOverview: React.FC = () => {
       );
     },
 
-    // ====== 段落：支持“多图并排”；单图仍用 figure + caption + lightbox ======
+    // ====== 段落：支持“多图并排”；但若图本身带 inline style，就不干预 ======
     p: ({ node, children, ...props }: any) => {
       const kids = node?.children || [];
       const imgs = kids.filter((c: any) => c?.tagName === "img" && c?.properties) as any[];
       const ignorable = (c: any) =>
         (c?.type === "text" && !String(c.value || "").trim()) || c?.tagName === "br";
+      const hasStyledImg = imgs.some((c: any) => !!c?.properties?.style);
 
-      // 多图并排（仅由图片和空白/br 组成）
+      // 多图并排（仅包含图片与空白，且这些图片没有各自内联样式）
       const onlyImgsOrSpace =
         imgs.length >= 2 && kids.every((c: any) => c?.tagName === "img" || ignorable(c));
 
-      if (onlyImgsOrSpace) {
+      if (onlyImgsOrSpace && !hasStyledImg) {
         const gap = 12;
         const n = imgs.length;
         return (
@@ -312,10 +321,10 @@ export const FinanceOverview: React.FC = () => {
         );
       }
 
-      // 单图：figure + caption + lightbox
+      // 单图：figure + caption + lightbox（无样式的情况）
       const first = kids?.[0];
       const isOnlyImg = kids?.length === 1 && first?.tagName === "img" && first?.properties;
-      if (isOnlyImg) {
+      if (isOnlyImg && !first?.properties?.style) {
         const imgProps = first.properties || {};
         const rawSrc: string = imgProps.src || "";
         const resolvedSrc = imageMap[rawSrc] ?? rawSrc;
@@ -337,9 +346,32 @@ export const FinanceOverview: React.FC = () => {
       return <p {...props}>{children}</p>;
     },
 
-    // 原生/内嵌 HTML 的 <img>：按单图处理
-    img: ({ src = "", alt = "", ...props }: any) => {
+    // ====== HTML <img>：若带内联样式（display/width/height/float 任一），就原样输出，不包 figure ======
+    img: (props: any) => {
+      const { src = "", alt = "", style: styleProp, ...rest } = props;
       const resolvedSrc = imageMap[src] ?? src;
+
+      // 从 props 或 AST 属性读取原始 style
+      const rawStyle = styleProp ?? props?.node?.properties?.style;
+      const inlineStyle = parseStyle(rawStyle);
+
+      if (
+        inlineStyle &&
+        (inlineStyle.display || inlineStyle.width || inlineStyle.height || (inlineStyle as any).float)
+      ) {
+        return (
+          <img
+            src={resolvedSrc}
+            alt={alt}
+            // 保持你的布局：inline 样式优先；补充 height:auto，避免挤压
+            style={{ height: "auto", ...inlineStyle }}
+            onClick={() => setLightbox({ src: resolvedSrc, alt })}
+            {...rest}
+          />
+        );
+      }
+
+      // 无样式：走统一风格
       return (
         <figure className="fx-figure">
           <img
@@ -348,7 +380,7 @@ export const FinanceOverview: React.FC = () => {
             alt={alt}
             style={{ width: "100%", height: "auto", display: "block" }}
             onClick={() => setLightbox({ src: resolvedSrc, alt })}
-            {...props}
+            {...rest}
           />
           {alt ? <figcaption className="fx-caption">{alt}</figcaption> : null}
         </figure>
@@ -386,9 +418,7 @@ export const FinanceOverview: React.FC = () => {
 
       <article className="markdown-body fx-article">
         <ReactMarkdown
-          // 与另一页一致：表格/任务列表等
           remarkPlugins={[remarkGfm]}
-          // 允许文中内嵌 HTML（如 <img>, <div align="center">）
           rehypePlugins={[rehypeRaw]}
           components={components as any}
         >
