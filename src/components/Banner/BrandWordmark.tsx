@@ -29,12 +29,25 @@ const useBrandFonts = () => {
       link.id = id;
       document.head.appendChild(link);
     };
-    addLinkOnce({ rel: "preconnect", href: "https://fonts.googleapis.com" }, "brand-preconnect-gapis");
-    addLinkOnce({ rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "" as any }, "brand-preconnect-gstatic");
-    addLinkOnce({
-      rel: "stylesheet",
-      href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap",
-    }, "brand-fonts-stylesheet");
+    addLinkOnce(
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      "brand-preconnect-gapis"
+    );
+    addLinkOnce(
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "" as any,
+      },
+      "brand-preconnect-gstatic"
+    );
+    addLinkOnce(
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap",
+      },
+      "brand-fonts-stylesheet"
+    );
   }, []);
 };
 
@@ -74,19 +87,24 @@ export const BrandWordmark: React.FC<BrandWordmarkProps> = ({
   };
 
   const xGradient: React.CSSProperties = {
-    background: "linear-gradient(135deg, #111827 0%, #6d28d9 35%, #0ea5e9 70%, #06b6d4 100%)",
+    background:
+      "linear-gradient(135deg, #111827 0%, #6d28d9 35%, #0ea5e9 70%, #06b6d4 100%)",
     WebkitBackgroundClip: "text",
     backgroundClip: "text",
     color: "transparent",
   };
 
-  const sheen: React.CSSProperties = shimmer ? {
-    position: "absolute", inset: 0,
-    background: "linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.8) 15%, transparent 30%)",
-    transform: "translateX(-120%)",
-    animation: "brand-sheen 3.8s ease-in-out infinite",
-    pointerEvents: "none",
-  } : {};
+  const sheen: React.CSSProperties = shimmer
+    ? {
+        position: "absolute",
+        inset: 0,
+        background:
+          "linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.8) 15%, transparent 30%)",
+        transform: "translateX(-120%)",
+        animation: "brand-sheen 3.8s ease-in-out infinite",
+        pointerEvents: "none",
+      }
+    : {};
 
   return (
     <Tag style={base} aria-label="FutureX">
@@ -96,13 +114,17 @@ export const BrandWordmark: React.FC<BrandWordmarkProps> = ({
         {shimmer && <i style={sheen as any} />}
       </span>
       {shimmer && (
-        <style dangerouslySetInnerHTML={{ __html: `
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
 @keyframes brand-sheen {
   0% { transform: translateX(-120%); opacity: 0.0; }
   8% { opacity: 0.9; }
   35% { transform: translateX(110%); opacity: 0.0; }
   100% { transform: translateX(110%); opacity: 0.0; }
-}` }} />
+}`,
+          }}
+        />
       )}
     </Tag>
   );
