@@ -16,21 +16,21 @@ import "./index.less";
 import defaultMarkdownContent from "../../data/newFinancePage/financeContent.md";
 
 // 打包进来的图片映射（确保 key 与 md/HTML 里写的相对路径一致）
-import image1 from "../../data/newFinancePage/Model_vs_Analyst_Revenue_average_win_rate.png";
-import image2 from "../../data/newFinancePage/Model_vs_Analyst_EPS_average_win_rate.png";
-import image3 from "../../data/newFinancePage/Revenue_prediction_MAPE.png";
-import image4 from "../../data/newFinancePage/EPS_prediction_MAPE.png";
-import image5 from "../../data/newFinancePage/Model_vs_Analyst_revenue_projection.png";
-import image6 from "../../data/newFinancePage/Model_vs_Analyst_EPS_projection.png";
+import image1 from "../../data/newFinancePage/Revenue_winrate.png";
+import image2 from "../../data/newFinancePage/EPS_MAPE.png";
+import image3 from "../../data/newFinancePage/EPS_winrate.png";
+import image4 from "../../data/newFinancePage/EPS_tiecase.png";
+import image5 from "../../data/newFinancePage/Revenue_MAPE.png";
+import image6 from "../../data/newFinancePage/Revenue_tiecase.png";
 import image7 from "../../data/newFinancePage/AI_financial_analyst_pic.png";
 
 const imageMap: Record<string, string> = {
-  "./Model_vs_Analyst_Revenue_average_win_rate.png": image1,
-  "./Model_vs_Analyst_EPS_average_win_rate.png": image2,
-  "./Revenue_prediction_MAPE.png": image3,
-  "./EPS_prediction_MAPE.png": image4,
-  "./Model_vs_Analyst_revenue_projection.png": image5,
-  "./Model_vs_Analyst_EPS_projection.png": image6,
+  "./Revenue_winrate.png": image1,
+  "./EPS_MAPE.png": image2,
+  "./EPS_winrate.png": image3,
+  "./EPS_tiecase.png": image4,
+  "./Revenue_MAPE.png": image5,
+  "./Revenue_tiecase.png": image6,
   "./AI_financial_analyst_pic.png": image7,
 };
 
