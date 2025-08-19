@@ -22,6 +22,7 @@ import image4 from "../../data/newFinancePage/EPS_tiecase.png";
 import image5 from "../../data/newFinancePage/Revenue_MAPE.png";
 import image6 from "../../data/newFinancePage/Revenue_tiecase.png";
 import image7 from "../../data/newFinancePage/AI_financial_analyst_pic.png";
+import image8 from "../../data/newFinancePage/leaderboard.png";
 
 const imageMap: Record<string, string> = {
   "./Revenue_winrate.png": image1,
@@ -31,6 +32,7 @@ const imageMap: Record<string, string> = {
   "./Revenue_MAPE.png": image5,
   "./Revenue_tiecase.png": image6,
   "./AI_financial_analyst_pic.png": image7,
+  "./leaderboard.png": image8,
 };
 
 // ========== 工具函数 ==========

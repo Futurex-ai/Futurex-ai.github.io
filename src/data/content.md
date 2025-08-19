@@ -39,7 +39,11 @@ FutureX is a dynamic, real-time benchmark for `Future Prediction`, built on thes
 
 To evaluate agent capabilities with greater granularity, we have meticulously designed the prediction tasks into four ascending levels of difficulty:
 
+<<<<<<< HEAD
 <div style="text-align: center; ">
+=======
+<div style="max-width:120%; overflow-x:auto; margin:0 auto;">
+>>>>>>> f2037648fb9fbee511d56101f5f3633fc0811f5b
   <div style="display: inline-block;">
 
 | **Level** |    **Tier**     |          **Event Type**           |                                                                      **Focus**                                                                       | **Planning** | **Reasoning** | **Searching** |
