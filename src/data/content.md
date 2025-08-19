@@ -13,7 +13,6 @@ Existing benchmarks, such as GAIA and Browsercamp, while valuable, are mostly st
 
 Predicting the future requires an agent, much like a human expert, to gather information, analyze trends, and make decisions in a dynamic environment full of uncertainty. This is precisely the ultimate capability we hope AI will possess. However, establishing a fair, uncontaminated evaluation standard for this purpose is fraught with methodological and technical challenges.
 
-
 ## VISION
 
 We firmly believe that FutureX has the potential to become a key driving force in the development of LLM agents. By providing a fair, dynamic, and highly challenging evaluation platform, we hope to inspire researchers in academia and industry to jointly develop the next generation of AI agents that can match, or even surpass, the level of professional human analysts in complex, high-stakes, real-world domains.
@@ -23,10 +22,10 @@ Our work has just begun. We welcome you to read our technical report for more de
 
 FutureX is a dynamic, real-time benchmark for `Future Prediction`, built on these core features:
 
-* **No Data Contamination:** By requiring predictions of future events, it ensures answers cannot exist in any model's training data. There are around **500 new events per week**.
-* **Real-World Challenge:** Agents analyze live, real-world information to make predictions for future events, not operate in a simulation.
-* **Large Scale:** Utilizes **195 high-quality sources** (selected from over **2,000 websites**) covering **multiple domains**.
-* **Fully Automated Pipeline:** A closed-loop system automatically collects questions, runs **27 agents** daily, and scores the results.
+- **No Data Contamination:** By requiring predictions of future events, it ensures answers cannot exist in any model's training data. There are around **500 new events per week**.
+- **Real-World Challenge:** Agents analyze live, real-world information to make predictions for future events, not operate in a simulation.
+- **Large Scale:** Utilizes **195 high-quality sources** (selected from over **2,000 websites**) covering **multiple domains**.
+- **Fully Automated Pipeline:** A closed-loop system automatically collects questions, runs **27 agents** daily, and scores the results.
 
 <div style="text-align: center;">
   <img
@@ -36,26 +35,22 @@ FutureX is a dynamic, real-time benchmark for `Future Prediction`, built on thes
   >
 </div>
 
-
-
-
 ## Four Difficulty Tiers of FutureX
 
 To evaluate agent capabilities with greater granularity, we have meticulously designed the prediction tasks into four ascending levels of difficulty:
 
-<div style="text-align: center;">
+<div style="text-align: center; ">
   <div style="display: inline-block;">
 
-| **Level** | **Tier** | **Event Type** | **Focus** | **Planning** | **Reasoning** | **Searching** |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 1 | **Basic** | Few choices | Choose from fewer than 4 options from a given list. | Weak | Weak | Weak |
-| 2 | **Wide Search** | Many Choices | Exhaustive discrimination and Return all correct futures. | Weak | Medium | Medium |
-| 3 | **Deep Search** | Open-ended <br> (low volatility) | Interactive search & synthesis <br>Navigate sources (click, scroll, filter) <br>Integrate evidence for an answer. | Medium | Medium | Strong |
-| 4 | **Super Agent** | Open-ended <br> (high volatility) | Forecast high-volatility, open-ended events <br>Conduct wide-scope information search Reason <br>Predict under deep uncertainty **Super-agent** tier | Strong | Strong | Strong |
+| **Level** |    **Tier**     |          **Event Type**           |                                                                      **Focus**                                                                       | **Planning** | **Reasoning** | **Searching** |
+| :-------: | :-------------: | :-------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------: | :----------: | :-----------: | :-----------: |
+|     1     |    **Basic**    |            Few choices            |                                                 Choose from fewer than 4 options from a given list.                                                  |     Weak     |     Weak      |     Weak      |
+|     2     | **Wide Search** |           Many Choices            |                                              Exhaustive discrimination and Return all correct futures.                                               |     Weak     |    Medium     |    Medium     |
+|     3     | **Deep Search** | Open-ended <br> (low volatility)  |                  Interactive search & synthesis <br>Navigate sources (click, scroll, filter) <br>Integrate evidence for an answer.                   |    Medium    |    Medium     |    Strong     |
+|     4     | **Super Agent** | Open-ended <br> (high volatility) | Forecast high-volatility, open-ended events <br>Conduct wide-scope information search Reason <br>Predict under deep uncertainty **Super-agent** tier |    Strong    |    Strong     |    Strong     |
 
   </div>
 </div>
-
 
 ## How do we build FutureX?
 
@@ -69,7 +64,7 @@ To meet the challenge of real-time updates, we built a completely closed-loop, a
 
 ### 1. **Grok-4 leads for now, followed by Gemini Deep Research and GPT-o4-mini.**
 
-   Across the four model types, `Grok-4` achieves the highest overall performance, followed by `Gemini-2.5-flash Deep Research`, `GPT-o4-mini (Think&Search)`, and `Seed1.6 (DouBao)`. 
+Across the four model types, `Grok-4` achieves the highest overall performance, followed by `Gemini-2.5-flash Deep Research`, `GPT-o4-mini (Think&Search)`, and `Seed1.6 (DouBao)`.
 
 <div style="text-align: center;">
    <img
@@ -77,35 +72,30 @@ To meet the challenge of real-time updates, we built a completely closed-loop, a
     alt="Overall ranking between July 20th and August 3rd."
     style="width:80%; display:block; margin:0 auto;"
   >
-</div> 
-
-
+</div>
 
 ### 2. **Difficulty tiers are valid**.
 
-   The performance of all models consistently declines as task difficulty increases from Level 1 to Level 4. Models score particularly low on Level 4 tasks (open-ended, high-volatility), which strongly validates that the benchmark's difficulty stratification is accurate and can effectively measure a range of capabilities from basic recall to complex reasoning.
+The performance of all models consistently declines as task difficulty increases from Level 1 to Level 4. Models score particularly low on Level 4 tasks (open-ended, high-volatility), which strongly validates that the benchmark's difficulty stratification is accurate and can effectively measure a range of capabilities from basic recall to complex reasoning.
 
 ### 3. **Base LLMs perform well on simple tasks**.
 
-   On Level 1 (single-choice) tasks, base LLMs without tool usage perform exceptionally well. Notably, DouBao-Seed1.6-Thinking even outperforms some agents equipped with search tools. This suggests that Level 1 tasks primarily test a model's internal knowledge and have limited ability to differentiate the capabilities of more advanced models.
+On Level 1 (single-choice) tasks, base LLMs without tool usage perform exceptionally well. Notably, DouBao-Seed1.6-Thinking even outperforms some agents equipped with search tools. This suggests that Level 1 tasks primarily test a model's internal knowledge and have limited ability to differentiate the capabilities of more advanced models.
 
 ### 4. **Tool use is crucial for harder tasks**.
 
-   As tasks become more complex (especially Levels 2 and 3), agents that can use external tools like web search significantly outperform models that rely solely on static internal knowledge. This highlights the critical role of real-time information access and tool-augmented reasoning for solving complex, dynamic problems.
+As tasks become more complex (especially Levels 2 and 3), agents that can use external tools like web search significantly outperform models that rely solely on static internal knowledge. This highlights the critical role of real-time information access and tool-augmented reasoning for solving complex, dynamic problems.
 
 ### 5. **Top models show diverging capabilities.**
 
-   - In knowledge retrieval tasks (Levels 1 & 2), `DouBao-Seed1.6-Thinking` is the top performer among base LLMs.
-   - In the most challenging open-ended tasks (Levels 3 & 4), `Grok-4`, `Gemini Deep Research`, and `GPT-o4-mini` stand out. They achieve an excellent balance of accuracy and efficiency (fewer searches, faster inference), even surpassing more expensive deep research models.
+- In knowledge retrieval tasks (Levels 1 & 2), `DouBao-Seed1.6-Thinking` is the top performer among base LLMs.
+- In the most challenging open-ended tasks (Levels 3 & 4), `Grok-4`, `Gemini Deep Research`, and `GPT-o4-mini` stand out. They achieve an excellent balance of accuracy and efficiency (fewer searches, faster inference), even surpassing more expensive deep research models.
 
 ### 6. **AI agents still lag behind humans**.
 
-   Currently, the overall predictive capabilities of LLM agents remain behind those of human experts.
+Currently, the overall predictive capabilities of LLM agents remain behind those of human experts.
 
 <div style="text-align: center;">
 
    <img src="./image-20250805150803688.png" alt="Performances of different tiers." style="width:80%;display:block; margin:0 auto;">
 </div>
-
-
-

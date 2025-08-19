@@ -8,7 +8,7 @@
   --fx-accent: #111827; /* 深色下划线 */
   --fx-accent-quad: #eef2ff; /* 淡底色 */
 
-  --fx-content-max: 72rem; /* ~1152px 阅读宽 */
+  --fx-content-max: 58rem; 
   --fx-base-font: 1.14rem; /* 稍大一点的正文字号 */
 }
 
@@ -220,13 +220,15 @@ html {
   }
 
   table {
-    width: 100%;
+    // width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    margin: 1.25rem 0;
-    border: 1px solid var(--fx-border);
+    width: var(--fx-content-max) !important;
+    margin: 0 !important;
+    border: 1px solid var(--fx-border) !important;
     border-radius: 12px;
-    overflow: hidden;
+    overflow-x: auto !important;
+    
   }
   th,
   td {

@@ -8,7 +8,7 @@
   --fx-accent:       #111827;     /* 深色下划线 */
   --fx-accent-quad:  #eef2ff;     /* 淡底色 */
 
-  --fx-content-max:  72rem;       /* ~1152px 阅读宽 */
+  --fx-content-max:  58rem;       
   --fx-base-font:    1.14rem;     /* 稍大一点的正文字号 */
 }
 
@@ -86,7 +86,7 @@ html { scroll-behavior: smooth; }
   letter-spacing: 0.002em;
 
   /* 阅读宽度 & 居中 */
-  max-width: 58rem;
+  max-width: var(--fx-content-max);
   margin: 0 auto;
 
   /* 你已经移除了 markdown 的 H1，这里给一点顶部留白避免贴 Banner */

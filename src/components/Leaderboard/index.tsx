@@ -42,6 +42,9 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
   const { getLeaderboardData } = useLeaderboardData();
   const data = getLeaderboardData(timePeriodType, selectedTime);
 
+  const level1HasEmptyScore = data.some((item) => item.level1Score === null);
+  const level2HasEmptyScore = data.some((item) => item.level2Score === null);
+
   // 排序状态
   const [sortConfig, setSortConfig] = useState<SortConfig>({
     field: null,
@@ -498,7 +501,28 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                   }`}
                   onClick={() => handleSort("level1Score")}
                 >
-                  <BottomTooltip content="single-choice questions with fewer than 4 options">
+                  <BottomTooltip
+                    style={level1HasEmptyScore ? { maxWidth: "500px" } : {}}
+                    content={
+                      <div>
+                        <div>
+                          "LEVEL 1" indicates that single-choice questions with
+                          fewer than 4 options.
+                        </div>
+                        {level1HasEmptyScore ? (
+                          <div>
+                            "-" indicates that the model predicted fewer than 25
+                            events. Due to high test variance, the results
+                            aren't shown. When a value is missing, the overall
+                            score is normalized. For example, if predictions for
+                            Level 1 are missing, the score for Level 2 is
+                            calculated as: score (Level 2) * 0.2 / (0.2 + 0.3 +
+                            0.4).
+                          </div>
+                        ) : null}
+                      </div>
+                    }
+                  >
                     Level 1 (10%)
                   </BottomTooltip>
                   {renderSortIcon("level1Score")}
@@ -509,7 +533,26 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                   }`}
                   onClick={() => handleSort("level2Score")}
                 >
-                  <BottomTooltip content="multi-choices questions">
+                  <BottomTooltip
+                    style={level2HasEmptyScore ? { maxWidth: "500px" } : {}}
+                    content={
+                      <div>
+                        <div>
+                          "LEVEL 2" indicates that multi-choices questions.
+                        </div>
+                        {level2HasEmptyScore ? (
+                          <div>
+                            "-" indicates that the model predicted fewer than 25
+                            events. Due to high test variance, the results
+                            aren't shown. When a value is missing, the overall
+                            score is normalized. For example, the score for
+                            Level 3 is calculated as: level_3_score * 0.3 / (0.1
+                            + 0.3 + 0.4).
+                          </div>
+                        ) : null}
+                      </div>
+                    }
+                  >
                     Level 2 (20%)
                   </BottomTooltip>
                   {renderSortIcon("level2Score")}
@@ -557,7 +600,9 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                   <div className="leaderboard__cell leaderboard__cell--name">
                     <div className="leaderboard__name-stack leaderboard__name-stack--center">
                       <div
-                        className={`leaderboard__name ${getNameSizeClass(index)}`}
+                        className={`leaderboard__name ${getNameSizeClass(
+                          index
+                        )}`}
                         title={entry.modelName}
                       >
                         {index === 0 && (
