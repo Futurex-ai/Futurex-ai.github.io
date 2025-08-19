@@ -563,7 +563,9 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                   }`}
                   onClick={() => handleSort("level3Score")}
                 >
-                  <BottomTooltip content="Open-ended questions with low volatility">
+                  <BottomTooltip
+                    content={`"LEVEL 3" indicates that Open-ended questions with low volatility.`}
+                  >
                     Level 3 (30%)
                   </BottomTooltip>
                   {renderSortIcon("level3Score")}
@@ -574,7 +576,9 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                   }`}
                   onClick={() => handleSort("level4Score")}
                 >
-                  <BottomTooltip content="Open-ended questions with high volatility">
+                  <BottomTooltip
+                    content={`"LEVEL 4" indicates that Open-ended questions with high volatility.`}
+                  >
                     Level 4 (40%)
                   </BottomTooltip>
                   {renderSortIcon("level4Score")}
