@@ -37,7 +37,11 @@ const cleanHeadingText = (raw: string) => {
   t = t.replace(/(\*\*|__)(.*?)\1/g, "$2");
   t = t.replace(/(\*|_)(.*?)\1/g, "$2");
   t = t.replace(/[*_]/g, "");
-  t = t.replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
+  t = t
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">");
   return t.trim();
 };
 
@@ -109,7 +113,7 @@ function parseStyle(raw: any): React.CSSProperties | undefined {
 export const FinanceOverview: React.FC = () => {
   // 版心
   const containerStyle: React.CSSProperties = {
-    maxWidth: "1440px",
+    maxWidth: "900px",
     margin: "0 auto",
     padding: "2rem 1.25rem 3rem",
   };
@@ -121,7 +125,10 @@ export const FinanceOverview: React.FC = () => {
   }, []);
 
   // Lightbox
-  const [lightbox, setLightbox] = React.useState<null | { src: string; alt?: string }>(null);
+  const [lightbox, setLightbox] = React.useState<null | {
+    src: string;
+    alt?: string;
+  }>(null);
 
   // ====== 表格样式（与另一页一致，避免双重外框） ======
   const tableWrapStyle: React.CSSProperties = {
@@ -132,12 +139,12 @@ export const FinanceOverview: React.FC = () => {
     borderRadius: 0,
     background: "transparent",
     boxShadow: "none",
-  
+
     overflowX: "auto",
     overflowY: "visible",
     WebkitOverflowScrolling: "touch",
   };
-  
+
   const tableStyle: React.CSSProperties = {
     width: "100%",
     minWidth: 720,
@@ -148,7 +155,7 @@ export const FinanceOverview: React.FC = () => {
     color: "#111827",
     fontVariantNumeric: "tabular-nums",
     border: "none",
-    borderTop: 0, 
+    borderTop: 0,
   };
   const thStyle: React.CSSProperties = {
     position: "sticky" as const,
@@ -159,7 +166,10 @@ export const FinanceOverview: React.FC = () => {
     zIndex: 1,
     textAlign: "left" as const,
   };
-  const cellDivStyle: React.CSSProperties = { padding: "10px 12px", whiteSpace: "nowrap" as const };
+  const cellDivStyle: React.CSSProperties = {
+    padding: "10px 12px",
+    whiteSpace: "nowrap" as const,
+  };
   const tdBaseStyle: React.CSSProperties = {
     border: "none",
     borderBottom: "1px solid #f3f4f6",
@@ -168,7 +178,10 @@ export const FinanceOverview: React.FC = () => {
 
   // zebra + hover 行；把“是否最后一行”传给单元格以去掉底边
   const Tr: React.FC<
-    React.HTMLAttributes<HTMLTableRowElement> & { "data-row-odd"?: boolean; "data-last"?: boolean }
+    React.HTMLAttributes<HTMLTableRowElement> & {
+      "data-row-odd"?: boolean;
+      "data-last"?: boolean;
+    }
   > = ({ children, ...props }) => {
     const [hovered, setHovered] = React.useState(false);
     const zebraBg = props["data-row-odd"] ? "#fcfcfd" : "#fff";
@@ -180,7 +193,10 @@ export const FinanceOverview: React.FC = () => {
     return (
       <tr
         {...props}
-        style={{ background: hovered ? "#f5f7fb" : zebraBg, transition: "background 120ms ease" }}
+        style={{
+          background: hovered ? "#f5f7fb" : zebraBg,
+          transition: "background 120ms ease",
+        }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
@@ -199,7 +215,9 @@ export const FinanceOverview: React.FC = () => {
         </table>
       </div>
     ),
-    thead: ({ children, ...props }: any) => <thead {...props}>{children}</thead>,
+    thead: ({ children, ...props }: any) => (
+      <thead {...props}>{children}</thead>
+    ),
     tbody: ({ children, ...props }: any) => {
       const rowsArr = React.Children.toArray(children);
       const rows = rowsArr.map((child, idx) => {
@@ -219,7 +237,9 @@ export const FinanceOverview: React.FC = () => {
     ),
     td: ({ children, style, ...props }: any) => {
       const isLastRow = !!props["data-last-row"];
-      const borderBottom = isLastRow ? "0" : (style?.borderBottom as any) || "1px solid #f3f4f6";
+      const borderBottom = isLastRow
+        ? "0"
+        : (style?.borderBottom as any) || "1px solid #f3f4f6";
       return (
         <td
           {...props}
@@ -277,14 +297,18 @@ export const FinanceOverview: React.FC = () => {
     // ====== 段落：支持“多图并排”；但若图本身带 inline style，就不干预 ======
     p: ({ node, children, ...props }: any) => {
       const kids = node?.children || [];
-      const imgs = kids.filter((c: any) => c?.tagName === "img" && c?.properties) as any[];
+      const imgs = kids.filter(
+        (c: any) => c?.tagName === "img" && c?.properties
+      ) as any[];
       const ignorable = (c: any) =>
-        (c?.type === "text" && !String(c.value || "").trim()) || c?.tagName === "br";
+        (c?.type === "text" && !String(c.value || "").trim()) ||
+        c?.tagName === "br";
       const hasStyledImg = imgs.some((c: any) => !!c?.properties?.style);
 
       // 多图并排（仅包含图片与空白，且这些图片没有各自内联样式）
       const onlyImgsOrSpace =
-        imgs.length >= 2 && kids.every((c: any) => c?.tagName === "img" || ignorable(c));
+        imgs.length >= 2 &&
+        kids.every((c: any) => c?.tagName === "img" || ignorable(c));
 
       if (onlyImgsOrSpace && !hasStyledImg) {
         const gap = 12;
@@ -292,7 +316,12 @@ export const FinanceOverview: React.FC = () => {
         return (
           <div
             className="fx-img-row"
-            style={{ display: "flex", gap, alignItems: "flex-start", margin: "12px 0" }}
+            style={{
+              display: "flex",
+              gap,
+              alignItems: "flex-start",
+              margin: "12px 0",
+            }}
             {...props}
           >
             {imgs.map((img: any, idx: number) => {
@@ -313,7 +342,9 @@ export const FinanceOverview: React.FC = () => {
                     style={{ width: "100%", height: "auto", display: "block" }}
                     onClick={() => setLightbox({ src: resolvedSrc, alt })}
                   />
-                  {alt ? <figcaption className="fx-caption">{alt}</figcaption> : null}
+                  {alt ? (
+                    <figcaption className="fx-caption">{alt}</figcaption>
+                  ) : null}
                 </figure>
               );
             })}
@@ -323,7 +354,8 @@ export const FinanceOverview: React.FC = () => {
 
       // 单图：figure + caption + lightbox（无样式的情况）
       const first = kids?.[0];
-      const isOnlyImg = kids?.length === 1 && first?.tagName === "img" && first?.properties;
+      const isOnlyImg =
+        kids?.length === 1 && first?.tagName === "img" && first?.properties;
       if (isOnlyImg && !first?.properties?.style) {
         const imgProps = first.properties || {};
         const rawSrc: string = imgProps.src || "";
@@ -357,7 +389,10 @@ export const FinanceOverview: React.FC = () => {
 
       if (
         inlineStyle &&
-        (inlineStyle.display || inlineStyle.width || inlineStyle.height || (inlineStyle as any).float)
+        (inlineStyle.display ||
+          inlineStyle.width ||
+          inlineStyle.height ||
+          (inlineStyle as any).float)
       ) {
         return (
           <img
@@ -389,7 +424,13 @@ export const FinanceOverview: React.FC = () => {
 
     // 居中对齐（兼容 <div align="center">）
     div: ({ align, style, ...props }: any) => (
-      <div style={{ textAlign: align === "center" ? "center" : undefined, ...style }} {...props} />
+      <div
+        style={{
+          textAlign: align === "center" ? "center" : undefined,
+          ...style,
+        }}
+        {...props}
+      />
     ),
 
     // 链接新开页
@@ -401,7 +442,10 @@ export const FinanceOverview: React.FC = () => {
   };
 
   return (
-    <div style={containerStyle} className={`fx-article-shell ${toc.length ? "has-toc" : ""}`}>
+    <div
+      style={containerStyle}
+      className={`fx-article-shell ${toc.length ? "has-toc" : ""}`}
+    >
       {/* 右侧 TOC（仅桌面显示） */}
       {toc.length > 0 && (
         <nav className="fx-toc" aria-label="Table of contents">
@@ -430,8 +474,14 @@ export const FinanceOverview: React.FC = () => {
       {lightbox && (
         <div className="fx-lightbox" onClick={() => setLightbox(null)}>
           <img src={lightbox.src} alt={lightbox.alt || ""} />
-          {lightbox.alt ? <div className="fx-lightbox-cap">{lightbox.alt}</div> : null}
-          <button className="fx-lightbox-close" aria-label="Close" onClick={() => setLightbox(null)}>
+          {lightbox.alt ? (
+            <div className="fx-lightbox-cap">{lightbox.alt}</div>
+          ) : null}
+          <button
+            className="fx-lightbox-close"
+            aria-label="Close"
+            onClick={() => setLightbox(null)}
+          >
             ×
           </button>
         </div>
