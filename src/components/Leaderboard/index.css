@@ -1,8 +1,4 @@
-/* 榜单组件样式 */
-.leaderboard {
-  /* 容器样式 */
-}
-
+/* —— 基础容器 —— */
 .leaderboard__container {
   height: 734px;
   max-height: 734px;
@@ -18,12 +14,11 @@
   border-radius: 8px;
   border: 1px solid #e5e7eb;
   overflow: hidden;
-  box-shadow: none;
   flex: 1;
   min-height: 0;
   height: 400px;
   position: relative;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .leaderboard__scroll-wrapper {
@@ -38,6 +33,7 @@
   width: max-content;
 }
 
+/* —— 表头（保持你原样式，不动） —— */
 .leaderboard__sticky-header {
   position: sticky;
   top: 0;
@@ -55,7 +51,6 @@
   font-weight: 600;
 }
 
-/* 基础表头单元格样式 */
 .leaderboard__header-cell {
   padding: 1rem 0.5rem;
   text-align: center;
@@ -71,55 +66,22 @@
   background: #f9fafb;
 }
 
-/* 固定列的表头样式 */
-.leaderboard__header-cell--sticky {
-  position: sticky;
-  z-index: 15;
-  border-right: 1px solid #e5e7eb;
-}
-
+.leaderboard__header-cell--sticky { position: sticky; z-index: 15; border-right: 1px solid #e5e7eb; }
 .leaderboard__header-cell--rank { left: 0; }
 .leaderboard__header-cell--name { left: 80px; }
 
-/* 可排序的表头样式 */
-.leaderboard__header-cell--sortable {
-  cursor: pointer;
-  user-select: none;
-  transition: background-color 0.2s, color 0.2s;
-  gap: 0.5rem;
-}
+.leaderboard__header-cell--sortable { cursor: pointer; user-select: none; transition: background-color .2s, color .2s; gap: .5rem; }
 .leaderboard__header-cell--sortable:hover { background: #f3f4f6; }
-.leaderboard__header-cell--sortable.active {
-  background: #eff6ff;
-  color: #3b82f6;
-}
+.leaderboard__header-cell--sortable.active { background: #eff6ff; color: #3b82f6; }
 
-/* 可筛选的表头样式 */
-.leaderboard__header-cell--filterable {
-  position: relative;
-  gap: 0.5rem;
-  text-transform: none;
-}
+.leaderboard__header-cell--filterable { position: relative; gap: .5rem; text-transform: none; }
 
-/* 筛选按钮样式 */
-.leaderboard__filter-button {
-  background: none;
-  border: none;
-  padding: 0.25rem;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+.leaderboard__filter-button { background: none; border: none; padding: .25rem; cursor: pointer; border-radius: 4px; transition: background-color .2s; display: flex; align-items: center; justify-content: center; }
 .leaderboard__filter-button:hover { background: #f3f4f6; }
 
-/* 筛选图标样式 */
-.leaderboard__filter-icon { color: #9ca3af; transition: color 0.2s; }
+.leaderboard__filter-icon { color: #9ca3af; transition: color .2s; }
 .leaderboard__filter-icon--active { color: #3b82f6; }
 
-/* 筛选下拉框样式 */
 .leaderboard__filter-dropdown {
   position: absolute;
   top: 100%;
@@ -134,64 +96,25 @@
   max-height: 300px;
   overflow-y: auto;
 }
-
-/* 筛选头部样式 */
 .leaderboard__filter-header {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid #f3f4f6;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #374151;
+  padding: .75rem 1rem; border-bottom: 1px solid #f3f4f6; display: flex; align-items: center; justify-content: space-between; font-size: .875rem; font-weight: 500; color: #374151;
 }
-
-.leaderboard__filter-clear {
-  background: none;
-  border: none;
-  color: #3b82f6;
-  font-size: 0.75rem;
-  font-weight: 500;
-  cursor: pointer;
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  transition: background-color 0.2s;
-}
+.leaderboard__filter-clear { background: none; border: none; color: #3b82f6; font-size: .75rem; font-weight: 500; cursor: pointer; padding: .25rem .5rem; border-radius: 4px; transition: background-color .2s; }
 .leaderboard__filter-clear:hover { background: #eff6ff; }
-
-/* 筛选选项样式 */
-.leaderboard__filter-options { padding: 0.5rem 0; }
-.leaderboard__filter-option {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  font-size: 0.775rem;
-  font-weight: 400;
-  color: #374151;
-  transition: background-color 0.2s;
-}
+.leaderboard__filter-options { padding: .5rem 0; }
+.leaderboard__filter-option { display: flex; align-items: center; gap: .5rem; padding: .5rem 1rem; cursor: pointer; font-size: .775rem; font-weight: 400; color: #374151; transition: background-color .2s; }
 .leaderboard__filter-option:hover { background: #f9fafb; }
-.leaderboard__filter-option input[type="checkbox"] {
-  width: 16px; height: 16px;
-  border-radius: 4px;
-  border: 1px solid #d1d5db;
-  cursor: pointer;
-}
-.leaderboard__filter-option input[type="checkbox"]:checked {
-  background: #3b82f6; border-color: #3b82f6;
-}
+.leaderboard__filter-option input[type="checkbox"] { width: 16px; height: 16px; border-radius: 4px; border: 1px solid #d1d5db; cursor: pointer; }
+.leaderboard__filter-option input[type="checkbox"]:checked { background: #3b82f6; border-color: #3b82f6; }
 
-/* 数据行样式 */
+/* —— 数据行 —— */
 .leaderboard__row {
   display: grid;
   grid-template-columns: 80px 280px 250px 220px 140px 120px 140px 140px 140px 140px 140px;
   border-bottom: 1px solid #f3f4f6;
 }
 
-/* 基础数据单元格样式 */
+/* —— 单元格 —— */
 .leaderboard__cell {
   padding: 1rem 0.5rem;
   text-align: center;
@@ -204,7 +127,7 @@
   line-height: 1.4;
 }
 
-/* 排名列样式 */
+/* 左侧两列：保持粘性与白底，不改 */
 .leaderboard__cell--rank {
   position: sticky;
   background: white;
@@ -212,31 +135,6 @@
   border-right: 1px solid #f3f4f6;
   left: 0;
 }
-
-.leaderboard__rank-badge {
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  font-weight: 500;
-  font-size: 0.75rem;
-  min-width: 32px;
-  line-height: 1.2;
-  letter-spacing: 0;
-}
-
-.leaderboard__rank-badge--first {
-  background: #fbbf24; color: white; font-weight: 700; letter-spacing: 0.025em;
-}
-.leaderboard__rank-badge--second {
-  background: #9ca3af; color: white; font-weight: 600;
-}
-.leaderboard__rank-badge--third {
-  background: #d97706; color: white; font-weight: 600;
-}
-.leaderboard__rank-badge--other {
-  background: #f3f4f6; color: #6b7280;
-}
-
-/* 名称列样式（左侧固定列） */
 .leaderboard__cell--name {
   position: sticky;
   background: white;
@@ -248,32 +146,35 @@
   letter-spacing: 0.0125em;
 }
 
-/* NAME 列：竖向堆叠（上：名字；下：框架） */
-.leaderboard__name-stack {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.leaderboard__name-stack--center {
-  align-items: center;
-  text-align: center;
-}
+/* NAME 列堆叠 */
+.leaderboard__name-stack { display: flex; flex-direction: column; align-items: flex-start; }
+.leaderboard__name-stack--center { align-items: center; text-align: center; }
 
-/* 名字（带省略号与过渡） */
 .leaderboard__name {
   font-weight: 700;
   line-height: 1.1;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: transform .18s ease; /* 仅给第一名整行特效用 */
   max-width: 28ch;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: inherit; /* 由下面的 rank 颜色类决定 */
 }
 
-/* 框架行（第二行） */
+/* —— 只改“前三名的名字颜色” —— */
+:root{
+  --gold:  #d4af37; /* 金 */
+  --silver:#c0c0c0; /* 银 */
+  --bronze:#cd7f32; /* 铜 */
+}
+.leaderboard__name--rank-1 { color: var(--gold); }
+.leaderboard__name--rank-2 { color: var(--silver); }
+.leaderboard__name--rank-3 { color: var(--bronze); }
+.leaderboard__name--rank-rest { color: inherit; }
+
+/* 第二行（框架） */
 .leaderboard__framework {
   display: block;
   margin-top: 2px;
@@ -284,746 +185,77 @@
   letter-spacing: 0.0125em;
 }
 
-/* 模型名称列样式 */
-.leaderboard__cell--model {
-  color: #6b7280;
-  font-weight: 500;
-  letter-spacing: 0.0125em;
-}
-/* Agent Framework列样式 */
-.leaderboard__cell--framework {
-  color: #6b7280;
-  font-weight: 500;
-  letter-spacing: 0.0125em;
-}
-/* 组织列样式 */
+/* 其它列配色保持原样 */
+.leaderboard__cell--model,
+.leaderboard__cell--framework,
 .leaderboard__cell--organization {
   color: #6b7280;
   font-weight: 500;
   letter-spacing: 0.0125em;
 }
-
-/* 总分列样式 */
 .leaderboard__cell--overall-score .leaderboard__score {
-  font-weight: 700;
-  font-size: 0.875rem;
-  color: #111827;
-  line-height: 1.3;
-  letter-spacing: 0.0125em;
+  font-weight: 700; font-size: 0.875rem; color: #111827; line-height: 1.3; letter-spacing: 0.0125em;
 }
-
-/* 事件数列样式 */
-.leaderboard__cell--events {
-  color: #6b7280;
-  letter-spacing: 0.0125em;
-}
-
-/* Level分数列样式 */
+.leaderboard__cell--events { color: #6b7280; letter-spacing: 0.0125em; }
 .leaderboard__cell--level-score .leaderboard__score {
-  color: #374151;
-  font-weight: 600;
-  font-size: 0.875rem;
-  line-height: 1.3;
-  letter-spacing: 0.0125em;
+  color: #374151; font-weight: 600; font-size: 0.875rem; line-height: 1.3; letter-spacing: 0.0125em;
 }
 
-/* 排序图标样式 */
+/* 排名徽章（保留） */
+.leaderboard__rank-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.75rem;
+  min-width: 32px;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+.leaderboard__rank-badge--first { background: #fbbf24; color: #fff; font-weight: 700; letter-spacing: 0.025em; }
+.leaderboard__rank-badge--second { background: #9ca3af; color: #fff; font-weight: 600; }
+.leaderboard__rank-badge--third { background: #d97706; color: #fff; font-weight: 600; }
+.leaderboard__rank-badge--other { background: #f3f4f6; color: #6b7280; }
+
+/* —— 重要：彻底取消“第一名行”的任何背景/阴影/边框效果 —— */
+.leaderboard__row--rank-1,
+.leaderboard__row--rank-2,
+.leaderboard__row--rank-3 {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.leaderboard__row--rank-1::before,
+.leaderboard__row--rank-1::after,
+.leaderboard__row--rank-2::before,
+.leaderboard__row--rank-2::after,
+.leaderboard__row--rank-3::before,
+.leaderboard__row--rank-3::after {
+  content: none !important;
+}
+
+/* 排序图标 */
 .leaderboard__sort-icon--inactive { opacity: 0.4; color: #9ca3af; }
 .leaderboard__sort-icon--active { color: #3b82f6; transition: transform 0.2s; }
 .leaderboard__sort-icon--asc { transform: rotate(180deg); }
 .leaderboard__sort-icon--desc { transform: rotate(0deg); }
 
-/* 无筛选结果样式 */
-.leaderboard__no-results {
-  padding: 2rem;
-  text-align: center;
-  border-bottom: 1px solid #f3f4f6;
-}
-.leaderboard__no-results-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  color: #6b7280;
-  font-size: 0.875rem;
-}
+/* 无结果 & 空状态（保留） */
+.leaderboard__no-results { padding: 2rem; text-align: center; border-bottom: 1px solid #f3f4f6; }
+.leaderboard__no-results-content { display: flex; align-items: center; justify-content: center; gap: .5rem; color: #6b7280; font-size: .875rem; }
 .leaderboard__no-results-content svg { color: #9ca3af; }
 
-/* 空状态样式 */
 .leaderboard__empty {
-  background: white;
-  border-radius: 12px;
-  border: 1px solid #e5e7eb;
-  padding: 4rem 2rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+  background: white; border-radius: 12px; border: 1px solid #e5e7eb; padding: 4rem 2rem; text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 1rem;
 }
-.leaderboard__empty-icon {
-  width: 64px; height: 64px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 0.5rem;
-}
+.leaderboard__empty-icon { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%); display: flex; align-items: center; justify-content: center; margin-bottom: .5rem; }
 .leaderboard__empty-icon svg { color: #9ca3af; }
-.leaderboard__empty-title {
-  color: #374151; font-size: 1.25rem; font-weight: 600; margin: 0; line-height: 1.3;
-}
-.leaderboard__empty-description {
-  color: #6b7280; font-size: 1rem; margin: 0; line-height: 1.5; max-width: 400px;
-}
-.leaderboard__empty-tip {
-  margin-top: 1rem; padding: 0.75rem 1rem; background: #f9fafb; border: 1px solid #e5e7eb;
-  border-radius: 8px; font-size: 0.875rem; color: #6b7280;
-}
-
-/* ========= 仅第一名整行的“自然放大”特效 ========= */
-/* 使用 transform 缩放整行，不改变布局；hover 时保持相同缩放，避免跳变 */
-.leaderboard__row--rank-1,
-.leaderboard__row--rank-1:hover {
-  position: relative;
-  z-index: 1;
-  transform: scaleY(1.015) !important;      /* 轻微放大；可改为 1.01~1.02 */
-  transform-origin: center center;          /* 以整行中心缩放更自然 */
-  transition: transform 180ms ease-out;     /* 平滑但不炫 */
-  margin-block: 2px;                         /* 预留一点上下呼吸，避免覆盖邻行 */
-}
-
-/* 可选：尊重系统“减少动效”偏好 */
-@media (prefers-reduced-motion: reduce) {
-  .leaderboard__row--rank-1,
-  .leaderboard__row--rank-1:hover {
-    transition: none;
-  }
-}
-
-/* ========== First row: understated "card-in-table" highlight ========== */
-
-/* 1) 取消以前的缩放/动画（如果之前有的话） */
-.leaderboard__row--rank-1 {
-  transform: none !important;
-}
-
-/* 2) 行本体建立层级，稍微提高以避免被相邻行遮盖 */
-.leaderboard__row--rank-1 {
-  position: relative;
-  z-index: 1;
-}
-
-/* 3) 略微增加垂直留白，营造“更从容”的节奏（+2px） */
-.leaderboard__row--rank-1 .leaderboard__cell {
-  padding-top: 1.125rem;   /* 原来是 1rem */
-  padding-bottom: 1.125rem;
-}
-
-/* 4) 用 ::before 做一张很轻的“卡片”底（不改文字样式） */
-.leaderboard__row--rank-1::before {
-  content: "";
-  position: absolute;
-
-  /* 在行内留一个 8px 的水平呼吸，2px 的上下留白 */
-  inset: 2px 8px;
-
-  border-radius: 10px;
-  background: #ffffff;                         /* 仍是白色，保持整体干净 */
-  border: 1px solid rgba(17, 24, 39, 0.06);    /* #111827 @ 6% 的极细描边 */
-  box-shadow:
-    0 1px 0 rgba(0, 0, 0, 0.03),
-    0 6px 18px rgba(0, 0, 0, 0.04);            /* 很轻的层次阴影 */
-  pointer-events: none;                         /* 不影响交互 */
-  z-index: 0;                                   /* 在单元格之下 */
-}
-
-/* 5) 与 sticky 列兼容：确保左侧两列仍是纯白，不出现叠影 */
-.leaderboard__cell--rank,
-.leaderboard__cell--name {
-  background: #fff;
-}
-
-/* 第一名行：卡片式强调，不遮挡文字 */
-.leaderboard__row--rank-1 {
-  position: relative;
-  z-index: 0;                /* 创建堆叠上下文 */
-}
-
-.leaderboard__row--rank-1::before {
-  content: "";
-  position: absolute;
-  inset: 2px 8px;            /* 行内留白 */
-  border-radius: 10px;
-  background: #fff;
-  border: 1px solid rgba(17,24,39,.06);
-  box-shadow:
-    0 1px 0 rgba(0,0,0,.03),
-    0 6px 18px rgba(0,0,0,.04);
-  pointer-events: none;
-  z-index: -1;               /* 关键：放到文字后面 */
-}
-
-/* 稍微多一点垂直留白（更从容），可选 */
-.leaderboard__row--rank-1 .leaderboard__cell {
-  padding-top: 1.125rem;
-  padding-bottom: 1.125rem;
-}
-
-/* 与 sticky 列兼容，避免叠影（保留白底） */
-.leaderboard__cell--rank,
-.leaderboard__cell--name {
-  background: #fff;
-}
-
-/* 如果你的项目里还有其他 transform/动画，想更稳： */
-@media (prefers-reduced-motion: reduce) {
-  .leaderboard__row--rank-1::before { box-shadow: 0 1px 0 rgba(0,0,0,.03); }
-}
-
-/* === First row: subtle gold shadow highlight (minimal & elegant) === */
-
-/* 可调参数（经典金色 RGB：212,175,55） */
-:root {
-  --gold-rgb: 212, 175, 55;
-}
-
-/* 建立独立层叠上下文，避免与相邻行/粘性列互相影响 */
-.leaderboard__row--rank-1 {
-  position: relative;
-  isolation: isolate; /* 关键点：让伪元素永远在内容下方而不遮字 */
-}
-
-/* 金色阴影：极轻的 1px 金色描边 + 柔和外阴影；不改变文字样式 */
-.leaderboard__row--rank-1::before {
-  content: "";
-  position: absolute;
-  inset: 2px 8px;                 /* 行内上下 2px、左右 8px 留白，显得更从容 */
-  border-radius: 10px;            /* 柔和圆角 */
-  background: transparent;        /* 不盖内容 */
-  box-shadow:
-    0 0 0 1px rgba(var(--gold-rgb), 0.22),   /* 细金色描边 */
-    0 8px 18px rgba(var(--gold-rgb), 0.16),  /* 金色柔光 */
-    0 2px 6px rgba(0, 0, 0, 0.04);           /* 轻微环境阴影，增加真实感 */
-  pointer-events: none;
-  z-index: -1;                     /* 放到文字后面，避免“盖字” */
-  transition: box-shadow 160ms ease; /* 轻微过渡，避免跳变感 */
-}
-
-/* Hover 时略微加强阴影（仍然很克制） */
-.leaderboard__row--rank-1:hover::before {
-  box-shadow:
-    0 0 0 1px rgba(var(--gold-rgb), 0.26),
-    0 10px 22px rgba(var(--gold-rgb), 0.18),
-    0 3px 8px rgba(0, 0, 0, 0.05);
-}
-
-/* 与 sticky 列兼容：保持左侧两列为纯白底，避免叠影 */
-.leaderboard__cell--rank,
-.leaderboard__cell--name {
-  background: #fff;
-}
-/* 让第一行金色框的上边贴紧，不留缝 */
-.leaderboard__row--rank-1::before {
-  inset: 0 8px 2px !important;  /* top=0 贴齐，bottom=2px 保留一点呼吸 */
-}
-
-/* 如果你仍然看到极细的缝（受 header 下边线影响），再用这个微调： */
-@media (min-resolution: 2dppx) {
-  .leaderboard__row--rank-1::before { top: -2px; }  /* 往上吃 1px，严丝合缝 */
-}
-
-/* === First row: full-width gold frame, seamless across the whole row === */
-:root { --gold-rgb: 212,175,55; } /* 经典金色 */
-
-.leaderboard__row--rank-1 {
-  position: relative;
-  isolation: isolate;         /* 独立层叠，防止被 sticky 遮挡 */
-  border-bottom: none;        /* 去掉该行自带的底部分隔线，避免下缘“缝” */
-}
-
-/* 关键：让该行所有单元格背景为透明，框才不会被 sticky 白底切断 */
-.leaderboard__row--rank-1 .leaderboard__cell {
-  background: transparent !important;
-}
-
-/* 关键：去掉 sticky 列在这一行的右边框，避免竖向“缝” */
-.leaderboard__row--rank-1 .leaderboard__cell--rank,
-.leaderboard__row--rank-1 .leaderboard__cell--name {
-  border-right: none !important;
-}
-
-/* 金色框覆盖整行（左右贴齐，上下略吃 1px 消除像素缝） */
-.leaderboard__row--rank-1::before {
-  content: "";
-  position: absolute;
-  top: -1px;                 /* 向上吃 1px，贴住表头下边线 */
-  bottom: -1px;              /* 向下吃 1px，盖住行分隔线 */
-  left: 0;
-  right: 0;
-  border-radius: 10px;       /* 可改 8~12px；要直角就设为 0 */
-  background: transparent;
-  box-shadow:
-    0 0 0 1px rgba(var(--gold-rgb), .28),  /* 1px 金色描边 */
-    0 8px 18px rgba(var(--gold-rgb), .14), /* 柔和金色外阴影 */
-    0 2px 6px rgba(0,0,0,.04);             /* 轻微环境阴影 */
-  pointer-events: none;
-  z-index: -1;               /* 永远在文字后面，不盖字 */
-}
-
-/* 可选：hover 时极轻加强，保持克制 */
-.leaderboard__row--rank-1:hover::before {
-  box-shadow:
-    0 0 0 1px rgba(var(--gold-rgb), .32),
-    0 10px 22px rgba(var(--gold-rgb), .16),
-    0 3px 8px rgba(0,0,0,.05);
-}
-
-/* 固定第 1、2 列：横向滚动时不动 */
-:root { --col-rank: 80px; } /* 第 1 列（Rank）宽度，和 grid 列宽保持一致 */
-
-.leaderboard__header-cell--rank,
-.leaderboard__cell--rank {
-  position: sticky !important;
-  left: 0 !important;
-  z-index: 12;               /* 高于普通单元格 */
-  background: #fff !important;
-}
-
-.leaderboard__header-cell--name,
-.leaderboard__cell--name {
-  position: sticky !important;
-  left: var(--col-rank) !important;  /* 紧跟第 1 列 */
-  z-index: 12;
-  background: #fff !important;
-}
-
-/* 表头层级再高一点，避免被内容覆盖 */
-.leaderboard__header-cell--rank,
-.leaderboard__header-cell--name {
-  z-index: 20 !important;
-  border-right: 1px solid #e5e7eb;   /* 保持表头分隔线 */
-}
-
-/* 用内阴影做右侧分隔线，比 border 更不容易出现“缝” */
-.leaderboard__cell--rank,
-.leaderboard__cell--name {
-  box-shadow: inset -1px 0 0 #f3f4f6;
-  border-right: none !important;
-}
-
-/* 如果你给第一名行加了金色框，确保 sticky 列不被覆盖 */
-.leaderboard__row--rank-1 { isolation: isolate; }
-.leaderboard__row--rank-1::before { z-index: 1; }
-.leaderboard__cell--rank,
-.leaderboard__cell--name { z-index: 2; }  /* 盖在金色框之上 */
-
-/* === 第一名：金色阴影更“开”（bloom），不影响左右滑动与前两列粘性 === */
-:root{
-  --col-rank: 80px;          /* 第1列宽度（与你的 grid 保持一致） */
-  --col-name: 280px;         /* 第2列宽度（与你的 grid 保持一致） */
-  --frame-pad-x: 8px;        /* 左右安全边距，防止文字撞边 */
-  --gold-rgb: 212,175,55;    /* 经典金色 */
-}
-
-.leaderboard__row--rank-1{
-  position: relative;
-  isolation: isolate;        /* 自成层叠上下文，避免被 sticky 打断 */
-  border-bottom: none;       /* 去掉本行底部分隔线，消除下缘细缝 */
-}
-
-/* 金色阴影只在第3列及其后生效（避开 Rank/Name 粘性列） */
-.leaderboard__row--rank-1::before{
-  content: "";
-  position: absolute;
-  top: -1px;                 /* 贴住表头下边线 */
-  bottom: -1px;              /* 覆盖本行底线 */
-  left: calc(var(--col-rank) + var(--col-name) + var(--frame-pad-x));
-  right: var(--frame-pad-x);
-  border-radius: 10px;
-  background: transparent;
-  /* —— 更“开”的金色阴影：多层次、柔和外扩 —— */
-  box-shadow:
-    0 0 0 1px rgba(var(--gold-rgb), .35),   /* 细金边 */
-    0 6px 18px rgba(var(--gold-rgb), .22),  /* 近场柔光 */
-    0 14px 32px rgba(var(--gold-rgb), .18), /* 中场扩散 */
-    0 28px 60px rgba(var(--gold-rgb), .12), /* 远场淡扩散 */
-    0 2px 6px rgba(0,0,0,.04);              /* 环境阴影，增加真实感 */
-  pointer-events: none;
-  z-index: 0;                               /* 永远在内容之下 */
-}
-
-/* （可选）悬停时轻微加强，但仍克制 */
-.leaderboard__row--rank-1:hover::before{
-  box-shadow:
-    0 0 0 1px rgba(var(--gold-rgb), .38),
-    0 8px 22px rgba(var(--gold-rgb), .24),
-    0 18px 40px rgba(var(--gold-rgb), .18),
-    0 32px 70px rgba(var(--gold-rgb), .12),
-    0 3px 8px rgba(0,0,0,.05);
-}
-
-/* 确保前两列始终白底粘性（不要透明，避免“插进去”） */
-.leaderboard__header-cell--rank,
-.leaderboard__header-cell--name{ background:#f9fafb !important; z-index:220 !important; }
-.leaderboard__cell--rank,
-.leaderboard__cell--name{ background:#fff !important; z-index:180 !important; }
-
-/* 只把第一行边框改成金色（不影响滚动与粘性列） */
-:root { --gold: #d4af37; }
-
-/* 兼容两种写法：有 rank-1 类，或表格里的第一行 */
-.leaderboard__row--rank-1,
-.leaderboard__table > .leaderboard__row:first-of-type {
-  border-bottom: 0 !important;        /* 去掉原有灰色底边，避免双线 */
-  outline: 1px solid var(--gold);     /* 用 outline 画整圈金色边框 */
-  outline-offset: -1px;               /* 向内收 1px，视觉更贴合 */
-}
-/* === 只给第一行画金色边框（不遮第二行，不影响左右滑动/粘性列） === */
-:root { --gold: #d4af37; }
-
-/* 1) 彻底关闭之前可能存在的伪元素/特效，防止遮挡 */
-.leaderboard__row--rank-1::before,
-.leaderboard__row--rank-1::after { content: none !important; }
-.leaderboard__row--rank-1 { transform: none !important; z-index: auto !important; }
-
-/* 2) 上下边框直接画在整行上 */
-.leaderboard__row--rank-1 {
-  border-top: 1px solid var(--gold) !important;
-  border-bottom: 1px solid var(--gold) !important;
-}
-
-/* 3) 左右边框分别画在第一格和最后一格的“内侧”，避免任何覆盖问题 */
-.leaderboard__row--rank-1 > .leaderboard__cell:first-child {
-  /* 左侧竖线（用内阴影，不会改变布局，也不会遮挡） */
-  box-shadow: inset 1px 0 0 var(--gold);
-}
-.leaderboard__row--rank-1 > .leaderboard__cell:last-child {
-  /* 右侧竖线 */
-  box-shadow: inset -1px 0 0 var(--gold);
-}
-
-/* 4) 与你的粘性列配合：维持第1/2列白底与层级，防止文字“插进去” */
-.leaderboard__header-cell--rank,
-.leaderboard__header-cell--name { z-index: 220 !important; background: #f9fafb !important; }
-.leaderboard__cell--rank,
-.leaderboard__cell--name { z-index: 180 !important; background: #fff !important; }
-
-/* ============ FIX 1: 清空第一行的堆叠上下文与伪元素 ============ */
-.leaderboard__row--rank-1 {
-  isolation: auto !important;   /* 去掉 isolate 产生的独立堆叠 */
-  z-index: auto !important;      /* 不抬高整行层级 */
-  transform: none !important;    /* 防止 transform 也创建堆叠上下文 */
-  outline: none !important;      /* 不用 outline 画框 */
-}
-.leaderboard__row--rank-1::before,
-.leaderboard__row--rank-1::after {
-  content: none !important;      /* 彻底移除伪元素 */
-}
-
-/* ============ FIX 2: 统一 sticky 层级 ============ */
-/* 普通格子保持较低层级 */
-.leaderboard__row > .leaderboard__cell {
-  position: relative;
-  z-index: 0;
-}
-
-/* 内容区 sticky：第1/2列白底且层级固定为 10（所有行一致） */
-.leaderboard__cell--rank,
-.leaderboard__cell--name {
-  position: sticky !important;
-  background: #fff !important;
-  z-index: 10 !important;        /* 只高于普通格子，不至于压出“插进去”的错觉 */
-  box-shadow: inset -1px 0 0 #f3f4f6;  /* 用内阴影代替右边框，避免滚动缝 */
-  border-right: none !important;
-}
-.leaderboard__cell--rank { left: 0 !important; }
-.leaderboard__cell--name { left: 80px !important; } /* 若改列宽，这里同步改 */
-
-/* 表头 sticky：层级高于内容 sticky（避免被内容遮住） */
-.leaderboard__header-cell--rank,
-.leaderboard__header-cell--name {
-  position: sticky !important;
-  z-index: 20 !important;
-  background: #f9fafb !important;
-  box-shadow: inset -1px 0 0 #e5e7eb;
-  border-right: none !important;
-}
-
-/* ============ FIX 3: 用纯边框给第一行画“金色框”（零堆叠副作用） ============ */
-:root { --gold: #d4af37; }
-
-/* 上下边框直接画在整行上，不会创建新层级 */
-.leaderboard__row--rank-1 {
-  border-top: 1px solid var(--gold) !important;
-  border-bottom: 1px solid var(--gold) !important;
-}
-
-/* 左右边框分别画在本行的首格/末格“内侧”，不会遮挡第二行，也不影响 sticky */
-.leaderboard__row--rank-1 > .leaderboard__cell:first-child {
-  box-shadow: inset 1px 0 0 var(--gold);
-}
-.leaderboard__row--rank-1 > .leaderboard__cell:last-child {
-  box-shadow: inset -1px 0 0 var(--gold);
-}
-
-/* === 只给第一行一个淡金底，不动层级/滚动/sticky === */
-:root {
-  /* 低饱和、很淡的金色底；想更淡把 0.08 调到 0.06/0.05 */
-  --gold-row-bg: rgba(212, 175, 55, 0.08);
-}
-
-/* 清掉第一行可能残留的 transform/isolation/伪元素，避免产生堆叠上下文 */
-.leaderboard__row--rank-1 {
-  transform: none !important;
-  isolation: auto !important;
-  outline: none !important;
-}
-.leaderboard__row--rank-1::before,
-.leaderboard__row--rank-1::after {
-  content: none !important;
-}
-
-/* 直接给这一行的所有格子上淡金底（不涉及 z-index） */
-.leaderboard__row--rank-1 .leaderboard__cell {
-  background: var(--gold-row-bg) !important;
-}
-
-/* 前两列是 sticky，默认是白底；这里仅在第一行把它们也改成淡金底 */
-.leaderboard__row--rank-1 .leaderboard__cell--rank,
-.leaderboard__row--rank-1 .leaderboard__cell--name {
-  background: var(--gold-row-bg) !important;
-}
-
-/* 保留你现有的分隔线样式即可；如果想更清爽，可加上这句让分隔线更轻：
-.leaderboard__row--rank-1 { border-bottom-color: rgba(0,0,0,.06) !important; } */
-
-/* === 只保留第一行淡金底；去掉一切边框/伪元素/阴影 === */
-:root {
-  --gold-row-bg: rgba(212, 175, 55, 0.08); /* 可按需改淡/深 */
-}
-
-/* 1) 彻底清空第一行之前加的 frame/outline/transform/伪元素/层级 */
-.leaderboard__row--rank-1,
-.leaderboard__table > .leaderboard__row:first-of-type {
-  outline: none !important;
-  outline-offset: 0 !important;
-  transform: none !important;
-  isolation: auto !important;
-  z-index: auto !important;
-
-  /* 恢复默认的行分隔（取消“金色边框”带来的上下线改动） */
-  border-top: none !important;
-  border-bottom: 1px solid #f3f4f6 !important;
-}
-.leaderboard__row--rank-1::before,
-.leaderboard__row--rank-1::after {
-  content: none !important;
-}
-
-/* 2) 取消左右“内侧金线” */
-.leaderboard__row--rank-1 > .leaderboard__cell:first-child,
-.leaderboard__row--rank-1 > .leaderboard__cell:last-child {
-  box-shadow: none !important;
-}
-
-/* 3) 只保留淡金底（包含前两列粘性单元格） */
-.leaderboard__row--rank-1 .leaderboard__cell {
-  background: var(--gold-row-bg) !important;
-}
-.leaderboard__row--rank-1 .leaderboard__cell--rank,
-.leaderboard__row--rank-1 .leaderboard__cell--name {
-  background: var(--gold-row-bg) !important; /* 覆盖之前 sticky 的白底 */
-}
-
-/* ==== FIX: 防止第三列文字透到第二列 sticky 下方 ==== */
-
-/* 浅金色强度（保持你原来的感觉，可调 0.08 → 0.06 / 0.10） */
-:root { --gold-tint: rgba(212,175,55,0.08); }
-
-/* 1) 普通行：第1/2列为不透明白底，并在普通单元格之上 */
-.leaderboard__cell--rank,
-.leaderboard__cell--name {
-  position: sticky !important;
-  z-index: 10 !important;         /* 高于普通格子 */
-  background: #fff !important;     /* 关键：不透明 */
-  box-shadow: inset -1px 0 0 #f3f4f6;
-  border-right: none !important;
-}
-.leaderboard__cell--rank { left: 0 !important; }
-.leaderboard__cell--name { left: 80px !important; } /* 与你的第一列宽度一致 */
-
-/* 表头比内容 sticky 更高一层，且不透明 */
-.leaderboard__header-cell--rank,
-.leaderboard__header-cell--name {
-  position: sticky !important;
-  z-index: 20 !important;
-  background: #f9fafb !important;  /* 不透明 */
-  box-shadow: inset -1px 0 0 #e5e7eb;
-  border-right: none !important;
-}
-
-/* 2) 第一行浅金背景：改为“半透明金 + 纯白底”的双层背景（完全不透明） */
-.leaderboard__row--rank-1 .leaderboard__cell {
-  /* 顶层是浅金色，底层是白色，合成后看起来是淡金，但不透底 */
-  background:
-    linear-gradient(0deg, var(--gold-tint), var(--gold-tint)),
-    #ffffff !important;
-}
+.leaderboard__empty-title { color: #374151; font-size: 1.25rem; font-weight: 600; margin: 0; line-height: 1.3; }
+.leaderboard__empty-description { color: #6b7280; font-size: 1rem; margin: 0; line-height: 1.5; max-width: 400px; }
+.leaderboard__empty-tip { margin-top: 1rem; padding: .75rem 1rem; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; font-size: .875rem; color: #6b7280; }
 
-/* 第一行的第1/2列同样使用双层背景（覆盖任何残留规则） */
-.leaderboard__row--rank-1 .leaderboard__cell--rank,
-.leaderboard__row--rank-1 .leaderboard__cell--name {
-  background:
-    linear-gradient(0deg, var(--gold-tint), var(--gold-tint)),
-    #ffffff !important;
-  z-index: 10 !important; /* 依然在普通格子之上 */
+/* —— 深银：提升对比但保持纯色 —— */
+.leaderboard__name--rank-2 {
+  color: #7f8c9a; /* 也可换 #74808e / #6f7c8b 看你喜欢的深度 */
 }
-
-/* 3) 收敛其他单元格层级，避免误抬高 */
-.leaderboard__row > .leaderboard__cell {
-  position: relative;
-  z-index: 0;  /* 普通列都在 sticky 之下 */
-}
-
-/* --- 让整条表头永远在最上层 --- */
-.leaderboard__sticky-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000 !important;   /* 高过任何行/单元格 */
-  background: #f9fafb;        /* 不透明底，避免内容透上来 */
-}
-
-/* 表头里前两列（Rank / NAME）横向仍 sticky，且层级 > 内容 sticky */
-.leaderboard__header-cell--rank,
-.leaderboard__header-cell--name {
-  position: sticky !important;
-  z-index: 1001 !important;   /* 高过内容区粘性列 */
-  background: #f9fafb !important;
-}
-
-/* 内容区的第1/2列横向 sticky，但层级必须低于表头 */
-.leaderboard__cell--rank,
-.leaderboard__cell--name {
-  z-index: 100 !important;    /* 低于表头(1001)，高于普通单元格 */
-}
-
-/* 把任何行的层级都压回去，避免个别行盖住表头 */
-.leaderboard__row,
-.leaderboard__row--rank-1 {
-  position: relative;
-  z-index: 0 !important;
-}
-.leaderboard__row--rank-1::before,
-.leaderboard__row--rank-1::after {
-  z-index: -1 !important;     /* 若有伪元素，确保在最底层 */
-}
-
-/* 保险起见：普通单元格都保持最低层级 */
-.leaderboard__row > .leaderboard__cell {
-  position: relative;
-  z-index: 0;
-}
-
-/* 让下拉可以溢出容器；横向仍然可滚 */
-.leaderboard__table-container {
-  overflow: visible !important;         /* 关键：不要剪裁弹层 */
-}
-.leaderboard__scroll-wrapper {
-  overflow-x: auto !important;          /* 保留横向滚动 */
-  overflow-y: visible !important;       /* 允许下拉往下溢出 */
-}
-
-/* 表头整体永远在内容之上 */
-.leaderboard__sticky-header {
-  z-index: 1000 !important;
-}
-
-/* 可筛选的表头格提升一层，作为弹层定位参考 */
-.leaderboard__header-cell--filterable {
-  position: relative !important;
-  z-index: 1001 !important;
-}
-
-/* 下拉本体的层级拉满，盖住表格内容/粘性列 */
-.leaderboard__filter-dropdown {
-  z-index: 3000 !important;             /* 够高，避免被任何行/阴影遮住 */
-}
-
-/* 内容区的粘性列保持在下拉之下（但高于普通格子） */
-.leaderboard__cell--rank,
-.leaderboard__cell--name {
-  z-index: 120 !important;
-}
-
-/* 允许弹层溢出容器；横向仍然可滚 */
-.leaderboard__table-container {
-  overflow: visible !important;   /* 关键：不要裁剪弹层 */
-}
-.leaderboard__scroll-wrapper {
-  overflow-x: auto !important;    /* 保留横向滚动 */
-  overflow-y: visible !important; /* 允许向下/向上溢出 */
-  position: relative;             /* 作为层级基准更稳 */
-  z-index: 0;
-}
-
-/* 表头永远在内容之上 */
-.leaderboard__sticky-header {
-  z-index: 2000 !important;
-  background: #f9fafb !important; /* 不透明，防止透字 */
-}
-
-/* “可筛选”的表头格作为弹层定位参照，层级再抬高一点 */
-.leaderboard__header-cell--filterable {
-  position: relative !important;
-  z-index: 2100 !important;
-}
-
-/* 你的自定义下拉（表头里的）覆盖表格 */
-.leaderboard__filter-dropdown {
-  z-index: 4000 !important;
-}
-
-/* 内容区的粘性列在表头之下、在普通格之上 */
-.leaderboard__cell--rank,
-.leaderboard__cell--name {
-  z-index: 120 !important;
-  background: #fff !important;   /* 不透明，防止下面列“透上来” */
-  box-shadow: inset -1px 0 0 #f3f4f6;
-  border-right: none !important;
-}
-
-/* 统一把行的层级压低，避免个别行抢到表头/下拉之上 */
-.leaderboard__row,
-.leaderboard__row--rank-1 {
-  position: relative;
-  z-index: 0 !important;
-}
-.leaderboard__row--rank-1::before,
-.leaderboard__row--rank-1::after {
-  z-index: -1 !important;
-}
-
-/* —— 兼容常见日期/下拉弹层（如果你 Weekly 的日期选择来自这些库） —— */
-.ant-picker-dropdown,
-.ant-select-dropdown,
-.rc-picker-dropdown,
-.react-datepicker-popper,
-.semi-popover,
-.semi-datepicker,
-.semi-select-dropdown,
-.tippy-box[data-theme],
-[role="tooltip"],
-[role="dialog"].dropdown,
-.dropdown-menu {
-  z-index: 5000 !important;      /* 高过表头和内容 */
-}
-
-/* 如果 Weekly 筛选条有容器类名，可提高它自身层级，避免被表头遮住（可选） */
-.filters-bar,
-.weekly-filter,
-.date-filter {
-  position: relative;
-  z-index: 3000;
-}
-
 

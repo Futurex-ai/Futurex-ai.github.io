@@ -23,7 +23,7 @@ Our work has just begun. We welcome you to read our technical report for more de
 
 FutureX is a dynamic, real-time benchmark for `Future Prediction`, built on these core features:
 
-* **No Data Contamination:** By requiring predictions of future events, it ensures answers cannot exist in any model's training data. There are **684 new events per week**.
+* **No Data Contamination:** By requiring predictions of future events, it ensures answers cannot exist in any model's training data. There are around **500 new events per week**.
 * **Real-World Challenge:** Agents analyze live, real-world information to make predictions for future events, not operate in a simulation.
 * **Large Scale:** Utilizes **195 high-quality sources** (selected from over **2,000 websites**) covering **multiple domains**.
 * **Fully Automated Pipeline:** A closed-loop system automatically collects questions, runs **27 agents** daily, and scores the results.

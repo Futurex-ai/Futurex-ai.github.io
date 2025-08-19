@@ -154,7 +154,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
     });
   }, [filteredData, sortConfig]);
 
-  // 排名徽章的CSS类名
+  // 排名徽章的CSS类名（保留）
   const getRankBadgeClass = (index: number) => {
     if (index === 0)
       return "leaderboard__rank-badge leaderboard__rank-badge--first";
@@ -165,7 +165,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
     return "leaderboard__rank-badge leaderboard__rank-badge--other";
   };
 
-  /** 根据排名给“名字”设置不同的字号/样式（前3名放大） */
+  /** 根据排名给“名字”设置不同的字号/样式（我们只用它来挂颜色） */
   const getNameSizeClass = (index: number) => {
     if (index === 0) return "leaderboard__name--rank-1";
     if (index === 1) return "leaderboard__name--rank-2";
@@ -173,13 +173,17 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
     return "leaderboard__name--rank-rest";
   };
 
-  /** 行级高亮（前3名金/银/铜） */
-  const getRowHighlightClass = (index: number) => {
-    if (index === 0) return "leaderboard__row--rank-1";
-    if (index === 1) return "leaderboard__row--rank-2";
-    if (index === 2) return "leaderboard__row--rank-3";
-    return "";
+  /** 行级高亮：按你的要求全部取消（避免任何背景/阴影/边框） */
+  const getRowHighlightClass = (_index: number) => {
+    return ""; // 不再对前3名行加任何额外样式
   };
+
+  // const getRowHighlightClass = (index: number) => {
+  //   if (index === 0) return "leaderboard__row--gold";
+  //   if (index === 1) return "leaderboard__row--silver";
+  //   if (index === 2) return "leaderboard__row--bronze";
+  //   return "";
+  // };
 
   // 排序处理函数
   const handleSort = (field: SortField) => {
@@ -226,7 +230,6 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
     setShowFilters((prev) => ({
       ...prev,
       [field]: !prev[field],
-      // 关闭其他筛选框
       ...(field === "modelName"
         ? { agentFramework: false, organization: false }
         : {}),
@@ -550,7 +553,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                     </span>
                   </div>
 
-                  {/* NAME 列：名字（第一行）+ 框架（第二行），并对前3名放大，且居中 */}
+                  {/* NAME 列：仅改变前3名文字颜色（见 CSS） */}
                   <div className="leaderboard__cell leaderboard__cell--name">
                     <div className="leaderboard__name-stack leaderboard__name-stack--center">
                       <div
@@ -578,7 +581,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                     </div>
                   </div>
 
-                  {/* MODEL NAME 列：强制居中，避免“跑偏” */}
+                  {/* MODEL NAME 列 */}
                   <div className="leaderboard__cell leaderboard__cell--model leaderboard__cell--center">
                     {(() => {
                       const undisclosedModels = [
@@ -652,4 +655,3 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
     </div>
   );
 };
-

@@ -23,9 +23,9 @@ export default defineConfig({
     favicon: "./src/assets/benchmarking.svg",
     meta: {
       description:
-        "Comprehensive benchmark leaderboard for research papers and technical evaluations",
-      keywords: "benchmark, leaderboard, research, papers, evaluation, metrics",
-      author: "Research Team",
+        "Can AI predict future? Join our benchmark leaderboard to evaluate AI models on predicting future events. Explore research papers, compare metrics, and contribute to the FutureX challenge.",
+      keywords: "FutureX",
+      author: "FutureX Team",
       viewport: "width=device-width, initial-scale=1.0",
     },
   },
