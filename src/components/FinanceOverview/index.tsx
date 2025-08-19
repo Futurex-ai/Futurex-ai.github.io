@@ -10,7 +10,6 @@ import rehypeKatex from "rehype-katex";
 import "katex/dist/katex.min.css";
 
 import "github-markdown-css";
-// 保持你原来的 less
 import "./index.less";
 
 import defaultMarkdownContent from "../../data/newFinancePage/financeContent.md";
@@ -34,7 +33,7 @@ const imageMap: Record<string, string> = {
   "./AI_financial_analyst_pic.png": image7,
 };
 
-// ========== 工具函数（与 index.tsx 保持一致） ==========
+// ========== 工具函数 ==========
 
 const cleanHeadingText = (raw: string) => {
   let t = raw;
@@ -135,12 +134,10 @@ export const FinanceOverview: React.FC = () => {
   const tableWrapStyle: React.CSSProperties = {
     position: "relative",
     margin: "20px 0",
-    // ↓↓↓ 去掉外层那条框线和阴影/圆角
     border: 0,
     borderRadius: 0,
     background: "transparent",
     boxShadow: "none",
-
     overflowX: "auto",
     overflowY: "visible",
     WebkitOverflowScrolling: "touch",
@@ -228,7 +225,6 @@ export const FinanceOverview: React.FC = () => {
     td: ({ children, style, ...props }: any) => {
       const isLastRow = !!props["data-last-row"];
       const borderBottom = isLastRow ? "0" : (style?.borderBottom as any) || "1px solid #f3f4f6";
-      // 数字右对齐（可选：如果你希望表格数字右对齐，可打开下行）
       const text = childrenToText(children);
       const align = isNumericText(text) ? "right" : "left";
       return (
@@ -246,7 +242,7 @@ export const FinanceOverview: React.FC = () => {
       );
     },
 
-    // ====== 标题 + 锚点（同另一页） ======
+    // ====== 标题 + 锚点 ======
     h2: ({ children, ...props }: any) => {
       const text = childrenToText(children);
       const id = slugify(text);
@@ -284,7 +280,7 @@ export const FinanceOverview: React.FC = () => {
       );
     },
 
-    // ====== 段落：支持“多图并排”；但若图本身带 inline style，就不干预 ======
+    // ====== 段落：支持“多图并排”；若图本身带 inline style，则不干预 ======
     p: ({ node, children, ...props }: any) => {
       const kids = node?.children || [];
       const imgs = kids.filter((c: any) => c?.tagName === "img" && c?.properties) as any[];
@@ -356,14 +352,17 @@ export const FinanceOverview: React.FC = () => {
       return <p {...props}>{children}</p>;
     },
 
-    // ====== HTML <img>：若带内联样式（display/width/height/float 任一），就原样输出，不包 figure ======
+    // ====== HTML <img>：若带内联样式（display/width/height/float 任一），按原样输出，但统一加上 fx-img 钩子 ======
     img: (props: any) => {
-      const { src = "", alt = "", style: styleProp, ...rest } = props;
+      const { src = "", alt = "", style: styleProp, className, ...rest } = props;
       const resolvedSrc = imageMap[src] ?? src;
 
       // 从 props 或 AST 属性读取原始 style
       const rawStyle = styleProp ?? props?.node?.properties?.style;
       const inlineStyle = parseStyle(rawStyle);
+
+      // 统一 className（保留传入的）
+      const cls = ["fx-img", className].filter(Boolean).join(" ");
 
       if (
         inlineStyle &&
@@ -371,9 +370,9 @@ export const FinanceOverview: React.FC = () => {
       ) {
         return (
           <img
+            className={cls}
             src={resolvedSrc}
             alt={alt}
-            // 保持你的布局：inline 样式优先；补充 height:auto，避免挤压
             style={{ height: "auto", ...inlineStyle }}
             onClick={() => setLightbox({ src: resolvedSrc, alt })}
             {...rest}
@@ -385,7 +384,7 @@ export const FinanceOverview: React.FC = () => {
       return (
         <figure className="fx-figure">
           <img
-            className="fx-img"
+            className={cls}
             src={resolvedSrc}
             alt={alt}
             style={{ width: "100%", height: "auto", display: "block" }}
@@ -428,7 +427,6 @@ export const FinanceOverview: React.FC = () => {
 
       <article className="markdown-body fx-article">
         <ReactMarkdown
-          // ✅ 这里启用数学解析与 KaTeX 渲染
           remarkPlugins={[remarkGfm, remarkMath]}
           rehypePlugins={[rehypeRaw, rehypeKatex]}
           components={components as any}

@@ -51,7 +51,7 @@ export const QuestionTable: React.FC = () => {
 
   return (
     <div className="question-table">
-      <h2 className="question-table__title">Challenge Questions 📋</h2>
+      <h2 className="question-table__title">Partial Questions 📋</h2>
 
       {/* 使用独立的Level选择器组件 */}
       <LevelSelector

@@ -91,7 +91,7 @@
                 "organization": "Alibaba"
             },
             {
-                "modelName": "Deepseek-V3",
+                "modelName": "Deepseek-R1",
                 "agentFramework": "Search",
                 "overallScore": 17.61,
                 "level1Score": 35.63,
