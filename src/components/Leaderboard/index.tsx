@@ -455,7 +455,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                         </div>
                         <div>
                           {" "}
-                          - Closed-Deep-Research: closed-source Deep Research
+                          - Deep-Research: closed-source Deep Research
                           Agents, like Gemini Deep Research{" "}
                         </div>
                       </div>
