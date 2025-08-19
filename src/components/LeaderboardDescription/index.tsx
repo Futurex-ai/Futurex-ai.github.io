@@ -211,7 +211,7 @@ export const LeaderboardDescription: React.FC = () => {
         <div style={gridStyle}>
           {/* Technical Report */}
           <a
-            href="https://YOUR_REPORT_LINK" // TODO: replace with your technical report (e.g., arXiv)
+            href="https://arxiv.org/abs/2508.11987" 
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Open Technical Report"

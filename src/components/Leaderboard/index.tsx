@@ -154,6 +154,33 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
     });
   }, [filteredData, sortConfig]);
 
+  // 排名徽章的CSS类名
+  const getRankBadgeClass = (index: number) => {
+    if (index === 0)
+      return "leaderboard__rank-badge leaderboard__rank-badge--first";
+    if (index === 1)
+      return "leaderboard__rank-badge leaderboard__rank-badge--second";
+    if (index === 2)
+      return "leaderboard__rank-badge leaderboard__rank-badge--third";
+    return "leaderboard__rank-badge leaderboard__rank-badge--other";
+  };
+
+  /** 根据排名给“名字”设置不同的字号/样式（前3名放大） */
+  const getNameSizeClass = (index: number) => {
+    if (index === 0) return "leaderboard__name--rank-1";
+    if (index === 1) return "leaderboard__name--rank-2";
+    if (index === 2) return "leaderboard__name--rank-3";
+    return "leaderboard__name--rank-rest";
+  };
+
+  /** 行级高亮（前3名金/银/铜） */
+  const getRowHighlightClass = (index: number) => {
+    if (index === 0) return "leaderboard__row--rank-1";
+    if (index === 1) return "leaderboard__row--rank-2";
+    if (index === 2) return "leaderboard__row--rank-3";
+    return "";
+  };
+
   // 排序处理函数
   const handleSort = (field: SortField) => {
     setSortConfig((prev) => {
@@ -333,17 +360,6 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
     );
   };
 
-  // 获取排名徽章的CSS类名
-  const getRankBadgeClass = (index: number) => {
-    if (index === 0)
-      return "leaderboard__rank-badge leaderboard__rank-badge--first";
-    if (index === 1)
-      return "leaderboard__rank-badge leaderboard__rank-badge--second";
-    if (index === 2)
-      return "leaderboard__rank-badge leaderboard__rank-badge--third";
-    return "leaderboard__rank-badge leaderboard__rank-badge--other";
-  };
-
   // 数据检查
   if (!data || data.length === 0) {
     return (
@@ -421,7 +437,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                     content={
                       <div style={{ width: 500 }}>
                         The models under evaluation include 4 agent frameworks:
-                        <div> - LLM: base LLMs with no tool usage </div>
+                        <div> - LLM: base LLMs without tools </div>
                         <div>
                           {" "}
                           - Search: LLMs with reasoning and search capabilities{" "}
@@ -479,7 +495,7 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                   }`}
                   onClick={() => handleSort("level1Score")}
                 >
-                  <BottomTooltip content="single-choice questions">
+                  <BottomTooltip content="single-choice questions with fewer than 4 options">
                     Level 1 (10%)
                   </BottomTooltip>
                   {renderSortIcon("level1Score")}
@@ -526,22 +542,44 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
               sortedData.map((entry, index) => (
                 <div
                   key={`${entry.modelName}-${index}`}
-                  className="leaderboard__row"
+                  className={`leaderboard__row ${getRowHighlightClass(index)}`}
                 >
                   <div className="leaderboard__cell leaderboard__cell--rank">
                     <span className={getRankBadgeClass(index)}>
                       {index + 1}
                     </span>
                   </div>
+
+                  {/* NAME 列：名字（第一行）+ 框架（第二行），并对前3名放大，且居中 */}
                   <div className="leaderboard__cell leaderboard__cell--name">
-                    <div>
-                      <div>{entry.modelName}</div>
+                    <div className="leaderboard__name-stack leaderboard__name-stack--center">
+                      <div
+                        className={`leaderboard__name ${getNameSizeClass(index)}`}
+                        title={entry.modelName}
+                      >
+                        {index === 0 && (
+                          <span className="leaderboard__crown" aria-hidden>
+                            {/* crown icon */}
+                            <svg
+                              width="18"
+                              height="18"
+                              viewBox="0 0 24 24"
+                              fill="currentColor"
+                            >
+                              <path d="M3 7l4 3 5-6 5 6 4-3v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"></path>
+                            </svg>
+                          </span>
+                        )}
+                        {entry.modelName}
+                      </div>
                       <span className="leaderboard__framework">
                         ({entry.agentFramework})
                       </span>
                     </div>
                   </div>
-                  <div className="leaderboard__cell leaderboard__cell--model">
+
+                  {/* MODEL NAME 列：强制居中，避免“跑偏” */}
+                  <div className="leaderboard__cell leaderboard__cell--model leaderboard__cell--center">
                     {(() => {
                       const undisclosedModels = [
                         "Manus",
@@ -553,36 +591,37 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                         : entry.modelName;
                     })()}
                   </div>
-                  <div className="leaderboard__cell leaderboard__cell--framework">
+
+                  <div className="leaderboard__cell leaderboard__cell--framework leaderboard__cell--center">
                     {entry.agentFramework}
                   </div>
-                  <div className="leaderboard__cell leaderboard__cell--organization">
+                  <div className="leaderboard__cell leaderboard__cell--organization leaderboard__cell--center">
                     {entry.organization}
                   </div>
-                  <div className="leaderboard__cell leaderboard__cell--overall-score">
+                  <div className="leaderboard__cell leaderboard__cell--overall-score leaderboard__cell--center">
                     <span className="leaderboard__score">
                       {entry.overallScore.toFixed(1)}
                     </span>
                   </div>
-                  <div className="leaderboard__cell leaderboard__cell--events">
+                  <div className="leaderboard__cell leaderboard__cell--events leaderboard__cell--center">
                     {entry.numberOfEvents.toLocaleString()}
                   </div>
-                  <div className="leaderboard__cell leaderboard__cell--level-score">
+                  <div className="leaderboard__cell leaderboard__cell--level-score leaderboard__cell--center">
                     <span className="leaderboard__score">
                       {entry.level1Score || "-"}
                     </span>
                   </div>
-                  <div className="leaderboard__cell leaderboard__cell--level-score">
+                  <div className="leaderboard__cell leaderboard__cell--level-score leaderboard__cell--center">
                     <span className="leaderboard__score">
                       {entry.level2Score || "-"}
                     </span>
                   </div>
-                  <div className="leaderboard__cell leaderboard__cell--level-score">
+                  <div className="leaderboard__cell leaderboard__cell--level-score leaderboard__cell--center">
                     <span className="leaderboard__score">
                       {entry.level3Score || "-"}
                     </span>
                   </div>
-                  <div className="leaderboard__cell leaderboard__cell--level-score">
+                  <div className="leaderboard__cell leaderboard__cell--level-score leaderboard__cell--center">
                     <span className="leaderboard__score">
                       {entry.level4Score || "-"}
                     </span>
@@ -613,3 +652,4 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
     </div>
   );
 };
+
