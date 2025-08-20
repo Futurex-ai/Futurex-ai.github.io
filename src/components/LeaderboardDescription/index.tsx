@@ -16,6 +16,7 @@
 import React from "react";
 import { FiFileText, FiUpload } from "react-icons/fi";
 import { SiHuggingface } from "react-icons/si";
+import Tea from "byted-tea-sdk";
 
 export const LeaderboardDescription: React.FC = () => {
   // Inject compact CSS to make your leaderboard section denser (more cells)
@@ -188,6 +189,9 @@ export const LeaderboardDescription: React.FC = () => {
     e
   ) => {
     e.preventDefault();
+    Tea.event("crawl_api_custom", {
+      name: "点击submission",
+    });
     const target = document.getElementById(submissionAnchorId);
     if (target) {
       target.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -211,10 +215,15 @@ export const LeaderboardDescription: React.FC = () => {
         <div style={gridStyle}>
           {/* Technical Report */}
           <a
-            href="https://arxiv.org/abs/2508.11987" 
+            href="https://arxiv.org/abs/2508.11987"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Open Technical Report"
+            onClick={() => {
+              Tea.event("crawl_api_custom", {
+                name: "点击Technical Report",
+              });
+            }}
             style={{ ...cardBase, ...(hoverIndex === 0 ? cardHover : {}) }}
             onMouseEnter={() => setHoverIndex(0)}
             onMouseLeave={() => setHoverIndex(null)}
@@ -236,6 +245,11 @@ export const LeaderboardDescription: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Open Hugging Face"
+            onClick={() => {
+              Tea.event("crawl_api_custom", {
+                name: "点击Hugging Face",
+              });
+            }}
             style={{ ...cardBase, ...(hoverIndex === 1 ? cardHover : {}) }}
             onMouseEnter={() => setHoverIndex(1)}
             onMouseLeave={() => setHoverIndex(null)}
