@@ -190,7 +190,7 @@ export const LeaderboardDescription: React.FC = () => {
   ) => {
     e.preventDefault();
     Tea.event("crawl_api_custom", {
-      name: "点击submission",
+      name: "点击Submission",
     });
     const target = document.getElementById(submissionAnchorId);
     if (target) {
