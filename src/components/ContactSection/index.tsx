@@ -91,10 +91,10 @@ export const ContactSection: React.FC = () => {
           <div>
             <strong style={highlightTitleStyle}>Weekly Rules:</strong>
             <span>
-              We release a new set of tasks every week. If you choose <strong>Option A</strong>, we will automatically test your model on them. If you choose <strong>Option B</strong>, you must download the latest tasks, run your model, and send us your predictions <u>before Friday 24:00 (UTC+8)</u> each week. Submissions received after the deadline will not be counted.
+              We release a new set of tasks every week. If you choose <strong>Option A</strong>, we will automatically test your model on them. If you choose <strong>Option B</strong>, you must download the latest tasks, run your model, and send us your predictions <u>before Wednesday 24:00 (UTC+8)</u> each week. Submissions received after the deadline will not be counted.
             </span>
             <div style={{ marginTop: '0.5rem' }}>
-              <span style={deadlineHighlight}>⚠️ Next submission deadline: August 22nd at 24:00 (UTC+8, Beijing Time)</span>
+              <span style={deadlineHighlight}>⚠️ Next submission deadline: August 27th at 24:00 (UTC+8, Beijing Time)</span>
             </div>
           </div>
         </div>
@@ -129,7 +129,7 @@ export const ContactSection: React.FC = () => {
               <a href="https://huggingface.co/datasets/futurex-ai/Futurex-Online" target="_blank" rel="noreferrer" style={emailStyle}>FutureX-Online (Hugging Face)</a>.
               Download the latest round, run your model, and email us at{' '}
               <a href="mailto:FutureX-ai@outlook.com" style={emailStyle}>FutureX-ai@outlook.com</a>
-              {' '} with your predictions before <u>every Friday 24:00 (UTC+8)</u>.
+              {' '} with your predictions before <u>every Wednesday 24:00 (UTC+8)</u>.
             </span>
             <div style={smallText}>
               <div><strong>Suggested subject:</strong> <em>FutureX Challenge Submission — [Your Model Name][Date]</em></div>
