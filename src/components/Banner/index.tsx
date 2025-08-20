@@ -300,7 +300,7 @@ export const Banner: React.FC<BannerProps> = ({ activeTab, onTabChange }) => {
               onClick={(e) => clickTab("sp500", "点击SP500", e.currentTarget)}
             >
               <FiBarChart2 style={iconStyle} />
-              S&amp;P 500 Sector Board
+              S&amp;P 500 LeaderBoard
             </button>
           </div>
         </div>

@@ -1,29 +1,68 @@
-/**
- * LeaderboardView组件样式
- * 包含与QuestionTable标题完全一致的Leaderboard标题样式
- */
-
-/* Leaderboard标题样式 - 与Challenge Questions完全保持一致 */
+/* News Section Styling */
 .leaderboard-view__title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #374151;
-  margin: 0 0 1.5rem 0;
-  text-align: left;
+  font-size: 1.8rem;
+  font-weight: 700; /* Bolder title for emphasis */
+  color: #2d3748;  /* Darker text for better contrast */
+  margin: 0 0 1rem 0; /* Bottom margin to separate from the list */
+  text-align: left; /* Left align for the title */
+  text-transform: uppercase; /* Makes the title uppercase for emphasis */
 }
 
-/* 响应式设计 */
+/* List Styling */
+ul {
+  list-style-type: none; /* Removes default bullet points */
+  padding-left: 0;
+  margin: 0;
+}
+
+ul li {
+  font-size: 1rem; /* Adjusted the font size to make it smaller */
+  color: #2d3748; /* Darker color for better readability */
+  padding-left: 20px; /* Adds space to make room for custom bullets */
+  position: relative; /* Allows positioning of custom bullets */
+  line-height: 1.8rem; /* Increased line height for better readability */
+  margin-bottom: 1rem; /* Space between each list item */
+  font-weight: 400; /* Regular weight for list items */
+}
+
+/* Custom Bullet Points */
+ul li:before {
+  content: '•'; /* Use a custom bullet */
+  position: absolute;
+  left: 0; /* Position the bullet to the left */
+  top: 0;
+  font-size: 2rem; /* Size of the bullet */
+  color: #3498db; /* Custom color for the bullet */
+}
+
+/* Hover Effect for List Items */
+ul li:hover {
+  background-color: #f7fafc; /* Light background when hovered */
+  cursor: pointer; /* Change cursor on hover */
+  border-radius: 8px; /* Rounded corners */
+  padding-left: 25px; /* Indentation effect when hovered */
+  transition: background-color 0.3s ease, padding-left 0.3s ease; /* Smooth transition */
+}
+
+/* Responsive Design for News Section */
 @media (max-width: 768px) {
   .leaderboard-view__title {
-    font-size: 1.375rem;
-    margin: 0 0 1.25rem 0;
+    font-size: 1.2rem; /* Slightly smaller font on medium screens */
+    margin-bottom: 1rem;
+  }
+
+  ul li {
+    font-size: 0.95rem; /* Adjust font size to make it smaller for mobile devices */
   }
 }
 
 @media (max-width: 480px) {
   .leaderboard-view__title {
-    font-size: 1.25rem;
-    margin: 0 0 1rem 0;
-    text-align: center;
+    font-size: 1.25rem; /* Make the title even smaller on very small screens */
+    text-align: center; /* Center-align on small screens */
+  }
+
+  ul li {
+    font-size: 0.85rem; /* Further reduce font size on small devices */
   }
 }
