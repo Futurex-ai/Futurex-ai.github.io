@@ -21,7 +21,7 @@ ul {
   padding-left: 20px; /* Adds space to make room for custom bullets */
   position: relative; /* Allows positioning of custom bullets */
   line-height: 1.8rem; /* Increased line height for better readability */
-  margin-bottom: 1rem; /* Space between each list item */
+  margin-top: 0.5rem; /* Space between each list item */
   font-weight: 400; /* Regular weight for list items */
 }
 
@@ -38,7 +38,6 @@ ul {
 /* Hover Effect for List Items */
 .newupdate li:hover {
   background-color: #f7fafc; /* Light background when hovered */
-  cursor: pointer; /* Change cursor on hover */
   border-radius: 8px; /* Rounded corners */
   padding-left: 25px; /* Indentation effect when hovered */
   transition: background-color 0.3s ease, padding-left 0.3s ease; /* Smooth transition */

@@ -4,13 +4,19 @@
  */
 import React, { useState } from "react";
 import Tea from "byted-tea-sdk";
-import Doc from "./components/Doc";
 import { Banner, type BannerTab } from "./components/Banner";
 import { LeaderboardDescription } from "./components/LeaderboardDescription";
 import { MarkdownView } from "./components/MarkdownView";
 import { LeaderboardView } from "./components/LeaderboardView";
 import { FinanceOverview } from "./components/FinanceOverview"; // ← 用作 S&P 500 页签内容
 import { TimePeriodType } from "./types";
+
+Tea.init({
+  app_id: 635684,
+  channel: "cn",
+  // log: true,
+});
+Tea.start();
 
 const App: React.FC = () => {
   // Banner 的三标签：overview / leaderboard / sp500
@@ -21,17 +27,15 @@ const App: React.FC = () => {
     useState<TimePeriodType>("overall");
   const [selectedTime, setSelectedTime] = useState<string>("overall");
 
-  // Tea 统计（保持不变）
-  Tea.init({
-    app_id: 635684,
-    channel: "cn",
-    // log: true,
-  });
-  Tea.start();
   Tea.event("crawl_api_custom", { name: "进入页面" });
   Tea.event("predefine_pageview", { url: window.location.href });
 
   const renderContent = () => {
+    React.useEffect(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      history.replaceState(null, null, location.pathname + location.search);
+    }, [activeTab]);
+
     return (
       <>
         <Banner activeTab={activeTab} onTabChange={setActiveTab} />
@@ -40,6 +44,7 @@ const App: React.FC = () => {
         {activeTab === "leaderboard" && <LeaderboardDescription />}
 
         <main
+          key={activeTab}
           style={{ minHeight: "calc(100vh - 240px)", background: "#ffffff" }}
         >
           {activeTab === "overview" && <MarkdownView />}
