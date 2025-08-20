@@ -29,8 +29,6 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
   const timeOptions = getTimeOptions(timePeriodType);
   const monthOptions = getMonthOptions();
 
-  console.log("lyl timeOptions", timeOptions, monthOptions);
-
   // 获取选中的选项显示文本
   const getSelectedOption = () => {
     if (timePeriodType === "weekly") {
@@ -83,17 +81,21 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
   }, [timePeriodType, selectedTime]);
 
   const handlePeriodTypeChange = (type: TimePeriodType) => {
+    const currentDate = new Date();
+    const currentMonth = String(currentDate.getMonth() + 1).padStart(2, "0"); // 获取当前月份 (0-11，所以加1)
+    const currentWeek = Math.ceil(currentDate.getDate() / 7) - 1;
+
     onTimePeriodTypeChange(type);
 
     // 根据不同类型设置默认时间
     if (type === "overall") {
       onSelectedTimeChange("overall"); // overall模式使用固定值
     } else if (type === "weekly") {
-      onSelectedTimeChange("2025-08-W1"); // 默认选择当前周（八月第一周）
+      onSelectedTimeChange(`2025-${currentMonth}-W${currentWeek}`); // 默认选择当前周（八月第一周）
       // 自动展开8月
-      setExpandedMonths(new Set(["2025-08"]));
+      setExpandedMonths(new Set([`2025-${currentMonth}`]));
     } else {
-      onSelectedTimeChange("2025-08"); // 月度模式选择当前月
+      onSelectedTimeChange(`2025-${currentMonth}`); // 月度模式选择当前月
       setExpandedMonths(new Set());
     }
     setIsDropdownOpen(false);
