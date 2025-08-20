@@ -1386,21 +1386,6 @@
         "level_3_num_events": 115.0,
         "level_4_num_events": 216.0,
         "organization": "OpenAI"
-      },
-      {
-        "modelName": "Doubao-Seed-1.6",
-        "agentFramework": "Search",
-        "overallScore": 0.17,
-        "level1Score": 0.0,
-        "level2Score": null,
-        "level3Score": 0.45,
-        "level4Score": 0.0,
-        "numberOfEvents": 464,
-        "level_1_num_events": 27.0,
-        "level_2_num_events": 9.0,
-        "level_3_num_events": 143.0,
-        "level_4_num_events": 285.0,
-        "organization": "Bytedance"
       }
     ]
   },
