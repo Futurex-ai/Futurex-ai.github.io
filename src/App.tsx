@@ -20,8 +20,9 @@ Tea.start();
 
 const App: React.FC = () => {
   // Banner 的三标签：overview / leaderboard / sp500
-  const [activeTab, setActiveTab] = useState<BannerTab>("overview");
-
+  // const [activeTab, setActiveTab] = useState<BannerTab>("overview");
+  const [activeTab, setActiveTab] = useState<BannerTab>("leaderboard");
+  
   // Leaderboard 的时间筛选状态（保持不变）
   const [timePeriodType, setTimePeriodType] =
     useState<TimePeriodType>("overall");
