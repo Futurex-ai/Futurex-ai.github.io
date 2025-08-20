@@ -30,7 +30,7 @@ ul {
   content: '•'; /* Use a custom bullet */
   position: absolute;
   left: 0; /* Position the bullet to the left */
-  top: 0;
+  top: -0.15rem;
   font-size: 2rem; /* Size of the bullet */
   color: #3498db; /* Custom color for the bullet */
 }
