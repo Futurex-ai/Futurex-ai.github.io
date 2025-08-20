@@ -15,7 +15,7 @@ ul {
   margin: 0;
 }
 
-ul li {
+.newupdate li {
   font-size: 1rem; /* Adjusted the font size to make it smaller */
   color: #2d3748; /* Darker color for better readability */
   padding-left: 20px; /* Adds space to make room for custom bullets */
@@ -26,7 +26,7 @@ ul li {
 }
 
 /* Custom Bullet Points */
-ul li:before {
+.newupdate li:before {
   content: '•'; /* Use a custom bullet */
   position: absolute;
   left: 0; /* Position the bullet to the left */
@@ -36,7 +36,7 @@ ul li:before {
 }
 
 /* Hover Effect for List Items */
-ul li:hover {
+.newupdate li:hover {
   background-color: #f7fafc; /* Light background when hovered */
   cursor: pointer; /* Change cursor on hover */
   border-radius: 8px; /* Rounded corners */
@@ -51,7 +51,8 @@ ul li:hover {
     margin-bottom: 1rem;
   }
 
-  ul li {
+  /* Fixed the typo here, changed .newupdatel to .newupdate */
+  .newupdate li {
     font-size: 0.95rem; /* Adjust font size to make it smaller for mobile devices */
   }
 }
@@ -62,7 +63,8 @@ ul li:hover {
     text-align: center; /* Center-align on small screens */
   }
 
-  ul li {
+  /* Fixed typo in the media query */
+  .newupdate li {
     font-size: 0.85rem; /* Further reduce font size on small devices */
   }
 }
