@@ -5,7 +5,7 @@
   color: #2d3748;  /* Darker text for better contrast */
   margin: 0 0 1rem 0; /* Bottom margin to separate from the list */
   text-align: left; /* Left align for the title */
-  text-transform: uppercase; /* Makes the title uppercase for emphasis */
+  /*text-transform: uppercase;  Makes the title uppercase for emphasis */
 }
 
 /* List Styling */
