@@ -439,9 +439,9 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                   ref={agentFrameworkFilterRef}
                 >
                   <BottomTooltip
-                    style={{ maxWidth: "500px" }}
+                    style={{ maxWidth: "400px" }}
                     content={
-                      <div style={{ width: 500 }}>
+                      <div>
                         The models under evaluation include 4 agent frameworks:
                         <div> - LLM: base LLMs without tools </div>
                         <div>
@@ -455,8 +455,8 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                         </div>
                         <div>
                           {" "}
-                          - Deep-Research: closed-source Deep Research
-                          Agents, like Gemini Deep Research{" "}
+                          - Deep-Research: closed-source Deep Research Agents,
+                          like Gemini Deep Research{" "}
                         </div>
                       </div>
                     }
