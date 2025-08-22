@@ -42,8 +42,8 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
   const { getLeaderboardData } = useLeaderboardData();
   const data = getLeaderboardData(timePeriodType, selectedTime);
 
-  const level1HasEmptyScore = data.some((item) => item.level1Score === null);
-  const level2HasEmptyScore = data.some((item) => item.level2Score === null);
+  const level1HasEmptyScore = data?.some((item) => item.level1Score === null);
+  const level2HasEmptyScore = data?.some((item) => item.level2Score === null);
 
   // 排序状态
   const [sortConfig, setSortConfig] = useState<SortConfig>({
