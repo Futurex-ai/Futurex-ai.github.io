@@ -35,7 +35,7 @@ export const useTimeSelectorLogic = () => {
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear(); // 获取当前年份
     const currentMonth = currentDate.getMonth() + 1; // 获取当前月份 (0-11，所以加1)
-    const currentWeek = Math.ceil(currentDate.getDate() / 7) - 1;
+    const currentWeek = 2;
     const options: MonthOption[] = [];
 
     // 从2025年8月开始到当前月份
