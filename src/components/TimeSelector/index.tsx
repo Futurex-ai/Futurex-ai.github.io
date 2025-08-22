@@ -83,7 +83,7 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
   const handlePeriodTypeChange = (type: TimePeriodType) => {
     const currentDate = new Date();
     const currentMonth = String(currentDate.getMonth() + 1).padStart(2, "0"); // 获取当前月份 (0-11，所以加1)
-    const currentWeek = Math.ceil(currentDate.getDate() / 7) - 1;
+    const currentWeek = 2;
 
     onTimePeriodTypeChange(type);
 
