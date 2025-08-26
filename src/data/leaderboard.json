@@ -46,7 +46,7 @@
       "organization": "Google"
     },
     {
-      "modelName": "DouBao",
+      "modelName": "Seed-DouBao",
       "agentFramework": "Deep-Research",
       "overallScore": 22.19,
       "level1Score": 50.57,
@@ -61,7 +61,7 @@
       "organization": "Bytedance"
     },
     {
-      "modelName": "DouBao",
+      "modelName": "Seed-DouBao",
       "agentFramework": "Search",
       "overallScore": 20.0,
       "level1Score": 40.66,
@@ -394,7 +394,7 @@
         "organization": "Google"
       },
       {
-        "modelName": "DouBao DR",
+        "modelName": "Seed-DouBao DR",
         "agentFramework": "Deep-Research",
         "overallScore": 17.42,
         "level1Score": null,
@@ -424,7 +424,7 @@
         "organization": "OpenAI"
       },
       {
-        "modelName": "DouBao",
+        "modelName": "Seed-DouBao",
         "agentFramework": "Search",
         "overallScore": 16.42,
         "level1Score": null,
@@ -741,7 +741,7 @@
         "organization": "Google"
       },
       {
-        "modelName": "DouBao DR",
+        "modelName": "Seed-DouBao DR",
         "agentFramework": "Deep-Research",
         "overallScore": 23.01,
         "level1Score": 61.11,
@@ -771,7 +771,7 @@
         "organization": "Alibaba"
       },
       {
-        "modelName": "DouBao",
+        "modelName": "Seed-DouBao",
         "agentFramework": "Search",
         "overallScore": 20.2,
         "level1Score": 35.71,
@@ -1058,7 +1058,7 @@
         "organization": "xAI"
       },
       {
-        "modelName": "DouBao DR",
+        "modelName": "Seed-DouBao DR",
         "agentFramework": "Deep-Research",
         "overallScore": 20.01,
         "level1Score": 48.15,
@@ -1088,7 +1088,7 @@
         "organization": "Tencent"
       },
       {
-        "modelName": "DouBao",
+        "modelName": "Seed-DouBao",
         "agentFramework": "Search",
         "overallScore": 16.81,
         "level1Score": 37.04,
