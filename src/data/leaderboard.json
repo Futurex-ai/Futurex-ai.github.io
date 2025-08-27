@@ -1510,7 +1510,7 @@
                 "organization": "Alibaba"
             },
             {
-                "modelName": "Gemini-2.5-Flash",
+                "modelName": "Gemini-2.5-Pro",
                 "agentFramework": "Open-Deep-Research-Smolagents",
                 "overallScore": 11.45,
                 "level1Score": 41.67,
@@ -1540,7 +1540,7 @@
                 "organization": "OpenAI"
             },
             {
-                "modelName": "Gemini-2.5-Flash",
+                "modelName": "Gemini-2.5-Pro",
                 "agentFramework": "LLM",
                 "overallScore": 9.41,
                 "level1Score": 33.33,
