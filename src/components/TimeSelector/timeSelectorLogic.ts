@@ -20,7 +20,7 @@ export interface WeekOption {
 const START_YEAR = 2025;
 const START_MONTH = 7; // 从7月开始
 const START_WEEK = 4; // 从第4周开始
-const LATEST_WEEK = 2; // 最新数据周数（可手动配置）
+const LATEST_WEEK = 3; // 最新数据周数（可手动配置）
 
 const MONTH_NAMES = [
   "January",
