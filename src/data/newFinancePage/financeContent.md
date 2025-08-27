@@ -1,4 +1,5 @@
 # FutureX-S&P500 
+- integrated from <a href="https://xpert.bytedance.com/leaderboard?id=financial_forecast ">Xpert Platform</a>
 
 FutureX-S&P500 focuses on the **financial data prediction** of **S&P 500 Index Constituent Stocks**. 
 By comparing the model's prediction results with the **Consensus Estimate** of human professional analysts and the finally announced actual financial report data, we hope to understand: To what extent can LLMs match or even surpass human financial experts in financial data prediction?
@@ -74,3 +75,4 @@ The new results are as follows:
 <img src="./Revenue_tiecase.png" style="display:inline-block; width:49%;" />
 <img src="./EPS_tiecase.png" style="display:inline-block; width:49%;" />
 
+> Full reports can be found at <a href="https://xpert.bytedance.com/leaderboard?id=financial_forecast ">Xpert Platform</a>, which focuses on assessing AI's ability to solve expert-level complex tasks in the real world, dedicated to driving AI to create greater economic value.
