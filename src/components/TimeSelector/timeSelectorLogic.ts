@@ -19,6 +19,7 @@ export interface WeekOption {
 // 可配置的常量
 const START_YEAR = 2025;
 const START_MONTH = 7; // 从7月开始
+const END_MONTH = 8; // 写死结束在8月
 const START_WEEK = 4; // 从第4周开始
 const LATEST_WEEK = 3; // 最新数据周数（可手动配置）
 
@@ -68,14 +69,14 @@ export const useTimeSelectorLogic = () => {
     } = getCurrentDateInfo();
     const options: MonthOption[] = [];
 
-    // 生成从起始年月到当前年月的所有月份选项
+    // 生成从起始年月到配置的结束月份的所有月份选项
     for (let year = START_YEAR; year <= currentYear; year++) {
       const startMonth = year === START_YEAR ? START_MONTH : 1;
-      const endMonth = year === currentYear ? currentMonth : 12;
+      const endMonth = year === currentYear ? END_MONTH : 12;
 
       for (let month = startMonth; month <= endMonth; month++) {
         options.push(
-          createMonthOption(year, month, currentYear, currentMonth, currentWeek)
+          createMonthOption(year, month, currentYear, END_MONTH, currentWeek)
         );
       }
     }
@@ -87,7 +88,7 @@ export const useTimeSelectorLogic = () => {
     year: number,
     month: number,
     currentYear: number,
-    currentMonth: number,
+    endMonth: number, // 改为使用endMonth参数
     currentWeek: number
   ): MonthOption => {
     const monthValue = `${year}-${month.toString().padStart(2, "0")}`;
@@ -101,9 +102,9 @@ export const useTimeSelectorLogic = () => {
     const startWeek =
       year === START_YEAR && month === START_MONTH ? START_WEEK : 1;
 
-    // 控制显示的周数：如果是当前月份，使用配置的最新周数
+    // 控制显示的周数：如果是结束月份，使用配置的最新周数
     const maxWeek =
-      year === currentYear && month === currentMonth
+      year === currentYear && month === endMonth
         ? Math.min(LATEST_WEEK, weeksInMonth)
         : weeksInMonth;
 
@@ -136,10 +137,10 @@ export const useTimeSelectorLogic = () => {
   ): TimeOption[] => {
     const options: TimeOption[] = [];
 
-    // 从起始年月到当前年月
+    // 从起始年月到配置的结束月份
     for (let year = START_YEAR; year <= currentYear; year++) {
       const startMonth = year === START_YEAR ? START_MONTH : 1;
-      const endMonth = year === currentYear ? currentMonth : 12;
+      const endMonth = year === currentYear ? END_MONTH : 12;
 
       for (let month = startMonth; month <= endMonth; month++) {
         const weeksInMonth = getWeeksInMonth(year, month);
@@ -148,9 +149,9 @@ export const useTimeSelectorLogic = () => {
         const startWeek =
           year === START_YEAR && month === START_MONTH ? START_WEEK : 1;
 
-        // 控制显示的周数：如果是当前月份，使用配置的最新周数
+        // 控制显示的周数：如果是结束月份，使用配置的最新周数
         const maxWeek =
-          year === currentYear && month === currentMonth
+          year === currentYear && month === END_MONTH
             ? Math.min(LATEST_WEEK, weeksInMonth)
             : weeksInMonth;
 
@@ -180,10 +181,10 @@ export const useTimeSelectorLogic = () => {
   ): TimeOption[] => {
     const options: TimeOption[] = [];
 
-    // 从起始年月到当前年月
+    // 从起始年月到配置的结束月份
     for (let year = START_YEAR; year <= currentYear; year++) {
       const startMonth = year === START_YEAR ? START_MONTH : 1;
-      const endMonth = year === currentYear ? currentMonth : 12;
+      const endMonth = year === currentYear ? END_MONTH : 12;
 
       for (let month = startMonth; month <= endMonth; month++) {
         options.push(createMonthlyTimeOption(year, month));

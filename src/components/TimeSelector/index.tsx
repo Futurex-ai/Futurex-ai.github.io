@@ -10,6 +10,7 @@ import { useTimeSelectorLogic } from "./timeSelectorLogic";
 import "./index.less";
 
 // 可配置的常量
+const END_MONTH = 8; // 结束月份（手动配置）
 const LATEST_WEEK = 3; // 最新数据周数（可手动配置）
 
 interface TimeSelectorProps {
@@ -87,7 +88,8 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
   const handlePeriodTypeChange = (type: TimePeriodType) => {
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
-    const currentMonth = String(currentDate.getMonth() + 1).padStart(2, "0");
+    // 使用配置的END_MONTH而不是当前月份
+    const endMonth = String(END_MONTH).padStart(2, "0");
 
     onTimePeriodTypeChange(type);
 
@@ -95,12 +97,12 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
     if (type === "overall") {
       onSelectedTimeChange("overall");
     } else if (type === "weekly") {
-      // 使用配置的最新周数
-      onSelectedTimeChange(`${currentYear}-${currentMonth}-W${LATEST_WEEK}`);
-      // 自动展开当前月
-      setExpandedMonths(new Set([`${currentYear}-${currentMonth}`]));
+      // 使用配置的最新周数，默认选择结束月份
+      onSelectedTimeChange(`${currentYear}-${endMonth}-W${LATEST_WEEK}`);
+      // 自动展开结束月份
+      setExpandedMonths(new Set([`${currentYear}-${endMonth}`]));
     } else {
-      onSelectedTimeChange(`${currentYear}-${currentMonth}`);
+      onSelectedTimeChange(`${currentYear}-${endMonth}`);
       setExpandedMonths(new Set());
     }
     setIsDropdownOpen(false);
