@@ -2056,17 +2056,6 @@
         "numberOfEvents":74
     },
     {
-        "modelName":"o3-2025-04-16",
-        "agentFramework":"LLM",
-        "organization":"OpenAI",
-        "level1Score":66.67,
-        "level2Score":10.16,
-        "level3Score":15.11,
-        "level4Score":0.85,
-        "overallScore":13.57,
-        "numberOfEvents":74
-    },
-    {
         "modelName":"Deepseek-R1",
         "agentFramework":"LLM",
         "organization":"Deepseek",
@@ -2075,17 +2064,6 @@
         "level3Score":1.9,
         "level4Score":7.75,
         "overallScore":13.36,
-        "numberOfEvents":74
-    },
-    {
-        "modelName":"Seed1.6 (DouBao)",
-        "agentFramework":"Search",
-        "organization":"Bytedance",
-        "level1Score":0.0,
-        "level2Score":66.67,
-        "level3Score":0.0,
-        "level4Score":0.0,
-        "overallScore":13.33,
         "numberOfEvents":74
     },
     {
@@ -2119,39 +2097,6 @@
         "level3Score":0.0,
         "level4Score":5.33,
         "overallScore":8.58,
-        "numberOfEvents":74
-    },
-    {
-        "modelName":"o4-mini-2025-04-16",
-        "agentFramework":"LLM",
-        "organization":"OpenAI",
-        "level1Score":33.33,
-        "level2Score":16.44,
-        "level3Score":1.9,
-        "level4Score":0.7,
-        "overallScore":7.47,
-        "numberOfEvents":74
-    },
-    {
-        "modelName":"Claude-Opus-4.1",
-        "agentFramework":"Search",
-        "organization":"Anthropic",
-        "level1Score":0.0,
-        "level2Score":0.0,
-        "level3Score":1.9,
-        "level4Score":8.73,
-        "overallScore":4.06,
-        "numberOfEvents":74
-    },
-    {
-        "modelName":"Seed1.6 (DouBao DR)",
-        "agentFramework":"Closed-Deep-Research",
-        "organization":"Bytedance",
-        "level1Score":0.0,
-        "level2Score":0.0,
-        "level3Score":0.0,
-        "level4Score":0.0,
-        "overallScore":0.0,
         "numberOfEvents":74
     }
     ]
