@@ -94,7 +94,7 @@ export const ContactSection: React.FC = () => {
               We release a new set of tasks every week. If you choose <strong>Option A</strong>, we will automatically test your model on them. If you choose <strong>Option B</strong>, you must download the latest tasks, run your model, and send us your predictions <u>before Wednesday 24:00 (UTC+8)</u> each week. Submissions received after the deadline will not be counted.
             </span>
             <div style={{ marginTop: '0.5rem' }}>
-              <span style={deadlineHighlight}>⚠️ Next submission deadline: August 27th at 24:00 (UTC+8, Beijing Time)</span>
+              <span style={deadlineHighlight}>⚠️ Next submission deadline: Next Wednesday at 23:59 (UTC+8, Beijing Time)</span>
             </div>
           </div>
         </div>

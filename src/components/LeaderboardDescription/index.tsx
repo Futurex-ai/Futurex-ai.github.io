@@ -210,7 +210,7 @@ export const LeaderboardDescription: React.FC = () => {
     <div style={containerStyle}>
       <div style={contentStyle}>
         <h2 style={headingStyle}>Live LeaderBoard</h2>
-        <p style={subStyle}>Real-time · Contamination-free · 23 models</p>
+        <p style={subStyle}>Real-time · Contamination-free · 28 models</p>
 
         <div style={gridStyle}>
           {/* Technical Report */}

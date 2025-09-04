@@ -9,6 +9,7 @@ import { Leaderboard } from "../Leaderboard";
 import { QuestionTable } from "../QuestionTable";
 import { ContactSection } from "../ContactSection";
 import "./index.css";
+import banner from "./ranking_new.jpeg";
 
 interface LeaderboardViewProps {
   timePeriodType: TimePeriodType;
@@ -25,7 +26,7 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({
 }) => {
   const containerStyle: React.CSSProperties = {
     minHeight: "calc(100vh - 200px)",
-    background: "#fafafa",
+    background: "rgb(250, 250, 250)",
     padding: "2rem 0",
   };
 
@@ -39,7 +40,16 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({
     <div style={containerStyle}>
       <div style={controlsStyle}>
         {/* Leaderboard标题 - 与Challenge Questions样式保持一致 */}
-        <h2 className="leaderboard-view__title">Leaderboard 🏆</h2>
+        <h2 className="leaderboard-view__title">This Week's Ranking List 🏆</h2>
+        <div style={{ textAlign: "center", margin: "2rem 0" }}>
+          <img className="banner-img"
+            src={banner}
+            alt="Leaderboard Banner"
+            style={{ maxWidth: "100%", borderRadius: "12px" }}
+          />
+        </div>
+
+        <h2 className="leaderboard-view__title">Overall Leaderboard 🏆</h2>
 
         <TimeSelector
           timePeriodType={timePeriodType}

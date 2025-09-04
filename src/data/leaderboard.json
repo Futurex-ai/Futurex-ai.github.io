@@ -1951,17 +1951,6 @@
         "numberOfEvents":74
     },
     {
-        "modelName":"foresight",
-        "agentFramework":"Search",
-        "organization":"Unknown",
-        "level1Score":50.0,
-        "level2Score":13.42,
-        "level3Score":10.95,
-        "level4Score":13.37,
-        "overallScore":16.32,
-        "numberOfEvents":74
-    },
-    {
         "modelName":"Gemini-2.5-Pro",
         "agentFramework":"LLM",
         "organization":"Google",
