@@ -57,10 +57,6 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({
         {/* <h2 className="leaderboard-view__title">Next Update</h2> */}
         <ul className="newupdate">
           <li>
-            <strong>GPT-5 and GPT Deep Research results</strong> will be
-            included in the next update—stay tuned!
-          </li>
-          <li>
             <strong>New web-search & deep research agents</strong> are coming
             soon!
           </li>
