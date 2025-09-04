@@ -1802,7 +1802,8 @@
         "level3Score":10.95,
         "level4Score":15.72,
         "overallScore":24.07,
-        "numberOfEvents":74
+        "numberOfEvents":74,
+        "testType": 1
     },
     {
         "modelName":"GPT-o4-mini",
