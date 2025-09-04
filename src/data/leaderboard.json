@@ -1814,7 +1814,7 @@
         "numberOfEvents":74
     },
     {
-        "modelName":"Deepseek-R1",
+        "modelName":"Deepseek-V3",
         "agentFramework":"Search",
         "organization":"Deepseek",
         "level1Score":66.67,
@@ -1899,17 +1899,6 @@
         "level3Score":7.69,
         "level4Score":16.25,
         "overallScore":20.86,
-        "numberOfEvents":74
-    },
-    {
-        "modelName":"Qwen3-235B",
-        "agentFramework":"Open-Deep-Research-Smolagents",
-        "organization":"Alibaba",
-        "level1Score":83.33,
-        "level2Score":23.12,
-        "level3Score":0.0,
-        "level4Score":17.13,
-        "overallScore":19.81,
         "numberOfEvents":74
     },
     {
@@ -2056,6 +2045,17 @@
         "numberOfEvents":74
     },
     {
+        "modelName":"o3-2025-04-16",
+        "agentFramework":"LLM",
+        "organization":"OpenAI",
+        "level1Score":66.67,
+        "level2Score":10.16,
+        "level3Score":15.11,
+        "level4Score":0.85,
+        "overallScore":13.57,
+        "numberOfEvents":74
+    },
+    {
         "modelName":"Deepseek-R1",
         "agentFramework":"LLM",
         "organization":"Deepseek",
@@ -2064,28 +2064,6 @@
         "level3Score":1.9,
         "level4Score":7.75,
         "overallScore":13.36,
-        "numberOfEvents":74
-    },
-    {
-        "modelName":"Gemini-2.5-Pro",
-        "agentFramework":"Closed-Deep-Research",
-        "organization":"Google",
-        "level1Score":0.0,
-        "level2Score":26.15,
-        "level3Score":11.37,
-        "level4Score":8.38,
-        "overallScore":12.0,
-        "numberOfEvents":74
-    },
-    {
-        "modelName":"GPT-4o-mini",
-        "agentFramework":"LLM",
-        "organization":"OpenAI",
-        "level1Score":50.0,
-        "level2Score":18.61,
-        "level3Score":7.14,
-        "level4Score":2.47,
-        "overallScore":11.85,
         "numberOfEvents":74
     },
     {
@@ -2099,7 +2077,7 @@
         "overallScore":8.58,
         "numberOfEvents":74
     }
-    ]
+]
   },
   "monthly": {
     "2025-08": []
