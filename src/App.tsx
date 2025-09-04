@@ -10,6 +10,7 @@ import { MarkdownView } from "./components/MarkdownView";
 import { LeaderboardView } from "./components/LeaderboardView";
 import { FinanceOverview } from "./components/FinanceOverview"; // ← 用作 S&P 500 页签内容
 import { TimePeriodType } from "./types";
+import leaderboardData from "./data/leaderboard.json";
 
 Tea.init({
   app_id: 635684,
@@ -22,11 +23,12 @@ const App: React.FC = () => {
   // Banner 的三标签：overview / leaderboard / sp500
   // const [activeTab, setActiveTab] = useState<BannerTab>("overview");
   const [activeTab, setActiveTab] = useState<BannerTab>("leaderboard");
-  
+
   // Leaderboard 的时间筛选状态（保持不变）
   const [timePeriodType, setTimePeriodType] =
-    useState<TimePeriodType>("overall");
-  const [selectedTime, setSelectedTime] = useState<string>("overall");
+    useState<TimePeriodType>("weekly");
+  const currentWeek = Object.keys(leaderboardData.weekly).sort().pop();
+  const [selectedTime, setSelectedTime] = useState<string>(currentWeek);
 
   Tea.event("crawl_api_custom", { name: "进入页面" });
   Tea.event("predefine_pageview", { url: window.location.href });
