@@ -3,12 +3,17 @@
  * 定义榜单数据、时间选择等相关类型
  */
 
+export enum TestType {
+  Official = 0,
+  ThirdParty = 1,
+}
 export interface LeaderboardEntry {
   modelName: string;
   agentFramework: string;
   organization: string;
   overallScore: number;
   numberOfEvents: number;
+  testType?: TestType;
   level1Score: number;
   level2Score: number;
   level3Score: number;

@@ -4,8 +4,9 @@
  * 支持对Level分数进行排序，支持Model Name、Agent Framework和Organization筛选
  */
 import React, { useState, useMemo, useRef, useEffect } from "react";
+import { Tag } from "@douyinfe/semi-ui";
 
-import { TimePeriodType } from "../../types";
+import { TestType, TimePeriodType } from "../../types";
 import { useLeaderboardData } from "./leaderboardData";
 import BottomTooltip from "../BottomTooltip";
 import "./index.css";
@@ -494,6 +495,8 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                   Overall
                   {renderSortIcon("overallScore")}
                 </div>
+                <div className="leaderboard__header-cell">Test Type</div>
+
                 <div className="leaderboard__header-cell">Events</div>
                 <div
                   className={`leaderboard__header-cell leaderboard__header-cell--sortable ${
@@ -654,6 +657,13 @@ export const Leaderboard: React.FC<LeaderboardProps> = ({
                     <span className="leaderboard__score">
                       {entry.overallScore.toFixed(1)}
                     </span>
+                  </div>
+                  <div className="leaderboard__cell leaderboard__cell--events leaderboard__cell--center">
+                    {entry.testType === TestType.ThirdParty ? (
+                      <Tag>third party</Tag>
+                    ) : (
+                      <Tag color="green">official</Tag>
+                    )}
                   </div>
                   <div className="leaderboard__cell leaderboard__cell--events leaderboard__cell--center">
                     {entry.numberOfEvents.toLocaleString()}
