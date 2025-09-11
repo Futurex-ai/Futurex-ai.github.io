@@ -2156,13 +2156,14 @@
         {
             "modelName":"Claude-Opus-4.1",
             "agentFramework":"Search",
-            "organization":"Independent Participator",
+            "organization":"Third Party",
             "level1Score":66.67,
             "level2Score":38.11,
             "level3Score":11.85,
             "level4Score":8.32,
             "overallScore":21.17,
-            "numberOfEvents":68
+            "numberOfEvents":68,
+            "testType": 1
         },
         {
             "modelName":"Gemini-2.5-Flash",
