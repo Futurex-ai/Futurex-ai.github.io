@@ -1795,7 +1795,7 @@
     },
     {
         "modelName":"MiroThinker-72B-Preview",
-        "agentFramework":"Open-Deep-Research-MiroFlow",
+        "agentFramework":"Open-Deep-Research-MiroFlow-Preview",
         "organization":"MiroMind",
         "level1Score":100.0,
         "level2Score":22.51,
@@ -2054,7 +2054,7 @@
     "2025-09-W1": [
         {
             "modelName":"GPT-5",
-            "agentFramework":"Open-Deep-Research-MiroFlow",
+            "agentFramework":"Open-Deep-Research-MiroFlow-Preview",
             "organization":"MiroMind",
             "level1Score":66.67,
             "level2Score":60.36,
@@ -2088,7 +2088,7 @@
         },
         {
             "modelName":"MiroThinker-72B-Preview",
-            "agentFramework":"Open-Deep-Research-MiroFlow",
+            "agentFramework":"Open-Deep-Research-MiroFlow-Preview",
             "organization":"MiroMind",
             "level1Score":66.67,
             "level2Score":55.44,
