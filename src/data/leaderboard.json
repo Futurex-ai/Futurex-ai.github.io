@@ -2072,7 +2072,7 @@
             "level2Score":33.04,
             "level3Score":34.58,
             "level4Score":15.63,
-            "overallScore":29.9,
+            "overallScore":32.7,
             "numberOfEvents":68
         },
         {
@@ -2083,7 +2083,7 @@
             "level2Score":42.08,
             "level3Score":29.25,
             "level4Score":12.82,
-            "overallScore":28.98,
+            "overallScore":29.21,
             "numberOfEvents":68
         },
         {
@@ -2094,7 +2094,19 @@
             "level2Score":55.44,
             "level3Score":17.78,
             "level4Score":10.13,
-            "overallScore":27.14,
+            "overallScore":29.00,
+            "numberOfEvents":68,
+            "testType": 1
+        },
+        {
+            "modelName":"New Cast (Based on Qwen3-32B)",
+            "agentFramework":"Proprietary Agent framework 3",
+            "organization":"Individual AI Researcher (Nikhil Chandak)",
+            "level1Score":75.0,
+            "level2Score":37.59,
+            "level3Score":29.08,
+            "level4Score":11.71,
+            "overallScore":28.42,
             "numberOfEvents":68,
             "testType": 1
         },
