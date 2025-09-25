@@ -1886,7 +1886,7 @@
     },
     {
         "modelName":"GPT-4.1",
-        "agentFramework":"AgentOrchestra",
+        "agentFramework":"Open-Deep-Research-AgentOrchestra",
         "organization":"OpenAI",
         "level1Score":50.0,
         "level2Score":34.04,
@@ -1941,7 +1941,7 @@
     },
     {
         "modelName":"Gemini-2.5-Pro",
-        "agentFramework":"AgentOrchestra",
+        "agentFramework":"Open-Deep-Research-AgentOrchestra",
         "organization":"Google",
         "level1Score":66.67,
         "level2Score":22.31,
@@ -2234,7 +2234,7 @@
         },
         {
             "modelName":"GPT-4.1",
-            "agentFramework":"AgentOrchestra",
+            "agentFramework":"Open-Deep-Research-AgentOrchestra",
             "organization":"OpenAI",
             "level1Score":44.44,
             "level2Score":29.31,
@@ -2256,7 +2256,7 @@
         },
         {
             "modelName":"Gemini-2.5-Pro",
-            "agentFramework":"AgentOrchestra",
+            "agentFramework":"Open-Deep-Research-AgentOrchestra",
             "organization":"Google",
             "level1Score":66.67,
             "level2Score":22.39,
@@ -2492,7 +2492,7 @@
       },
       {
           "modelName":"GPT-4.1",
-          "agentFramework":"AgentOrchestra",
+          "agentFramework":"Open-Deep-Research-AgentOrchestra",
           "organization":"OpenAI",
           "level1Score":83.33,
           "level2Score":32.34,
@@ -2559,7 +2559,7 @@
       },
       {
           "modelName":"Gemini-2.5-Pro",
-          "agentFramework":"AgentOrchestra",
+          "agentFramework":"Open-Deep-Research-AgentOrchestra",
           "organization":"Google",
           "level1Score":83.33,
           "level2Score":24.66,
@@ -2778,7 +2778,7 @@
         "level4Score": 28.51,
         "overallScore": 46.83,
         "numberOfEvents": 65,
-        "TestType": 1
+        "testType": 1
     },
     {
         "modelName": "GPT-5-Pro",
@@ -2790,7 +2790,7 @@
         "level4Score": 32.87,
         "overallScore": 42.81,
         "numberOfEvents": 65,
-        "TestType": 1
+        "testType": 1
     },
     {
         "modelName": "MiroThinker-72B-Preview",
@@ -2802,7 +2802,7 @@
         "level4Score": 18.24,
         "overallScore": 36.03,
         "numberOfEvents": 65,
-        "TestType": 1
+        "testType": 1
     },
     {
         "modelName": "ChatGPT-Agent",
@@ -2891,7 +2891,7 @@
         "level4Score": 9.07,
         "overallScore": 16.46,
         "numberOfEvents": 65,
-        "TestType": 1
+        "testType": 1
     },
     {
         "modelName": "Qwen3-235B",
@@ -2906,7 +2906,7 @@
     },
     {
         "modelName": "GPT-4.1",
-        "agentFramework": "AgentOrchestra",
+        "agentFramework": "Open-Deep-Research-AgentOrchestra",
         "organization": "OpenAI",
         "level1Score": 40.0,
         "level2Score": 0.0,
@@ -2994,7 +2994,7 @@
     },
     {
         "modelName": "Gemini-2.5-Pro",
-        "agentFramework": "AgentOrchestra",
+        "agentFramework": "Open-Deep-Research-AgentOrchestra",
         "organization": "Google",
         "level1Score": 20.0,
         "level2Score": 0.0,
