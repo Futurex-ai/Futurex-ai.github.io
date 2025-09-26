@@ -2781,7 +2781,7 @@
         "testType": 1
     },
     {
-        "modelName": "GPT-5-Pro",
+        "modelName": "GPT-5-High",
         "agentFramework": "Guided-Global-Bbacktesting-Protocol",
         "organization": "Individual AI Researcher (Curtis White)",
         "level1Score": 50.0,
@@ -2789,6 +2789,18 @@
         "level3Score": 32.19,
         "level4Score": 32.87,
         "overallScore": 42.81,
+        "numberOfEvents": 60,
+        "testType": 1
+    },
+    {
+        "modelName": "GPT-5",
+        "agentFramework": "Customized Agent Framework",
+        "organization": "Individual AI Researcher (HengXin)",
+        "level1Score": 50.0,
+        "level2Score": 62.5,
+        "level3Score": 49.15,
+        "level4Score": 22.93,
+        "overallScore": 41.42,
         "numberOfEvents": 60,
         "testType": 1
     },
