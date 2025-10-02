@@ -3015,6 +3015,135 @@
         "overallScore": 2.0,
         "numberOfEvents": 60
     }
+    ],
+    "2025-09-W4": [
+      {
+          "modelName": "GPT-5",
+          "agentFramework": "Open-Deep-Research-MiroFlow",
+          "organization": "MiroMind",
+          "level1Score": 50.0,
+          "level2Score": 80.51,
+          "level3Score": 55.6,
+          "level4Score": 34.79,
+          "overallScore": 51.7,
+          "numberOfEvents": 83,
+          "testType": 1
+      },
+      {
+          "modelName": "Daedalus Intelligence v0.1",
+          "agentFramework": "Customized Agent Framework",
+          "organization": "Daedalus Research",
+          "level1Score": 50.0,
+          "level2Score": 81.86,
+          "level3Score": 38.2,
+          "level4Score": 35.71,
+          "overallScore": 47.12,
+          "numberOfEvents": 83,
+          "testType": 1
+      },
+      {
+          "modelName": "GPT-5",
+          "agentFramework": "Customized Agent Framework",
+          "organization": "AI Researcher (HengXin)",
+          "level1Score": 37.5,
+          "level2Score": 50.49,
+          "level3Score": 54.31,
+          "level4Score": 37.77,
+          "overallScore": 45.25,
+          "numberOfEvents": 83,
+          "testType": 1
+      },
+      {
+          "modelName": "GPT-5-Pro",
+          "agentFramework": "agentic-global-bbacktesting",
+          "organization": "Individual AI Researcher (Curtis White)",
+          "level1Score": 50.0,
+          "level2Score": 84.22,
+          "level3Score": 33.33,
+          "level4Score": 29.63,
+          "overallScore": 43.69,
+          "numberOfEvents": 83,
+          "testType": 1
+      },
+      {
+          "modelName": "MiroThinker-72B-Preview",
+          "agentFramework": "Open-Deep-Research-MiroFlow",
+          "organization": "MiroMind",
+          "level1Score": 25.0,
+          "level2Score": 71.34,
+          "level3Score": 30.23,
+          "level4Score": 28.9,
+          "overallScore": 37.4,
+          "numberOfEvents": 83,
+          "testType": 1
+      },
+      {
+          "modelName": "Grok-4",
+          "agentFramework": "Search",
+          "organization": "xAI",
+          "level1Score": 37.5,
+          "level2Score": 54.91,
+          "level3Score": 23.61,
+          "level4Score": 15.72,
+          "overallScore": 28.1,
+          "numberOfEvents": 83
+      },
+      {
+          "modelName": "foresight",
+          "agentFramework": "Search",
+          "organization": "Forsight",
+          "level1Score": 37.5,
+          "level2Score": 41.35,
+          "level3Score": 17.53,
+          "level4Score": 17.0,
+          "overallScore": 24.08,
+          "numberOfEvents": 83
+      },
+      {
+          "modelName": "Deepseek-R1",
+          "agentFramework": "Search",
+          "organization": "Deepseek",
+          "level1Score": 37.5,
+          "level2Score": 41.65,
+          "level3Score": 20.74,
+          "level4Score": 12.43,
+          "overallScore": 23.28,
+          "numberOfEvents": 83
+      },
+      {
+          "modelName": "GPT-4.1",
+          "agentFramework": "Customized Agent Framework",
+          "organization": "Individual AI Researcher (Yuqi Yang)",
+          "level1Score": 50.0,
+          "level2Score": 45.88,
+          "level3Score": 7.41,
+          "level4Score": 10.91,
+          "overallScore": 20.76,
+          "numberOfEvents": 83,
+          "testType": 1
+      },
+      {
+          "modelName": "Hunyuan",
+          "agentFramework": "Search",
+          "organization": "Tencent",
+          "level1Score": 50.0,
+          "level2Score": 23.56,
+          "level3Score": 15.27,
+          "level4Score": 16.13,
+          "overallScore": 20.75,
+          "numberOfEvents": 83
+      },
+      {
+          "modelName": "Qwen3-235B",
+          "agentFramework": "Search",
+          "organization": "Alibaba",
+          "level1Score": 25.0,
+          "level2Score": 29.33,
+          "level3Score": 9.04,
+          "level4Score": 8.92,
+          "overallScore": 14.65,
+          "numberOfEvents": 83
+      }
     ]
   },
   "monthly": {
