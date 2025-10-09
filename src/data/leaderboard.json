@@ -3155,7 +3155,7 @@
             "level3Score": 24.53,
             "level4Score": 33.14,
             "overallScore": 37.13,
-            "numberOfEvents": 89,
+            "numberOfEvents": 82,
             "TestType": 1
         },
         {
@@ -3167,7 +3167,7 @@
             "level3Score": 26.12,
             "level4Score": 32.77,
             "overallScore": 36.29,
-            "numberOfEvents": 89,
+            "numberOfEvents": 82,
             "TestType": 1
         },
         {
@@ -3179,7 +3179,7 @@
             "level3Score": 27.66,
             "level4Score": 21.16,
             "overallScore": 30.34,
-            "numberOfEvents": 89
+            "numberOfEvents": 82
         },
         {
             "modelName": "Gemini-2.5-Pro",
@@ -3190,7 +3190,7 @@
             "level3Score": 16.67,
             "level4Score": 21.12,
             "overallScore": 27.2,
-            "numberOfEvents": 89
+            "numberOfEvents": 82
         },
         {
             "modelName": "GPT-5-Thinking-Heavy",
@@ -3201,7 +3201,7 @@
             "level3Score": 17.85,
             "level4Score": 18.77,
             "overallScore": 26.47,
-            "numberOfEvents": 89
+            "numberOfEvents": 82
         },
         {
             "modelName": "GPT-4.1",
@@ -3212,7 +3212,7 @@
             "level3Score": 10.0,
             "level4Score": 15.98,
             "overallScore": 25.55,
-            "numberOfEvents": 89,
+            "numberOfEvents": 82,
             "TestType": 1
         },
         {
@@ -3224,7 +3224,7 @@
             "level3Score": 30.32,
             "level4Score": 17.05,
             "overallScore": 25.44,
-            "numberOfEvents": 89
+            "numberOfEvents": 82
         },
         {
             "modelName": "Grok-4",
@@ -3235,7 +3235,7 @@
             "level3Score": 19.68,
             "level4Score": 11.34,
             "overallScore": 25.21,
-            "numberOfEvents": 89
+            "numberOfEvents": 82
         },
         {
             "modelName": "GPT-4.1",
@@ -3246,7 +3246,7 @@
             "level3Score": 5.33,
             "level4Score": 4.21,
             "overallScore": 18.07,
-            "numberOfEvents": 89
+            "numberOfEvents": 82
         },
         {
             "modelName": "foresight",
@@ -3257,7 +3257,7 @@
             "level3Score": 6.67,
             "level4Score": 13.7,
             "overallScore": 17.9,
-            "numberOfEvents": 89
+            "numberOfEvents": 82
         },
         {
             "modelName": "Hunyuan",
@@ -3268,7 +3268,7 @@
             "level3Score": 11.6,
             "level4Score": 13.86,
             "overallScore": 17.53,
-            "numberOfEvents": 89
+            "numberOfEvents": 82
         },
         {
             "modelName": "Deepseek-R1",
@@ -3279,7 +3279,7 @@
             "level3Score": 11.86,
             "level4Score": 3.18,
             "overallScore": 14.01,
-            "numberOfEvents": 89
+            "numberOfEvents": 82
         },
         {
             "modelName": "Qwen3-235B",
@@ -3290,7 +3290,7 @@
             "level3Score": 8.89,
             "level4Score": 0.0,
             "overallScore": 12.86,
-            "numberOfEvents": 89
+            "numberOfEvents": 82
         },
         {
             "modelName": "Deepseek-V3",
@@ -3301,7 +3301,7 @@
             "level3Score": 8.33,
             "level4Score": 4.3,
             "overallScore": 12.05,
-            "numberOfEvents": 89
+            "numberOfEvents": 82
         },
         {
             "modelName": "GPT-4o-mini",
@@ -3312,7 +3312,7 @@
             "level3Score": 1.67,
             "level4Score": 1.27,
             "overallScore": 9.76,
-            "numberOfEvents": 89
+            "numberOfEvents": 82
         }
     ]
   },
