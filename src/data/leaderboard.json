@@ -3148,7 +3148,7 @@
     "2025-10-W1": [
         {
             "modelName": "GPT-5",
-            "agentFramework": "Guided-Global-Bbacktesting-Protocol",
+            "agentFramework": "Global-Bbacktesting-Protocol",
             "organization": "Individual AI Researcher (Curtis White)",
             "level1Score": 83.33,
             "level2Score": 40.9,
