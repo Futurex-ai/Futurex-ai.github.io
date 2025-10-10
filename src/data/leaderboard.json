@@ -3156,7 +3156,7 @@
             "level4Score": 33.14,
             "overallScore": 37.13,
             "numberOfEvents": 82,
-            "TestType": 1
+            "testType": 1
         },
         {
             "modelName": "MiroThinker-72B-Preview",
@@ -3168,7 +3168,7 @@
             "level4Score": 32.77,
             "overallScore": 36.29,
             "numberOfEvents": 82,
-            "TestType": 1
+            "testType": 1
         },
         {
             "modelName": "GPT-5-Pro",
@@ -3213,7 +3213,7 @@
             "level4Score": 15.98,
             "overallScore": 25.55,
             "numberOfEvents": 82,
-            "TestType": 1
+            "testType": 1
         },
         {
             "modelName": "ChatGPT-Agent",
@@ -3269,6 +3269,18 @@
             "level4Score": 13.86,
             "overallScore": 17.53,
             "numberOfEvents": 82
+        },
+        {
+            "modelName": "GPT 5",
+            "agentFramework": "Lzx",
+            "organization": "Individual AI Researcher",
+            "level1Score": 58.33,
+            "level2Score": 39.55,
+            "level3Score": 5.0,
+            "level4Score": 0.0,
+            "overallScore": 15.24,
+            "numberOfEvents": 82,
+            "testType": 1
         },
         {
             "modelName": "Deepseek-R1",
