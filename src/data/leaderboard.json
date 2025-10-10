@@ -2795,7 +2795,7 @@
     {
         "modelName": "GPT-5",
         "agentFramework": "Customized Agent Framework",
-        "organization": "Individual AI Researcher (HengXin)",
+        "organization": "Autonomous Investing",
         "level1Score": 50.0,
         "level2Score": 62.5,
         "level3Score": 49.15,
@@ -3030,7 +3030,7 @@
           "testType": 1
       },
       {
-          "modelName": "Daedalus Intelligence v0.1",
+          "modelName": "Grok-4",
           "agentFramework": "Customized Agent Framework",
           "organization": "Daedalus Research",
           "level1Score": 50.0,
