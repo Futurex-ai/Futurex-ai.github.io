@@ -3451,7 +3451,190 @@
           "overallScore": 10.39,
           "numberOfEvents": 89
       }
-    ]
+      ],
+      "2025-10-W3": [
+        {
+            "modelName": "GPT-5",
+            "agentFramework": "Open-Deep-Research-MiroFlow",
+            "organization": "MiroMind",
+            "level1Score": 46.15,
+            "level2Score": 30.16,
+            "level3Score": 58.52,
+            "level4Score": 50.11,
+            "overallScore": 48.25,
+            "numberOfEvents": 81,
+            "testType": 1
+        },
+        {
+            "modelName": "gpt-5",
+            "agentFramework": "h2oGPTe_Agent_v1.7",
+            "organization": "h2o.ai",
+            "level1Score": 46.15,
+            "level2Score": 21.83,
+            "level3Score": 22.24,
+            "level4Score": 50.71,
+            "overallScore": 35.93,
+            "numberOfEvents": 81,
+            "testType": 1
+        },
+        {
+            "modelName": "GPT-5(OpenrouterAPI)",
+            "agentFramework": "CYWAgent-V1",
+            "organization": "Individual AI Researcher",
+            "level1Score": 46.15,
+            "level2Score": 21.83,
+            "level3Score": 33.72,
+            "level4Score": 34.44,
+            "overallScore": 32.87,
+            "numberOfEvents": 81,
+            "testType": 1
+        },
+        {
+            "modelName": "GPT-5-Thinking-Heavy",
+            "agentFramework": "Search",
+            "organization": "OpenAI",
+            "level1Score": 53.85,
+            "level2Score": 21.83,
+            "level3Score": 19.56,
+            "level4Score": 35.5,
+            "overallScore": 29.82,
+            "numberOfEvents": 81
+        },
+        {
+            "modelName": "ChatGPT-Agent",
+            "agentFramework": "Search",
+            "organization": "OpenAI",
+            "level1Score": 53.85,
+            "level2Score": 19.05,
+            "level3Score": 24.55,
+            "level4Score": 27.53,
+            "overallScore": 27.57,
+            "numberOfEvents": 81
+        },
+        {
+            "modelName": "MiroThinker-72B-Preview",
+            "agentFramework": "Open-Deep-Research-MiroFlow",
+            "organization": "MiroMind",
+            "level1Score": 46.15,
+            "level2Score": 21.83,
+            "level3Score": 16.93,
+            "level4Score": 33.47,
+            "overallScore": 27.45,
+            "numberOfEvents": 81,
+            "testType": 1
+        },
+        {
+            "modelName": "GLM-4.5",
+            "agentFramework": "Search",
+            "organization": "Zhipu",
+            "level1Score": 61.54,
+            "level2Score": 27.78,
+            "level3Score": 17.05,
+            "level4Score": 21.66,
+            "overallScore": 25.49,
+            "numberOfEvents": 81
+        },
+        {
+            "modelName": "Gemini-2.5-Pro",
+            "agentFramework": "Deep Think",
+            "organization": "Google",
+            "level1Score": 46.15,
+            "level2Score": 30.16,
+            "level3Score": 7.53,
+            "level4Score": 20.47,
+            "overallScore": 21.1,
+            "numberOfEvents": 81
+        },
+        {
+            "modelName": "Moonshot-kimi-k2-0905",
+            "agentFramework": "Search",
+            "organization": "Moonshot",
+            "level1Score": 46.15,
+            "level2Score": 31.55,
+            "level3Score": 7.2,
+            "level4Score": 19.29,
+            "overallScore": 20.8,
+            "numberOfEvents": 81
+        },
+        {
+            "modelName": "Gemini-2.5-Pro",
+            "agentFramework": "Search",
+            "organization": "Google",
+            "level1Score": 46.15,
+            "level2Score": 36.11,
+            "level3Score": 21.33,
+            "level4Score": 0.0,
+            "overallScore": 18.24,
+            "numberOfEvents": 81
+        },
+        {
+            "modelName": "GPT-5-Pro",
+            "agentFramework": "Search",
+            "organization": "OpenAI",
+            "level1Score": 61.54,
+            "level2Score": 11.11,
+            "level3Score": 7.11,
+            "level4Score": 18.07,
+            "overallScore": 17.74,
+            "numberOfEvents": 81
+        },
+        {
+            "modelName": "Deepseek-V3",
+            "agentFramework": "Open-Deep-Research-Smolagents",
+            "organization": "Deepseek",
+            "level1Score": 53.85,
+            "level2Score": 30.16,
+            "level3Score": 7.11,
+            "level4Score": 3.48,
+            "overallScore": 14.94,
+            "numberOfEvents": 81
+        },
+        {
+            "modelName": "GPT-4.1",
+            "agentFramework": "Open-Deep-Research-Smolagents",
+            "organization": "OpenAI",
+            "level1Score": 54.55,
+            "level2Score": 31.03,
+            "level3Score": 2.22,
+            "level4Score": 6.28,
+            "overallScore": 14.84,
+            "numberOfEvents": 81
+        },
+        {
+            "modelName": "GPT-4o-mini",
+            "agentFramework": "Open-Deep-Research-Smolagents",
+            "organization": "OpenAI",
+            "level1Score": 53.85,
+            "level2Score": 40.0,
+            "level3Score": 0.0,
+            "level4Score": 3.61,
+            "overallScore": 14.83,
+            "numberOfEvents": 81
+        },
+        {
+            "modelName": "GPT-4.1",
+            "agentFramework": "AgentOrchestra",
+            "organization": "OpenAI",
+            "level1Score": 38.46,
+            "level2Score": 41.67,
+            "level3Score": 0.0,
+            "level4Score": 0.0,
+            "overallScore": 12.18,
+            "numberOfEvents": 81
+        },
+        {
+            "modelName": "GPT-5(OpenrouterAPI)",
+            "agentFramework": "CYWAgent-V2",
+            "organization": "Individual AI Researcher",
+            "level1Score": 46.15,
+            "level2Score": 21.83,
+            "level3Score": 0.0,
+            "level4Score": 7.88,
+            "overallScore": 12.13,
+            "numberOfEvents": 81,
+            "testType": 1
+        }
+      ]
   },
   "monthly": {
     "2025-08": []
