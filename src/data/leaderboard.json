@@ -3341,8 +3341,8 @@
           "testType": 1
       },
       {
-          "modelName": "Daedalus Intelligence v0.1",
-          "agentFramework": "Customized Agent Framework",
+          "modelName": "Grok-4",
+          "agentFramework": "Customized Agent Framework (Daedalus Intelligence v0.1)",
           "organization": "AI Researcher (Daedalus)",
           "level1Score": 57.14,
           "level2Score": 36.9,
