@@ -3479,14 +3479,14 @@
         },
         {
             "modelName": "GPT-5(OpenrouterAPI)",
-            "agentFramework": "CYWAgent-V1",
+            "agentFramework": "Galaxy_v1",
             "organization": "Individual AI Researcher",
             "level1Score": 46.15,
             "level2Score": 21.83,
             "level3Score": 33.72,
             "level4Score": 34.44,
             "overallScore": 32.87,
-            "numberOfEvents": 81,
+            "numberOfEvents": 69,
             "testType": 1
         },
         {
@@ -3623,18 +3623,19 @@
             "numberOfEvents": 81
         },
         {
-            "modelName": "GPT-5(OpenrouterAPI)",
-            "agentFramework": "CYWAgent-V2",
-            "organization": "Individual AI Researcher",
-            "level1Score": 46.15,
-            "level2Score": 21.83,
-            "level3Score": 0.0,
-            "level4Score": 7.88,
-            "overallScore": 12.13,
-            "numberOfEvents": 81,
-            "testType": 1
-        }
-      ]
+          "modelName": "GPT-5(OpenrouterAPI)",
+          "agentFramework": "CYWAgent-V1",
+          "organization": "Individual AI Researcher",
+          "level1Score": 46.15,
+          "level2Score": 21.83,
+          "level3Score": 0.0,
+          "level4Score": 7.88,
+          "overallScore": 12.13,
+          "numberOfEvents": 69,
+          "testType": 1
+      }
+        
+    ]
   },
   "monthly": {
     "2025-08": []
