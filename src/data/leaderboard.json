@@ -3419,7 +3419,7 @@
             "level3Score": 33.72,
             "level4Score": 34.44,
             "overallScore": 32.87,
-            "numberOfEvents": 69,
+            "numberOfEvents": 81,
             "testType": 1
         },
         {
@@ -3564,7 +3564,7 @@
           "level3Score": 0.0,
           "level4Score": 7.88,
           "overallScore": 12.13,
-          "numberOfEvents": 69,
+          "numberOfEvents": 81,
           "testType": 1
       }
         
