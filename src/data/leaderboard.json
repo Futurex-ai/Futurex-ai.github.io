@@ -2211,17 +2211,6 @@
               "numberOfEvents":68
           },
           {
-              "modelName":"foresight",
-              "agentFramework":"Search",
-              "organization":"Lightning Rod Labs",
-              "level1Score":66.67,
-              "level2Score":25.57,
-              "level3Score":11.85,
-              "level4Score":1.06,
-              "overallScore":15.76,
-              "numberOfEvents":68
-          },
-          {
               "modelName":"GPT-4.1",
               "agentFramework":"Open-Deep-Research-Smolagents",
               "organization":"OpenAI",
@@ -2544,18 +2533,6 @@
             "level4Score":10.7,
             "overallScore":15.96,
             "numberOfEvents":62
-        },
-        {
-            "modelName":"foresight",
-            "agentFramework":"Search",
-            "organization":"Unknown",
-            "level1Score":66.67,
-            "level2Score":30.8,
-            "level3Score":3.56,
-            "level4Score":3.09,
-            "overallScore":15.13,
-            "numberOfEvents":62,
-            "testType": 1
         },
         {
             "modelName":"Gemini-2.5-Pro",
@@ -2939,17 +2916,6 @@
           "numberOfEvents": 60
       },
       {
-          "modelName": "foresight",
-          "agentFramework": "Search",
-          "organization": "Forsight",
-          "level1Score": 10.0,
-          "level2Score": 0.0,
-          "level3Score": 13.33,
-          "level4Score": 5.6,
-          "overallScore": 7.24,
-          "numberOfEvents": 60
-      },
-      {
           "modelName": "GPT-4.1",
           "agentFramework": "Open-Deep-Research-Smolagents",
           "organization": "OpenAI",
@@ -3086,17 +3052,6 @@
             "level3Score": 23.61,
             "level4Score": 15.72,
             "overallScore": 28.1,
-            "numberOfEvents": 83
-        },
-        {
-            "modelName": "foresight",
-            "agentFramework": "Search",
-            "organization": "Forsight",
-            "level1Score": 37.5,
-            "level2Score": 41.35,
-            "level3Score": 17.53,
-            "level4Score": 17.0,
-            "overallScore": 24.08,
             "numberOfEvents": 83
         },
         {
@@ -3246,17 +3201,6 @@
               "level3Score": 5.33,
               "level4Score": 4.21,
               "overallScore": 18.07,
-              "numberOfEvents": 82
-          },
-          {
-              "modelName": "foresight",
-              "agentFramework": "Search",
-              "organization": "Foresight",
-              "level1Score": 41.67,
-              "level2Score": 31.27,
-              "level3Score": 6.67,
-              "level4Score": 13.7,
-              "overallScore": 17.9,
               "numberOfEvents": 82
           },
           {
@@ -3430,17 +3374,6 @@
           "numberOfEvents": 89
       },
       {
-          "modelName": "foresight",
-          "agentFramework": "Search",
-          "organization": "Foresight",
-          "level1Score": 35.71,
-          "level2Score": 9.78,
-          "level3Score": 6.65,
-          "level4Score": 8.9,
-          "overallScore": 11.08,
-          "numberOfEvents": 89
-      },
-      {
           "modelName": "GPT-4.1",
           "agentFramework": "AgentOrchestra",
           "organization": "OpenAI",
@@ -3466,7 +3399,7 @@
             "testType": 1
         },
         {
-            "modelName": "gpt-5",
+            "modelName": "GPT-5",
             "agentFramework": "h2oGPTe_Agent_v1.7",
             "organization": "h2o.ai",
             "level1Score": 46.15,
