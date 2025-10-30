@@ -3626,7 +3626,8 @@
             "level3Score": 29.73,
             "level4Score": 28.06,
             "overallScore": 33.92,
-            "numberOfEvents": 74
+            "numberOfEvents": 74,
+            "testType": 1
         },
         {
             "modelName": "deepseekV3.2",
@@ -3705,7 +3706,8 @@
             "level3Score": 15.45,
             "level4Score": 22.74,
             "overallScore": 26.45,
-            "numberOfEvents": 74
+            "numberOfEvents": 74,
+            "testType": 1
         },
         {
             "modelName": "OpenAI-oss-120B-5",
@@ -3716,7 +3718,8 @@
             "level3Score": 13.05,
             "level4Score": 20.86,
             "overallScore": 26.24,
-            "numberOfEvents": 74
+            "numberOfEvents": 74,
+            "testType": 1
         },
         {
             "modelName": "GLM-4.6",
@@ -3738,7 +3741,8 @@
             "level3Score": 14.67,
             "level4Score": 14.53,
             "overallScore": 21.65,
-            "numberOfEvents": 74
+            "numberOfEvents": 74,
+            "testType": 1
         },
         {
             "modelName": "kimi-k2-0905-preview",
@@ -3783,7 +3787,8 @@
             "level3Score": 7.11,
             "level4Score": 16.14,
             "overallScore": 20.55,
-            "numberOfEvents": 74
+            "numberOfEvents": 74,
+            "testType": 1
         },
         {
             "modelName": "OpenAI-oss-120B-4",
@@ -3794,7 +3799,8 @@
             "level3Score": 2.67,
             "level4Score": 18.46,
             "overallScore": 19.85,
-            "numberOfEvents": 74
+            "numberOfEvents": 74,
+            "testType": 1
         },
         {
             "modelName": "ChatGPT-Agent",
@@ -3894,17 +3900,6 @@
             "level3Score": 0.0,
             "level4Score": 5.31,
             "overallScore": 13.57,
-            "numberOfEvents": 74
-        },
-        {
-            "modelName": "foresight",
-            "agentFramework": "Search",
-            "organization": "Foresight",
-            "level1Score": 50.0,
-            "level2Score": 15.38,
-            "level3Score": 2.67,
-            "level4Score": 9.41,
-            "overallScore": 12.64,
             "numberOfEvents": 74
         },
         {
