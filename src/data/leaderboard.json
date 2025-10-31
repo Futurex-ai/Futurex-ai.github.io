@@ -3595,18 +3595,6 @@
         },
         {
             "modelName": "GPT-5 (OpenRouter API)",
-            "agentFramework": "GMH-V0.1022",
-            "organization": "Individual AI Researcher",
-            "level1Score": 50.0,
-            "level2Score": 46.15,
-            "level3Score": 32.41,
-            "level4Score": 30.24,
-            "overallScore": 36.05,
-            "numberOfEvents": 74,
-            "testType": 1
-        },
-        {
-            "modelName": "GPT-5 (OpenRouter API)",
             "agentFramework": "Galaxy_v1",
             "organization": "Individual AI Researcher",
             "level1Score": 50.0,
