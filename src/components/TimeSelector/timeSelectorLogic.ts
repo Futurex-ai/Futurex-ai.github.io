@@ -19,9 +19,9 @@ export interface WeekOption {
 // 可配置的常量
 const START_YEAR = 2025;
 const START_MONTH = 7; // 从7月开始
-const END_MONTH = 10; // 写死结束在8月
+const END_MONTH = 11; // 写死结束在8月
 const START_WEEK = 4; // 从第4周开始
-const LATEST_WEEK = 4; // 最新数据周数（可手动配置）
+const LATEST_WEEK = 1; // 最新数据周数（可手动配置）
 
 const MONTH_NAMES = [
   "January",
