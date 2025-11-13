@@ -40,14 +40,14 @@ export const LeaderboardView: React.FC<LeaderboardViewProps> = ({
     <div style={containerStyle}>
       <div style={controlsStyle}>
         {/* Leaderboard标题 - 与Challenge Questions样式保持一致 */}
-        <h2 className="leaderboard-view__title">This Week's Ranking List 🏆</h2>
+        {/* <h2 className="leaderboard-view__title">This Week's Ranking List 🏆</h2>
         <div style={{ textAlign: "center", margin: "2rem 0" }}>
           <img className="banner-img"
             src={banner}
             alt="Leaderboard Banner"
             style={{ maxWidth: "100%", borderRadius: "12px" }}
           />
-        </div>
+        </div> */}
 
         <h2 className="leaderboard-view__title">Overall Leaderboard 🏆</h2>
 
