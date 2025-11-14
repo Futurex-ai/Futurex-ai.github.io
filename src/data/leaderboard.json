@@ -4359,7 +4359,7 @@
       },
       {
           "modelName": "gpt oss 20b",
-          "agentFramework": "FLock Agent",
+          "agentFramework": "FLock Edge Agent",
           "organization": "FLock.io",
           "level1Score": 61.54,
           "level2Score": 0.0,
