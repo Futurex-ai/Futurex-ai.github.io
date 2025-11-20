@@ -4511,6 +4511,179 @@
           "overallScore": 3.33,
           "numberOfEvents": 68
       }
+    ],
+    "2025-11-W3": [
+        {
+            "modelName": "GPT-5",
+            "agentFramework": "Open-Deep-Research-MiroFlow",
+            "organization": "MiroMind",
+            "level1Score": 41.67,
+            "level2Score": 61.92,
+            "level3Score": 68.0,
+            "level4Score": 44.32,
+            "overallScore": 54.68,
+            "numberOfEvents": 82
+        },
+        {
+            "modelName": "GPT-5(OpenRouter API)",
+            "agentFramework": "Milkyway",
+            "organization": "Individual AI Researcher",
+            "level1Score": 50.0,
+            "level2Score": 60.25,
+            "level3Score": 47.13,
+            "level4Score": 36.38,
+            "overallScore": 45.74,
+            "numberOfEvents": 82,
+            "testType": 1
+        },
+        {
+            "modelName": "GPT-5",
+            "agentFramework": "MilkyWay_V0.1112",
+            "organization": "Individual AI Researcher",
+            "level1Score": 33.33,
+            "level2Score": 52.42,
+            "level3Score": 43.92,
+            "level4Score": 35.05,
+            "overallScore": 41.01,
+            "numberOfEvents": 82,
+            "testType": 1
+        },
+        {
+            "modelName": "gpt-5",
+            "agentFramework": "h2oGPTe_Agent_v1.7",
+            "organization": "h2o.ai",
+            "level1Score": 41.67,
+            "level2Score": 51.92,
+            "level3Score": 40.15,
+            "level4Score": 30.91,
+            "overallScore": 38.96,
+            "numberOfEvents": 82,
+            "testType": 1
+        },
+        {
+            "modelName": "GPT-5",
+            "agentFramework": "Galaxy",
+            "organization": "Individual AI Researcher",
+            "level1Score": 41.67,
+            "level2Score": 50.25,
+            "level3Score": 24.39,
+            "level4Score": 31.09,
+            "overallScore": 33.97,
+            "numberOfEvents": 82,
+            "testType": 1
+        },
+        {
+            "modelName": "GPT-5 (OpenRouter API)",
+            "agentFramework": "GOAT",
+            "organization": "Individual AI Researcher",
+            "level1Score": 50.0,
+            "level2Score": 56.92,
+            "level3Score": 30.39,
+            "level4Score": 17.73,
+            "overallScore": 32.59,
+            "numberOfEvents": 82,
+            "testType": 1
+        },
+        {
+            "modelName": "glm-4.6",
+            "agentFramework": "Open-Deep-Research-Smolagents",
+            "organization": "Zhipu AI",
+            "level1Score": 72.73,
+            "level2Score": 44.72,
+            "level3Score": 10.77,
+            "level4Score": 20.33,
+            "overallScore": 27.58,
+            "numberOfEvents": 99
+        },
+        {
+            "modelName": "kimi-k2-0905-preview",
+            "agentFramework": "Open-Deep-Research-Smolagents",
+            "organization": "Moonshot",
+            "level1Score": 80.0,
+            "level2Score": 85.71,
+            "level3Score": 0.0,
+            "level4Score": 0.0,
+            "overallScore": 25.14,
+            "numberOfEvents": 99
+        },
+        {
+            "modelName": "Deepseek-R1",
+            "agentFramework": "Search",
+            "organization": "Deepseek",
+            "level1Score": 33.33,
+            "level2Score": 36.25,
+            "level3Score": 24.6,
+            "level4Score": 17.46,
+            "overallScore": 24.95,
+            "numberOfEvents": 99
+        },
+        {
+            "modelName": "gpt-4o",
+            "agentFramework": "FLock Edge Agent",
+            "organization": "FLock.io",
+            "level1Score": 66.67,
+            "level2Score": 49.29,
+            "level3Score": 18.16,
+            "level4Score": 6.97,
+            "overallScore": 24.76,
+            "numberOfEvents": 82,
+            "testType": 1
+        },
+        {
+            "modelName": "Grok-4",
+            "agentFramework": "Search",
+            "organization": "xAI",
+            "level1Score": 33.33,
+            "level2Score": 57.14,
+            "level3Score": 13.81,
+            "level4Score": 6.44,
+            "overallScore": 21.48,
+            "numberOfEvents": 99
+        },
+        {
+            "modelName": "GPT-4o-mini",
+            "agentFramework": "Open-Deep-Research-Smolagents",
+            "organization": "OpenAI",
+            "level1Score": 63.64,
+            "level2Score": 36.24,
+            "level3Score": 6.15,
+            "level4Score": 5.0,
+            "overallScore": 17.46,
+            "numberOfEvents": 99
+        },
+        {
+            "modelName": "gemini-2.5-pro",
+            "agentFramework": "Open-Deep-Research-Smolagents",
+            "organization": "Google",
+            "level1Score": 41.67,
+            "level2Score": 31.92,
+            "level3Score": 4.1,
+            "level4Score": 11.84,
+            "overallScore": 16.52,
+            "numberOfEvents": 99
+        },
+        {
+            "modelName": "openai_qwen3-max",
+            "agentFramework": "Open-Deep-Research-Smolagents",
+            "organization": "Alibaba",
+            "level1Score": 45.45,
+            "level2Score": 29.74,
+            "level3Score": 11.8,
+            "level4Score": 2.53,
+            "overallScore": 15.05,
+            "numberOfEvents": 99
+        },
+        {
+            "modelName": "glm-4.5",
+            "agentFramework": "Open-Deep-Research-Smolagents",
+            "organization": "Zhipu AI",
+            "level1Score": 71.43,
+            "level2Score": 21.92,
+            "level3Score": 7.62,
+            "level4Score": 0.0,
+            "overallScore": 13.81,
+            "numberOfEvents": 99
+        }
     ]
   },
   "monthly": {
