@@ -4593,18 +4593,7 @@
             "level3Score": 10.77,
             "level4Score": 20.33,
             "overallScore": 27.58,
-            "numberOfEvents": 99
-        },
-        {
-            "modelName": "kimi-k2-0905-preview",
-            "agentFramework": "Open-Deep-Research-Smolagents",
-            "organization": "Moonshot",
-            "level1Score": 80.0,
-            "level2Score": 85.71,
-            "level3Score": 0.0,
-            "level4Score": 0.0,
-            "overallScore": 25.14,
-            "numberOfEvents": 99
+            "numberOfEvents": 82
         },
         {
             "modelName": "Deepseek-R1",
@@ -4615,7 +4604,7 @@
             "level3Score": 24.6,
             "level4Score": 17.46,
             "overallScore": 24.95,
-            "numberOfEvents": 99
+            "numberOfEvents": 82
         },
         {
             "modelName": "gpt-4o",
@@ -4638,7 +4627,7 @@
             "level3Score": 13.81,
             "level4Score": 6.44,
             "overallScore": 21.48,
-            "numberOfEvents": 99
+            "numberOfEvents": 82
         },
         {
             "modelName": "GPT-4o-mini",
@@ -4649,7 +4638,7 @@
             "level3Score": 6.15,
             "level4Score": 5.0,
             "overallScore": 17.46,
-            "numberOfEvents": 99
+            "numberOfEvents": 82
         },
         {
             "modelName": "gemini-2.5-pro",
@@ -4660,7 +4649,7 @@
             "level3Score": 4.1,
             "level4Score": 11.84,
             "overallScore": 16.52,
-            "numberOfEvents": 99
+            "numberOfEvents": 82
         },
         {
             "modelName": "openai_qwen3-max",
@@ -4671,18 +4660,7 @@
             "level3Score": 11.8,
             "level4Score": 2.53,
             "overallScore": 15.05,
-            "numberOfEvents": 99
-        },
-        {
-            "modelName": "glm-4.5",
-            "agentFramework": "Open-Deep-Research-Smolagents",
-            "organization": "Zhipu AI",
-            "level1Score": 71.43,
-            "level2Score": 21.92,
-            "level3Score": 7.62,
-            "level4Score": 0.0,
-            "overallScore": 13.81,
-            "numberOfEvents": 99
+            "numberOfEvents": 82
         }
     ]
   },
