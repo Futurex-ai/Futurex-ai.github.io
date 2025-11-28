@@ -4673,8 +4673,7 @@
             "level3Score": 41.84,
             "level4Score": 19.36,
             "overallScore": 34.06,
-            "numberOfEvents": 82,
-            "testType": 1
+            "numberOfEvents": 82
         },
         {
             "modelName": "GPT-5",
