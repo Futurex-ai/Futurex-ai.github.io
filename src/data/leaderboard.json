@@ -4904,6 +4904,17 @@
         },
         {
             "modelName": "GPT-5",
+            "agentFramework": "EventDeepresearch",
+            "organization": "Peking University",
+            "level1Score": 38.89,
+            "level2Score": 40.91,
+            "level3Score": 38.84,
+            "level4Score": 28.71,
+            "overallScore": 35.21,
+            "numberOfEvents": 81
+        },
+        {
+            "modelName": "GPT-5",
             "agentFramework": "Rule",
             "organization": "Individual AI Researcher",
             "level1Score": 41.67,
@@ -4972,17 +4983,6 @@
             "overallScore": 26.35,
             "numberOfEvents": 81,
             "testType": 1
-        },
-        {
-            "modelName": "ChatGPT 5.1 Thinking Heavy + web search",
-            "agentFramework": "In-house",
-            "organization": "Unknown",
-            "level1Score": 47.22,
-            "level2Score": 22.73,
-            "level3Score": 26.72,
-            "level4Score": 21.59,
-            "overallScore": 25.92,
-            "numberOfEvents": 81
         },
         {
             "modelName": "MiniMax-M2",
@@ -5072,17 +5072,6 @@
             "level3Score": 2.81,
             "level4Score": 5.42,
             "overallScore": 10.69,
-            "numberOfEvents": 81
-        },
-        {
-            "modelName": "Daedalus-flash-v1",
-            "agentFramework": "Daedalus Intelligence",
-            "organization": "Daedalus Research",
-            "level1Score": 47.22,
-            "level2Score": 13.64,
-            "level3Score": 4.7,
-            "level4Score": 2.9,
-            "overallScore": 10.02,
             "numberOfEvents": 81
         }
     ]
