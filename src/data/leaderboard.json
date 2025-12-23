@@ -5451,7 +5451,7 @@
         },
         {
             "modelName": "gpt 5.1",
-            "agentFramework": "EventDeepresearch-v2",
+            "agentFramework": "EventDeepresearch-v1",
             "organization": "Peking-University",
             "level1Score": 46.15,
             "level2Score": 61.9,
