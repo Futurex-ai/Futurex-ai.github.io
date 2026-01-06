@@ -5623,6 +5623,18 @@
             "testType": 1
         },
         {
+            "modelName": "claude-sonnet-4-5-20250929",
+            "agentFramework": "h2oGPTe_Agent_v1.81",
+            "organization": "h2o.ai",
+            "level1Score": 60.0,
+            "level2Score": 35.51,
+            "level3Score": 32.45,
+            "level4Score": 48.02,
+            "overallScore": 41.57,
+            "numberOfEvents": 86,
+            "testType": 1
+        },
+        {
             "modelName": "GPT5.1",
             "agentFramework": "DragonAgent_v2",
             "organization": "Individual-AI-Researcher",
@@ -5656,18 +5668,6 @@
             "level4Score": 39.7,
             "overallScore": 38.56,
             "numberOfEvents": 86
-        },
-        {
-            "modelName": "claude-sonnet-4-5-20250929",
-            "agentFramework": "h2oGPTe_Agent_v1.81",
-            "organization": "h2o.ai",
-            "level1Score": 60.0,
-            "level2Score": 16.67,
-            "level3Score": 32.45,
-            "level4Score": 48.02,
-            "overallScore": 38.28,
-            "numberOfEvents": 86,
-            "testType": 1
         },
         {
             "modelName": "GPT 5.1",
