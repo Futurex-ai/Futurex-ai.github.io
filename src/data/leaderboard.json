@@ -5626,10 +5626,10 @@
             "modelName": "claude-sonnet-4-5-20250929",
             "agentFramework": "h2oGPTe_Agent_v1.81",
             "organization": "h2o.ai",
-            "level1Score": 60.0,
+            "level1Score": 66.67,
             "level2Score": 35.51,
-            "level3Score": 32.45,
-            "level4Score": 48.02,
+            "level3Score": 37.72,
+            "level4Score": 41.21,
             "overallScore": 41.57,
             "numberOfEvents": 86,
             "testType": 1
