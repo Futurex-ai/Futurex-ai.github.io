@@ -6229,6 +6229,199 @@
             "overallScore": 17.09,
             "numberOfEvents": 61
         }
+    ],
+    "2026-01-W2": [
+        {
+            "modelName": "GPT-5",
+            "agentFramework": "Open-Deep-Research-MiroFlow",
+            "organization": "MiroMind",
+            "level1Score": 35.71,
+            "level2Score": 45.45,
+            "level3Score": 40.29,
+            "level4Score": 53.62,
+            "overallScore": 46.2,
+            "numberOfEvents": 64
+        },
+        {
+            "modelName": "GPT-5",
+            "agentFramework": "EventDeepresearch-v1",
+            "organization": "UniPat.ai",
+            "level1Score": 35.71,
+            "level2Score": 50.0,
+            "level3Score": 32.36,
+            "level4Score": 49.85,
+            "overallScore": 43.22,
+            "numberOfEvents": 64,
+            "testType": 1
+        },
+        {
+            "modelName": "GPT-5.2-Pro-Extended-Thinking",
+            "agentFramework": "Search",
+            "organization": "OpenAI",
+            "level1Score": 42.86,
+            "level2Score": 40.91,
+            "level3Score": 24.01,
+            "level4Score": 55.21,
+            "overallScore": 41.75,
+            "numberOfEvents": 64
+        },
+        {
+            "modelName": "Deepseek",
+            "agentFramework": "AgentX",
+            "organization": "Individual-AI-Researcher",
+            "level1Score": 28.57,
+            "level2Score": 31.82,
+            "level3Score": 38.2,
+            "level4Score": 48.28,
+            "overallScore": 39.99,
+            "numberOfEvents": 64,
+            "testType": 1
+        },
+        {
+            "modelName": "GPT-5",
+            "agentFramework": "EventDeepresearch-v2",
+            "organization": "UniPat.ai",
+            "level1Score": 35.71,
+            "level2Score": 45.45,
+            "level3Score": 26.36,
+            "level4Score": 47.77,
+            "overallScore": 39.68,
+            "numberOfEvents": 64
+        },
+        {
+            "modelName": "gpt-5.2",
+            "agentFramework": "FLock-Agent",
+            "organization": "FLock.io",
+            "level1Score": 28.57,
+            "level2Score": 31.82,
+            "level3Score": 32.07,
+            "level4Score": 44.62,
+            "overallScore": 36.69,
+            "numberOfEvents": 64
+        },
+        {
+            "modelName": "Seed-1.8",
+            "agentFramework": "HelloAgent-V1.1",
+            "organization": "Individual-AI-Researcher",
+            "level1Score": 28.57,
+            "level2Score": 46.97,
+            "level3Score": 20.0,
+            "level4Score": 37.3,
+            "overallScore": 33.17,
+            "numberOfEvents": 64,
+            "testType": 1
+        },
+        {
+            "modelName": "OpenAI-GPT-5.1-high",
+            "agentFramework": "Search",
+            "organization": "OpenAI",
+            "level1Score": 35.71,
+            "level2Score": 45.45,
+            "level3Score": 12.19,
+            "level4Score": 31.73,
+            "overallScore": 29.01,
+            "numberOfEvents": 64
+        },
+        {
+            "modelName": "Gemini-3-Pro-Preview-Exp",
+            "agentFramework": "Search",
+            "organization": "Google",
+            "level1Score": 35.71,
+            "level2Score": 22.73,
+            "level3Score": 12.75,
+            "level4Score": 38.76,
+            "overallScore": 27.44,
+            "numberOfEvents": 64
+        },
+        {
+            "modelName": "Daedalus-Intelligence-Thinking",
+            "agentFramework": "Daedalus-Intelligence",
+            "organization": "Daedalus-Research",
+            "level1Score": 21.43,
+            "level2Score": 42.21,
+            "level3Score": 17.78,
+            "level4Score": 28.28,
+            "overallScore": 27.23,
+            "numberOfEvents": 64
+        },
+        {
+            "modelName": "Claude-Opus-4.1-thinking-azure",
+            "agentFramework": "Search",
+            "organization": "Anthropic",
+            "level1Score": 28.57,
+            "level2Score": 47.73,
+            "level3Score": 13.96,
+            "level4Score": 24.23,
+            "overallScore": 26.28,
+            "numberOfEvents": 64
+        },
+        {
+            "modelName": "Grok-4",
+            "agentFramework": "Search",
+            "organization": "xAI",
+            "level1Score": 21.43,
+            "level2Score": 33.33,
+            "level3Score": 6.67,
+            "level4Score": 36.7,
+            "overallScore": 25.49,
+            "numberOfEvents": 64
+        },
+        {
+            "modelName": "DeepSeekAPI-V3.2-Thinking",
+            "agentFramework": "Search",
+            "organization": "DeepSeek",
+            "level1Score": 35.71,
+            "level2Score": 28.79,
+            "level3Score": 17.78,
+            "level4Score": 24.87,
+            "overallScore": 24.61,
+            "numberOfEvents": 64
+        },
+        {
+            "modelName": "Qwen-3-max-0923",
+            "agentFramework": "Search",
+            "organization": "Qwen AI",
+            "level1Score": 21.43,
+            "level2Score": 19.48,
+            "level3Score": 8.89,
+            "level4Score": 30.14,
+            "overallScore": 20.76,
+            "numberOfEvents": 64
+        },
+        {
+            "modelName": "Moonshot-kimi-k2-thinking",
+            "agentFramework": "Search",
+            "organization": "Moonshot AI",
+            "level1Score": 35.71,
+            "level2Score": 27.27,
+            "level3Score": 19.2,
+            "level4Score": 13.92,
+            "overallScore": 20.35,
+            "numberOfEvents": 64
+        },
+        {
+            "modelName": "GLM-4.6",
+            "agentFramework": "Search",
+            "organization": "Zhipu AI",
+            "level1Score": 0.0,
+            "level2Score": 28.79,
+            "level3Score": 2.22,
+            "level4Score": 29.31,
+            "overallScore": 18.15,
+            "numberOfEvents": 64
+        },
+        {
+            "modelName": "GPT4.1-MINI",
+            "agentFramework": "ORACLE-PROJECTION",
+            "organization": "Individual-AI-Researcher",
+            "level1Score": 21.43,
+            "level2Score": 27.27,
+            "level3Score": 0.0,
+            "level4Score": 7.88,
+            "overallScore": 10.75,
+            "numberOfEvents": 64,
+            "testType": 1
+        }
     ]
   },
   "monthly": {
