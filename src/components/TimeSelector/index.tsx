@@ -11,7 +11,7 @@ import "./index.less";
 
 // 可配置的常量
 const END_MONTH = 1; // 结束月份（手动配置）
-const LATEST_WEEK = 2; // 最新数据周数（可手动配置）
+const LATEST_WEEK = 3; // 最新数据周数（可手动配置）
 
 interface TimeSelectorProps {
   timePeriodType: TimePeriodType;
