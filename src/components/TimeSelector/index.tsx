@@ -39,10 +39,10 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
     if (timePeriodType === "weekly") {
       const monthFromTime = selectedTime.substring(0, 7);
       const selectedMonthOption = monthOptions.find(
-        (m) => m.value === monthFromTime
+        (m) => m.value === monthFromTime,
       );
       const selectedWeekOption = selectedMonthOption?.weeks?.find(
-        (w) => w.value === selectedTime
+        (w) => w.value === selectedTime,
       );
 
       if (selectedWeekOption && selectedMonthOption) {
@@ -51,7 +51,7 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
       return "Select time period";
     } else {
       const selectedOption = timeOptions.find(
-        (option) => option.value === selectedTime
+        (option) => option.value === selectedTime,
       );
       return selectedOption?.label || "Select time period";
     }
