@@ -34,8 +34,6 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
   const timeOptions = getTimeOptions(timePeriodType);
   const monthOptions = getMonthOptions();
 
-  console.log("monthOptions:", monthOptions);
-
   // 获取选中的选项显示文本
   const getSelectedOption = () => {
     if (timePeriodType === "weekly") {
