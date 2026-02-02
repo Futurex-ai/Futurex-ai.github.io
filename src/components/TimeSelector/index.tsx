@@ -48,7 +48,7 @@ export const TimeSelector: React.FC<TimeSelectorProps> = ({
       if (selectedWeekOption && selectedMonthOption) {
         return `${selectedMonthOption.label} ${selectedWeekOption.label}`;
       }
-      return "Select time period";
+      return "Select time";
     } else {
       const selectedOption = timeOptions.find(
         (option) => option.value === selectedTime,
