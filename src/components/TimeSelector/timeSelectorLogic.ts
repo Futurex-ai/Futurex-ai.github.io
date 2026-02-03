@@ -19,7 +19,7 @@ export interface WeekOption {
 // 可配置的常量
 const START_YEAR = 2025;
 const START_MONTH = 7; // 从7月开始
-const END_MONTH = 2; // 写死结束在8月
+const END_MONTH = 2; // 最新数据的月份展示（手动配置）
 const START_WEEK = 4; // 从第4周开始
 const LATEST_WEEK = 1; // 最新数据周数（可手动配置）
 
@@ -76,7 +76,7 @@ export const useTimeSelectorLogic = () => {
 
       for (let month = startMonth; month <= endMonth; month++) {
         options.push(
-          createMonthOption(year, month, currentYear, END_MONTH, currentWeek)
+          createMonthOption(year, month, currentYear, END_MONTH, currentWeek),
         );
       }
     }
@@ -89,7 +89,7 @@ export const useTimeSelectorLogic = () => {
     month: number,
     currentYear: number,
     endMonth: number, // 改为使用endMonth参数
-    currentWeek: number
+    currentWeek: number,
   ): MonthOption => {
     const monthValue = `${year}-${month.toString().padStart(2, "0")}`;
     const monthLabel = `${year} ${getMonthName(month)}`;
@@ -122,7 +122,7 @@ export const useTimeSelectorLogic = () => {
   const createWeekOption = (
     year: number,
     month: number,
-    week: number
+    week: number,
   ): WeekOption => {
     return {
       value: `${year}-${month.toString().padStart(2, "0")}-W${week}`,
@@ -133,7 +133,7 @@ export const useTimeSelectorLogic = () => {
   const generateWeeklyOptions = (
     currentYear: number,
     currentMonth: number,
-    currentWeek: number
+    currentWeek: number,
   ): TimeOption[] => {
     const options: TimeOption[] = [];
 
@@ -167,7 +167,7 @@ export const useTimeSelectorLogic = () => {
   const createWeeklyTimeOption = (
     year: number,
     month: number,
-    week: number
+    week: number,
   ): TimeOption => {
     return {
       value: `${year}-${month.toString().padStart(2, "0")}-W${week}`,
@@ -177,7 +177,7 @@ export const useTimeSelectorLogic = () => {
 
   const generateMonthlyOptions = (
     currentYear: number,
-    currentMonth: number
+    currentMonth: number,
   ): TimeOption[] => {
     const options: TimeOption[] = [];
 
