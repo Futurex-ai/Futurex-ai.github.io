@@ -9,6 +9,7 @@ import { LeaderboardDescription } from "./components/LeaderboardDescription";
 import { MarkdownView } from "./components/MarkdownView";
 import { LeaderboardView } from "./components/LeaderboardView";
 import { FinanceOverview } from "./components/FinanceOverview"; // ← 用作 S&P 500 页签内容
+import { SpringFestivalNotice } from "./components/SpringFestivalNotice"; // ← 春节通知弹窗
 import { TimePeriodType } from "./types";
 import leaderboardData from "./data/leaderboard.json";
 
@@ -84,6 +85,9 @@ const App: React.FC = () => {
         background: "#fafafa",
       }}
     >
+      {/* 春节通知弹窗 */}
+      <SpringFestivalNotice />
+
       {/* 顶部 TopBanner 已移除，由 Banner 控制所有标签 */}
       {renderContent()}
     </div>
