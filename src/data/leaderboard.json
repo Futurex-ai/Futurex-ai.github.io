@@ -7243,7 +7243,7 @@
         "testType": 1
     },
     {
-        "modelName": "miroflow.jsonl",
+        "modelName": "GPT-5",
         "agentFramework": "MiroFlow",
         "organization": "MiroMind",
         "level1Score": 52.94,
