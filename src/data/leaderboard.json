@@ -7482,6 +7482,215 @@
         "overallScore": 20.94,
         "numberOfEvents": 74
     }
+],
+    "2026-02-W3": [
+    {
+        "modelName": "claude-sonnet-4-5",
+        "agentFramework": "H2O-AI-Super-Agent-v1.82",
+        "organization": "h2o.ai",
+        "level1Score": 88.24,
+        "level2Score": 53.67,
+        "level3Score": 59.99,
+        "level4Score": 53.82,
+        "overallScore": 59.08,
+        "numberOfEvents": 70,
+        "testType": 1
+    },
+    {
+        "modelName": "GPT5",
+        "agentFramework": "DragonAgent",
+        "organization": "Individual-AI-Researcher",
+        "level1Score": 88.24,
+        "level2Score": 51.81,
+        "level3Score": 61.17,
+        "level4Score": 49.53,
+        "overallScore": 57.35,
+        "numberOfEvents": 70,
+        "testType": 1
+    },
+    {
+        "modelName": "GPT-5.2",
+        "agentFramework": "MiroFlow (Beta)",
+        "organization": "MiroMind",
+        "level1Score": 88.24,
+        "level2Score": 52.61,
+        "level3Score": 63.79,
+        "level4Score": 46.38,
+        "overallScore": 57.03,
+        "numberOfEvents": 70,
+        "testType": 1
+    },
+    {
+        "modelName": "claude-sonnet-4-5",
+        "agentFramework": "H2O-AI-Super-Agent-v1.81",
+        "organization": "h2o.ai",
+        "level1Score": 88.24,
+        "level2Score": 53.67,
+        "level3Score": 59.99,
+        "level4Score": 48.38,
+        "overallScore": 56.91,
+        "numberOfEvents": 70,
+        "testType": 1
+    },
+    {
+        "modelName": "claude-sonnet-4-5",
+        "agentFramework": "H2O-AI-Super-Agent-v1.8",
+        "organization": "h2o.ai",
+        "level1Score": 88.24,
+        "level2Score": 53.94,
+        "level3Score": 61.77,
+        "level4Score": 46.9,
+        "overallScore": 56.9,
+        "numberOfEvents": 70,
+        "testType": 1
+    },
+    {
+        "modelName": "GPT5.2",
+        "agentFramework": "coffee",
+        "organization": "Individual-AI-Researcher",
+        "level1Score": 94.12,
+        "level2Score": 54.67,
+        "level3Score": 45.11,
+        "level4Score": 47.5,
+        "overallScore": 52.88,
+        "numberOfEvents": 70,
+        "testType": 1
+    },
+    {
+        "modelName": "GPT5.2",
+        "agentFramework": "Goat",
+        "organization": "Individual-AI-Researcher",
+        "level1Score": 94.12,
+        "level2Score": 54.67,
+        "level3Score": 45.11,
+        "level4Score": 47.15,
+        "overallScore": 52.74,
+        "numberOfEvents": 70,
+        "testType": 1
+    },
+    {
+        "modelName": "GPT5.2",
+        "agentFramework": "Galaxy_v2",
+        "organization": "Individual-AI-Researcher",
+        "level1Score": 82.35,
+        "level2Score": 64.92,
+        "level3Score": 44.92,
+        "level4Score": 36.46,
+        "overallScore": 49.28,
+        "numberOfEvents": 70,
+        "testType": 1
+    },
+    {
+        "modelName": "Doubao-1.8-1228-high.foreval",
+        "agentFramework": "Search",
+        "organization": "Bytedance",
+        "level1Score": 82.35,
+        "level2Score": 40.0,
+        "level3Score": 45.33,
+        "level4Score": 46.71,
+        "overallScore": 48.52,
+        "numberOfEvents": 70
+    },
+    {
+        "modelName": "OpenAI-GPT-5.1-high",
+        "agentFramework": "Search",
+        "organization": "OpenAI",
+        "level1Score": 82.35,
+        "level2Score": 46.04,
+        "level3Score": 49.49,
+        "level4Score": 39.44,
+        "overallScore": 48.07,
+        "numberOfEvents": 70
+    },
+    {
+        "modelName": "DeepSeek-V3.2-thinking.volc.foreval",
+        "agentFramework": "Search",
+        "organization": "Bytedance",
+        "level1Score": 82.35,
+        "level2Score": 55.87,
+        "level3Score": 43.94,
+        "level4Score": 31.35,
+        "overallScore": 45.13,
+        "numberOfEvents": 70
+    },
+    {
+        "modelName": "GPT5.2",
+        "agentFramework": "Local",
+        "organization": "Individual-AI-Researcher",
+        "level1Score": 88.24,
+        "level2Score": 55.56,
+        "level3Score": 40.4,
+        "level4Score": 24.75,
+        "overallScore": 41.96,
+        "numberOfEvents": 70,
+        "testType": 1
+    },
+    {
+        "modelName": "Gemini-3-Pro-Preview-Exp",
+        "agentFramework": "Search",
+        "organization": "Google",
+        "level1Score": 82.35,
+        "level2Score": 54.56,
+        "level3Score": 26.22,
+        "level4Score": 37.11,
+        "overallScore": 41.86,
+        "numberOfEvents": 70
+    },
+    {
+        "modelName": "Claude-Opus-4.1-thinking-azure",
+        "agentFramework": "Search",
+        "organization": "Anthropic",
+        "level1Score": 82.35,
+        "level2Score": 61.11,
+        "level3Score": 21.01,
+        "level4Score": 27.64,
+        "overallScore": 37.82,
+        "numberOfEvents": 70
+    },
+    {
+        "modelName": "GLM-4.6",
+        "agentFramework": "Search",
+        "organization": "Zhipu AI",
+        "level1Score": 70.59,
+        "level2Score": 39.02,
+        "level3Score": 33.92,
+        "level4Score": 16.18,
+        "overallScore": 31.51,
+        "numberOfEvents": 70
+    },
+    {
+        "modelName": "Kimi-K2-Thinking-1104.volc.foreval",
+        "agentFramework": "Search",
+        "organization": "Moonshot",
+        "level1Score": 64.71,
+        "level2Score": 44.0,
+        "level3Score": 17.32,
+        "level4Score": 26.62,
+        "overallScore": 31.12,
+        "numberOfEvents": 70
+    },
+    {
+        "modelName": "Qwen-3-max-0923",
+        "agentFramework": "Search",
+        "organization": "Alibaba",
+        "level1Score": 64.71,
+        "level2Score": 43.01,
+        "level3Score": 16.8,
+        "level4Score": 24.25,
+        "overallScore": 29.81,
+        "numberOfEvents": 70
+    },
+    {
+        "modelName": "Grok-4",
+        "agentFramework": "Search",
+        "organization": "xAI",
+        "level1Score": 76.47,
+        "level2Score": 31.26,
+        "level3Score": 16.0,
+        "level4Score": 9.2,
+        "overallScore": 22.38,
+        "numberOfEvents": 70
+    }
 ]
   },
   "monthly": {
