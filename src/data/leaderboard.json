@@ -6740,7 +6740,7 @@
         "testType": 1
     },
     {
-        "modelName": "Doubao-1.8-1215-high",
+        "modelName": "Doubao-1.8",
         "agentFramework": "Search",
         "organization": "Bytedance",
         "level1Score": 47.37,
@@ -7117,7 +7117,7 @@
         "testType": 1
     },
     {
-        "modelName": "Doubao-1.8-1228-high",
+        "modelName": "Doubao-1.8",
         "agentFramework": "Search",
         "organization": "Seed",
         "level1Score": 77.78,
@@ -7372,7 +7372,7 @@
         "numberOfEvents": 74
     },
     {
-        "modelName": "Doubao-1.8-1228-high",
+        "modelName": "Doubao-1.8",
         "agentFramework": "Search",
         "organization": "Bytedance",
         "level1Score": 47.06,
@@ -7570,7 +7570,7 @@
         "testType": 1
     },
     {
-        "modelName": "Doubao-1.8-1228-high",
+        "modelName": "Doubao-1.8",
         "agentFramework": "Search",
         "organization": "Bytedance",
         "level1Score": 82.35,
