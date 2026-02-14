@@ -7594,7 +7594,7 @@
     {
         "modelName": "DeepSeek-V3.2-thinking.volc",
         "agentFramework": "Search",
-        "organization": "Bytedance",
+        "organization": "DeepSeek",
         "level1Score": 82.35,
         "level2Score": 55.87,
         "level3Score": 43.94,
