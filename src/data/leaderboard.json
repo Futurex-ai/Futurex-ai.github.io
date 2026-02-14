@@ -6740,7 +6740,7 @@
         "testType": 1
     },
     {
-        "modelName": "Doubao-1.8-1215-high.foreval",
+        "modelName": "Doubao-1.8-1215-high",
         "agentFramework": "Search",
         "organization": "Bytedance",
         "level1Score": 47.37,
@@ -7117,7 +7117,7 @@
         "testType": 1
     },
     {
-        "modelName": "Doubao-1.8-1228-high.foreval",
+        "modelName": "Doubao-1.8-1228-high",
         "agentFramework": "Search",
         "organization": "Seed",
         "level1Score": 77.78,
@@ -7140,7 +7140,7 @@
         "testType": 1
     },
     {
-        "modelName": "DeepSeek-V3.2-thinking.volc.foreval",
+        "modelName": "DeepSeek-V3.2-thinking.volc",
         "agentFramework": "Search",
         "organization": "DeepSeek",
         "level1Score": 61.11,
@@ -7185,7 +7185,7 @@
         "numberOfEvents": 74
     },
     {
-        "modelName": "Kimi-K2-Thinking-1104.volc.foreval",
+        "modelName": "Kimi-K2-Thinking-1104.volc",
         "agentFramework": "Search",
         "organization": "Moonshot",
         "level1Score": 61.11,
@@ -7350,7 +7350,7 @@
         "testType": 1
     },
     {
-        "modelName": "DeepSeek-V3.2-thinking.volc.foreval",
+        "modelName": "DeepSeek-V3.2-thinking.volc",
         "agentFramework": "Search",
         "organization": "DeepSeek",
         "level1Score": 64.71,
@@ -7358,17 +7358,6 @@
         "level3Score": 39.82,
         "level4Score": 32.57,
         "overallScore": 40.76,
-        "numberOfEvents": 74
-    },
-    {
-        "modelName": "Doubao-2.0-preview-0115-high.foreval",
-        "agentFramework": "Search",
-        "organization": "Bytedance",
-        "level1Score": 41.18,
-        "level2Score": 44.32,
-        "level3Score": 37.01,
-        "level4Score": 40.87,
-        "overallScore": 40.43,
         "numberOfEvents": 74
     },
     {
@@ -7383,7 +7372,7 @@
         "numberOfEvents": 74
     },
     {
-        "modelName": "Doubao-1.8-1228-high.foreval",
+        "modelName": "Doubao-1.8-1228-high",
         "agentFramework": "Search",
         "organization": "Bytedance",
         "level1Score": 47.06,
@@ -7427,7 +7416,7 @@
         "numberOfEvents": 74
     },
     {
-        "modelName": "Kimi-K2-Thinking-1104.volc.foreval",
+        "modelName": "Kimi-K2-Thinking-1104.volc",
         "agentFramework": "Search",
         "organization": "Moonshot AI",
         "level1Score": 58.82,
@@ -7581,7 +7570,7 @@
         "testType": 1
     },
     {
-        "modelName": "Doubao-1.8-1228-high.foreval",
+        "modelName": "Doubao-1.8-1228-high",
         "agentFramework": "Search",
         "organization": "Bytedance",
         "level1Score": 82.35,
@@ -7603,7 +7592,7 @@
         "numberOfEvents": 70
     },
     {
-        "modelName": "DeepSeek-V3.2-thinking.volc.foreval",
+        "modelName": "DeepSeek-V3.2-thinking.volc",
         "agentFramework": "Search",
         "organization": "Bytedance",
         "level1Score": 82.35,
@@ -7659,7 +7648,7 @@
         "numberOfEvents": 70
     },
     {
-        "modelName": "Kimi-K2-Thinking-1104.volc.foreval",
+        "modelName": "Kimi-K2-Thinking-1104.volc",
         "agentFramework": "Search",
         "organization": "Moonshot",
         "level1Score": 64.71,
