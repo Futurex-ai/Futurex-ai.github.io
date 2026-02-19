@@ -7474,6 +7474,17 @@
 ],
     "2026-02-W3": [
     {
+        "modelName": "GPT-5",
+        "agentFramework": "MiroFlow",
+        "organization": "MiroMind",
+        "level1Score": 94.12,
+        "level2Score": 52.25,
+        "level3Score": 66.84,
+        "level4Score": 53.64,
+        "overallScore": 61.37,
+        "numberOfEvents": 70
+    },
+    {
         "modelName": "claude-sonnet-4-5",
         "agentFramework": "H2O-AI-Super-Agent-v1.82",
         "organization": "h2o.ai",
