@@ -8027,6 +8027,238 @@
         "overallScore": 23.36,
         "numberOfEvents": 62
     }
+],
+    "2026-3-W3": [
+    {
+        "modelName": "GPT5.4",
+        "agentFramework": "Milkyway_gpt5.4_v2",
+        "organization": "Individual_AI_Researcher",
+        "level1Score": 71.43,
+        "level2Score": 82.26,
+        "level3Score": 63.05,
+        "level4Score": 45.85,
+        "overallScore": 60.85,
+        "numberOfEvents": 63,
+        "testType": 1
+    },
+    {
+        "modelName": "claude_sonnet_4.6",
+        "agentFramework": "H2O_AI_Super_Agent_v1.82",
+        "organization": "h2o.ai",
+        "level1Score": 64.29,
+        "level2Score": 78.96,
+        "level3Score": 61.46,
+        "level4Score": 47.11,
+        "overallScore": 59.5,
+        "numberOfEvents": 63,
+        "testType": 1
+    },
+    {
+        "modelName": "GPT5.2",
+        "agentFramework": "GOAT",
+        "organization": "Individual_AI_Researcher",
+        "level1Score": 71.43,
+        "level2Score": 82.26,
+        "level3Score": 55.36,
+        "level4Score": 45.08,
+        "overallScore": 58.23,
+        "numberOfEvents": 63,
+        "testType": 1
+    },
+    {
+        "modelName": "claude_sonnet_4.6",
+        "agentFramework": "H2O_AI_Super_Agent_v1.81",
+        "organization": "h2o.ai",
+        "level1Score": 64.29,
+        "level2Score": 80.14,
+        "level3Score": 57.35,
+        "level4Score": 45.7,
+        "overallScore": 57.94,
+        "numberOfEvents": 63,
+        "testType": 1
+    },
+    {
+        "modelName": "GPT-5",
+        "agentFramework": "MiroFlow",
+        "organization": "MiroMind",
+        "level1Score": 64.29,
+        "level2Score": 72.82,
+        "level3Score": 59.45,
+        "level4Score": 46.8,
+        "overallScore": 57.55,
+        "numberOfEvents": 63
+    },
+    {
+        "modelName": "GPT5.4",
+        "agentFramework": "Milkyway_gpt5.4_v1",
+        "organization": "Individual_AI_Researcher",
+        "level1Score": 71.43,
+        "level2Score": 64.29,
+        "level3Score": 60.98,
+        "level4Score": 37.97,
+        "overallScore": 53.48,
+        "numberOfEvents": 63,
+        "testType": 1
+    },
+    {
+        "modelName": "claude_sonnet_4.6",
+        "agentFramework": "H2O_AI_Super_Agent_v1.80",
+        "organization": "h2o.ai",
+        "level1Score": 57.14,
+        "level2Score": 67.19,
+        "level3Score": 51.7,
+        "level4Score": 45.74,
+        "overallScore": 52.96,
+        "numberOfEvents": 63,
+        "testType": 1
+    },
+    {
+        "modelName": "GPT5.2",
+        "agentFramework": "Dev",
+        "organization": "Individual_AI_Researcher",
+        "level1Score": 71.43,
+        "level2Score": 64.29,
+        "level3Score": 53.29,
+        "level4Score": 37.97,
+        "overallScore": 51.18,
+        "numberOfEvents": 63,
+        "testType": 1
+    },
+    {
+        "modelName": "OpenAI-GPT-5.2-high",
+        "agentFramework": "Search",
+        "organization": "OpenAI",
+        "level1Score": 42.86,
+        "level2Score": 69.16,
+        "level3Score": 54.87,
+        "level4Score": 38.46,
+        "overallScore": 49.96,
+        "numberOfEvents": 63
+    },
+    {
+        "modelName": "GPT5.4",
+        "agentFramework": "Galaxy_v1",
+        "organization": "Individual_AI_Researcher",
+        "level1Score": 57.14,
+        "level2Score": 54.83,
+        "level3Score": 41.43,
+        "level4Score": 42.69,
+        "overallScore": 46.18,
+        "numberOfEvents": 63,
+        "testType": 1
+    },
+    {
+        "modelName": "GPT5.4",
+        "agentFramework": "Galaxy_v2",
+        "organization": "Individual_AI_Researcher",
+        "level1Score": 57.14,
+        "level2Score": 58.84,
+        "level3Score": 39.45,
+        "level4Score": 41.1,
+        "overallScore": 45.76,
+        "numberOfEvents": 63,
+        "testType": 1
+    },
+    {
+        "modelName": "Moonshot-kimi-k2.5-thinking",
+        "agentFramework": "Search",
+        "organization": "Moonshot AI",
+        "level1Score": 71.43,
+        "level2Score": 67.44,
+        "level3Score": 41.47,
+        "level4Score": 28.08,
+        "overallScore": 44.3,
+        "numberOfEvents": 63
+    },
+    {
+        "modelName": "Moonshot-kimi-k2.5",
+        "agentFramework": "Search",
+        "organization": "Moonshot AI",
+        "level1Score": 71.43,
+        "level2Score": 68.62,
+        "level3Score": 37.38,
+        "level4Score": 26.3,
+        "overallScore": 42.6,
+        "numberOfEvents": 63
+    },
+    {
+        "modelName": "Doubao-2.0-pro-0215-high",
+        "agentFramework": "Search",
+        "organization": "ByteDance",
+        "level1Score": 64.29,
+        "level2Score": 38.24,
+        "level3Score": 37.37,
+        "level4Score": 38.59,
+        "overallScore": 40.72,
+        "numberOfEvents": 63
+    },
+    {
+        "modelName": "GLM-5-thinking",
+        "agentFramework": "Search",
+        "organization": "Zhipu AI",
+        "level1Score": 64.29,
+        "level2Score": 50.27,
+        "level3Score": 21.12,
+        "level4Score": 36.25,
+        "overallScore": 37.32,
+        "numberOfEvents": 63
+    },
+    {
+        "modelName": "DeepSeek-V3.2-thinking",
+        "agentFramework": "Search",
+        "organization": "DeepSeek",
+        "level1Score": 64.29,
+        "level2Score": 52.71,
+        "level3Score": 19.95,
+        "level4Score": 20.7,
+        "overallScore": 31.23,
+        "numberOfEvents": 63
+    },
+    {
+        "modelName": "Qwen-3.5-plus-thinking",
+        "agentFramework": "Search",
+        "organization": "Alibaba",
+        "level1Score": 28.57,
+        "level2Score": 52.71,
+        "level3Score": 25.89,
+        "level4Score": 14.41,
+        "overallScore": 26.93,
+        "numberOfEvents": 63
+    },
+    {
+        "modelName": "Grok-4",
+        "agentFramework": "Search",
+        "organization": "xAI",
+        "level1Score": 71.43,
+        "level2Score": 24.51,
+        "level3Score": 8.21,
+        "level4Score": 28.54,
+        "overallScore": 25.92,
+        "numberOfEvents": 63
+    },
+    {
+        "modelName": "Kimi-K2-Thinking-1104.volc.foreval",
+        "agentFramework": "Search",
+        "organization": "Moonshot AI",
+        "level1Score": 35.71,
+        "level2Score": 57.0,
+        "level3Score": 17.58,
+        "level4Score": 9.4,
+        "overallScore": 24.01,
+        "numberOfEvents": 63
+    },
+    {
+        "modelName": "GPT5.2",
+        "agentFramework": "AG2_Agent_gpt5.2",
+        "organization": "AG2",
+        "level1Score": 42.86,
+        "level2Score": 30.32,
+        "level3Score": 0.0,
+        "level4Score": 0.0,
+        "overallScore": 10.35,
+        "numberOfEvents": 63,
+        "testType": 1
+    }
 ]
 
   },
