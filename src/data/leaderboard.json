@@ -8259,8 +8259,216 @@
         "numberOfEvents": 63,
         "testType": 1
     }
+],
+    "2026-03-W4": 
+    [
+    {
+        "modelName": "claude_sonnet_4.6",
+        "agentFramework": "H2O_AI_Super_Agent_v1.81",
+        "organization": "h2o.ai",
+        "level1Score": 93.75,
+        "level2Score": 66.92,
+        "level3Score": 80.98,
+        "level4Score": 40.99,
+        "overallScore": 63.45,
+        "numberOfEvents": 51,
+        "testType": 1
+    },
+    {
+        "modelName": "claude_sonnet_4.6",
+        "agentFramework": "H2O_AI_Super_Agent_v1.82",
+        "organization": "h2o.ai",
+        "level1Score": 93.75,
+        "level2Score": 65.73,
+        "level3Score": 77.65,
+        "level4Score": 40.99,
+        "overallScore": 62.21,
+        "numberOfEvents": 51,
+        "testType": 1
+    },
+    {
+        "modelName": "FPAgent_30B",
+        "agentFramework": "FPAgent",
+        "organization": "Individual_AI_Researcher",
+        "level1Score": 87.5,
+        "level2Score": 68.49,
+        "level3Score": 67.63,
+        "level4Score": 41.56,
+        "overallScore": 59.36,
+        "numberOfEvents": 51,
+        "testType": 1
+    },
+    {
+        "modelName": "FPAgent_235B",
+        "agentFramework": "FPAgent",
+        "organization": "Individual_AI_Researcher",
+        "level1Score": 93.75,
+        "level2Score": 67.22,
+        "level3Score": 67.64,
+        "level4Score": 39.88,
+        "overallScore": 59.06,
+        "numberOfEvents": 51,
+        "testType": 1
+    },
+    {
+        "modelName": "GPT-5",
+        "agentFramework": "MiroFlow",
+        "organization": "MiroMind",
+        "level1Score": 87.5,
+        "level2Score": 67.59,
+        "level3Score": 64.33,
+        "level4Score": 42.62,
+        "overallScore": 58.61,
+        "numberOfEvents": 51
+    },
+    {
+        "modelName": "GPT5.2",
+        "agentFramework": "Milkyway_gpt5.2_v3",
+        "organization": "Individual_AI_Researcher",
+        "level1Score": 93.75,
+        "level2Score": 64.14,
+        "level3Score": 76.55,
+        "level4Score": 31.7,
+        "overallScore": 57.85,
+        "numberOfEvents": 51,
+        "testType": 1
+    },
+    {
+        "modelName": "GPT5.4",
+        "agentFramework": "Dev",
+        "organization": "Individual_AI_Researcher",
+        "level1Score": 93.75,
+        "level2Score": 56.11,
+        "level3Score": 79.89,
+        "level4Score": 31.7,
+        "overallScore": 57.24,
+        "numberOfEvents": 51,
+        "testType": 1
+    },
+    {
+        "modelName": "GPT5.2",
+        "agentFramework": "Milkyway_gpt5.2_v2",
+        "organization": "Individual_AI_Researcher",
+        "level1Score": 93.75,
+        "level2Score": 56.11,
+        "level3Score": 76.55,
+        "level4Score": 31.7,
+        "overallScore": 56.24,
+        "numberOfEvents": 51,
+        "testType": 1
+    },
+    {
+        "modelName": "Doubao-2.0-pro-0215-high.foreval",
+        "agentFramework": "Search",
+        "organization": "ByteDance",
+        "level1Score": 75.0,
+        "level2Score": 69.44,
+        "level3Score": 34.06,
+        "level4Score": 30.97,
+        "overallScore": 44.0,
+        "numberOfEvents": 51
+    },
+    {
+        "modelName": "OpenAI-GPT-5.2-high",
+        "agentFramework": "Search",
+        "organization": "OpenAI",
+        "level1Score": 87.5,
+        "level2Score": 65.34,
+        "level3Score": 29.87,
+        "level4Score": 28.78,
+        "overallScore": 42.29,
+        "numberOfEvents": 51
+    },
+    {
+        "modelName": "GLM-5-thinking",
+        "agentFramework": "Search",
+        "organization": "Zhipu AI",
+        "level1Score": 81.25,
+        "level2Score": 67.02,
+        "level3Score": 38.64,
+        "level4Score": 20.95,
+        "overallScore": 41.5,
+        "numberOfEvents": 51
+    },
+    {
+        "modelName": "GPT5.4",
+        "agentFramework": "GOAT",
+        "organization": "Individual_AI_Researcher",
+        "level1Score": 81.25,
+        "level2Score": 56.13,
+        "level3Score": 34.34,
+        "level4Score": 28.53,
+        "overallScore": 41.07,
+        "numberOfEvents": 51,
+        "testType": 1
+    },
+    {
+        "modelName": "(260305)DeepSeek-V3.2-thinking.volc.foreval",
+        "agentFramework": "Search",
+        "organization": "DeepSeek",
+        "level1Score": 68.75,
+        "level2Score": 68.49,
+        "level3Score": 34.2,
+        "level4Score": 21.63,
+        "overallScore": 39.48,
+        "numberOfEvents": 51
+    },
+    {
+        "modelName": "Moonshot-kimi-k2.5",
+        "agentFramework": "Search",
+        "organization": "Moonshot AI",
+        "level1Score": 81.25,
+        "level2Score": 54.62,
+        "level3Score": 29.75,
+        "level4Score": 22.79,
+        "overallScore": 37.09,
+        "numberOfEvents": 51
+    },
+    {
+        "modelName": "Moonshot-kimi-k2.5-thinking",
+        "agentFramework": "Search",
+        "organization": "Moonshot AI",
+        "level1Score": 75.0,
+        "level2Score": 65.44,
+        "level3Score": 29.75,
+        "level4Score": 17.98,
+        "overallScore": 36.7,
+        "numberOfEvents": 51
+    },
+    {
+        "modelName": "Grok-4.azure",
+        "agentFramework": "Search",
+        "organization": "xAI",
+        "level1Score": 68.75,
+        "level2Score": 40.73,
+        "level3Score": 26.99,
+        "level4Score": 28.51,
+        "overallScore": 34.52,
+        "numberOfEvents": 51
+    },
+    {
+        "modelName": "QwenAPI-3.5-plus-thinking",
+        "agentFramework": "Search",
+        "organization": "Alibaba",
+        "level1Score": 50.0,
+        "level2Score": 30.32,
+        "level3Score": 29.86,
+        "level4Score": 13.83,
+        "overallScore": 25.55,
+        "numberOfEvents": 51
+    },
+    {
+        "modelName": "Kimi-K2-Thinking-1104.volc.foreval",
+        "agentFramework": "Search",
+        "organization": "Moonshot AI",
+        "level1Score": 75.0,
+        "level2Score": 35.8,
+        "level3Score": 20.97,
+        "level4Score": 9.27,
+        "overallScore": 24.66,
+        "numberOfEvents": 51
+    }
 ]
-
   },
   "monthly": {
     "2025-08": []
