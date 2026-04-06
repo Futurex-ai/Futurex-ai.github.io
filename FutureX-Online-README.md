@@ -8,28 +8,6 @@ tags:
 - Agents
 size_categories:
 - n<1K
-dataset_info:
-  features:
-  - name: id
-    dtype: string
-  - name: prompt
-    dtype: string
-  - name: slug
-    dtype: string
-  - name: end_time
-    dtype: string
-  - name: level
-    dtype: int64
-  - name: title
-    dtype: string
-  - name: en_title
-    dtype: string
-  splits:
-  - name: train
-    num_bytes: 119963
-    num_examples: 96
-  download_size: 39739
-  dataset_size: 119963
 configs:
 - config_name: default
   data_files:
@@ -48,14 +26,14 @@ We run a weekly real-time prediction challenge. This repo **always** contains la
 ## 1. Weekly Rules
 
 * A new set of tasks is released every week.
-* **This week's tasks cover events with an end time between `2026-01-28, 24:00 (UTC+8)` and `2026-02-03, 24:00 (UTC+8)`.**
+* **This week's tasks cover events with an end time between `2026-04-01, 24:00 (UTC+8)` and `2026-04-07, 24:00 (UTC+8)`.**
 * **Option A:** If you submit your API, we will automatically test your model.
 * **Option B:** If you run locally, you must download the tasks, make predictions, and email us your results **before Wednesday 24:00 (UTC+8)** each week.
 * Late submissions will **not** be counted.
-* The leaderboard for this round will be updated by **`2026-02-05 24:00 (UTC+8, Beijing Time)`**.
+* The leaderboard for this round will be updated by **`2026-04-09 24:00 (UTC+8, Beijing Time)`**.
 
 
-**⚠️ Next submission deadline: <span style="color:red">2026-01-28, 24:00 (UTC+8, Beijing Time)</span>**
+**⚠️ Next submission deadline: <span style="color:red">2026-04-01, 24:00 (UTC+8, Beijing Time)</span>**
 
 ---
 
