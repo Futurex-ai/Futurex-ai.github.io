@@ -26,38 +26,18 @@ We run a weekly real-time prediction challenge. This repo **always** contains la
 ## 1. Weekly Rules
 
 * A new set of tasks is released every week.
-* **This week's tasks cover events with an end time between `2026-04-01, 24:00 (UTC+8)` and `2026-04-07, 24:00 (UTC+8)`.**
+* **This week's tasks cover events with an end time between `2026-04-22, 24:00 (UTC+8)` and `2026-04-28, 24:00 (UTC+8)`.**
 * **Option A:** If you submit your API, we will automatically test your model.
 * **Option B:** If you run locally, you must download the tasks, make predictions, and email us your results **before Wednesday 24:00 (UTC+8)** each week.
 * Late submissions will **not** be counted.
-* The leaderboard for this round will be updated by **`2026-04-09 24:00 (UTC+8, Beijing Time)`**.
+* The leaderboard for this round will be updated by **`2026-04-30 24:00 (UTC+8, Beijing Time)`**.
 
 
-**⚠️ Next submission deadline: <span style="color:red">2026-04-01, 24:00 (UTC+8, Beijing Time)</span>**
+**⚠️ Next submission deadline: <span style="color:red">2026-04-22, 24:00 (UTC+8, Beijing Time)</span>**
 
 ---
 
 ## 2. How to Participate?
-Two ways:
-
-### 2.1 Option A — Submit Your API
-
-Send an email to **[FutureX-ai@outlook.com](mailto:FutureX-ai@outlook.com)** with your model's API (OpenAI-compatible endpoint + key).
-
-**Email subject format:**
-
-```
-FutureX Challenge Entry — [Your Model Name]
-```
-
-**Email body should include:**
-
-* Model details (base model, parameters, safety settings)
-* Any required headers or rate limits
-
----
-
-### 2.2 Option B — Run Locally & Submit Predictions
 
 1. Download the latest tasks from our dataset:
    [https://huggingface.co/datasets/futurex-ai/Futurex-Online](https://huggingface.co/datasets/futurex-ai/Futurex-Online)
@@ -78,28 +58,42 @@ FutureX Challenge Submission — [Your Model Name][Date]
 * Include dataset commit/hash you used
 * Required fields: `id`, `prediction`
 
+**Note:** Predictions can be in various formats including single letters (A, B, C), letter combinations (A, C, D), text in any language, numbers, or empty strings. The prediction should exactly match the format expected by the specific event question.
+
 **Example (table view):**
 
 | id         | prediction |
 | ---------- | ---------- |
-| event\_001 | Yes        |
-| event\_002 | No         |
-| event\_003 | Maybe      |
+| 69b2b593782d0900685d5fcb | A |
+| 69b160921ebfe30068c2cde1 | I |
+| 69be8f979ade34005c7c742c | H |
+| 69b2b593782d0900685d5fc6 | B, C, D, E, F, G, H, J, L, Q, T, V, W, ` |
+| 69ce6197dcd4cd005c5bf071 | A, C, D, E, F, G |
+| 685141eca047fd005f77ef02 | Timea Babos, Nicole Melichar-Martinez, Storm Hunter |
+| 6851736259f71f006037a1e2 | 112.52 点 |
+| 685e494b6e8dbd006cdc6f7c | 平安曲靖, 山东长安网, 中国长安网 |
+| 69b7f816d596fb005d43a31f | Western Conference |
+| 69bfe1118038fb005cb27720 | "" |
 
 **Example (JSONL format):**
 
 ```json
-{"id": "event_001", "prediction": "Yes"}
-{"id": "event_002", "prediction": "No"}
-{"id": "event_003", "prediction": "Maybe"}
+{"id": "69b2b593782d0900685d5fcb", "prediction": "A"}
+{"id": "69b160921ebfe30068c2cde1", "prediction": "I"}
+{"id": "69be8f979ade34005c7c742c", "prediction": "H"}
+{"id": "69b2b593782d0900685d5fc6", "prediction": "B, C, D, E, F, G, H, J, L, Q, T, V, W, `"}
+{"id": "69ce6197dcd4cd005c5bf071", "prediction": "A, C, D, E, F, G"}
+{"id": "685141eca047fd005f77ef02", "prediction": "Timea Babos, Nicole Melichar-Martinez, Storm Hunter"}
+{"id": "6851736259f71f006037a1e2", "prediction": "112.52 点"}
+{"id": "685e494b6e8dbd006cdc6f7c", "prediction": "平安曲靖, 山东长安网, 中国长安网"}
+{"id": "69b7f816d596fb005d43a31f", "prediction": "Western Conference"}
+{"id": "69bfe1118038fb005cb27720", "prediction": ""}
 ```
 
 ---
 
 ## 3. Leaderboard and Privacy
 
-* Once your model has been tested on **200+ events**, it will appear on the **overall leaderboard**.
-* Weekly results will be ranked and shown on a dynamic leaderboard.
-* If your model is **not** in the top 10, you may choose to keep it private or make it public.
+* Weekly results will be ranked and shown on a dynamic leaderboard by default.
+* You can choose to keep it private or make it public.
 
-We will keep your API keys and submission files confidential, and only use them for evaluation.
