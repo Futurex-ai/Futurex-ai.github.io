@@ -2,7 +2,7 @@
  * 应用主入口组件
  * 现在由 Banner 控制三个标签页：Overview / Leaderboard / S&P 500 Sector
  */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Tea from "byted-tea-sdk";
 import { Banner, type BannerTab } from "./components/Banner";
 import { LeaderboardDescription } from "./components/LeaderboardDescription";
@@ -32,6 +32,10 @@ const App: React.FC = () => {
 
   Tea.event("crawl_api_custom", { name: "进入页面" });
   Tea.event("predefine_pageview", { url: window.location.href });
+
+  useEffect(() => {
+    window.location.href = "https://futurex.live";
+  }, []);
 
   const renderContent = () => {
     React.useEffect(() => {
@@ -85,7 +89,7 @@ const App: React.FC = () => {
       }}
     >
       {/* 顶部 TopBanner 已移除，由 Banner 控制所有标签 */}
-      {renderContent()}
+      {/* {renderContent()} */}
     </div>
   );
 };
